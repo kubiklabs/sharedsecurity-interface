@@ -18,7 +18,7 @@ const VpSection = ({ vpList }: { vpList: Array<IVpCardProps> }) => {
       >
         {vpList.map((item) => {
           return (
-            <GridItem>
+            <GridItem id={item.accountAddress}>
               <VpCard {...item} />
             </GridItem>
           );

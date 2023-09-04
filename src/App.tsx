@@ -20,7 +20,7 @@ function App() {
           <Box
             maxH={"100vh"}
             overflowY={"scroll"}
-            px={"50px"}
+            p={"50px"}
             mt={"20px"}
             flex={"1"}
           >
