@@ -1,5 +1,3 @@
-import React from "react";
-import ConnectWalletButton from "../Buttons/ConnectWalletButton";
 import { Box, Divider, Flex, Image, Input, Text } from "@chakra-ui/react";
 import kubikLogo from "../../assets/kubik-logo.png";
 // import { NavLink } from "react-router-dom";
