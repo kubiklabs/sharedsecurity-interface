@@ -40,13 +40,18 @@ export const useDisconnetWallet = () => {
 };
 
 export const useConnectWallet = () => {
-  const chainInfo = useChainInfo("neutron_mainnet");
   const { setIsLoggingIn } = useContext(UserContext);
   const setWalletState = useSetRecoilState(walletState);
-  //   const navigate = useNavigate();
-
-  const { network } = useRecoilValue(networkState);
+  let activeNetwork = localStorage.getItem("activeNetworkChainId");
+  if (!activeNetwork)
+    localStorage.setItem("activeNetworkChainId", "cosmoshub-4");
+  const chainInfo = useChainInfo(
+    localStorage.getItem("activeNetworkChainId") as string
+  );
   const baseDenom = chainInfo.getChainDenom();
+  // const navigate = useNavigate();
+
+  // const { network } = useRecoilValue(networkState);
   // const toaster = useMessageToaster();
 
   return async () => {

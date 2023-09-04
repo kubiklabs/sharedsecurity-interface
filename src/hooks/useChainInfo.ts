@@ -6,9 +6,9 @@ import neutronChainInfo from "../config/chains/Neutron/neutron_mainnet.json";
 import { useEffect, useState } from "react";
 
 const chainIDInfoMap = {
-  neutron_mainnet: neutronChainInfo,
-  cosmos_mainnet: cosmosHubChainInfo,
-  stride_mainnet: strideChainInfo,
+  "neutron-1": neutronChainInfo,
+  "cosmoshub-4": cosmosHubChainInfo,
+  "stride-1": strideChainInfo,
 };
 
 export const useChainInfo = (chainName: string) => {

@@ -19,7 +19,12 @@ const ConnectWalletButton = () => {
   // const { isLoggingIn } = useContext(UserContext);
   const { address, client, balance, shortAddress, nickName } =
     useRecoilValue(walletState);
-  const connectWallet = useConnectWallet();
+  let activeNetwork = localStorage.getItem("activeNetworkChainId");
+  if (!activeNetwork)
+    localStorage.setItem("activeNetworkChainId", "cosmoshub-4");
+  const connectWallet = useConnectWallet(
+    localStorage.getItem("activeNetworkChainId") as string
+  );
   // const { Success } = useMessageToaster();
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -51,6 +56,7 @@ const ConnectWalletButton = () => {
       display={"flex"}
       justifyContent={"center"}
       alignItems={"center"}
+      width={"100%"}
       gap={"1px"}
     >
       {isLoading ? (
