@@ -3,7 +3,7 @@ import React from "react";
 
 const SubtitleText = (props: any) => {
   return (
-    <Text m={"0 "} color={"rgba(255, 255, 255, 0.40)"}>
+    <Text {...props} m={"0 "} color={"rgba(255, 255, 255, 0.40)"}>
       {props.children}
     </Text>
   );

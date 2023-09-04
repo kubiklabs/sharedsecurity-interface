@@ -18,7 +18,7 @@ const SectionHeading = ({
     >
       <Box display={"flex"} gap={"10px"} alignItems={"center"}>
         <Heading margin={"0px"}>{heading}</Heading>
-        <Text margin={"0"} fontSize={"2rem"} color={"gray"}>
+        <Text margin={"0"} fontSize={"1.5rem"} color={"gray"}>
           {sideText}
         </Text>
       </Box>

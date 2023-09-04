@@ -23,7 +23,7 @@ const LpCard = ({
 }: ILpCardProps) => {
   return (
     <Box
-      maxWidth={"fit-content"}
+      // maxWidth={"fit-content"}
       bg={"rgba(255, 255, 255, 0.05)"}
       padding={"30px"}
       // paddingY={"20px"}

@@ -1,4 +1,4 @@
-import { Grid, GridItem } from "@chakra-ui/react";
+import { Flex, Grid, GridItem } from "@chakra-ui/react";
 import Section from "../Layout/Section";
 import LpCard, { ILpCardProps } from "./LpCard";
 
@@ -10,7 +10,7 @@ const LpSection = ({ lpList }: { lpList: Array<ILpCardProps> }) => {
         gap={"20px"}
         // justifyContent={"space-evenly"}
         // gridAutoFlow={"column"}
-        gridTemplateColumns={"repeat(auto-fit, minmax(426px, 1fr))"}
+        gridTemplateColumns={"repeat(auto-fit, minmax(485px, 1fr))"}
       >
         {lpList.map((item) => {
           return (
