@@ -1,5 +1,5 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
-import React, { useRef, useState } from "react";
+import { useState } from "react";
 import logo from "../../assets/kubik-logo.png";
 import {
   useConnectWallet,

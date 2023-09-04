@@ -1,4 +1,4 @@
-import { useRecoilValue, useSetRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 import { SigningCosmWasmClient } from "@cosmjs/cosmwasm-stargate";
 
 import { walletState } from "../context/walletState";
@@ -9,8 +9,6 @@ import { UserContext } from "../context/userState";
 // import { useMessageToaster } from "./useMessageToaster";
 // import { toast } from "react-toastify";
 import { useChainInfo } from "./useChainInfo";
-import { networkState } from "../context/networkState";
-import { useNavigate } from "react-router-dom";
 
 export interface Coin {
   readonly denom: string;

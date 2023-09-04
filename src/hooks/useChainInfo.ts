@@ -1,5 +1,3 @@
-import { useRecoilValue } from "recoil";
-// import { configState } from "../context/configState";
 import cosmosHubChainInfo from "../config/chains/CosmosHub/cosmos_mainnet.json";
 import strideChainInfo from "../config/chains/Stride/stride_mainnet.json";
 import neutronChainInfo from "../config/chains/Neutron/neutron_mainnet.json";

@@ -1,4 +1,3 @@
-import React from "react";
 import Section from "../Layout/Section";
 import { Grid, GridItem } from "@chakra-ui/react";
 import VpCard, { IVpCardProps } from "./VpCard";

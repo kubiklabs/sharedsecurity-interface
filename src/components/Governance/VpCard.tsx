@@ -1,5 +1,4 @@
-import { Box, Flex, Heading, Stack, Text } from "@chakra-ui/react";
-import React from "react";
+import { Box, Flex, Stack, Text } from "@chakra-ui/react";
 
 export interface IVpCardProps {
   votePercent: string;

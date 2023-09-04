@@ -1,7 +1,7 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useRecoilValue } from "recoil";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCopy, faWallet } from "@fortawesome/free-solid-svg-icons";
+import { faCopy } from "@fortawesome/free-solid-svg-icons";
 
 // import { UserContext } from "../../../context/userState";
 import { walletState } from "../../context/walletState";
@@ -10,21 +10,16 @@ import {
   useDisconnetWallet,
 } from "../../hooks/useConnectWallet";
 import { coinConvert } from "../../utils/common";
-import { Box, Divider } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 // import "./buttons.css";
 // import PulseLoader from "react-spinners/PulseLoader";
 // import { useMessageToaster } from "../../../hooks/useMessageToaster";
 
 const ConnectWalletButton = () => {
   // const { isLoggingIn } = useContext(UserContext);
-  const { address, client, balance, shortAddress, nickName } =
+  const { address, balance, shortAddress, nickName } =
     useRecoilValue(walletState);
-  let activeNetwork = localStorage.getItem("activeNetworkChainId");
-  if (!activeNetwork)
-    localStorage.setItem("activeNetworkChainId", "cosmoshub-4");
-  const connectWallet = useConnectWallet(
-    localStorage.getItem("activeNetworkChainId") as string
-  );
+  const connectWallet = useConnectWallet();
   // const { Success } = useMessageToaster();
   const [isLoading, setIsLoading] = useState<boolean>(false);
 

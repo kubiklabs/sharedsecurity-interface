@@ -1,4 +1,3 @@
-import React from "react";
 import SectionHeading from "../DataDisplay/SectionHeading";
 
 const Section = (props: any) => {
