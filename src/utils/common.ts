@@ -48,3 +48,17 @@ export function coinConvert(
 export function sleep(seconds: number) {
   return new Promise((resolve) => setTimeout(resolve, seconds * 1000));
 }
+
+export const parseIsoTimeString = (time: string) => {
+  const utcTime = new Date(time);
+  const localeStringFormat = utcTime.toLocaleString();
+  const localeTimeOnly = utcTime.toLocaleTimeString();
+  const localeDateOnly = utcTime.toDateString();
+
+  return {
+    utcTime,
+    localeDateOnly,
+    localeStringFormat,
+    localeTimeOnly,
+  };
+};

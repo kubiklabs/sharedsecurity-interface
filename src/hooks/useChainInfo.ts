@@ -38,7 +38,7 @@ export const useChainInfo = (chainName: string) => {
    * Returns the RPC url of selected chain
    */
   const getRpcUrl = () => {
-    return chainInfo.apis.rpc[1].address;
+    return chainInfo.apis.rpc[3].address;
   };
 
   /*

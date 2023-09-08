@@ -1,4 +1,4 @@
-import { Flex, Grid, GridItem } from "@chakra-ui/react";
+import { Flex, Grid, GridItem, Heading, Text } from "@chakra-ui/react";
 import Section from "../Layout/Section";
 import LpCard, { ILpCardProps } from "./LpCard";
 
@@ -12,13 +12,26 @@ const LpSection = ({ lpList }: { lpList: Array<ILpCardProps> }) => {
         // gridAutoFlow={"column"}
         gridTemplateColumns={"repeat(auto-fit, minmax(485px, 1fr))"}
       >
-        {lpList.map((item) => {
-          return (
-            <GridItem id={item.proposalId}>
-              <LpCard {...item} />
-            </GridItem>
-          );
-        })}
+        {lpList.length ? (
+          lpList.map((item) => {
+            return (
+              <GridItem id={item.proposalId}>
+                <LpCard {...item} />
+              </GridItem>
+            );
+          })
+        ) : (
+          <GridItem>
+            <Heading
+              bg={"rgba(255, 255, 255, 0.05)"}
+              padding={"30px"}
+              // paddingY={"20px"}
+              borderRadius={"10px"}
+            >
+              There are no active proposals!
+            </Heading>
+          </GridItem>
+        )}
       </Grid>
     </Section>
   );

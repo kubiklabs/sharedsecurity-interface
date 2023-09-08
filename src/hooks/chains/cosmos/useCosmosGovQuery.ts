@@ -1,0 +1,128 @@
+import axios from "axios";
+import { ILpCardProps } from "../../../components/Governance/LpCard";
+import { parseIsoTimeString } from "../../../utils/common";
+import { useState } from "react";
+
+interface IProposalData {
+  proposals: Array<any>;
+  pagination: any;
+}
+
+export const useCosmosGovQuery = () => {
+  const [proposalsList, setProposalsList] = useState<Array<ILpCardProps>>([]);
+
+  const getGovProposals = async () => {
+    const response = await axios.get(
+      `https://cosmos-api.polkachu.com/cosmos/gov/v1beta1/proposals`
+    );
+    const proposalsData: IProposalData = response.data;
+    // console.log(proposalsData);
+    return proposalsData;
+  };
+
+  const getAllGovProposals = async () => {
+    let allProposalData: any = [];
+    const response = await axios.get(
+      `https://cosmos-api.polkachu.com/cosmos/gov/v1beta1/proposals`
+    );
+    let proposalsData: IProposalData = response.data;
+    allProposalData = allProposalData.concat(proposalsData.proposals);
+
+    while (proposalsData.pagination.next_key != null) {
+      const response = await axios.get(
+        `https://cosmos-api.polkachu.com/cosmos/gov/v1beta1/proposals?pagination.key=${proposalsData.pagination.next_key}`
+      );
+      proposalsData = response.data;
+      allProposalData = allProposalData.concat(proposalsData.proposals);
+      console.log(allProposalData);
+    }
+    return allProposalData;
+  };
+
+  const getProposalType = (proposal: any) => {
+    const splitArray = proposal.content["@type"].split(".");
+    const proposalType: string = splitArray[splitArray.length - 1]
+      .replace("Proposal", "")
+      .replace(/([A-Z])/g, " $1")
+      .trim();
+    return proposalType;
+  };
+
+  const getVoteDistribution = (proposal: any) => {
+    const votes = proposal.final_tally_result;
+    let totalVotes: number = 0;
+    Object.values(votes).map((count) => {
+      totalVotes += Number(count);
+    });
+    const YES = `${
+      ((Number(votes.yes) / totalVotes) * 100).toLocaleString() || "-"
+    }`;
+    const NO = `${((Number(votes.no) / totalVotes) * 100).toLocaleString()}`;
+    const ABSTAIN = `${(
+      (Number(votes.abstain) / totalVotes) *
+      100
+    ).toLocaleString()}`;
+    const VETO = `${(
+      (Number(votes.no_with_veto) / totalVotes) *
+      100
+    ).toLocaleString()}`;
+    return { YES, NO, ABSTAIN, VETO };
+  };
+
+  const getProposalsList = async () => {
+    let proposalsList: Array<ILpCardProps> = [];
+    const rawProposalsData = await getAllGovProposals();
+
+    rawProposalsData.forEach((item: any) => {
+      const { localeDateOnly, localeTimeOnly } = parseIsoTimeString(
+        item.voting_end_time
+      );
+      const proposalType = getProposalType(item);
+      const voteDistribution = getVoteDistribution(item);
+      const newLpListItem: ILpCardProps = {
+        proposalId: item.proposal_id,
+        proposalTitle: item.content.title,
+        endDate: localeDateOnly,
+        endTime: localeTimeOnly,
+        tags: ["Cosmos", proposalType],
+        voteDistribution: voteDistribution,
+        status: item.status,
+      };
+      proposalsList.push(newLpListItem);
+    });
+    setProposalsList(proposalsList);
+    return proposalsList;
+  };
+
+  const getLpList = async () => {
+    let list: Array<ILpCardProps> = proposalsList;
+    if (list?.length === 0) {
+      list = await getProposalsList();
+    }
+    const lpList: Array<ILpCardProps> = list?.filter(
+      (proposal) => proposal.status === "PROPOSAL_STATUS_VOTING_PERIOD"
+    );
+    return lpList;
+  };
+
+  const getOpList = async () => {
+    let list: Array<ILpCardProps> = proposalsList;
+
+    if (list?.length === 0) {
+      list = await getProposalsList();
+    }
+    const opList: Array<ILpCardProps> = list?.filter(
+      (proposal) => proposal.status !== "PROPOSAL_STATUS_VOTING_PERIOD"
+    );
+    return opList;
+  };
+
+  return {
+    getGovProposals,
+    getLpList,
+    getProposalType,
+    getVoteDistribution,
+    getOpList,
+    getAllGovProposals,
+  };
+};

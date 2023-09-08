@@ -9,10 +9,11 @@ const Header = () => {
       top={"0"}
       //   width={"100%"}
       paddingY={"5px"}
-      paddingX={"10px"}
+      paddingX={"0px"}
       width={"100%"}
       display={"flex"}
       justifyContent={"flex-end"}
+      gap={"10px"}
     >
       <ConnectWalletButton />
       <DropDown />

@@ -41,12 +41,12 @@ const DropDown = () => {
   const disconnectWallet = useDisconnetWallet();
 
   const handleNetworkChange = (item: IChainInfoMinimal) => {
-    setIsOpen(false);
+    // setIsOpen(false);
     if (item.name === activeOption) return;
     setActiveOption(item.name);
     localStorage.setItem("activeNetworkChainId", item.id);
     disconnectWallet();
-    connectWallet();
+    // connectWallet();
   };
 
   return (
@@ -56,8 +56,9 @@ const DropDown = () => {
       borderRadius={"10px"}
       cursor={"pointer"}
       position={"relative"}
+      onClick={() => setIsOpen((prev) => !prev)}
     >
-      <Box onClick={() => setIsOpen((prev) => !prev)}>
+      <Box>
         <Text>{activeOption}</Text>
       </Box>
       {isOpen ? (
@@ -71,6 +72,7 @@ const DropDown = () => {
           display={"flex"}
           gap={"10px"}
           flexDirection={"column"}
+          right={"0"}
         >
           {NETWORKS.map((item) => {
             return (

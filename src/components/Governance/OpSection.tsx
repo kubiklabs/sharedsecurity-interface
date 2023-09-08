@@ -32,7 +32,7 @@ const OpSection = ({ lpList }: { lpList: Array<ILpCardProps> }) => {
         gap={"20px"}
         // justifyContent={"space-evenly"}
         // gridAutoFlow={"column"}
-        gridTemplateColumns={"repeat(auto-fit, minmax(426px, 1fr))"}
+        gridTemplateColumns={"repeat(auto-fit, minmax(485px, 1fr))"}
       >
         {lpList.map((item) => {
           return (

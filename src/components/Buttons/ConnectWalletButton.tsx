@@ -51,7 +51,7 @@ const ConnectWalletButton = () => {
       display={"flex"}
       justifyContent={"center"}
       alignItems={"center"}
-      width={"100%"}
+      // width={"100%"}
       gap={"1px"}
     >
       {isLoading ? (
