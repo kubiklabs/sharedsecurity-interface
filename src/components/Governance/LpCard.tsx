@@ -5,6 +5,7 @@ import ColorTag from "../DataDisplay/ColorTag";
 import BigSmallText from "../DataDisplay/BigSmallText";
 import { bigSmallTextColorMap, tagColorMap } from "../../utils/constant";
 import { IVoteValueProps } from "../../utils/interface";
+import { useNavigate } from "react-router-dom";
 
 export interface ILpCardProps {
   proposalId: string;
@@ -29,6 +30,7 @@ const LpCard = ({
   tags,
   voteDistribution,
 }: ILpCardProps) => {
+  const navigate = useNavigate();
   return (
     <Box
       // maxWidth={"fit-content"}
@@ -36,6 +38,7 @@ const LpCard = ({
       padding={"30px"}
       // paddingY={"20px"}
       borderRadius={"10px"}
+      onClick={() => navigate("/gov/cosmos/821")}
     >
       <Stack justifyContent={"center"} gap={"10px"}>
         <Flex
