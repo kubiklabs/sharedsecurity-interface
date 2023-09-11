@@ -45,7 +45,7 @@ const BasicInfo = ({ id, title, status, description }: IBasicInfo) => {
             px={"25px"}
             borderRadius={"15px"}
             sx={scrollbarStyle}
-            textAlign={"justify"}
+            textAlign={"left"}
             color={"#bfbfbf"}
           >
             <Text fontSize={"1.1rem"}>{description}</Text>

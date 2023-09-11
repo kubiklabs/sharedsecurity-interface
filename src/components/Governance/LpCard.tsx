@@ -38,7 +38,7 @@ const LpCard = ({
       padding={"30px"}
       // paddingY={"20px"}
       borderRadius={"10px"}
-      onClick={() => navigate("/gov/cosmos/821")}
+      onClick={() => navigate(`/gov/${tags[0]}/${proposalId}`)}
     >
       <Stack justifyContent={"center"} gap={"10px"}>
         <Flex

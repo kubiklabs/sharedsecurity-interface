@@ -39,6 +39,14 @@ export const useCosmosGovQuery = () => {
     return allProposalData;
   };
 
+  const getProposalById = async (proposalId: string) => {
+    const response = await axios.get(
+      `https://cosmos-api.polkachu.com/cosmos/gov/v1beta1/proposals/${proposalId}`
+    );
+    const proposal = response.data.proposal;
+    return proposal;
+  };
+
   const getProposalType = (proposal: any) => {
     const splitArray = proposal.content["@type"].split(".");
     const proposalType: string = splitArray[splitArray.length - 1]
@@ -117,6 +125,24 @@ export const useCosmosGovQuery = () => {
     return opList;
   };
 
+  const getParsedCosmosProposal = async (id: string) => {
+    const rawProposal = await getProposalById(id);
+    const voteDistribution = getVoteDistribution(rawProposal);
+    const voteEndTime = parseIsoTimeString(rawProposal.voting_end_time);
+    const voteStartTime = parseIsoTimeString(rawProposal.voting_start_time);
+    const parsedProposal = {
+      id: rawProposal.proposal_id,
+      title: rawProposal.content.title,
+      status: rawProposal.status,
+      description: rawProposal.content.description,
+      voteDistribution,
+      votingEndTime: voteEndTime.localeStringFormat,
+      votingStartTime: voteStartTime.localeStringFormat,
+      totalDeposit: Number(rawProposal.total_deposit.amount) / 6,
+    };
+    return parsedProposal;
+  };
+
   return {
     getGovProposals,
     getLpList,
@@ -124,5 +150,7 @@ export const useCosmosGovQuery = () => {
     getVoteDistribution,
     getOpList,
     getAllGovProposals,
+    getProposalById,
+    getParsedCosmosProposal,
   };
 };
