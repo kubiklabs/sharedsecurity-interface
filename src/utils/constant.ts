@@ -120,3 +120,36 @@ export const bigSmallTextColorMap: IVoteValueProps = {
   ABSTAIN: "rgba(200, 136, 100, 0.80)",
   VETO: "rgba(212, 212, 212, 0.80)",
 };
+
+const x = {
+  id: 1,
+  proposal: {
+    allow_revoting: true,
+    description: "test",
+    expiration: {
+      at_time: "1687278379554701487",
+    },
+    min_voting_period: null,
+    msgs: [],
+    proposer: "neutron1g9thjuyfc4g4apcp8g5eltpglwqdvu4hw9ye40",
+    start_height: 519783,
+    status: "rejected",
+    threshold: {
+      threshold_quorum: {
+        quorum: {
+          percent: "0.1",
+        },
+        threshold: {
+          percent: "0.5",
+        },
+      },
+    },
+    title: "test",
+    total_power: "36128102537296",
+    votes: {
+      abstain: "498702770899",
+      no: "20404641798",
+      yes: "468277813819",
+    },
+  },
+};

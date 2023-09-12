@@ -62,3 +62,16 @@ export const parseIsoTimeString = (time: string) => {
     localeTimeOnly,
   };
 };
+
+export const parseNanosecondTimeString = (time: string) => {
+  const utcTime = new Date(Number(time) / 1000000);
+  const localeStringFormat = utcTime.toLocaleString();
+  const localeTimeOnly = utcTime.toLocaleTimeString();
+  const localeDateOnly = utcTime.toDateString();
+  return {
+    utcTime,
+    localeDateOnly,
+    localeStringFormat,
+    localeTimeOnly,
+  };
+};

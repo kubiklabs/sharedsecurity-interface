@@ -8,17 +8,17 @@ const OtherDetails = ({ votingStartTime, votingEndTime }: any) => {
       gap={"20px"}
       // justifyContent={"space-evenly"}
       // gridAutoFlow={"column"}
-      gridTemplateColumns={"repeat(auto-fit, minmax(485px, 1fr))"}
+      gridTemplateColumns={"repeat(auto-fit, minmax(100px, 200px))"}
     >
       <GridItem>
         <Flex flexDirection={"column"}>
-          <Text>Voting Start Time</Text>
-          <Text>{votingStartTime}</Text>
+          <Text m={"0"}>Voting Start Time</Text>
+          <Text>{votingStartTime || "-"}</Text>
         </Flex>
       </GridItem>
       <GridItem>
         <Flex flexDirection={"column"}>
-          <Text>Voting End Time</Text>
+          <Text m={"0"}>Voting End Time</Text>
           <Text>{votingEndTime}</Text>
         </Flex>
       </GridItem>

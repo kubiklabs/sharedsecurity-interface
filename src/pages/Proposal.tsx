@@ -35,7 +35,7 @@ const Proposal = () => {
         prettyDenom={proposalData?.denom.pretty}
         voteDistribution={proposalData && proposalData.voteDistribution}
       />
-      <Overview />
+      <Overview voteDistribution={proposalData?.voteDistribution.ratio} />
       <OtherDetails
         votingEndTime={proposalData?.votingEndTime}
         votingStartTime={proposalData?.votingStartTime}

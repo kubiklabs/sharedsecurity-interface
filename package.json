@@ -20,6 +20,7 @@
     "@stakeordie/griptape.js": "^0.9.18-RC",
     "axios": "^1.5.0",
     "framer-motion": "^10.16.2",
+    "marked": "^9.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.15.0",

@@ -6,7 +6,7 @@ import { vpList } from "../utils/constant";
 import InfoSection from "../components/Governance/InfoSection";
 import OpSection from "../components/Governance/OpSection";
 import { useCosmosGovQuery } from "../hooks/chains/cosmos/useCosmosGovQuery";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ILpCardProps } from "../components/Governance/LpCard";
 import { useNeutronQuery } from "../hooks/chains/neutron/useNeutronQuery";
 
@@ -15,13 +15,17 @@ const Governance = () => {
   const [opList, setOpList] = useState<Array<ILpCardProps>>([]);
 
   const { getLpList, getOpList } = useCosmosGovQuery();
-  const { getNeutronProposals } = useNeutronQuery();
+  const { getNeutronLpList, getNeutronOpList } = useNeutronQuery();
+  const neutronLpList = useRef<ILpCardProps[]>([]);
+  const neutronOpList = useRef<ILpCardProps[]>([]);
+
   useEffect(() => {
     const dummy = async () => {
       const lpList = await getLpList();
       const opList = await getOpList();
-      const neutronList = await getNeutronProposals();
-      console.log(lpList);
+      neutronLpList.current = await getNeutronLpList();
+      neutronOpList.current = await getNeutronOpList();
+      console.log(neutronLpList, neutronOpList);
       setLpList(lpList);
       setOpList(opList);
     };
@@ -32,9 +36,9 @@ const Governance = () => {
     <Box>
       <Box flexDirection={"column"} display={"flex"} gap={"20px"}>
         <VpSection vpList={vpList} />
-        <LpSection lpList={lpList} />
+        <LpSection lpList={[...neutronLpList.current, ...lpList]} />
         <InfoSection />
-        <OpSection lpList={opList} />
+        <OpSection lpList={[...neutronOpList.current, ...opList]} />
       </Box>
     </Box>
   );

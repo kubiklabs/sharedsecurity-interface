@@ -52,7 +52,7 @@ const LpCard = ({
               m={"0"}
               fontSize={"1.1rem"}
             >{`#${proposalId}. ${proposalTitle}`}</Text>
-            <SubtitleText>
+            <SubtitleText textAlign={"left"}>
               voting ends on : {endDate} : {endTime}
             </SubtitleText>
           </Flex>
@@ -103,10 +103,6 @@ const LpCard = ({
               />
             );
           })}
-          {/* <BigSmallText color="green" bigText="96.11%" smallText="YES" />
-          <BigSmallText color="red" bigText="1.21%" smallText="NO" />
-          <BigSmallText color="orange" bigText="1.59%" smallText="VETO" />
-          <BigSmallText color="white" bigText="1.09%" smallText="ABSTAIN" /> */}
         </Flex>
       </Stack>
     </Box>
