@@ -1,7 +1,8 @@
 import { useCosmosGovQuery } from "./chains/cosmos/useCosmosGovQuery";
 
 export const useGovernance = () => {
-  const { getParsedCosmosProposal } = useCosmosGovQuery();
+  const { getParsedCosmosProposal, getCosmosTotalBondedToken } =
+    useCosmosGovQuery();
   const fetchProposalByIdAndName = async (name: string, id: string) => {
     console.log(id, name);
 
@@ -14,5 +15,15 @@ export const useGovernance = () => {
         break;
     }
   };
-  return { fetchProposalByIdAndName };
+  const fetchTotalBondedToken = async (name: string) => {
+    switch (name) {
+      case "Cosmos":
+        return await getCosmosTotalBondedToken();
+        break;
+
+      default:
+        break;
+    }
+  };
+  return { fetchProposalByIdAndName, fetchTotalBondedToken };
 };

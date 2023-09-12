@@ -34,7 +34,7 @@ const DUMMY_VOTE = [
   },
 ];
 
-const VoteSection = ({ voteDistribution }: any) => {
+const VoteSection = ({ voteDistribution, prettyDenom }: any) => {
   return (
     <Section heading="Your Vote">
       <Grid
@@ -43,8 +43,15 @@ const VoteSection = ({ voteDistribution }: any) => {
         gridTemplateColumns={"repeat(auto-fit, minmax(250px, 1fr))"}
       >
         {voteDistribution &&
-          Object.keys(voteDistribution).map((vote: any) => {
-            return <VoteCard option={vote} value={voteDistribution[vote]} />;
+          Object.keys(voteDistribution.ratio).map((vote: any) => {
+            return (
+              <VoteCard
+                tokenAmountUnderVote={voteDistribution.tally[vote] / 1000000}
+                option={vote}
+                value={voteDistribution.ratio[vote]}
+                prettyDenom={prettyDenom}
+              />
+            );
           })}
       </Grid>
     </Section>

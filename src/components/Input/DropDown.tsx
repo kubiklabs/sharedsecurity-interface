@@ -40,13 +40,13 @@ const DropDown = () => {
   const connectWallet = useConnectWallet();
   const disconnectWallet = useDisconnetWallet();
 
-  const handleNetworkChange = (item: IChainInfoMinimal) => {
+  const handleNetworkChange = async (item: IChainInfoMinimal) => {
     // setIsOpen(false);
     if (item.name === activeOption) return;
     setActiveOption(item.name);
     localStorage.setItem("activeNetworkChainId", item.id);
     disconnectWallet();
-    // connectWallet();
+    // await connectWallet();
   };
 
   return (

@@ -12,6 +12,7 @@
   "dependencies": {
     "@chakra-ui/react": "^2.8.0",
     "@cosmjs/cosmwasm-stargate": "^0.31.1",
+    "@cosmjs/stargate": "^0.31.1",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",

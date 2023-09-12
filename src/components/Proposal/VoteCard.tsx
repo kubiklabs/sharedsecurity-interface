@@ -30,10 +30,12 @@ const VoteCard = (props: any) => {
       gap={"15px"}
       bg={colorVoteMap[props.option as keyof IColorVoteMap].bg}
       minWidth={"fit-content"}
-      _focus={{
+      transition={"ease-in-out 500ms"}
+      _hover={{
         border: `2px solid ${
           colorVoteMap[props.option as keyof IColorVoteMap].color
         }`,
+        cursor: "pointer",
       }}
     >
       <Text
@@ -52,7 +54,9 @@ const VoteCard = (props: any) => {
         >
           {props.value}%
         </Text>
-        <Text m={"0"}>{props.tokenAmountUnderVote}</Text>
+        <Text fontSize={"0.9rem"} m={"0"}>
+          {props.tokenAmountUnderVote} {props.prettyDenom}
+        </Text>
       </Flex>
     </Flex>
   );

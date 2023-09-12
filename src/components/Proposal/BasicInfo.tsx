@@ -8,6 +8,7 @@ export interface IBasicInfo {
   title: string;
   status: string;
   description: string;
+  turnout: string;
 }
 
 const scrollbarStyle = {
@@ -23,13 +24,13 @@ const scrollbarStyle = {
   },
 };
 
-const BasicInfo = ({ id, title, status, description }: IBasicInfo) => {
+const BasicInfo = ({ id, title, status, description, turnout }: IBasicInfo) => {
   return (
     <Section heading={`#${id}. ${title}`}>
       <Flex flexDirection={"column"}>
         <Flex gap={"10px"} justifyContent={"space-between"} width={"100%"}>
           <KeyValuePair keyField="Current Status" value={status} />
-          <KeyValuePair keyField="Turnout/Quorom" value="61.8%/33.4%" />
+          <KeyValuePair keyField="Turnout/Quorom" value={`${turnout}%/33.4%`} />
           <KeyValuePair keyField="Proposal expected to" value="PASS" />
         </Flex>
         <Flex

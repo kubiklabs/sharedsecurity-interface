@@ -47,6 +47,28 @@ export const useCosmosGovQuery = () => {
     return proposal;
   };
 
+  const getCosmosTotalBondedToken = async () => {
+    const response = await axios.get(
+      "https://cosmos-api.polkachu.com/cosmos/staking/v1beta1/pool"
+    );
+    // console.log(response.data);
+
+    const totalBonded = response.data.pool.bonded_tokens;
+    return totalBonded;
+  };
+
+  const getCosmosProposalTurnout = async (proposal: any) => {
+    const totalBonded = await getCosmosTotalBondedToken();
+    const totalVoted = getVoteDistribution(proposal).totalAmount;
+    const turnout = (
+      (Number(totalVoted) / Number(totalBonded)) *
+      100
+    ).toLocaleString();
+    // console.log(totalBonded, totalVoted, turnout);
+
+    return turnout;
+  };
+
   const getProposalType = (proposal: any) => {
     const splitArray = proposal.content["@type"].split(".");
     const proposalType: string = splitArray[splitArray.length - 1]
@@ -74,7 +96,16 @@ export const useCosmosGovQuery = () => {
       (Number(votes.no_with_veto) / totalVotes) *
       100
     ).toLocaleString()}`;
-    return { YES, NO, ABSTAIN, VETO };
+    return {
+      ratio: { YES, NO, ABSTAIN, VETO },
+      tally: {
+        YES: votes.yes,
+        NO: votes.no,
+        VETO: votes.no_with_veto,
+        ABSTAIN: votes.abstain,
+      },
+      totalAmount: totalVotes,
+    };
   };
 
   const getProposalsList = async () => {
@@ -93,7 +124,7 @@ export const useCosmosGovQuery = () => {
         endDate: localeDateOnly,
         endTime: localeTimeOnly,
         tags: ["Cosmos", proposalType],
-        voteDistribution: voteDistribution,
+        voteDistribution: voteDistribution.ratio,
         status: item.status,
       };
       proposalsList.push(newLpListItem);
@@ -127,6 +158,7 @@ export const useCosmosGovQuery = () => {
 
   const getParsedCosmosProposal = async (id: string) => {
     const rawProposal = await getProposalById(id);
+    const turnout = await getCosmosProposalTurnout(rawProposal);
     const voteDistribution = getVoteDistribution(rawProposal);
     const voteEndTime = parseIsoTimeString(rawProposal.voting_end_time);
     const voteStartTime = parseIsoTimeString(rawProposal.voting_start_time);
@@ -138,7 +170,12 @@ export const useCosmosGovQuery = () => {
       voteDistribution,
       votingEndTime: voteEndTime.localeStringFormat,
       votingStartTime: voteStartTime.localeStringFormat,
-      totalDeposit: Number(rawProposal.total_deposit.amount) / 6,
+      totalDeposit: Number(rawProposal.total_deposit[0].amount) / 1000000,
+      denom: {
+        pretty: "ATOM",
+        denom: "uatom",
+      },
+      turnout,
     };
     return parsedProposal;
   };
@@ -152,5 +189,6 @@ export const useCosmosGovQuery = () => {
     getAllGovProposals,
     getProposalById,
     getParsedCosmosProposal,
+    getCosmosTotalBondedToken,
   };
 };
