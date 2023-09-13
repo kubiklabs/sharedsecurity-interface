@@ -38,7 +38,7 @@ export const useNeutronQuery = () => {
       }
     );
     setProposals(response.proposal);
-    console.log(response);
+    // console.log(response);
     return response.proposals;
   };
 
@@ -55,7 +55,7 @@ export const useNeutronQuery = () => {
       }
     );
 
-    console.log(response);
+    // console.log(response);
     return response;
   };
 
@@ -98,14 +98,14 @@ export const useNeutronQuery = () => {
   const getNeutronProposalsList = async () => {
     let parsedProposals: ILpCardProps[] = [];
     let rawProposals: any[] = proposals;
-    console.log(rawProposals);
+    // console.log(rawProposals);
 
     if (!rawProposals || !rawProposals?.length) {
       console.log("yes");
 
       rawProposals = await getNeutronProposals();
     }
-    console.log(rawProposals);
+    // console.log(rawProposals);
 
     (rawProposals as Array<any>)?.forEach((proposal) => {
       const { localeDateOnly, localeTimeOnly } = parseNanosecondTimeString(
@@ -123,7 +123,7 @@ export const useNeutronQuery = () => {
       };
       parsedProposals.push(parsedProposal);
     });
-    console.log(parsedProposals);
+    // console.log(parsedProposals);
 
     return parsedProposals;
   };

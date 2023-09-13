@@ -13,10 +13,12 @@
     "@chakra-ui/react": "^2.8.0",
     "@cosmjs/cosmwasm-stargate": "^0.31.1",
     "@cosmjs/stargate": "^0.31.1",
+    "@cosmjs/tendermint-rpc": "^0.31.1",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@osmonauts/helpers": "^0.7.0",
     "@stakeordie/griptape.js": "^0.9.18-RC",
     "axios": "^1.5.0",
     "framer-motion": "^10.16.2",
@@ -24,7 +26,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.15.0",
-    "recoil": "^0.7.7"
+    "recoil": "^0.7.7",
+    "stridejs": "^0.8.0-alpha.5"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

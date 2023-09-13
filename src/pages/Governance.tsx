@@ -9,6 +9,7 @@ import { useCosmosGovQuery } from "../hooks/chains/cosmos/useCosmosGovQuery";
 import { useEffect, useRef, useState } from "react";
 import { ILpCardProps } from "../components/Governance/LpCard";
 import { useNeutronQuery } from "../hooks/chains/neutron/useNeutronQuery";
+import { useStrideQuery } from "../hooks/chains/stride/useStrideQuery";
 
 const Governance = () => {
   const [lpList, setLpList] = useState<Array<ILpCardProps>>([]);
@@ -16,8 +17,11 @@ const Governance = () => {
 
   const { getLpList, getOpList } = useCosmosGovQuery();
   const { getNeutronLpList, getNeutronOpList } = useNeutronQuery();
+  const { getStrideLpList, getStrideOpList } = useStrideQuery();
   const neutronLpList = useRef<ILpCardProps[]>([]);
   const neutronOpList = useRef<ILpCardProps[]>([]);
+  const strideLpList = useRef<ILpCardProps[]>([]);
+  const strideOpList = useRef<ILpCardProps[]>([]);
 
   useEffect(() => {
     const dummy = async () => {
@@ -25,9 +29,13 @@ const Governance = () => {
       const opList = await getOpList();
       neutronLpList.current = await getNeutronLpList();
       neutronOpList.current = await getNeutronOpList();
-      console.log(neutronLpList, neutronOpList);
+      strideOpList.current = await getStrideOpList();
+      strideLpList.current = await getStrideLpList();
+      // console.log(neutronLpList, neutronOpList);
+      console.log(strideLpList.current, strideOpList.current);
       setLpList(lpList);
       setOpList(opList);
+      // getStrideProposals();
     };
     dummy();
   }, []);
@@ -36,9 +44,21 @@ const Governance = () => {
     <Box>
       <Box flexDirection={"column"} display={"flex"} gap={"20px"}>
         <VpSection vpList={vpList} />
-        <LpSection lpList={[...neutronLpList.current, ...lpList]} />
+        <LpSection
+          lpList={[
+            ...neutronLpList.current,
+            ...lpList,
+            ...strideLpList.current,
+          ]}
+        />
         <InfoSection />
-        <OpSection lpList={[...neutronOpList.current, ...opList]} />
+        <OpSection
+          lpList={[
+            ...neutronOpList.current,
+            ...opList,
+            ...strideOpList.current,
+          ]}
+        />
       </Box>
     </Box>
   );

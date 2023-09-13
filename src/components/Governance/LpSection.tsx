@@ -1,6 +1,7 @@
 import { Flex, Grid, GridItem, Heading, Text } from "@chakra-ui/react";
 import Section from "../Layout/Section";
 import LpCard, { ILpCardProps } from "./LpCard";
+import { compareProposals } from "../../utils/common";
 
 const LpSection = ({ lpList }: { lpList: Array<ILpCardProps> }) => {
   return (
@@ -13,7 +14,7 @@ const LpSection = ({ lpList }: { lpList: Array<ILpCardProps> }) => {
         gridTemplateColumns={"repeat(auto-fit, minmax(485px, 1fr))"}
       >
         {lpList.length ? (
-          lpList.map((item) => {
+          lpList.sort(compareProposals).map((item) => {
             return (
               <GridItem id={item.proposalId}>
                 <LpCard {...item} />

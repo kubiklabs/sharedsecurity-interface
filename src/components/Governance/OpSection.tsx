@@ -2,8 +2,10 @@ import React from "react";
 import Section from "../Layout/Section";
 import { Button, Flex, Grid, GridItem, Input } from "@chakra-ui/react";
 import LpCard, { ILpCardProps } from "./LpCard";
+import { compareProposals } from "../../utils/common";
 
 const OpSection = ({ lpList }: { lpList: Array<ILpCardProps> }) => {
+  // console.log();
   return (
     <Section heading="Other Proposals" sideText="122/122">
       <Flex px={"15px"} justifyContent={"space-between"}>
@@ -34,7 +36,7 @@ const OpSection = ({ lpList }: { lpList: Array<ILpCardProps> }) => {
         // gridAutoFlow={"column"}
         gridTemplateColumns={"repeat(auto-fit, minmax(485px, 1fr))"}
       >
-        {lpList.map((item) => {
+        {lpList.sort(compareProposals).map((item) => {
           return (
             <GridItem id={item.proposalId}>
               <LpCard {...item} />

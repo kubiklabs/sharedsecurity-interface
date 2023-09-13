@@ -1,4 +1,5 @@
 import { Decimal } from "decimal.js";
+import { ILpCardProps } from "../components/Governance/LpCard";
 // import { networkConstants } from "./constants";
 
 // The number set here is an arbitrary number.
@@ -74,4 +75,16 @@ export const parseNanosecondTimeString = (time: string) => {
     localeStringFormat,
     localeTimeOnly,
   };
+};
+
+export const compareProposals = (a: ILpCardProps, b: ILpCardProps) => {
+  const endDateComparison =
+    new Date(b.endDate + " " + b.endTime).getTime() -
+    new Date(a.endDate + " " + a.endTime).getTime();
+  if (endDateComparison !== 0) {
+    return endDateComparison;
+  }
+
+  // If end dates are the same, compare by endTime
+  return new Date(b.endTime).getTime() - new Date(a.endTime).getTime();
 };

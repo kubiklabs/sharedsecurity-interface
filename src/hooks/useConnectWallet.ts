@@ -66,12 +66,12 @@ export const useConnectWallet = () => {
         await sleep(0.5);
       }
 
-      console.log("1");
+      // console.log("1");
 
-      //   await (window as any).keplr.experimentalSuggestChain(
-      //     chainInfo.getChainInfoData()
-      //   );
-      console.log("1");
+      // //   await (window as any).keplr.experimentalSuggestChain(
+      // //     chainInfo.getChainInfoData()
+      // //   );
+      // console.log("1");
 
       await (window as any).keplr.enable(chainInfo.getChainId());
 
