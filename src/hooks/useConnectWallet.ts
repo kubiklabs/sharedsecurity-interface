@@ -80,6 +80,7 @@ export const useConnectWallet = () => {
       const offlineSigner = (window as any).keplr.getOfflineSignerOnlyAmino(
         chainInfo.getChainId()
       );
+      console.log(chainInfo.getChainId());
 
       const [{ address }] = await offlineSigner.getAccounts();
 

@@ -88,3 +88,30 @@ export const compareProposals = (a: ILpCardProps, b: ILpCardProps) => {
   // If end dates are the same, compare by endTime
   return new Date(b.endTime).getTime() - new Date(a.endTime).getTime();
 };
+
+export const getCosmosOption = (option: string) => {
+  switch (option) {
+    case "YES":
+      return "VOTE_OPTION_YES";
+    case "NO":
+      return "VOTE_OPTION_NO";
+    case "ABSTAIN":
+      return "VOTE_OPTION_ABSTAIN";
+    case "VETO":
+      return "VOTE_OPTION_NO_WITH_VETO";
+    default:
+      break;
+  }
+};
+export const getNeutronOption = (option: string) => {
+  switch (option) {
+    case "YES":
+      return "Yes";
+    case "NO":
+      return "No";
+    case "ABSTAIN":
+      return "Abstain";
+    default:
+      break;
+  }
+};

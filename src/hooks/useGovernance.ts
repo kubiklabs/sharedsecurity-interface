@@ -1,12 +1,18 @@
 import { useCosmosGovQuery } from "./chains/cosmos/useCosmosGovQuery";
-import { useNeutronQuery } from "./chains/neutron/useNeutronQuery";
-import { useStrideQuery } from "./chains/stride/useStrideQuery";
+import { useCosmosGovTxn } from "./chains/cosmos/useCosmosGovTxn";
+import { useNeutronGovQuery } from "./chains/neutron/useNeutronGovQuery";
+import { useNeutronGovTxn } from "./chains/neutron/useNeutronGovTxn";
+import { useStrideGovQuery } from "./chains/stride/useStrideGovQuery";
+import { useStrideGovTxn } from "./chains/stride/useStrideGovTxn";
 
 export const useGovernance = () => {
   const { getParsedCosmosProposal, getCosmosTotalBondedToken } =
     useCosmosGovQuery();
-  const { getParsedNeutronProposal } = useNeutronQuery();
-  const { getParsedStrideProposal } = useStrideQuery();
+  const { getParsedNeutronProposal } = useNeutronGovQuery();
+  const { getParsedStrideProposal } = useStrideGovQuery();
+  const { sendCosmosVote } = useCosmosGovTxn();
+  const { sendStrideVote } = useStrideGovTxn();
+  const { sendNeutronVote } = useNeutronGovTxn();
   const fetchProposalByIdAndName = async (name: string, id: string) => {
     console.log(id, name);
 
@@ -35,5 +41,24 @@ export const useGovernance = () => {
         break;
     }
   };
-  return { fetchProposalByIdAndName, fetchTotalBondedToken };
+
+  const sendGovVote = async (
+    name: string,
+    proposalId: string,
+    voteOption: string
+  ) => {
+    switch (name) {
+      case "Cosmos":
+        return await sendCosmosVote(proposalId, voteOption);
+        break;
+      case "Stride":
+        return await sendStrideVote(proposalId, voteOption);
+        break;
+      case "Neutron":
+        return await sendNeutronVote(proposalId, voteOption);
+      default:
+        break;
+    }
+  };
+  return { fetchProposalByIdAndName, fetchTotalBondedToken, sendGovVote };
 };

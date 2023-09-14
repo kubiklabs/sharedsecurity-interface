@@ -1,5 +1,8 @@
 import { Flex, Text } from "@chakra-ui/react";
 import React from "react";
+import { useNeutronGovTxn } from "../../hooks/chains/neutron/useNeutronGovTxn";
+import { useGovernance } from "../../hooks/useGovernance";
+import { useParams } from "react-router-dom";
 
 const colorVoteMap = {
   YES: {
@@ -22,8 +25,15 @@ const colorVoteMap = {
 type IColorVoteMap = typeof colorVoteMap;
 
 const VoteCard = (props: any) => {
+  // const { sendNeutronVote } = useNeutronGovTxn();
+  const { sendGovVote } = useGovernance();
+  const { chain, proposalId } = useParams();
+
   return (
     <Flex
+      onClick={() =>
+        sendGovVote(chain as string, proposalId as string, props.option)
+      }
       p={"30px"}
       borderRadius={"10px"}
       flexDirection={"column"}

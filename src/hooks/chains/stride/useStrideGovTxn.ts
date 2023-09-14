@@ -1,17 +1,15 @@
 import { SigningStargateClient } from "@cosmjs/stargate";
 import { getCosmosOption, sleep } from "../../../utils/common";
 // import { useConnectWallet, useDisconnetWallet } from "../../useConnectWallet";
-import cosmosChainInfo from "../../../config/chains/CosmosHub/cosmos_mainnet.json";
+import strideChainInfo from "../../../config/chains/Stride/stride_mainnet.json";
 
-export const useCosmosGovTxn = () => {
-  const rpcEndPoints = cosmosChainInfo.apis.rpc;
+export const useStrideGovTxn = () => {
+  const rpcEndPoints = strideChainInfo.apis.rpc;
 
   // const connectWallet = useConnectWallet();
   // const disconnectWallet = useDisconnetWallet();
 
-  const sendCosmosVote = async (proposalId: string, voteOption: string) => {
-    console.log("cosmos");
-
+  const sendStrideVote = async (proposalId: string, voteOption: string) => {
     while (
       !(window as any).keplr ||
       !(window as any).getEnigmaUtils ||
@@ -24,14 +22,10 @@ export const useCosmosGovTxn = () => {
     // await connectWallet();
 
     // Enable Keplr and request access to the wallet
-    await (window as any).keplr.enable("cosmoshub-4");
+    await (window as any).keplr.enable("stride-1");
 
-    const offlineSigner = await (window as any).keplr.getOfflineSigner(
-      "cosmoshub-4"
-    );
-    console.log(offlineSigner.keplr);
-
-    const [{ address }] = await offlineSigner.getAccounts();
+    const offlineSigner = await (window as any).keplr.getOfflineSigner();
+    const address = await offlineSigner.getAccounts()[1].address;
 
     // Build the vote message
     const voteMsg = {
@@ -103,19 +97,17 @@ export const useCosmosGovTxn = () => {
     const { transactionHash, code } = await client.signAndBroadcast(
       address,
       [voteMsg],
-      fee,
+      Number(fee.gas),
       "Vote on governance proposal"
     );
 
     if (code === 0) {
-      console.log(
-        `Transaction broadcasted successfully with hash ${transactionHash}`
-      );
+      console.log("Transaction broadcasted successfully!");
     } else {
       console.error(`Transaction failed with code: ${code}`);
     }
   };
 
-  return { sendCosmosVote };
+  return { sendStrideVote };
 };
 //voteOption may be either in the form 0,1,2,3,4,5 or VOTE_OPTION_YES,NO,NO_WITH_VETO,

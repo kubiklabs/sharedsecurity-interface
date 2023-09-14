@@ -8,16 +8,16 @@ import OpSection from "../components/Governance/OpSection";
 import { useCosmosGovQuery } from "../hooks/chains/cosmos/useCosmosGovQuery";
 import { useEffect, useRef, useState } from "react";
 import { ILpCardProps } from "../components/Governance/LpCard";
-import { useNeutronQuery } from "../hooks/chains/neutron/useNeutronQuery";
-import { useStrideQuery } from "../hooks/chains/stride/useStrideQuery";
+import { useNeutronGovQuery } from "../hooks/chains/neutron/useNeutronGovQuery";
+import { useStrideGovQuery } from "../hooks/chains/stride/useStrideGovQuery";
 
 const Governance = () => {
   const [lpList, setLpList] = useState<Array<ILpCardProps>>([]);
   const [opList, setOpList] = useState<Array<ILpCardProps>>([]);
 
   const { getLpList, getOpList } = useCosmosGovQuery();
-  const { getNeutronLpList, getNeutronOpList } = useNeutronQuery();
-  const { getStrideLpList, getStrideOpList } = useStrideQuery();
+  const { getNeutronLpList, getNeutronOpList } = useNeutronGovQuery();
+  const { getStrideLpList, getStrideOpList } = useStrideGovQuery();
   const neutronLpList = useRef<ILpCardProps[]>([]);
   const neutronOpList = useRef<ILpCardProps[]>([]);
   const strideLpList = useRef<ILpCardProps[]>([]);

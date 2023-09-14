@@ -10,7 +10,7 @@ interface IProposalData {
   pagination: any;
 }
 
-export const useStrideQuery = () => {
+export const useStrideGovQuery = () => {
   const [proposalsList, setProposalsList] = useState<Array<ILpCardProps>>([]);
 
   const getGovProposals = async () => {

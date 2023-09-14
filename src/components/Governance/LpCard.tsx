@@ -14,12 +14,7 @@ export interface ILpCardProps {
   endTime: string;
   tags: Array<string>;
   status: string;
-  voteDistribution: {
-    YES: string;
-    NO: string;
-    ABSTAIN: string;
-    VETO: string;
-  };
+  voteDistribution: any;
 }
 ("");
 const LpCard = ({
@@ -39,6 +34,12 @@ const LpCard = ({
       // paddingY={"20px"}
       borderRadius={"10px"}
       onClick={() => navigate(`/gov/${tags[0]}/${proposalId}`)}
+      _hover={{
+        transform: "scale(1.01)",
+        cursor: "pointer",
+        background: "rgba(255, 255, 255, 0.1)",
+      }}
+      transition={"ease-in-out 100ms"}
     >
       <Stack justifyContent={"center"} gap={"10px"}>
         <Flex

@@ -1,14 +1,11 @@
-import {
-  CosmWasmClient,
-  SigningCosmWasmClient,
-} from "@cosmjs/cosmwasm-stargate";
+import { CosmWasmClient } from "@cosmjs/cosmwasm-stargate";
 import { useEffect, useRef, useState } from "react";
 import { useChainInfo } from "../../useChainInfo";
 import { neutronSingleProposal } from "../../../config/chains/Neutron/contracts/SingleProposalModule";
 import { parseNanosecondTimeString, sleep } from "../../../utils/common";
 import { ILpCardProps } from "../../../components/Governance/LpCard";
 
-export const useNeutronQuery = () => {
+export const useNeutronGovQuery = () => {
   const { getRpcUrl } = useChainInfo("neutron-1");
   const [queryClient, setQueryClient] = useState<CosmWasmClient>();
   const [proposals, setProposals] = useState<any[]>([]);
@@ -71,10 +68,6 @@ export const useNeutronQuery = () => {
         NO: ((Number(votes["no"]) / totalVotes) * 100).toLocaleString(),
         ABSTAIN: (
           (Number(votes["abstain"]) / totalVotes) *
-          100
-        ).toLocaleString(),
-        VETO: (
-          ((Number(votes["veto"]) || 0) / totalVotes) *
           100
         ).toLocaleString(),
       },
