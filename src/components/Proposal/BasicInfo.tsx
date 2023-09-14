@@ -44,6 +44,8 @@ const BasicInfo = ({ id, title, status, description, turnout }: IBasicInfo) => {
   useEffect(() => {
     if (description) {
       const html = marked(description);
+      // console.log(html, description);
+
       (document.getElementById("description") as HTMLElement).innerHTML = html;
     }
   }, [description]);

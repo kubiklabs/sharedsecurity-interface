@@ -3,7 +3,12 @@ import Section from "../Layout/Section";
 import SubtitleText from "../DataDisplay/SubtitleText";
 import ColorTag from "../DataDisplay/ColorTag";
 import BigSmallText from "../DataDisplay/BigSmallText";
-import { bigSmallTextColorMap, tagColorMap } from "../../utils/constant";
+import {
+  bigSmallTextColorMap,
+  cosmosStatusMap,
+  neutronStatusMap,
+  tagColorMap,
+} from "../../utils/constant";
 import { IVoteValueProps } from "../../utils/interface";
 import { useNavigate } from "react-router-dom";
 
@@ -24,6 +29,7 @@ const LpCard = ({
   proposalTitle,
   tags,
   voteDistribution,
+  status,
 }: ILpCardProps) => {
   const navigate = useNavigate();
   return (
@@ -57,8 +63,21 @@ const LpCard = ({
               voting ends on : {endDate} : {endTime}
             </SubtitleText>
           </Flex>
-          <Button bg={"#BC3D70"} height={"40px"}>
-            Vote Now
+          <Button
+            bg={
+              (
+                cosmosStatusMap[status as keyof typeof cosmosStatusMap] ||
+                neutronStatusMap[status as keyof typeof neutronStatusMap]
+              )?.bg
+            }
+            height={"40px"}
+          >
+            {
+              (
+                cosmosStatusMap[status as keyof typeof cosmosStatusMap] ||
+                neutronStatusMap[status as keyof typeof neutronStatusMap]
+              )?.pretty
+            }
           </Button>
         </Flex>
         <Flex gap={"5px"}>

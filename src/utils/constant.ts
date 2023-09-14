@@ -112,6 +112,7 @@ export const tagColorMap = {
   Cosmos: "rgba(156, 108, 255, 0.80)",
   "Software Update": "rgba(255, 139, 74, 0.80)",
   Stride: "rgba(233, 17, 121, 0.80)",
+  Neutron: "#24684c",
 };
 
 export const bigSmallTextColorMap: IVoteValueProps = {
@@ -121,35 +122,79 @@ export const bigSmallTextColorMap: IVoteValueProps = {
   VETO: "rgba(212, 212, 212, 0.80)",
 };
 
-const x = {
-  id: 1,
-  proposal: {
-    allow_revoting: true,
-    description: "test",
-    expiration: {
-      at_time: "1687278379554701487",
-    },
-    min_voting_period: null,
-    msgs: [],
-    proposer: "neutron1g9thjuyfc4g4apcp8g5eltpglwqdvu4hw9ye40",
-    start_height: 519783,
-    status: "rejected",
-    threshold: {
-      threshold_quorum: {
-        quorum: {
-          percent: "0.1",
-        },
-        threshold: {
-          percent: "0.5",
-        },
-      },
-    },
-    title: "test",
-    total_power: "36128102537296",
-    votes: {
-      abstain: "498702770899",
-      no: "20404641798",
-      yes: "468277813819",
-    },
+export const cosmosStatusMap = {
+  PROPOSAL_STATUS_DEPOSIT_PERIOD: {
+    pretty: "Deposit",
+    bg: "skyblue",
+  },
+  /**
+   * PROPOSAL_STATUS_VOTING_PERIOD - PROPOSAL_STATUS_VOTING_PERIOD defines a proposal status during the voting
+   *  period.
+   */
+  PROPOSAL_STATUS_VOTING_PERIOD: {
+    pretty: "Vote Now",
+    bg: "#BC3D70",
+  },
+  /**
+   * PROPOSAL_STATUS_PASSED - PROPOSAL_STATUS_PASSED defines a proposal status of a proposal that has
+   *  passed.
+   */
+  PROPOSAL_STATUS_PASSED: {
+    pretty: "Passed",
+    bg: "green",
+  },
+  /*
+   * PROPOSAL_STATUS_REJECTED - PROPOSAL_STATUS_REJECTED defines a proposal status of a proposal that has
+   *  been rejected.
+   */
+  PROPOSAL_STATUS_REJECTED: {
+    pretty: "Rejected",
+    bg: "red",
+  },
+  /**
+   * PROPOSAL_STATUS_FAILED - PROPOSAL_STATUS_FAILED defines a proposal status of a proposal that has
+   *  failed.
+   */
+  PROPOSAL_STATUS_FAILED: {
+    pretty: "Failed",
+    bg: "orange",
+  },
+  UNRECOGNIZED: {
+    pretty: "Unrecognised",
+    bg: "gray",
+  },
+};
+
+export const neutronStatusMap = {
+  /// The proposal is open for voting.
+  open: {
+    pretty: "Vote Now",
+    bg: "#BC3D70",
+  },
+  /// The proposal has been rejected.
+  rejected: {
+    pretty: "Rejected",
+    bg: "red",
+  },
+  /// The proposal has been passed but has not been executed.
+  passed: {
+    pretty: "Passed",
+    bg: "green",
+  },
+  /// The proposal has been passed and executed.
+  executed: {
+    pretty: "Executed",
+    bg: "green",
+  },
+  /// The proposal has failed or expired and has been closed. A
+  /// proposal deposit refund has been issued if applicable.
+  closed: {
+    pretty: "Closed",
+    bg: "gray",
+  },
+  /// The proposal's execution failed.
+  execution_failed: {
+    pretty: "Failed",
+    bg: "orange",
   },
 };

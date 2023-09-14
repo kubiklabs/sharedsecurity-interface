@@ -57,6 +57,15 @@ export const useCosmosGovQuery = () => {
     return totalBonded;
   };
 
+  const getUserCosmosDelegations = async (address: string) => {
+    const response = await axios.get(
+      `https://cosmos-lcd.easy2stake.com/cosmos/staking/v1beta1/delegations/${address}`
+    );
+    return response?.data.delegation_responses;
+  };
+
+  const getUserVotingPower = () => {};
+
   const getCosmosProposalTurnout = async (proposal: any) => {
     const totalBonded = await getCosmosTotalBondedToken();
     const totalVoted = getVoteDistribution(proposal).totalAmount;

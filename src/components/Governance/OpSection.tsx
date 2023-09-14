@@ -1,10 +1,25 @@
 import React from "react";
 import Section from "../Layout/Section";
-import { Button, Flex, Grid, GridItem, Input } from "@chakra-ui/react";
+import {
+  Button,
+  Flex,
+  Grid,
+  GridItem,
+  Heading,
+  Input,
+  Skeleton,
+  Spinner,
+} from "@chakra-ui/react";
 import LpCard, { ILpCardProps } from "./LpCard";
 import { compareProposals } from "../../utils/common";
 
-const OpSection = ({ lpList }: { lpList: Array<ILpCardProps> }) => {
+const OpSection = ({
+  opList,
+  isLoading,
+}: {
+  opList: Array<ILpCardProps>;
+  isLoading?: boolean;
+}) => {
   // console.log();
   return (
     <Section heading="Other Proposals" sideText="122/122">
@@ -36,13 +51,30 @@ const OpSection = ({ lpList }: { lpList: Array<ILpCardProps> }) => {
         // gridAutoFlow={"column"}
         gridTemplateColumns={"repeat(auto-fit, minmax(485px, 1fr))"}
       >
-        {lpList.sort(compareProposals).map((item) => {
-          return (
-            <GridItem id={item.proposalId}>
-              <LpCard {...item} />
-            </GridItem>
-          );
-        })}
+        {opList?.length ? (
+          opList.map((item) => {
+            return (
+              <GridItem id={item.proposalId}>
+                <LpCard {...item} />
+              </GridItem>
+            );
+          })
+        ) : (
+          <GridItem bg={"red.800"}>
+            {isLoading ? (
+              <Spinner width={"3rem"} height="3rem" />
+            ) : (
+              <Heading
+                bg={"rgba(255, 255, 255, 0.05)"}
+                padding={"30px"}
+                // paddingY={"20px"}
+                borderRadius={"10px"}
+              >
+                There are no other proposals!
+              </Heading>
+            )}
+          </GridItem>
+        )}
       </Grid>
     </Section>
   );

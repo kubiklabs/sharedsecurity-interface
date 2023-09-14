@@ -1,8 +1,14 @@
 import Section from "../Layout/Section";
-import { Grid, GridItem } from "@chakra-ui/react";
+import { Grid, GridItem, Skeleton } from "@chakra-ui/react";
 import VpCard, { IVpCardProps } from "./VpCard";
 
-const VpSection = ({ vpList }: { vpList: Array<IVpCardProps> }) => {
+const VpSection = ({
+  vpList,
+  isLoading,
+}: {
+  vpList: Array<IVpCardProps>;
+  isLoading?: boolean;
+}) => {
   return (
     <Section
       heading="My Voting Power"
