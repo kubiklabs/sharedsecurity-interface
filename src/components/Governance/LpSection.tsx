@@ -27,7 +27,7 @@ const LpSection = ({
         // gridAutoFlow={"column"}
         gridTemplateColumns={"repeat(auto-fit, minmax(485px, 1fr))"}
       >
-        {lpList.length ? (
+        {lpList?.length ? (
           lpList.sort(compareProposals).map((item) => {
             return (
               <GridItem id={item.proposalId}>
