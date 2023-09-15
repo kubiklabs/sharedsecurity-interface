@@ -35,7 +35,7 @@ export const useCosmosGovTxn = () => {
 
     // Build the vote message
     const voteMsg = {
-      typeUrl: "/cosmos.gov.v1beta1.MsgVote",
+      typeUrl: "cosmos-sdk/MsgVote",
       value: {
         proposal_id: proposalId,
         voter: address,
