@@ -52,7 +52,7 @@ const OpSection = ({
         gridTemplateColumns={"repeat(auto-fit, minmax(485px, 1fr))"}
       >
         {opList?.length ? (
-          opList.map((item) => {
+          opList?.map((item) => {
             return (
               <GridItem id={item.proposalId}>
                 <LpCard {...item} />
