@@ -54,66 +54,67 @@ export const useCosmosGovTxn = () => {
       gas: "200000", // Adjust gas limit as needed
     };
 
-    // const { accountNumber, sequence } = await client.getSequence(address);
-    // const chainId = await client.getChainId();
+    try {
+      const { accountNumber, sequence } = await client.getSequence(address);
+      const chainId = await client.getChainId();
 
-    // const voteTx = {
-    //   memo: "Vote on governance proposal",
-    //   accountNumber: String(accountNumber),
-    //   sequence: String(sequence),
-    //   fee: fee,
-    //   msgs: [voteMsg],
-    //   chainId: chainId,
-    // };
+      const voteTx = {
+        memo: "Vote on governance proposal",
+        accountNumber: String(accountNumber),
+        sequence: String(sequence),
+        fee: fee,
+        msgs: [voteMsg],
+        chainId: chainId,
+      };
 
-    // Sign and broadcast the transaction using Keplr
-    // const { signedTx } = await (window as any).keplr.signAmino(
-    //   // proposerAddress,
-    //   [voteTx],
-    //   fee.gas,
-    //   chainId,
-    //   "Vote on governance proposal"
-    // );
-
-    // {
-    //   "account_number": "396871",
-    //   "chain_id": "juno-1",
-    //   "fee": {
-    //     "gas": "87804",
-    //     "amount": [
-    //       {
-    //         "amount": "6586",
-    //         "denom": "ujuno"
-    //       }
-    //     ]
-    //   },
-    //   "memo": "",
-    //   "msgs": [
-    //     {
-    //       "type": "cosmos-sdk/MsgVote",
-    //       "value": {
-    //         "option": 1,
-    //         "proposal_id": "317",
-    //         "voter": "juno1zd4guuajjyr5sdzzq52x8es4l4hmy5uvnweljh"
-    //       }
-    //     }
-    //   ],
-    //   "sequence": "0"
-    // }
-
-    const { transactionHash, code } = await client.signAndBroadcast(
-      address,
-      [voteMsg],
-      fee,
-      "Vote on governance proposal"
-    );
-
-    if (code === 0) {
-      console.log(
-        `Transaction broadcasted successfully with hash ${transactionHash}`
+      // Sign and broadcast the transaction using Keplr
+      const { signedTx } = await (window as any).keplr.signAmino(
+        address,
+        [voteTx],
+        // fee.gas,
+        chainId
+        // "Vote on governance proposal"
       );
-    } else {
-      console.error(`Transaction failed with code: ${code}`);
+
+      // {
+      //   "account_number": "396871",
+      //   "chain_id": "juno-1",
+      //   "fee": {
+      //     "gas": "87804",
+      //     "amount": [
+      //       {
+      //         "amount": "6586",
+      //         "denom": "ujuno"
+      //       }
+      //     ]
+      //   },
+      //   "memo": "",
+      //   "msgs": [
+      //     {
+      //       "type": "cosmos-sdk/MsgVote",
+      //       "value": {
+      //         "option": 1,
+      //         "proposal_id": "317",
+      //         "voter": "juno1zd4guuajjyr5sdzzq52x8es4l4hmy5uvnweljh"
+      //       }
+      //     }
+      //   ],
+      //   "sequence": "0"
+      // }
+
+      console.log("executing");
+
+      const { transactionHash, code } = await client.broadcastTx(signedTx);
+
+      if (code === 0) {
+        console.log(
+          `Transaction broadcasted successfully with hash ${transactionHash}`
+        );
+      } else {
+        console.error(`Transaction failed with code: ${code}`);
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 
