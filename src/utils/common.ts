@@ -92,13 +92,13 @@ export const compareProposals = (a: ILpCardProps, b: ILpCardProps) => {
 export const getCosmosOption = (option: string) => {
   switch (option) {
     case "YES":
-      return "VOTE_OPTION_YES";
-    case "NO":
-      return "VOTE_OPTION_NO";
+      return 1;
     case "ABSTAIN":
-      return "VOTE_OPTION_ABSTAIN";
+      return 2;
+    case "NO":
+      return 3;
     case "VETO":
-      return "VOTE_OPTION_NO_WITH_VETO";
+      return 4;
     default:
       break;
   }

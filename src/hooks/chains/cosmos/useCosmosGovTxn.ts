@@ -42,10 +42,11 @@ export const useCosmosGovTxn = () => {
         option: getCosmosOption(voteOption),
       },
     };
+    console.log(voteOption, voteMsg.value);
 
     // Create and sign the transaction
     const client = await SigningStargateClient.connectWithSigner(
-      rpcEndPoints[0].address,
+      rpcEndPoints[9].address,
       offlineSigner
     );
     const fee = {
