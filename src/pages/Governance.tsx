@@ -27,7 +27,7 @@ const Governance = () => {
     useRecoilState(proposalsState);
 
   useEffect(() => {
-    if (!sortedLpList.length || !sortedOpList.length) fetchAllProposalsList();
+    if (!sortedLpList?.length || !sortedOpList?.length) fetchAllProposalsList();
   }, []);
 
   const fetchAllProposalsList = async () => {
