@@ -17,10 +17,6 @@ import {
 } from "@chakra-ui/react";
 import KeyValuePair from "../DataDisplay/KeyValuePair";
 import { marked } from "marked";
-import theme from "@chakra-ui/theme";
-import { ChakraBaseProvider, extendBaseTheme } from "@chakra-ui/react";
-import StyledModal from "../Modal/StyledModal";
-
 // const theme = extendBaseTheme({
 //   components: {
 //     Modal,
