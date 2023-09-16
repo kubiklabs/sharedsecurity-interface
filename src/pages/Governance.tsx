@@ -10,21 +10,22 @@ import { useEffect, useRef, useState } from "react";
 import { ILpCardProps } from "../components/Governance/LpCard";
 import { useNeutronGovQuery } from "../hooks/chains/neutron/useNeutronGovQuery";
 import { useStrideGovQuery } from "../hooks/chains/stride/useStrideGovQuery";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import { proposalsState } from "../context/proposalsState";
 import { compareProposals } from "../utils/common";
 
 const Governance = () => {
   const [loading, setLoading] = useState(false);
-  const { getLpList, getOpList } = useCosmosGovQuery();
+  const { getLpList, getOpList, getCosmosVotingPower } = useCosmosGovQuery();
   const { getNeutronLpList, getNeutronOpList } = useNeutronGovQuery();
   const { getStrideLpList, getStrideOpList } = useStrideGovQuery();
   const neutronLpList = useRef<ILpCardProps[]>([]);
   const neutronOpList = useRef<ILpCardProps[]>([]);
   const strideLpList = useRef<ILpCardProps[]>([]);
   const strideOpList = useRef<ILpCardProps[]>([]);
-  const [{ sortedLpList, sortedOpList }, setAllProposals] =
-    useRecoilState(proposalsState);
+  const { sortedLpList, sortedOpList, userVotingPower } =
+    useRecoilValue(proposalsState);
+  const setAllProposals = useSetRecoilState(proposalsState);
 
   useEffect(() => {
     if (!sortedLpList?.length || !sortedOpList?.length) fetchAllProposalsList();
@@ -33,12 +34,19 @@ const Governance = () => {
   const fetchAllProposalsList = async () => {
     setLoading(true);
     const lpList = await getLpList();
-    const opList = await getOpList();
+    // setAllProposals((prev) => {
+    //   return {
+    //     ...prev,
+    //     sortedLpList: [...prev.sortedLpList, ...lpList],
+    //   };
+    // });
     neutronLpList.current = await getNeutronLpList();
+    strideLpList.current = await getStrideLpList();
+    const opList = await getOpList();
     neutronOpList.current = await getNeutronOpList();
     strideOpList.current = await getStrideOpList();
-    strideLpList.current = await getStrideLpList();
-    setAllProposals({
+    const updatedState = {
+      userVotingPower,
       sortedLpList: [
         ...neutronLpList.current,
         ...lpList,
@@ -49,8 +57,8 @@ const Governance = () => {
         ...opList,
         ...strideOpList.current,
       ].sort(compareProposals),
-      userVotingPower: [],
-    });
+    };
+    setAllProposals(updatedState);
     setLoading(false);
   };
 

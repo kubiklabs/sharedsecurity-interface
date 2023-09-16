@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <Box
       position={"fixed"}
-      top={"0"}
+      top={"5px"}
       //   width={"100%"}
       paddingY={"5px"}
       paddingX={"0px"}
@@ -14,9 +14,10 @@ const Header = () => {
       display={"flex"}
       justifyContent={"flex-end"}
       gap={"10px"}
+      right={"20px"}
     >
       <ConnectWalletButton />
-      <DropDown />
+      {/* <DropDown /> */}
     </Box>
   );
 };

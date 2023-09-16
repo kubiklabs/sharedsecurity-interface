@@ -115,3 +115,6 @@ export const getNeutronOption = (option: string) => {
       break;
   }
 };
+
+export const getShortHandAddress = (address: string) =>
+  address.substr(0, 8) + "..." + address.substr(address.length - 3, 3);

@@ -22,7 +22,7 @@ const VpSection = ({
         // gridAutoFlow={"column"}
         gridTemplateColumns={"repeat(auto-fit, minmax(320px, 1fr))"}
       >
-        {vpList.map((item) => {
+        {vpList?.map((item) => {
           return (
             <GridItem id={item.accountAddress}>
               <VpCard {...item} />

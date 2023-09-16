@@ -4,6 +4,7 @@ import { IVoteValueProps } from "./interface";
 
 export const vpList: Array<IVpCardProps> = [
   {
+    name: "Cosmos",
     accountAddress: "neutron1...x0v",
     amountStaked: "1,234,234",
     denom: "NTRN",
@@ -12,6 +13,7 @@ export const vpList: Array<IVpCardProps> = [
     votePercent: "50%",
   },
   {
+    name: "Stride",
     accountAddress: "neutron2...x0v",
     amountStaked: "1,234,234",
     denom: "ATOM",
@@ -20,31 +22,8 @@ export const vpList: Array<IVpCardProps> = [
     votePercent: "50%",
   },
   {
+    name: "Neutron",
     accountAddress: "neutron3...x0v",
-    amountStaked: "1,234,234",
-    denom: "ATOM",
-    totalParticipated: "55",
-    totalValidators: "90",
-    votePercent: "50%",
-  },
-  {
-    accountAddress: "neutron4...x0v",
-    amountStaked: "1,234,234",
-    denom: "NTRN",
-    totalParticipated: "55",
-    totalValidators: "90",
-    votePercent: "50%",
-  },
-  {
-    accountAddress: "neutron5...x0v",
-    amountStaked: "1,234,234",
-    denom: "ATOM",
-    totalParticipated: "55",
-    totalValidators: "90",
-    votePercent: "50%",
-  },
-  {
-    accountAddress: "neutron6...x0v",
     amountStaked: "1,234,234",
     denom: "ATOM",
     totalParticipated: "55",

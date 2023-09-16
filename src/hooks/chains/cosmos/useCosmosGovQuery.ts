@@ -2,6 +2,9 @@ import axios from "axios";
 import { ILpCardProps } from "../../../components/Governance/LpCard";
 import { parseIsoTimeString } from "../../../utils/common";
 import { useState } from "react";
+import Long from "long";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { proposalsState } from "../../../context/proposalsState";
 
 interface IProposalData {
   proposals: Array<any>;
@@ -9,6 +12,9 @@ interface IProposalData {
 }
 
 export const useCosmosGovQuery = () => {
+  const { sortedLpList, sortedOpList, userVotingPower } =
+    useRecoilValue(proposalsState);
+  const setProposalsState = useSetRecoilState(proposalsState);
   const [proposalsList, setProposalsList] = useState<Array<ILpCardProps>>([]);
 
   const getGovProposals = async () => {
@@ -59,12 +65,41 @@ export const useCosmosGovQuery = () => {
 
   const getUserCosmosDelegations = async (address: string) => {
     const response = await axios.get(
-      `https://cosmos-lcd.easy2stake.com/cosmos/staking/v1beta1/delegations/${address}`
+      `https://cosmos-api.polkachu.com/cosmos/staking/v1beta1/delegations/${address}`
     );
     return response?.data.delegation_responses;
   };
 
-  const getUserVotingPower = () => {};
+  const getCosmosVotingPower = async (address: string) => {
+    const totalDeposits = await getCosmosTotalBondedToken();
+    const userDelegation = await getUserCosmosDelegations(address);
+    let totalUserDelegatedAmount = 0;
+    if (userDelegation.length) {
+      userDelegation.forEach((item: any) => {
+        totalUserDelegatedAmount += Number(item.balance.amount);
+      });
+    }
+
+    const userVp = (totalUserDelegatedAmount / Number(totalDeposits)).toFixed(
+      10
+    );
+    const votingPower = {
+      address,
+      amount: {
+        amount: totalUserDelegatedAmount,
+        denom: "ATOM",
+      },
+      userVotingPower: userVp,
+      totalDeposits,
+    };
+    const updatedState = {
+      sortedLpList,
+      sortedOpList,
+      userVotingPower: { ...userVotingPower, Cosmos: votingPower },
+    };
+    setProposalsState(updatedState);
+    return votingPower;
+  };
 
   const getCosmosProposalTurnout = async (proposal: any) => {
     const totalBonded = await getCosmosTotalBondedToken();
@@ -199,5 +234,6 @@ export const useCosmosGovQuery = () => {
     getProposalById,
     getParsedCosmosProposal,
     getCosmosTotalBondedToken,
+    getCosmosVotingPower,
   };
 };

@@ -19,6 +19,8 @@ export const useDisconnetWallet = () => {
   const setWalletState = useSetRecoilState(walletState);
   //   const { Success } = useMessageToaster();
   return () => {
+    console.log("called");
+
     /*
      *Change Login status in the local storage
      */
@@ -27,11 +29,10 @@ export const useDisconnetWallet = () => {
      *Reset the wallet state
      */
     setWalletState({
-      client: undefined,
-      address: undefined,
-      shortAddress: undefined,
-      balance: undefined,
-      nickName: undefined,
+      Stride: undefined,
+      Cosmos: undefined,
+      Neutron: undefined,
+      isLoggedIn: false,
     });
     // Success("Wallet Disconnected!");
   };
@@ -73,27 +74,50 @@ export const useConnectWallet = () => {
       // //   );
       // console.log("1");
 
-      await (window as any).keplr.enable(chainInfo.getChainId());
+      await (window as any).keplr.enable("cosmoshub-4");
+      await (window as any).keplr.enable("stride-1");
+      await (window as any).keplr.enable("neutron-1");
 
       console.log("1");
 
-      const offlineSigner = (window as any).keplr.getOfflineSignerOnlyAmino(
-        chainInfo.getChainId()
-      );
+      const cosmosOfflineSigner = (
+        window as any
+      ).keplr.getOfflineSignerOnlyAmino("cosmoshub-4");
+      const strideOfflineSigner = (
+        window as any
+      ).keplr.getOfflineSignerOnlyAmino("stride-1");
+      const neutronOfflineSigner = (
+        window as any
+      ).keplr.getOfflineSignerOnlyAmino("neutron-1");
       console.log(chainInfo.getChainId());
 
-      const [{ address }] = await offlineSigner.getAccounts();
-
-      const wasmChainClient = await SigningCosmWasmClient.connectWithSigner(
-        chainInfo.getRpcUrl(),
-        offlineSigner
+      console.log(
+        cosmosOfflineSigner,
+        strideOfflineSigner,
+        neutronOfflineSigner
       );
 
-      const balance = await wasmChainClient.getBalance(address, baseDenom);
+      // const [{ cosmosAddress }] = await cosmosOfflineSigner.getAccounts();
+      // const [{ strideAddress }] = await strideOfflineSigner.getAccounts();
+      // const [{ neutronAddress }] = await neutronOfflineSigner.getAccounts();
+      const cosmosAddress = (await cosmosOfflineSigner.getAccounts())[0]
+        ?.address;
+      const strideAddress = (await strideOfflineSigner.getAccounts())[0]
+        ?.address;
+      const neutronAddress = (await neutronOfflineSigner.getAccounts())[0]
+        ?.address;
+      console.log(cosmosAddress, strideAddress, neutronAddress);
 
-      const walletName = await (window as any).keplr.getKey(
-        chainInfo.getChainId()
-      );
+      // const wasmChainClient = await SigningCosmWasmClient.connectWithSigner(
+      //   chainInfo.getRpcUrl(),
+      //   offlineSigner
+      // );
+
+      // const balance = await wasmChainClient.getBalance(address, baseDenom);
+
+      // const walletName = await (window as any).keplr.getKey(
+      //   chainInfo.getChainId()
+      // );
 
       // toast.update(tid, {
       //   type: "success",
@@ -104,29 +128,24 @@ export const useConnectWallet = () => {
 
       /* successfully update the wallet state */
       setWalletState({
-        address: address,
-        shortAddress:
-          address.substr(0, 8) + "..." + address.substr(address.length - 3, 3),
-        balance: {
-          amount: coinConvert(balance.amount, 18, "human"),
-          denom: balance.denom,
-        },
-        client: wasmChainClient,
-        nickName: walletName.name,
+        Cosmos: cosmosAddress,
+        Stride: strideAddress,
+        Neutron: neutronAddress,
+        isLoggedIn: true,
       });
       sessionStorage.setItem("isLoggedIn", "true");
 
       // TODO: make an efficient method to check the keplr account switch, instead of checking every second
-      setInterval(async () => {
-        const tmepdata = await offlineSigner.getAccounts();
-        const temp = tmepdata[0]?.address;
-        if (temp === address) {
-          await sleep(2);
-        } else {
-          //   navigate("/");
-          window.location.reload();
-        }
-      }, 4000);
+      // setInterval(async () => {
+      //   const tmepdata = await offlineSigner.getAccounts();
+      //   const temp = tmepdata[0]?.address;
+      //   if (temp === address) {
+      //     await sleep(2);
+      //   } else {
+      //     //   navigate("/");
+      //     window.location.reload();
+      //   }
+      // }, 4000);
     } catch (error) {
       console.log(error);
     } finally {

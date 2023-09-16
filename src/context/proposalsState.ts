@@ -5,13 +5,13 @@ import { ILpCardProps } from "../components/Governance/LpCard";
 export const proposalsState = atom<{
   sortedLpList: ILpCardProps[];
   sortedOpList: ILpCardProps[];
-  userVotingPower: any[];
+  userVotingPower: any;
 }>({
-  key: "walletState",
+  key: "proposalsState",
   default: {
     sortedLpList: [],
     sortedOpList: [],
-    userVotingPower: [],
+    userVotingPower: {},
   },
   dangerouslyAllowMutability: true,
 });

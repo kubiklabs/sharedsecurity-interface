@@ -6,12 +6,15 @@ import { useStrideGovQuery } from "./chains/stride/useStrideGovQuery";
 import { useStrideGovTxn } from "./chains/stride/useStrideGovTxn";
 
 export const useGovernance = () => {
-  const { getParsedCosmosProposal, getCosmosTotalBondedToken } =
-    useCosmosGovQuery();
+  const {
+    getParsedCosmosProposal,
+    getCosmosTotalBondedToken,
+    getCosmosVotingPower,
+  } = useCosmosGovQuery();
   const { getParsedNeutronProposal } = useNeutronGovQuery();
-  const { getParsedStrideProposal } = useStrideGovQuery();
-  const { sendCosmosVote } = useCosmosGovTxn();
-  const { sendStrideVote } = useStrideGovTxn();
+  const { getParsedStrideProposal, getStrideVotingPower } = useStrideGovQuery();
+  const { sendCosmosVote, getCosmosAddressSigner } = useCosmosGovTxn();
+  const { sendStrideVote, getStrideAddressSigner } = useStrideGovTxn();
   const { sendNeutronVote } = useNeutronGovTxn();
   const fetchProposalByIdAndName = async (name: string, id: string) => {
     console.log(id, name);
@@ -42,11 +45,34 @@ export const useGovernance = () => {
     }
   };
 
+  const fetchVotingPower = async (name: string) => {
+    switch (name) {
+      case "Cosmos":
+        {
+          const { address } = await getCosmosAddressSigner();
+          return await getCosmosVotingPower(address);
+        }
+        break;
+      case "Stride":
+        {
+          const { address } = await getStrideAddressSigner();
+          return await getStrideVotingPower(address);
+        }
+        break;
+      case "Neutron":
+
+      default:
+        break;
+    }
+  };
+
   const sendGovVote = async (
     name: string,
     proposalId: string,
     voteOption: string
   ) => {
+    console.log(name, proposalId, voteOption);
+
     switch (name) {
       case "Cosmos":
         return await sendCosmosVote(proposalId, voteOption);
@@ -60,5 +86,10 @@ export const useGovernance = () => {
         break;
     }
   };
-  return { fetchProposalByIdAndName, fetchTotalBondedToken, sendGovVote };
+  return {
+    fetchProposalByIdAndName,
+    fetchTotalBondedToken,
+    sendGovVote,
+    fetchVotingPower,
+  };
 };

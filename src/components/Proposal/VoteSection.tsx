@@ -2,6 +2,7 @@ import { Box, Grid } from "@chakra-ui/react";
 import React from "react";
 import Section from "../Layout/Section";
 import VoteCard from "./VoteCard";
+import ModalOverlay from "../modal/ModalOverlay";
 
 const DUMMY_VOTE = [
   {
@@ -36,25 +37,27 @@ const DUMMY_VOTE = [
 
 const VoteSection = ({ voteDistribution, prettyDenom }: any) => {
   return (
-    <Section heading="Your Vote">
-      <Grid
-        p={"15px"}
-        gap={"20px"}
-        gridTemplateColumns={"repeat(auto-fit, minmax(250px, 1fr))"}
-      >
-        {voteDistribution &&
-          Object.keys(voteDistribution.ratio).map((vote: any) => {
-            return (
-              <VoteCard
-                tokenAmountUnderVote={voteDistribution.tally[vote] / 1000000}
-                option={vote}
-                value={voteDistribution.ratio[vote]}
-                prettyDenom={prettyDenom}
-              />
-            );
-          })}
-      </Grid>
-    </Section>
+    <>
+      <Section heading="Your Vote">
+        <Grid
+          p={"15px"}
+          gap={"20px"}
+          gridTemplateColumns={"repeat(auto-fit, minmax(250px, 1fr))"}
+        >
+          {voteDistribution &&
+            Object.keys(voteDistribution.ratio).map((vote: any) => {
+              return (
+                <VoteCard
+                  tokenAmountUnderVote={voteDistribution.tally[vote] / 1000000}
+                  option={vote}
+                  value={voteDistribution.ratio[vote]}
+                  prettyDenom={prettyDenom}
+                />
+              );
+            })}
+        </Grid>
+      </Section>
+    </>
   );
 };
 

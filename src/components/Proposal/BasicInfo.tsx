@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Section from "../Layout/Section";
 import {
   Box,
@@ -13,9 +13,19 @@ import {
   ModalCloseButton,
   useDisclosure,
   Button,
+  ChakraProvider,
 } from "@chakra-ui/react";
 import KeyValuePair from "../DataDisplay/KeyValuePair";
 import { marked } from "marked";
+import theme from "@chakra-ui/theme";
+import { ChakraBaseProvider, extendBaseTheme } from "@chakra-ui/react";
+import StyledModal from "../Modal/StyledModal";
+
+// const theme = extendBaseTheme({
+//   components: {
+//     Modal,
+//   },
+// });
 
 export interface IBasicInfo {
   id: string;
@@ -40,15 +50,23 @@ const scrollbarStyle = {
 
 const BasicInfo = ({ id, title, status, description, turnout }: IBasicInfo) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [parsedHTML, setParsedHTML] = useState("");
 
   useEffect(() => {
     if (description) {
       const html = marked(description);
       // console.log(html, description);
-
+      setParsedHTML(html);
       (document.getElementById("description") as HTMLElement).innerHTML = html;
     }
-  }, [description]);
+  }, [description, isOpen]);
+
+  const handleModalOpen = () => {
+    onOpen();
+    (document.getElementById("description-2") as HTMLElement).innerHTML =
+      parsedHTML;
+  };
+
   return (
     <>
       <Section heading={`#${id}. ${title}`}>
@@ -85,7 +103,7 @@ const BasicInfo = ({ id, title, status, description, turnout }: IBasicInfo) => {
                   right: "10px",
                 }}
                 className="material-symbols-outlined"
-                onClick={onOpen}
+                onClick={handleModalOpen}
               >
                 open_in_full
               </span>
@@ -96,20 +114,10 @@ const BasicInfo = ({ id, title, status, description, turnout }: IBasicInfo) => {
           </Flex>
         </Flex>
       </Section>
-      <Modal
-        isCentered
-        motionPreset="slideInBottom"
-        isOpen={isOpen}
-        onClose={onClose}
-        size={"lg"}
-      >
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>{`#${id}. ${title}`}</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>Helllkdhduifh</ModalBody>
-        </ModalContent>
-      </Modal>
+      {/* <StyledModal isOpen={isOpen} onOpen={onOpen} onClose={onClose}>
+        <Box id="description-2" fontSize={"1.1rem"}>
+        </Box>
+      </StyledModal> */}
     </>
   );
 };

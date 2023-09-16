@@ -1,4 +1,17 @@
-import { Box, Flex, Stack, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Center,
+  Flex,
+  Spinner,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
+import { useRecoilValue } from "recoil";
+import { proposalsState } from "../../context/proposalsState";
+import { getShortHandAddress } from "../../utils/common";
+import { useGovernance } from "../../hooks/useGovernance";
+import { useState } from "react";
 
 export interface IVpCardProps {
   votePercent: string;
@@ -7,6 +20,7 @@ export interface IVpCardProps {
   accountAddress: string;
   totalParticipated: string;
   totalValidators: string;
+  name: string;
 }
 
 const VpCard = ({
@@ -16,7 +30,20 @@ const VpCard = ({
   totalParticipated,
   totalValidators,
   votePercent,
+  name,
 }: IVpCardProps) => {
+  const { userVotingPower } = useRecoilValue(proposalsState);
+  // console.log(userVotingPower);
+  const { fetchVotingPower } = useGovernance();
+
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleVpCalculate = async () => {
+    setIsLoading(true);
+    await fetchVotingPower(name);
+    setIsLoading(false);
+  };
+
   return (
     <Box
       width={"300px"}
@@ -27,32 +54,33 @@ const VpCard = ({
     >
       <Stack justifyContent={"center"} gap={"0"}>
         <Text m={"0 "} color={"rgba(255, 255, 255, 0.40)"}>
-          Voting Power on Cosmos
+          Voting Power on {name}
         </Text>
-        <Text margin={"0"} fontSize={"2rem"}>
-          {votePercent}
-        </Text>
-        <Flex alignItems={"center"} justifyContent={"center"} gap={"5px"}>
-          <Text>
-            {amountStaked} {denom}
-          </Text>
-          <Text color={"rgba(255, 255, 255, 0.40)"}>{accountAddress}</Text>
-        </Flex>
-        <Flex alignItems={"center"} justifyContent={"center"} gap={"5px"}>
-          <Text color={"rgba(255, 255, 255, 0.40)"} margin={"0"}>
-            Proposal Participated
-          </Text>
-          <Text m={"0"}>
-            {totalParticipated}/{totalValidators}
-          </Text>
-        </Flex>
-        <Box
-          m={"10px"}
-          width={"90%"}
-          height={"5px"}
-          borderRadius={"5px"}
-          bg={"green"}
-        ></Box>
+
+        {isLoading && (
+          <Center>
+            <Spinner width={"3rem"} height="3rem" />
+          </Center>
+        )}
+
+        {userVotingPower && userVotingPower[name] ? (
+          <>
+            <Text margin={"0"} fontSize={"2rem"}>
+              {Number(userVotingPower[name]?.userVotingPower) * 100}%
+            </Text>
+            <Flex alignItems={"center"} justifyContent={"center"} gap={"5px"}>
+              <Text>
+                {userVotingPower[name]?.amount.amount / 1000000}{" "}
+                {userVotingPower[name]?.amount.denom}
+              </Text>
+              <Text color={"rgba(255, 255, 255, 0.40)"}>
+                {getShortHandAddress(userVotingPower[name]?.address)}
+              </Text>
+            </Flex>
+          </>
+        ) : (
+          !isLoading && <Button onClick={handleVpCalculate}>Calculate</Button>
+        )}
       </Stack>
     </Box>
   );

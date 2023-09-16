@@ -17,34 +17,32 @@ import { Box } from "@chakra-ui/react";
 
 const ConnectWalletButton = () => {
   // const { isLoggingIn } = useContext(UserContext);
-  const { address, balance, shortAddress, nickName } =
-    useRecoilValue(walletState);
+  const { Cosmos, Neutron, Stride, isLoggedIn } = useRecoilValue(walletState);
   const connectWallet = useConnectWallet();
   // const { Success } = useMessageToaster();
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  let buttonName =
-    shortAddress === undefined ? "Connect Wallet" : (shortAddress as string);
-  if ((window as any).keplr === undefined) {
-    buttonName = "Install Keplr";
-  }
+  // let buttonName =
+  //   shortAddress === undefined ? "Connect Wallet" : (shortAddress as string);
+  // if ((window as any).keplr === undefined) {
+  //   buttonName = "Install Keplr";
+  // }
+
+  // console.log(Cosmos, Neutron, Stride);
 
   const connectHandler = async () => {
     setIsLoading(true);
-    if (address !== undefined) {
-      window.open(`https://www.mintscan.io/secret/account/${address}`);
-    } else {
-      await connectWallet();
-    }
+    await connectWallet();
+
     setIsLoading(false);
   };
 
   const resetUserData = useDisconnetWallet();
 
-  const copyAddress = () => {
-    navigator.clipboard.writeText(address || "");
-    // Success("Address copied to clipboard!");
-  };
+  // const copyAddress = () => {
+  //   navigator.clipboard.writeText(address || "");
+  //   // Success("Address copied to clipboard!");
+  // };
 
   return (
     <Box
@@ -56,11 +54,11 @@ const ConnectWalletButton = () => {
     >
       {isLoading ? (
         <button>Loading...</button>
-      ) : !address ? (
+      ) : !isLoggedIn ? (
         <button onClick={connectHandler}>Connect Keplr</button>
       ) : (
         <>
-          {address && <button onClick={connectHandler}>{nickName}</button>}
+          {/* {address && <button onClick={connectHandler}>{nickName}</button>}
           {" | "}
           <button onClick={connectHandler}>{shortAddress}</button>
           {" | "}
@@ -75,7 +73,7 @@ const ConnectWalletButton = () => {
               <FontAwesomeIcon icon={faCopy} size="1x" />
             </span>
           </button>
-          {"|"}
+          {"|"} */}
           <button>
             <span
               onClick={resetUserData}

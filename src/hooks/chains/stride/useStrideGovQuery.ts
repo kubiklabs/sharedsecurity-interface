@@ -4,6 +4,8 @@ import axios from "axios";
 import { ILpCardProps } from "../../../components/Governance/LpCard";
 import { parseIsoTimeString } from "../../../utils/common";
 import { useState } from "react";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { proposalsState } from "../../../context/proposalsState";
 
 interface IProposalData {
   proposals: Array<any>;
@@ -11,6 +13,9 @@ interface IProposalData {
 }
 
 export const useStrideGovQuery = () => {
+  const { sortedLpList, sortedOpList, userVotingPower } =
+    useRecoilValue(proposalsState);
+  const setProposalsState = useSetRecoilState(proposalsState);
   const [proposalsList, setProposalsList] = useState<Array<ILpCardProps>>([]);
 
   const getGovProposals = async () => {
@@ -59,6 +64,46 @@ export const useStrideGovQuery = () => {
 
     const totalBonded = response.data.pool.bonded_tokens;
     return totalBonded;
+  };
+
+  const getUserStrideDelegations = async (address: string) => {
+    const response = await axios.get(
+      `https://stride-api.polkachu.com/cosmos/staking/v1beta1/delegations/${address}`
+    );
+    return response?.data.delegation_responses;
+  };
+
+  const getStrideVotingPower = async (address: string) => {
+    const totalDeposits = await getStrideTotalBondedToken();
+    const userDelegation = await getUserStrideDelegations(address);
+    let totalUserDelegatedAmount = 0;
+    if (userDelegation.length) {
+      userDelegation.forEach((item: any) => {
+        totalUserDelegatedAmount += Number(item.balance.amount);
+      });
+    }
+
+    const userVp = (totalUserDelegatedAmount / Number(totalDeposits)).toFixed(
+      10
+    );
+    const votingPower = {
+      address,
+      amount: {
+        amount: totalUserDelegatedAmount,
+        denom: "ATOM",
+      },
+      userVotingPower: userVp,
+      totalDeposits,
+    };
+    const updatedState = {
+      sortedLpList,
+      sortedOpList,
+      userVotingPower: { ...userVotingPower, Stride: votingPower },
+    };
+    setProposalsState(updatedState);
+    console.log(votingPower);
+
+    return votingPower;
   };
 
   const getStrideProposalTurnout = async (proposal: any) => {
@@ -199,5 +244,6 @@ export const useStrideGovQuery = () => {
     getProposalById,
     getParsedStrideProposal,
     getStrideTotalBondedToken,
+    getStrideVotingPower,
   };
 };
