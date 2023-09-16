@@ -81,7 +81,7 @@ export const useCosmosGovQuery = () => {
     }
 
     const userVp = (totalUserDelegatedAmount / Number(totalDeposits)).toFixed(
-      10
+      5
     );
     const votingPower = {
       address,

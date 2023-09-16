@@ -15,6 +15,7 @@ const LoadingModal = ({
 
   return (
     <Modal
+      ariaHideApp={false}
       isOpen={isOpen}
       // onRequestClose={closeModal}
       contentLabel="Txn"

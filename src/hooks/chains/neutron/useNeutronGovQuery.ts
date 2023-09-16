@@ -4,11 +4,17 @@ import { useChainInfo } from "../../useChainInfo";
 import { neutronSingleProposal } from "../../../config/chains/Neutron/contracts/SingleProposalModule";
 import { parseNanosecondTimeString, sleep } from "../../../utils/common";
 import { ILpCardProps } from "../../../components/Governance/LpCard";
+import { neutronVotingModule } from "../../../config/chains/Neutron/contracts/VotingModule";
+import { useRecoilState } from "recoil";
+import { proposalsState } from "../../../context/proposalsState";
 
 export const useNeutronGovQuery = () => {
   const { getRpcUrl } = useChainInfo("neutron-1");
   const [queryClient, setQueryClient] = useState<CosmWasmClient>();
   const [proposals, setProposals] = useState<any[]>([]);
+
+  const [{ sortedLpList, sortedOpList, userVotingPower }, setProposalsState] =
+    useRecoilState(proposalsState);
 
   useEffect(() => {
     createQueryClient();
@@ -54,6 +60,60 @@ export const useNeutronGovQuery = () => {
 
     // console.log(response);
     return response;
+  };
+
+  const getNeutronTotalBondedTokens = async () => {
+    let client = queryClient;
+    if (!client) {
+      client = await createQueryClient();
+    }
+
+    const response = await client?.queryContractSmart(neutronVotingModule.at, {
+      total_power_at_height: {},
+    });
+
+    return response.power;
+  };
+
+  const getNeutronUserDelegations = async (address: string) => {
+    let client = queryClient;
+    if (!client) {
+      client = await createQueryClient();
+    }
+
+    console.log(address);
+
+    const response = await client?.queryContractSmart(neutronVotingModule.at, {
+      voting_power_at_height: {
+        address: "neutron106v0dgp92mwgerjph7aw84wwkutzuq4zlx0lks",
+      },
+    });
+
+    return response.power;
+  };
+
+  const getNeutronVotingPower = async (address: string) => {
+    const totalDeposits = await getNeutronTotalBondedTokens();
+    const totalUserDelegation = await getNeutronUserDelegations(address);
+    const userVp = (
+      Number(totalUserDelegation) / Number(totalDeposits)
+    ).toFixed(5);
+    const votingPower = {
+      address,
+      amount: {
+        amount: totalUserDelegation,
+        denom: "NTRN",
+      },
+      userVotingPower: userVp,
+      totalDeposits,
+    };
+    const updatedState = {
+      sortedLpList,
+      sortedOpList,
+      userVotingPower: { ...userVotingPower, Neutron: votingPower },
+    };
+    setProposalsState(updatedState);
+    return votingPower;
   };
 
   const calculateVoteDistribution = (votes: any) => {
@@ -166,5 +226,6 @@ export const useNeutronGovQuery = () => {
     getNeutronLpList,
     getNeutronOpList,
     getParsedNeutronProposal,
+    getNeutronVotingPower,
   };
 };
