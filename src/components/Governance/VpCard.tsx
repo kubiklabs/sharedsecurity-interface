@@ -46,14 +46,14 @@ const VpCard = ({
 
   return (
     <Box
-      width={"300px"}
+      // width={"300px"}
       bg={"rgba(255, 255, 255, 0.05)"}
       padding={"30px"}
       // paddingY={"20px"}
       borderRadius={"10px"}
     >
       <Stack justifyContent={"center"} gap={"0"}>
-        <Text m={"0 "} color={"rgba(255, 255, 255, 0.40)"}>
+        <Text mt={"0 "} color={"rgba(255, 255, 255, 0.40)"}>
           Voting Power on {name}
         </Text>
 
