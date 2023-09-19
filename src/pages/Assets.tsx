@@ -1,5 +1,11 @@
+import { Box } from "@chakra-ui/react";
+
 const Assets = () => {
-  return <div>Assets</div>;
+  return (
+    <Box>
+      <Box flexDirection={"column"} display={"flex"} gap={"20px"}></Box>
+    </Box>
+  );
 };
 
 export default Assets;
