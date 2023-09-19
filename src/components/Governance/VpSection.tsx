@@ -1,14 +1,8 @@
 import Section from "../Layout/Section";
 import { Grid, GridItem, Skeleton } from "@chakra-ui/react";
-import VpCard, { IVpCardProps } from "./VpCard";
+import VpCard from "./VpCard";
 
-const VpSection = ({
-  vpList,
-  isLoading,
-}: {
-  vpList: Array<IVpCardProps>;
-  isLoading?: boolean;
-}) => {
+const VpSection = () => {
   return (
     <Section
       heading="My Voting Power"
@@ -18,17 +12,17 @@ const VpSection = ({
       <Grid
         p={"15px"}
         gap={"20px"}
-        // justifyContent={"space-evenly"}
-        // gridAutoFlow={"column"}
         gridTemplateColumns={"repeat(auto-fit, minmax(320px, 1fr))"}
       >
-        {vpList?.map((item) => {
-          return (
-            <GridItem id={item.accountAddress}>
-              <VpCard {...item} />
-            </GridItem>
-          );
-        })}
+        <GridItem>
+          <VpCard name="Cosmos" />
+        </GridItem>
+        <GridItem>
+          <VpCard name="Neutron" />
+        </GridItem>
+        <GridItem>
+          <VpCard name="Stride" />
+        </GridItem>
       </Grid>
     </Section>
   );

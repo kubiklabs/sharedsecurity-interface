@@ -5,7 +5,7 @@ import { walletState } from "../context/walletState";
 // import { networkConstants } from "../utils/constants";
 import { coinConvert, sleep } from "../utils/common";
 import { useContext } from "react";
-import { UserContext } from "../context/userState";
+// import { UserContext } from "../context/userVpState";
 // import { useMessageToaster } from "./useMessageToaster";
 // import { toast } from "react-toastify";
 import { useChainInfo } from "./useChainInfo";
@@ -39,7 +39,7 @@ export const useDisconnetWallet = () => {
 };
 
 export const useConnectWallet = () => {
-  const { setIsLoggingIn } = useContext(UserContext);
+  // const { setIsLoggingIn } = useContext(UserContext);
   const setWalletState = useSetRecoilState(walletState);
   let activeNetwork = localStorage.getItem("activeNetworkChainId");
   if (!activeNetwork)
@@ -56,7 +56,7 @@ export const useConnectWallet = () => {
   return async () => {
     // const tid = toast.loading("Connecting to wallet");
     try {
-      setIsLoggingIn(true);
+      // setIsLoggingIn(true);
       console.log("1");
 
       while (
@@ -148,8 +148,6 @@ export const useConnectWallet = () => {
       // }, 4000);
     } catch (error) {
       console.log(error);
-    } finally {
-      setIsLoggingIn(false);
     }
   };
 };

@@ -1,5 +1,6 @@
 import { Decimal } from "decimal.js";
 import { ILpCardProps } from "../components/Governance/LpCard";
+import { assetChainMap } from "./constant";
 // import { networkConstants } from "./constants";
 
 // The number set here is an arbitrary number.
@@ -118,3 +119,10 @@ export const getNeutronOption = (option: string) => {
 
 export const getShortHandAddress = (address: string) =>
   address.substr(0, 8) + "..." + address.substr(address.length - 3, 3);
+
+export const getSymbolFromName = (name: string) => {
+  return assetChainMap[name as keyof typeof assetChainMap].symbol;
+};
+export const getDenomFromName = (name: string) => {
+  return assetChainMap[name as keyof typeof assetChainMap].symbol;
+};

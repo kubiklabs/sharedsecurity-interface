@@ -1,92 +1,4 @@
-import { ILpCardProps } from "../components/Governance/LpCard";
-import { IVpCardProps } from "../components/Governance/VpCard";
 import { IVoteValueProps } from "./interface";
-
-export const vpList: Array<IVpCardProps> = [
-  {
-    name: "Cosmos",
-    accountAddress: "neutron1...x0v",
-    amountStaked: "1,234,234",
-    denom: "NTRN",
-    totalParticipated: "55",
-    totalValidators: "90",
-    votePercent: "50%",
-  },
-  {
-    name: "Stride",
-    accountAddress: "neutron2...x0v",
-    amountStaked: "1,234,234",
-    denom: "ATOM",
-    totalParticipated: "55",
-    totalValidators: "90",
-    votePercent: "50%",
-  },
-  {
-    name: "Neutron",
-    accountAddress: "neutron3...x0v",
-    amountStaked: "1,234,234",
-    denom: "ATOM",
-    totalParticipated: "55",
-    totalValidators: "90",
-    votePercent: "50%",
-  },
-];
-
-// export const lpList: Array<ILpCardProps> = [
-//   {
-//     endDate: "09/08",
-//     endTime: "21:04",
-//     proposalId: "821",
-//     proposalTitle: "v12 Software Update",
-//     tags: ["Cosmos", "Software Update"],
-//     voteDistribution: {
-//       YES: "66.11",
-//       NO: "10.21",
-//       ABSTAIN: "10.59",
-//       VETO: "10.09",
-//     },
-//   },
-//   {
-//     endDate: "09/08",
-//     endTime: "21:04",
-//     proposalId: "214",
-//     proposalTitle: "Stride v14 Software Update",
-//     tags: ["Stride", "Software Update"],
-//     voteDistribution: {
-//       YES: "96.11",
-//       NO: "1.21",
-//       ABSTAIN: "1.59",
-//       VETO: "1.09",
-//     },
-//   },
-//   {
-//     endDate: "09/08",
-//     endTime: "21:04",
-//     proposalId: "881",
-//     proposalTitle: "v12 Software Update",
-//     tags: ["Cosmos", "Software Update"],
-//     voteDistribution: {
-//       YES: "96.11",
-//       NO: "1.21",
-//       ABSTAIN: "1.59",
-//       VETO: "1.09",
-//     },
-//   },
-//   {
-//     endDate: "09/08",
-//     endTime: "21:04",
-//     proposalId: "204",
-//     proposalTitle: "Stride v14 Software Update",
-//     tags: ["Stride", "Software Update"],
-//     voteDistribution: {
-//       YES: "96.11",
-//       NO: "1.21",
-//       ABSTAIN: "1.59",
-//       VETO: "1.09",
-//     },
-//   },
-// ];
-
 export const tagColorMap = {
   Cosmos: "rgba(156, 108, 255, 0.80)",
   "Software Update": "rgba(255, 139, 74, 0.80)",
@@ -175,6 +87,21 @@ export const neutronStatusMap = {
   execution_failed: {
     pretty: "Failed",
     bg: "orange",
+  },
+};
+
+export const assetChainMap = {
+  Cosmos: {
+    symbol: "ATOM",
+    denom: "uatom",
+  },
+  Stride: {
+    symbol: "STRD",
+    denom: "ustrd",
+  },
+  Neutron: {
+    symbol: "NTRN",
+    denom: "untrn",
   },
 };
 

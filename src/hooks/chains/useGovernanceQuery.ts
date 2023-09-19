@@ -1,41 +1,35 @@
 import axios from "axios";
 import { ILpCardProps } from "../../components/Governance/LpCard";
-import { parseIsoTimeString } from "../../utils/common";
+import {
+  getDenomFromName,
+  getSymbolFromName,
+  parseIsoTimeString,
+} from "../../utils/common";
 import { useState } from "react";
-import { useRecoilValue, useSetRecoilState } from "recoil";
-import { proposalsState } from "../../context/proposalsState";
 
 interface IProposalData {
   proposals: Array<any>;
   pagination: any;
 }
 
-export const useCosmosGovQuery = (restUrl: string, chain: string) => {
-  const { sortedLpList, sortedOpList, userVotingPower } =
-    useRecoilValue(proposalsState);
-  const setProposalsState = useSetRecoilState(proposalsState);
+export const useGovernanceQuery = (restUrl: string, chain: string) => {
   const [proposalsList, setProposalsList] = useState<Array<ILpCardProps>>([]);
 
   const getGovProposals = async () => {
-    const response = await axios.get(
-      `${restUrl}/${chain}/gov/v1beta1/proposals`
-    );
+    const response = await axios.get(`${restUrl}/cosmos/gov/v1beta1/proposals`);
     const proposalsData: IProposalData = response.data;
-    // console.log(proposalsData);
     return proposalsData;
   };
 
   const getAllGovProposals = async () => {
     let allProposalData: any = [];
-    const response = await axios.get(
-      `${restUrl}/${chain}/gov/v1beta1/proposals`
-    );
+    const response = await axios.get(`${restUrl}/cosmos/gov/v1beta1/proposals`);
     let proposalsData: IProposalData = response.data;
     allProposalData = allProposalData.concat(proposalsData.proposals);
 
     while (proposalsData.pagination.next_key != null) {
       const response = await axios.get(
-        `${restUrl}/${chain}/gov/v1beta1/proposals?pagination.key=${proposalsData.pagination.next_key}`
+        `${restUrl}/cosmos/gov/v1beta1/proposals?pagination.key=${proposalsData.pagination.next_key}`
       );
       proposalsData = response.data;
       allProposalData = allProposalData.concat(proposalsData.proposals);
@@ -46,25 +40,21 @@ export const useCosmosGovQuery = (restUrl: string, chain: string) => {
 
   const getProposalById = async (proposalId: string) => {
     const response = await axios.get(
-      `${restUrl}/${chain}/gov/v1beta1/proposals/${proposalId}`
+      `${restUrl}/cosmos/gov/v1beta1/proposals/${proposalId}`
     );
     const proposal = response.data.proposal;
     return proposal;
   };
 
   const getTotalBondedToken = async () => {
-    const response = await axios.get(
-      `${restUrl}/${chain}/staking/v1beta1/pool`
-    );
-    // console.log(response.data);
-
+    const response = await axios.get(`${restUrl}/cosmos/staking/v1beta1/pool`);
     const totalBonded = response.data.pool.bonded_tokens;
     return totalBonded;
   };
 
   const getUserDelegations = async (address: string) => {
     const response = await axios.get(
-      `${restUrl}/${chain}/staking/v1beta1/delegations/${address}`
+      `${restUrl}/cosmos/staking/v1beta1/delegations/${address}`
     );
     return response?.data.delegation_responses;
   };
@@ -86,17 +76,11 @@ export const useCosmosGovQuery = (restUrl: string, chain: string) => {
       address,
       amount: {
         amount: totalUserDelegatedAmount,
-        denom: "ATOM",
+        denom: getSymbolFromName(chain),
       },
       userVotingPower: userVp,
       totalDeposits,
     };
-    const updatedState = {
-      sortedLpList,
-      sortedOpList,
-      userVotingPower: { ...userVotingPower, Cosmos: votingPower },
-    };
-    setProposalsState(updatedState);
     return votingPower;
   };
 
@@ -151,7 +135,7 @@ export const useCosmosGovQuery = (restUrl: string, chain: string) => {
     };
   };
 
-  const getProposalsList = async () => {
+  const getParsedProposalsList = async () => {
     let proposalsList: Array<ILpCardProps> = [];
     const rawProposalsData = await getAllGovProposals();
 
@@ -166,7 +150,7 @@ export const useCosmosGovQuery = (restUrl: string, chain: string) => {
         proposalTitle: item.content.title,
         endDate: localeDateOnly,
         endTime: localeTimeOnly,
-        tags: ["Cosmos", proposalType],
+        tags: [chain, proposalType],
         voteDistribution: voteDistribution.ratio,
         status: item.status,
       };
@@ -179,7 +163,7 @@ export const useCosmosGovQuery = (restUrl: string, chain: string) => {
   const getLpList = async () => {
     let list: Array<ILpCardProps> = proposalsList;
     if (list?.length === 0) {
-      list = await getProposalsList();
+      list = await getParsedProposalsList();
     }
     const lpList: Array<ILpCardProps> = list?.filter(
       (proposal) => proposal.status === "PROPOSAL_STATUS_VOTING_PERIOD"
@@ -191,7 +175,7 @@ export const useCosmosGovQuery = (restUrl: string, chain: string) => {
     let list: Array<ILpCardProps> = proposalsList;
 
     if (list?.length === 0) {
-      list = await getProposalsList();
+      list = await getParsedProposalsList();
     }
     const opList: Array<ILpCardProps> = list?.filter(
       (proposal) => proposal.status !== "PROPOSAL_STATUS_VOTING_PERIOD"
@@ -199,7 +183,7 @@ export const useCosmosGovQuery = (restUrl: string, chain: string) => {
     return opList;
   };
 
-  const getParsedCosmosProposal = async (id: string) => {
+  const getParsedProposal = async (id: string) => {
     const rawProposal = await getProposalById(id);
     const turnout = await getProposalTurnout(rawProposal);
     const voteDistribution = getVoteDistribution(rawProposal);
@@ -215,8 +199,8 @@ export const useCosmosGovQuery = (restUrl: string, chain: string) => {
       votingStartTime: voteStartTime.localeStringFormat,
       totalDeposit: Number(rawProposal.total_deposit[0].amount) / 1000000,
       denom: {
-        pretty: "ATOM",
-        denom: "uatom",
+        pretty: getSymbolFromName(chain),
+        denom: getDenomFromName(chain),
       },
       turnout,
     };
@@ -231,8 +215,11 @@ export const useCosmosGovQuery = (restUrl: string, chain: string) => {
     getOpList,
     getAllGovProposals,
     getProposalById,
-    getParsedCosmosProposal,
+    getParsedProposal,
     getTotalBondedToken,
     getVotingPower,
+    getUserDelegations,
+    getProposalTurnout,
+    getParsedProposalsList,
   };
 };

@@ -1,8 +1,6 @@
 import { Box, Skeleton } from "@chakra-ui/react";
-import { IVpCardProps } from "../components/Governance/VpCard";
 import VpSection from "../components/Governance/VpSection";
 import LpSection from "../components/Governance/LpSection";
-import { vpList } from "../utils/constant";
 import InfoSection from "../components/Governance/InfoSection";
 import OpSection from "../components/Governance/OpSection";
 import { useCosmosGovQuery } from "../hooks/chains/cosmos/useCosmosGovQuery";
@@ -16,7 +14,8 @@ import { compareProposals } from "../utils/common";
 
 const Governance = () => {
   const [loading, setLoading] = useState(false);
-  const { getLpList, getOpList, getCosmosVotingPower } = useCosmosGovQuery();
+  const { getCosmosLpList, getCosmosOpList, getCosmosVotingPower } =
+    useCosmosGovQuery();
   const { getNeutronLpList, getNeutronOpList } = useNeutronGovQuery();
   const { getStrideLpList, getStrideOpList } = useStrideGovQuery();
   const neutronLpList = useRef<ILpCardProps[]>([]);
@@ -33,16 +32,10 @@ const Governance = () => {
 
   const fetchAllProposalsList = async () => {
     setLoading(true);
-    const lpList = await getLpList();
-    // setAllProposals((prev) => {
-    //   return {
-    //     ...prev,
-    //     sortedLpList: [...prev.sortedLpList, ...lpList],
-    //   };
-    // });
+    const lpList = await getCosmosLpList();
     neutronLpList.current = await getNeutronLpList();
     strideLpList.current = await getStrideLpList();
-    const opList = await getOpList();
+    const opList = await getCosmosOpList();
     neutronOpList.current = await getNeutronOpList();
     strideOpList.current = await getStrideOpList();
     const updatedState = {
@@ -65,7 +58,7 @@ const Governance = () => {
   return (
     <Box>
       <Box flexDirection={"column"} display={"flex"} gap={"20px"}>
-        <VpSection vpList={vpList} isLoading={loading} />
+        <VpSection />
         <LpSection isLoading={loading} lpList={sortedLpList} />
         <InfoSection />
         <OpSection isLoading={loading} opList={sortedOpList} />
