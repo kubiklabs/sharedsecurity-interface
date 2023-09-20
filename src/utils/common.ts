@@ -107,11 +107,11 @@ export const getCosmosOption = (option: string) => {
 export const getNeutronOption = (option: string) => {
   switch (option) {
     case "YES":
-      return 0;
+      return "yes";
     case "NO":
-      return 1;
+      return "no";
     case "ABSTAIN":
-      return 2;
+      return "abstain";
     default:
       break;
   }

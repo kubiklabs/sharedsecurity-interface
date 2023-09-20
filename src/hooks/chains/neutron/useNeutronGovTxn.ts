@@ -3,11 +3,17 @@ import { getNeutronOption, sleep } from "../../../utils/common";
 import { neutronSingleProposal } from "../../../config/chains/Neutron/contracts/SingleProposalModule";
 import { toast } from "react-toastify";
 import Long from "long";
+import { StdFee } from "@cosmjs/stargate";
 enum Vote {
   Yes,
   No,
   Abstain,
 }
+
+const defaultFee: StdFee = {
+  amount: [{ amount: "200000", denom: "umlg" }],
+  gas: "200000",
+};
 
 export const useNeutronGovTxn = () => {
   const getNeutronAddressSigner = async () => {
@@ -44,10 +50,10 @@ export const useNeutronGovTxn = () => {
         {
           vote: {
             proposal_id: Number(proposalId),
-            vote: getNeutronOption(voteOption),
+            vote: "yes",
           },
         },
-        { amount: [], gas: "200000" }
+        { amount: [], gas: "1500000" }
       );
 
       toast.success(

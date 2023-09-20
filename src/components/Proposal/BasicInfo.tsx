@@ -91,6 +91,7 @@ const BasicInfo = ({ id, title, status, description, turnout }: IBasicInfo) => {
               textAlign={"left"}
               color={"#bfbfbf"}
               position={"relative"}
+              minWidth={"95%"}
             >
               <span
                 style={{
