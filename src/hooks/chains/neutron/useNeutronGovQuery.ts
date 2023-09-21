@@ -21,9 +21,10 @@ export const useNeutronGovQuery = () => {
   }, []);
 
   const createQueryClient = async () => {
-    const queryClient = await CosmWasmClient.connect(getRpcUrl());
+    const queryClient = await CosmWasmClient.connect(
+      "https://rpc-kralum.neutron-1.neutron.org"
+    );
     // console.log(queryClient);
-
     setQueryClient(queryClient);
     return queryClient;
   };

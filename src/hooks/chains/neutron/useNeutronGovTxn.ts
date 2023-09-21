@@ -43,6 +43,7 @@ export const useNeutronGovTxn = () => {
         offlineSigner
       );
       console.log("reached");
+      console.log(client);
 
       const { transactionHash } = await client.execute(
         address,
@@ -50,7 +51,7 @@ export const useNeutronGovTxn = () => {
         {
           vote: {
             proposal_id: Number(proposalId),
-            vote: "yes",
+            vote: getNeutronOption(voteOption),
           },
         },
         { amount: [], gas: "1500000" }
