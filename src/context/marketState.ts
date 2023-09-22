@@ -7,9 +7,9 @@ export const marketState = atom<{
 }>({
   key: "marketState",
   default: {
-    Cosmos: {},
-    Stride: {},
-    Neutron: {},
+    Cosmos: undefined,
+    Stride: undefined,
+    Neutron: undefined,
   },
   dangerouslyAllowMutability: true,
 });
