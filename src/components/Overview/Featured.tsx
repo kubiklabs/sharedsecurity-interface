@@ -32,21 +32,25 @@ const stats = [
 ];
 
 const Featured = ({ stats }: { stats: Array<any> }) => {
-  const [totalMarketCap, setTotalMarketCap] = useState("");
+  const [totalMarketCap, setTotalMarketCap] = useState("-");
   const [{ Cosmos, Neutron, Stride }, setMarketState] =
     useRecoilState(marketState);
 
-  useEffect(() => {
-    calculateTotalMarketCap();
-  }, [Cosmos]);
+  // useEffect(() => {
+  //   calculateTotalMarketCap();
+  // }, [Cosmos]);
 
   const calculateTotalMarketCap = () => {
     let totalMarketCap = 0;
+    console.log(Cosmos);
+
     if (Cosmos) {
+      console.log(Cosmos.market_cap);
+
       totalMarketCap =
         Number(Cosmos.market_cap) +
-        Number(Neutron.market_cap) +
-        Number(Stride.market_cap);
+        Number(Neutron?.market_cap) +
+        Number(Stride?.market_cap);
     }
     setTotalMarketCap(totalMarketCap.toLocaleString());
     return totalMarketCap.toLocaleString();
