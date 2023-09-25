@@ -43,6 +43,8 @@ export const useGovernanceQuery = (restUrl: string, chain: string) => {
       `${restUrl}/cosmos/gov/v1beta1/proposals/${proposalId}`
     );
     const proposal = response.data.proposal;
+    console.log(response);
+
     return proposal;
   };
 
@@ -57,6 +59,14 @@ export const useGovernanceQuery = (restUrl: string, chain: string) => {
       `${restUrl}/cosmos/staking/v1beta1/delegations/${address}`
     );
     return response?.data.delegation_responses;
+  };
+
+  const getProposalTally = async (proposalId: string) => {
+    const response = await axios.get(
+      `${restUrl}/cosmos/gov/v1beta1/proposals/${proposalId}/tally`
+    );
+    console.log(response.data);
+    return response.data;
   };
 
   const getVotingPower = async (address: string) => {
@@ -105,8 +115,8 @@ export const useGovernanceQuery = (restUrl: string, chain: string) => {
     return proposalType;
   };
 
-  const getVoteDistribution = (proposal: any) => {
-    const votes = proposal.final_tally_result;
+  const calculateVoteDistribution = (votes: any) => {
+    // const votes = proposal.final_tally_result;
     let totalVotes: number = 0;
     Object.values(votes).map((count) => {
       totalVotes += Number(count);
@@ -135,16 +145,30 @@ export const useGovernanceQuery = (restUrl: string, chain: string) => {
     };
   };
 
+  const getVoteDistribution = (proposal: any) => {
+    // getProposalTally(proposalId);
+    // const proposal = await getProposalById(proposalId);
+    const votes = proposal.final_tally_result;
+    const distribution = calculateVoteDistribution(votes);
+    return distribution;
+  };
+
+  const getVoteDistributionById = async (proposalId: string) => {
+    const votes = (await getProposalTally(proposalId)).tally;
+    const distribution = calculateVoteDistribution(votes);
+    return distribution;
+  };
+
   const getParsedProposalsList = async () => {
     let proposalsList: Array<ILpCardProps> = [];
     const rawProposalsData = await getAllGovProposals();
 
-    rawProposalsData.forEach((item: any) => {
+    rawProposalsData.forEach(async (item: any) => {
       const { localeDateOnly, localeTimeOnly } = parseIsoTimeString(
         item.voting_end_time
       );
       const proposalType = getProposalType(item);
-      const voteDistribution = getVoteDistribution(item);
+      const voteDistribution = await getVoteDistribution(item);
       const newLpListItem: ILpCardProps = {
         proposalId: item.proposal_id,
         proposalTitle: item.content.title,
@@ -186,7 +210,7 @@ export const useGovernanceQuery = (restUrl: string, chain: string) => {
   const getParsedProposal = async (id: string) => {
     const rawProposal = await getProposalById(id);
     const turnout = await getProposalTurnout(rawProposal);
-    const voteDistribution = getVoteDistribution(rawProposal);
+    const voteDistribution = await getVoteDistributionById(id);
     const voteEndTime = parseIsoTimeString(rawProposal.voting_end_time);
     const voteStartTime = parseIsoTimeString(rawProposal.voting_start_time);
     const parsedProposal = {

@@ -6,6 +6,8 @@ export const useChainMarketInfo = () => {
   const [marketData, setMarketData] = useRecoilState(marketState);
 
   const getAllCoinsMarket = async () => {
+    try {
+    } catch (error) {}
     const response = await axios.get(
       "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=neutron%2Ccosmos%2C%20stride&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en"
     );
