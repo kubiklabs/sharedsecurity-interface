@@ -1,5 +1,5 @@
 import { Box, Divider, Flex, Image, Input, Text } from "@chakra-ui/react";
-import kubikLogo from "../../assets/kubik-logo.png";
+import kubikLogo from "../../assets/kubik-logo-white.png";
 // import { NavLink } from "react-router-dom";
 import NavItem from "./NavItem";
 
@@ -11,7 +11,7 @@ const SideBar = () => {
         <Text>Shared Security</Text>
       </Flex>
       <Divider height={"1px"} bg={"white"} />
-      <Input
+      {/* <Input
         placeholder="Search"
         size="lg"
         height={"30px"}
@@ -19,9 +19,9 @@ const SideBar = () => {
         border={"none"}
         px={"5px"}
         width={"100%"}
-      />
-      <Box>
-        <NavItem path="" name="Overview" iconName="overview" />
+      /> */}
+      <Box display={"flex"} flexDir={"column"} gap={"10px"}>
+        <NavItem path="overview" name="Overview" iconName="overview" />
         <NavItem path="aez" name="Atomic Economic Zone" iconName="swap_horiz" />
         <NavItem path="gov" name="Governance" iconName="person" />
         <NavItem path="assets" name="Asset" iconName="toll" />

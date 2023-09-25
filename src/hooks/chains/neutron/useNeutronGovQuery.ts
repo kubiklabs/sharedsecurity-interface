@@ -7,6 +7,7 @@ import { ILpCardProps } from "../../../components/Governance/LpCard";
 import { neutronVotingModule } from "../../../config/chains/Neutron/contracts/VotingModule";
 import { useRecoilState } from "recoil";
 import { proposalsState } from "../../../context/proposalsState";
+import { userVpState } from "../../../context/userVpState";
 
 export const useNeutronGovQuery = () => {
   const { getRpcUrl } = useChainInfo("neutron-1");
@@ -15,6 +16,7 @@ export const useNeutronGovQuery = () => {
 
   const [{ sortedLpList, sortedOpList, userVotingPower }, setProposalsState] =
     useRecoilState(proposalsState);
+  const [vpState, setVpState] = useRecoilState(userVpState);
 
   useEffect(() => {
     createQueryClient();
@@ -108,12 +110,8 @@ export const useNeutronGovQuery = () => {
       userVotingPower: userVp,
       totalDeposits,
     };
-    const updatedState = {
-      sortedLpList,
-      sortedOpList,
-      userVotingPower: { ...userVotingPower, Neutron: votingPower },
-    };
-    setProposalsState(updatedState);
+    const updatedState = { ...vpState, Neutron: votingPower };
+    setVpState(updatedState);
     return votingPower;
   };
 

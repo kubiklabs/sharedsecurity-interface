@@ -20,7 +20,7 @@ const LpSection = ({
   isLoading?: boolean;
 }) => {
   return (
-    <Section heading="Live Proposals" sideText="2/2">
+    <Section heading="Live Proposals">
       <Grid
         p={"15px"}
         gap={"20px"}

@@ -14,8 +14,7 @@ import { compareProposals } from "../utils/common";
 
 const Governance = () => {
   const [loading, setLoading] = useState(false);
-  const { getCosmosLpList, getCosmosOpList, getCosmosVotingPower } =
-    useCosmosGovQuery();
+  const { getCosmosLpList, getCosmosOpList } = useCosmosGovQuery();
   const { getNeutronLpList, getNeutronOpList } = useNeutronGovQuery();
   const { getStrideLpList, getStrideOpList } = useStrideGovQuery();
   const neutronLpList = useRef<ILpCardProps[]>([]);

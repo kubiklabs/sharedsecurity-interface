@@ -2,7 +2,7 @@ import "./App.css";
 import SideBar from "./components/Navigation/SideBar";
 import { RecoilRoot } from "recoil";
 import Header from "./components/Navigation/Header";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { Box, Flex } from "@chakra-ui/react";
 import Overwiew from "./pages/Overwiew";
 import Aez from "./pages/Aez";
@@ -28,12 +28,13 @@ function App() {
             flex={"1"}
           >
             <Routes>
-              <Route path="/" element={<Overwiew />} />
+              <Route path="/overview" element={<Overwiew />} />
               <Route path="/aez" element={<Aez />} />
               <Route path="/gov" element={<Governance />} />
               <Route path="/gov/:chain/:proposalId" element={<Proposal />} />
               <Route path="/assets" element={<Assets />} />
               <Route path="/validators" element={<Validators />} />
+              <Route path="/" element={<Navigate to="/overview" replace />} />
             </Routes>
           </Box>
         </Flex>

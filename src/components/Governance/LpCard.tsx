@@ -35,6 +35,7 @@ const LpCard = ({
   return (
     <Box
       // maxWidth={"fit-content"}
+      border="2px solid rgba(156, 108, 255, 0.20)"
       bg={"rgba(255, 255, 255, 0.05)"}
       padding={"30px"}
       // paddingY={"20px"}

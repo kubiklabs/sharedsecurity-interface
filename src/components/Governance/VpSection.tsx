@@ -6,7 +6,6 @@ const VpSection = () => {
   return (
     <Section
       heading="My Voting Power"
-      sideText="2/2"
       subtitle="Get to know the value of your vote."
     >
       <Grid
