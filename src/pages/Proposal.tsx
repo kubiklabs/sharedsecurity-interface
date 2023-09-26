@@ -34,6 +34,7 @@ const Proposal = () => {
       <VoteSection
         prettyDenom={proposalData?.denom.pretty}
         voteDistribution={proposalData && proposalData.voteDistribution}
+        status={proposalData?.status}
       />
       <Overview voteDistribution={proposalData?.voteDistribution.ratio} />
       <OtherDetails

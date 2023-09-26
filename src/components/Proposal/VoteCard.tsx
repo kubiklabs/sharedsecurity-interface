@@ -39,7 +39,7 @@ const VoteCard = (props: any) => {
   return (
     <>
       <Flex
-        onClick={handleSendVote}
+        onClick={!props.disable ? handleSendVote : () => {}}
         p={"30px"}
         borderRadius={"10px"}
         flexDirection={"column"}

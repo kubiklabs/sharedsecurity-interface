@@ -36,7 +36,7 @@ const DUMMY_VOTE = [
   },
 ];
 
-const VoteSection = ({ voteDistribution, prettyDenom }: any) => {
+const VoteSection = ({ voteDistribution, prettyDenom, status }: any) => {
   const { fetchUserVote } = useGovernance();
   const { chain, proposalId } = useParams();
   const [userVote, setUserVote] = useState("");
@@ -66,6 +66,7 @@ const VoteSection = ({ voteDistribution, prettyDenom }: any) => {
             Object.keys(voteDistribution.ratio).map((vote: any) => {
               return (
                 <VoteCard
+                  disable={status && status !== "PROPOSAL_STATUS_VOTING_PERIOD"}
                   tokenAmountUnderVote={voteDistribution.tally[vote] / 1000000}
                   option={vote}
                   value={voteDistribution.ratio[vote]}
