@@ -6,6 +6,8 @@ import {
   parseIsoTimeString,
 } from "../../utils/common";
 import { useState } from "react";
+import { useRecoilValue } from "recoil";
+import { walletState } from "../../context/walletState";
 
 interface IProposalData {
   proposals: Array<any>;
@@ -14,6 +16,7 @@ interface IProposalData {
 
 export const useGovernanceQuery = (restUrl: string, chain: string) => {
   const [proposalsList, setProposalsList] = useState<Array<ILpCardProps>>([]);
+  const addresses = useRecoilValue(walletState);
 
   const getGovProposals = async () => {
     const response = await axios.get(`${restUrl}/cosmos/gov/v1beta1/proposals`);
@@ -67,6 +70,21 @@ export const useGovernanceQuery = (restUrl: string, chain: string) => {
     );
     console.log(response.data);
     return response.data;
+  };
+
+  const getUserVote = async (chain: string, proposalId: string) => {
+    const address = addresses[chain as keyof typeof addresses];
+    if (!address) return;
+    try {
+      const response = await axios.get(
+        `${restUrl}/cosmos/gov/v1beta1/proposals/${proposalId}/votes/${address}`
+      );
+      console.log("Voter", response);
+      return response.data.vote.option;
+    } catch (error) {
+      console.log(error);
+      return "";
+    }
   };
 
   const getVotingPower = async (address: string) => {
@@ -168,7 +186,7 @@ export const useGovernanceQuery = (restUrl: string, chain: string) => {
         item.voting_end_time
       );
       const proposalType = getProposalType(item);
-      const voteDistribution = await getVoteDistribution(item);
+      const voteDistribution = getVoteDistribution(item);
       const newLpListItem: ILpCardProps = {
         proposalId: item.proposal_id,
         proposalTitle: item.content.title,
@@ -245,5 +263,6 @@ export const useGovernanceQuery = (restUrl: string, chain: string) => {
     getUserDelegations,
     getProposalTurnout,
     getParsedProposalsList,
+    getUserVote,
   };
 };

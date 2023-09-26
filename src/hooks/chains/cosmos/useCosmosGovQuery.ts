@@ -19,6 +19,7 @@ export const useCosmosGovQuery = () => {
     getLpList,
     getOpList,
     getParsedProposal,
+    getUserVote,
   } = useGovernanceQuery(trustedRest, "Cosmos");
 
   const [userVp, setUserVp] = useRecoilState(userVpState);
@@ -49,6 +50,10 @@ export const useCosmosGovQuery = () => {
 
     setUserVp(updatedState);
     return votingPower;
+  };
+
+  const getCosmosUserVote = async (proposalId: string) => {
+    return await getUserVote("Cosmos", proposalId);
   };
 
   const getCosmosProposalTurnout = async (proposal: any) => {
@@ -89,5 +94,6 @@ export const useCosmosGovQuery = () => {
     getUserCosmosDelegations,
     getCosmosProposalTurnout,
     getCosmosParsedProposals,
+    getCosmosUserVote,
   };
 };

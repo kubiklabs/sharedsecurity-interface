@@ -29,6 +29,7 @@ export const useStrideGovQuery = () => {
     getLpList,
     getOpList,
     getParsedProposal,
+    getUserVote,
   } = useGovernanceQuery(trustedRest, "Stride");
 
   const [userVp, setUserVp] = useRecoilState(userVpState);
@@ -61,6 +62,10 @@ export const useStrideGovQuery = () => {
     return votingPower;
   };
 
+  const getStrideUserVote = async (proposalId: string) => {
+    return await getUserVote("Stride", proposalId);
+  };
+
   const getStrideProposalTurnout = async (proposal: any) => {
     return await getProposalTurnout(proposal);
   };
@@ -91,6 +96,7 @@ export const useStrideGovQuery = () => {
     getProposalType,
     getStrideVoteDistribution,
     getStrideOpList,
+    getStrideUserVote,
     getAllStrideGovProposals,
     getStrideProposalById,
     getParsedStrideProposal,

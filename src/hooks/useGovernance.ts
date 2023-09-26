@@ -10,20 +10,21 @@ export const useGovernance = () => {
     getParsedCosmosProposal,
     getCosmosTotalBondedToken,
     getCosmosVotingPower,
+    getCosmosUserVote,
   } = useCosmosGovQuery();
   const { getParsedNeutronProposal, getNeutronVotingPower } =
     useNeutronGovQuery();
-  const { getParsedStrideProposal, getStrideVotingPower } = useStrideGovQuery();
+  const { getParsedStrideProposal, getStrideVotingPower, getStrideUserVote } =
+    useStrideGovQuery();
   const { sendCosmosVote, getCosmosAddressSigner } = useCosmosGovTxn();
   const { sendStrideVote, getStrideAddressSigner } = useStrideGovTxn();
   const { sendNeutronVote, getNeutronAddressSigner } = useNeutronGovTxn();
+
   const fetchProposalByIdAndName = async (name: string, id: string) => {
     console.log(id, name);
 
     switch (name) {
       case "Cosmos":
-        // console.log(id);
-
         return await getParsedCosmosProposal(id);
 
       case "Neutron":
@@ -70,6 +71,19 @@ export const useGovernance = () => {
     }
   };
 
+  const fetchUserVote = async (name: string, id: string) => {
+    switch (name) {
+      case "Cosmos":
+        return await getCosmosUserVote(id);
+
+      case "Stride":
+        return await getStrideUserVote(id);
+
+      default:
+        break;
+    }
+  };
+
   const sendGovVote = async (
     name: string,
     proposalId: string,
@@ -95,5 +109,6 @@ export const useGovernance = () => {
     fetchTotalBondedToken,
     sendGovVote,
     fetchVotingPower,
+    fetchUserVote,
   };
 };

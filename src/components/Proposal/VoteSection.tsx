@@ -1,8 +1,9 @@
-import { Box, Grid } from "@chakra-ui/react";
-import React from "react";
+import { Grid } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
 import Section from "../Layout/Section";
 import VoteCard from "./VoteCard";
-import ModalOverlay from "../modal/ModalOverlay";
+import { useGovernance } from "../../hooks/useGovernance";
+import { useParams } from "react-router-dom";
 
 const DUMMY_VOTE = [
   {
@@ -36,9 +37,26 @@ const DUMMY_VOTE = [
 ];
 
 const VoteSection = ({ voteDistribution, prettyDenom }: any) => {
+  const { fetchUserVote } = useGovernance();
+  const { chain, proposalId } = useParams();
+  const [userVote, setUserVote] = useState("");
+
+  const getUserVote = async () => {
+    try {
+      const vote = await fetchUserVote(chain as string, proposalId as string);
+      setUserVote(vote);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getUserVote();
+  }, []);
+
   return (
     <>
-      <Section heading="Your Vote">
+      <Section heading="Your Vote" subtitle={userVote}>
         <Grid
           p={"15px"}
           gap={"20px"}
