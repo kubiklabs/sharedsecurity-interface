@@ -56,7 +56,12 @@ const Governance = () => {
 
   return (
     <Box>
-      <Box flexDirection={"column"} display={"flex"} gap={"20px"}>
+      <Box
+        flexDirection={"column"}
+        position={"relative"}
+        display={"flex"}
+        gap={"20px"}
+      >
         <VpSection />
         <LpSection isLoading={loading} lpList={sortedLpList} />
         <InfoSection />

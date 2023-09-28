@@ -7,7 +7,7 @@ import {
   useDisconnetWallet,
 } from "../../hooks/useConnectWallet";
 import { coinConvert } from "../../utils/common";
-import { Box, Tooltip } from "@chakra-ui/react";
+import { Box, Button, Tooltip } from "@chakra-ui/react";
 // import "./buttons.css";
 // import PulseLoader from "react-spinners/PulseLoader";
 // import { useMessageToaster } from "../../../hooks/useMessageToaster";
@@ -50,25 +50,27 @@ const ConnectWalletButton = () => {
       gap={"5px"}
     >
       {isLoading ? (
-        <button>Loading...</button>
+        <Button color={"white"} bg={"#BC3D70"}>
+          Loading...
+        </Button>
       ) : !isLoggedIn ? (
-        <button onClick={connectHandler}>Connect Keplr</button>
+        <Button onClick={connectHandler}>Connect Keplr</Button>
       ) : (
         <>
           {
-            <button style={{ height: "100%" }} onClick={connectHandler}>
+            <Button style={{ height: "100%" }} onClick={connectHandler}>
               {name}
-            </button>
+            </Button>
           }
           <Tooltip label="Disconnect">
-            <button>
+            <Button color={"white"} bg={"#BC3D70"}>
               <span
                 onClick={resetUserData}
                 className="material-symbols-outlined logout-logo"
               >
                 logout
               </span>
-            </button>
+            </Button>
           </Tooltip>
         </>
       )}

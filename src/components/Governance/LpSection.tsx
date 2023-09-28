@@ -11,6 +11,7 @@ import {
 import Section from "../Layout/Section";
 import LpCard, { ILpCardProps } from "./LpCard";
 import { compareProposals } from "../../utils/common";
+import PulseLive from "../PrettyUI/PulseLive/PulseLive";
 
 const LpSection = ({
   lpList,
@@ -21,6 +22,7 @@ const LpSection = ({
 }) => {
   return (
     <Section heading="Live Proposals">
+      <PulseLive />
       <Grid
         p={"15px"}
         gap={"20px"}

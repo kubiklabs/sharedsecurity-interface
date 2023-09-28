@@ -85,7 +85,7 @@ const OpSection = ({
             );
           })
         ) : (
-          <GridItem bg={"red.800"}>
+          <GridItem>
             {isLoading ? (
               <Spinner width={"3rem"} height="3rem" />
             ) : (

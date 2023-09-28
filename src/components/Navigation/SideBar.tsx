@@ -6,20 +6,11 @@ import NavItem from "./NavItem";
 const SideBar = () => {
   return (
     <Box pr={"20px"} borderRight={"1px solid white"} minWidth={"200px"}>
-      <Flex>
+      <Flex gap={"10px"} alignItems={"center"}>
         <Image width={"60px"} src={kubikLogo} alt="logo" />
-        <Text>Shared Security</Text>
+        <Text fontSize={"2xl"}>Shared Security</Text>
       </Flex>
       <Divider height={"1px"} bg={"white"} />
-      {/* <Input
-        placeholder="Search"
-        size="lg"
-        height={"30px"}
-        borderRadius={"5px"}
-        border={"none"}
-        px={"5px"}
-        width={"100%"}
-      /> */}
       <Box display={"flex"} flexDir={"column"} gap={"10px"}>
         <NavItem path="overview" name="Overview" iconName="overview" />
         <NavItem path="aez" name="Atomic Economic Zone" iconName="swap_horiz" />
