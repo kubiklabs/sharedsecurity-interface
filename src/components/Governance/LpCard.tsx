@@ -65,6 +65,7 @@ const LpCard = ({
             </SubtitleText>
           </Flex>
           <Button
+            color={"white"}
             bg={
               (
                 cosmosStatusMap[status as keyof typeof cosmosStatusMap] ||

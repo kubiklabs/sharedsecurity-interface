@@ -69,3 +69,14 @@
   padding: 20px;
   z-index: 3;
 }
+
+&::-webkit-scrollbar {
+  width: "5px";
+}
+&::-webkit-scrollbar-thumb {
+  background: "gray";
+  border-radius: "10px";
+}
+&::-webkit-scrollbar-thumb:hover {
+  background: "gray.400";
+}

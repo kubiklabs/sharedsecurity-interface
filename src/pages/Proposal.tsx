@@ -1,4 +1,4 @@
-import { Box, Heading } from "@chakra-ui/react";
+import { Box, Heading, Spinner } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import BasicInfo, { IBasicInfo } from "../components/Proposal/BasicInfo";
@@ -10,6 +10,7 @@ import OtherDetails from "../components/Proposal/OtherDetails";
 const Proposal = () => {
   const { chain, proposalId } = useParams();
   const [proposalData, setProposalData] = useState<any>();
+  const [isLoading, setIsLoading] = useState(false);
 
   const { fetchProposalByIdAndName } = useGovernance();
 
@@ -18,15 +19,19 @@ const Proposal = () => {
   }, []);
 
   const fetchProposal = async () => {
+    setIsLoading(true);
     const proposal = await fetchProposalByIdAndName(
       chain as string,
       proposalId as string
     );
     setProposalData(proposal);
+    setIsLoading(false);
     console.log(proposal);
   };
 
-  return (
+  return isLoading ? (
+    <Spinner width={"3rem"} height="3rem" />
+  ) : (
     <Box flexDirection={"column"} display={"flex"} gap={"20px"}>
       {/* {chain} */}
       {/* {proposalId} */}

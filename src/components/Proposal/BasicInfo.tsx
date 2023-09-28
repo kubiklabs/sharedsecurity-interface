@@ -14,6 +14,7 @@ import {
   useDisclosure,
   Button,
   ChakraProvider,
+  Tooltip,
 } from "@chakra-ui/react";
 import KeyValuePair from "../DataDisplay/KeyValuePair";
 import { marked } from "marked";
@@ -59,14 +60,16 @@ const BasicInfo = ({ id, title, status, description, turnout }: IBasicInfo) => {
 
   const handleModalOpen = () => {
     onOpen();
-    (document.getElementById("description-2") as HTMLElement).innerHTML =
+    console.log(document.getElementById("description-modal"));
+
+    (document.getElementById("description-modal") as HTMLElement).innerHTML =
       parsedHTML;
   };
 
   return (
     <>
       <Section heading={`#${id}. ${title}`}>
-        <Flex flexDirection={"column"}>
+        <Flex flexDirection={"column"} gap={"20px"}>
           <Flex gap={"10px"} justifyContent={"space-between"} width={"100%"}>
             <KeyValuePair keyField="Current Status" value={status} />
             <KeyValuePair
@@ -79,31 +82,35 @@ const BasicInfo = ({ id, title, status, description, turnout }: IBasicInfo) => {
             fontSize={"1.2rem"}
             alignItems={"flex-start"}
             flexDirection={"column"}
+            gap={"10px"}
+            position={"relative"}
           >
+            <Tooltip content="Expand">
+              <Button
+                bg={"whiteAlpha.700"}
+                sx={{
+                  position: "absolute",
+                  top: "50px",
+                  right: "10px",
+                  cursor: "pointer",
+                }}
+                onClick={handleModalOpen}
+              >
+                <span className="material-symbols-outlined">open_in_full</span>
+              </Button>
+            </Tooltip>
             <Text>Description</Text>
             <Box
               bg={"rgba(255, 255, 255, 0.10)"}
               maxH={"300px"}
               overflowY={"scroll"}
-              px={"25px"}
+              p={"25px"}
               borderRadius={"15px"}
               sx={scrollbarStyle}
               textAlign={"left"}
               color={"#bfbfbf"}
-              position={"relative"}
-              minWidth={"95%"}
+              width={"100%"}
             >
-              <span
-                style={{
-                  position: "absolute",
-                  top: "10px",
-                  right: "10px",
-                }}
-                className="material-symbols-outlined"
-                onClick={handleModalOpen}
-              >
-                open_in_full
-              </span>
               <Box id="description" fontSize={"1.1rem"}>
                 {/* {description && marked(description)} */}
               </Box>
@@ -111,10 +118,28 @@ const BasicInfo = ({ id, title, status, description, turnout }: IBasicInfo) => {
           </Flex>
         </Flex>
       </Section>
-      {/* <StyledModal isOpen={isOpen} onOpen={onOpen} onClose={onClose}>
-        <Box id="description-2" fontSize={"1.1rem"}>
-        </Box>
-      </StyledModal> */}
+      <Modal size={"xxl"} isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent
+          width={"80%"}
+          bg={"rgba(255, 255, 255, 0.05)"}
+          backdropFilter={"blur(20px)"}
+          padding={"15px"}
+        >
+          <ModalHeader>{`#${id}. ${title}`}</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <Box
+              dangerouslySetInnerHTML={{ __html: parsedHTML }}
+              id="description-modal"
+              fontSize={"1.1rem"}
+            >
+              {/* {description && marked(description)} */}
+            </Box>
+            {/* <Lorem count={2} /> */}
+          </ModalBody>
+        </ModalContent>
+      </Modal>
     </>
   );
 };

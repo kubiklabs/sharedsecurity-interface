@@ -32,7 +32,7 @@ const VpCard = ({ name }: { name: string }) => {
       padding={"30px"}
       borderRadius={"10px"}
     >
-      <Stack justifyContent={"center"} gap={"0"}>
+      <Stack justifyContent={"center"} gap={"15px"}>
         <Text mt={"0 "} color={"rgba(255, 255, 255, 0.40)"}>
           Voting Power on {name}
         </Text>

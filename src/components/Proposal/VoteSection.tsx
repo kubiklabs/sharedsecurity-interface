@@ -56,7 +56,14 @@ const VoteSection = ({ voteDistribution, prettyDenom, status }: any) => {
 
   return (
     <>
-      <Section heading="Your Vote" subtitle={userVote}>
+      <Section
+        heading="Your Vote"
+        subtitle={
+          userVote
+            ? `You have already voted with ${userVote}.`
+            : "Looks like you haven't voted yet. Vote now."
+        }
+      >
         <Grid
           p={"15px"}
           gap={"20px"}

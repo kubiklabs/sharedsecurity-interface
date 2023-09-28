@@ -1,6 +1,6 @@
 import React from "react";
 import Section from "../Layout/Section";
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Box, Flex, Text, Tooltip } from "@chakra-ui/react";
 import { IVoteValueProps } from "../../utils/interface";
 import { bigSmallTextColorMap } from "../../utils/constant";
 
@@ -20,13 +20,19 @@ const Overview = ({ voteDistribution }: any) => {
         {voteDistribution &&
           Object.keys(voteDistribution).map((vote) => {
             return (
-              <Box
-                // my={"10px"}
-                width={`${voteDistribution[vote as keyof IVoteValueProps]}%`}
-                height={"5px"}
-                // borderRadius={"5px"}
-                bg={bigSmallTextColorMap[vote as keyof IVoteValueProps]}
-              ></Box>
+              <Tooltip
+                content={`${vote}:${
+                  voteDistribution[vote as keyof IVoteValueProps]
+                }%`}
+              >
+                <Box
+                  // my={"10px"}
+                  width={`${voteDistribution[vote as keyof IVoteValueProps]}%`}
+                  height={"5px"}
+                  // borderRadius={"5px"}
+                  bg={bigSmallTextColorMap[vote as keyof IVoteValueProps]}
+                ></Box>
+              </Tooltip>
             );
           })}
       </Box>

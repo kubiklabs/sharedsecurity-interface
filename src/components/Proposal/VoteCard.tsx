@@ -48,9 +48,14 @@ const VoteCard = (props: any) => {
         minWidth={"fit-content"}
         transition={"ease-in-out 500ms"}
         _hover={{
-          border: `2px solid ${
+          boxShadow: `-5px -5px 5px ${
             colorVoteMap[props.option as keyof IColorVoteMap].color
-          }`,
+          },15px 15px 15px rgba(0, 0, 0, 0.1),inset -5px -5px 5px ${
+            colorVoteMap[props.option as keyof IColorVoteMap].color
+          },inset 5px 5px 5px rgba(0, 0, 0, 0.1)`,
+          // border: `2px solid ${
+          //   colorVoteMap[props.option as keyof IColorVoteMap].color
+          // }`,
           cursor: "pointer",
         }}
       >
