@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Section from "../Layout/Section";
 import {
   Button,
@@ -12,6 +12,9 @@ import {
 } from "@chakra-ui/react";
 import LpCard, { ILpCardProps } from "./LpCard";
 import { compareProposals } from "../../utils/common";
+import Pagination from "../Pagination/Pagination";
+
+const itemsPerPage = 10;
 
 const OpSection = ({
   opList,
@@ -20,7 +23,29 @@ const OpSection = ({
   opList: Array<ILpCardProps>;
   isLoading?: boolean;
 }) => {
-  // console.log();
+  const pageCount =
+    useMemo(() => Math.ceil(opList?.length / itemsPerPage), [opList]) || 0;
+
+  const [itemOffset, setItemOffset] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [currentItems, setCurrentItems] = useState(opList?.slice(0, 10));
+
+  useEffect(() => {
+    setCurrentItems(opList?.slice(0, 10));
+  }, [opList]);
+
+  const handlePageClick = (page: number) => {
+    setCurrentPage(page);
+    const newOffset = ((page - 1) * itemsPerPage) % opList.length;
+    console.log(
+      `User requested page number ${page}, which is offset ${newOffset}`
+    );
+    setItemOffset(newOffset);
+    const endOffset = newOffset + itemsPerPage;
+    const currentItems = opList.slice(newOffset, endOffset);
+    setCurrentItems(currentItems);
+  };
+
   return (
     <Section heading="Other Proposals" sideText="122/122">
       <Flex px={"15px"} justifyContent={"space-between"}>
@@ -49,10 +74,10 @@ const OpSection = ({
         gap={"20px"}
         // justifyContent={"space-evenly"}
         // gridAutoFlow={"column"}
-        gridTemplateColumns={"repeat(auto-fit, minmax(485px, 1fr))"}
+        gridTemplateColumns={"repeat(auto-fit, minmax(550px, 1fr))"}
       >
-        {opList?.length ? (
-          opList?.map((item) => {
+        {currentItems?.length ? (
+          currentItems?.map((item) => {
             return (
               <GridItem id={item.proposalId}>
                 <LpCard {...item} />
@@ -76,6 +101,11 @@ const OpSection = ({
           </GridItem>
         )}
       </Grid>
+      <Pagination
+        currentPage={currentPage}
+        totalPages={pageCount}
+        onPageChange={handlePageClick}
+      />
     </Section>
   );
 };

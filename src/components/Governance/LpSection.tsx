@@ -26,7 +26,7 @@ const LpSection = ({
         gap={"20px"}
         // justifyContent={"space-evenly"}
         // gridAutoFlow={"column"}
-        gridTemplateColumns={"repeat(auto-fit, minmax(485px, 1fr))"}
+        gridTemplateColumns={"repeat(auto-fit, minmax(550px, 1fr))"}
       >
         {isLoading ? (
           <Center>

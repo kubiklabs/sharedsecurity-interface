@@ -11,12 +11,14 @@ export const walletState = atom<{
   Stride: string | undefined;
   Neutron: string | undefined;
   isLoggedIn: boolean;
+  name: string | undefined;
 }>({
   key: "walletState",
   default: {
     Cosmos: undefined,
     Stride: undefined,
     Neutron: undefined,
+    name: undefined,
     isLoggedIn: false,
   },
 

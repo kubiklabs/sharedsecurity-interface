@@ -1,14 +1,8 @@
 import { useSetRecoilState } from "recoil";
-import { SigningCosmWasmClient } from "@cosmjs/cosmwasm-stargate";
-
 import { walletState } from "../context/walletState";
-// import { networkConstants } from "../utils/constants";
-import { coinConvert, sleep } from "../utils/common";
-import { useContext } from "react";
-// import { UserContext } from "../context/userVpState";
-// import { useMessageToaster } from "./useMessageToaster";
-// import { toast } from "react-toastify";
+import { sleep } from "../utils/common";
 import { useChainInfo } from "./useChainInfo";
+import { toast } from "react-toastify";
 
 export interface Coin {
   readonly denom: string;
@@ -17,7 +11,6 @@ export interface Coin {
 
 export const useDisconnetWallet = () => {
   const setWalletState = useSetRecoilState(walletState);
-  //   const { Success } = useMessageToaster();
   return () => {
     console.log("called");
 
@@ -32,8 +25,11 @@ export const useDisconnetWallet = () => {
       Stride: undefined,
       Cosmos: undefined,
       Neutron: undefined,
+      name: undefined,
       isLoggedIn: false,
     });
+    toast.success("Keplr is Disconnected");
+
     // Success("Wallet Disconnected!");
   };
 };
@@ -96,17 +92,16 @@ export const useConnectWallet = () => {
         strideOfflineSigner,
         neutronOfflineSigner
       );
-
-      // const [{ cosmosAddress }] = await cosmosOfflineSigner.getAccounts();
-      // const [{ strideAddress }] = await strideOfflineSigner.getAccounts();
-      // const [{ neutronAddress }] = await neutronOfflineSigner.getAccounts();
       const cosmosAddress = (await cosmosOfflineSigner.getAccounts())[0]
         ?.address;
       const strideAddress = (await strideOfflineSigner.getAccounts())[0]
         ?.address;
       const neutronAddress = (await neutronOfflineSigner.getAccounts())[0]
         ?.address;
-      console.log(cosmosAddress, strideAddress, neutronAddress);
+      const walletName = (
+        await (window as any).keplr.getKey(chainInfo.getChainId())
+      ).name;
+      console.log(cosmosAddress, strideAddress, neutronAddress, walletName);
 
       // const wasmChainClient = await SigningCosmWasmClient.connectWithSigner(
       //   chainInfo.getRpcUrl(),
@@ -119,21 +114,16 @@ export const useConnectWallet = () => {
       //   chainInfo.getChainId()
       // );
 
-      // toast.update(tid, {
-      //   type: "success",
-      //   render: `Keplr is connected!`,
-      //   isLoading: false,
-      //   autoClose: 5000,
-      // });
-
       /* successfully update the wallet state */
       setWalletState({
         Cosmos: cosmosAddress,
         Stride: strideAddress,
         Neutron: neutronAddress,
         isLoggedIn: true,
+        name: walletName,
       });
       sessionStorage.setItem("isLoggedIn", "true");
+      toast.success("Keplr is connected");
 
       // TODO: make an efficient method to check the keplr account switch, instead of checking every second
       // setInterval(async () => {

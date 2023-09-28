@@ -53,9 +53,11 @@ const VpCard = ({ name }: { name: string }) => {
                 {userVp[name as keyof IUserVpType]?.amount.denom}
               </Text>
               <Text color={"rgba(255, 255, 255, 0.40)"}>
+                (
                 {getShortHandAddress(
                   userVp[name as keyof IUserVpType]?.address
                 )}
+                )
               </Text>
             </Flex>
           </>
