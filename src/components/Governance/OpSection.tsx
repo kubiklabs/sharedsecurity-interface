@@ -47,7 +47,7 @@ const OpSection = ({
   };
 
   return (
-    <Section heading="Other Proposals" sideText="122/122">
+    <Section heading="Other Proposals">
       <Flex px={"15px"} justifyContent={"space-between"}>
         <Input
           placeholder="Search Proposals by name or Id....."

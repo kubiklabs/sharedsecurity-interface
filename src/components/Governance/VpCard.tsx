@@ -44,7 +44,9 @@ const VpCard = ({ name }: { name: string }) => {
         {userVp && userVp[name as keyof IUserVpType] ? (
           <>
             <Text margin={"0"} fontSize={"2rem"}>
-              {Number(userVp[name as keyof IUserVpType]?.userVotingPower) * 100}
+              {(
+                Number(userVp[name as keyof IUserVpType]?.userVotingPower) * 100
+              ).toFixed(10)}
               %
             </Text>
             <Flex alignItems={"center"} justifyContent={"center"} gap={"5px"}>

@@ -98,8 +98,10 @@ export const useGovernanceQuery = (restUrl: string, chain: string) => {
     }
 
     const userVp = (totalUserDelegatedAmount / Number(totalDeposits)).toFixed(
-      5
+      10
     );
+    console.log(userVp, "string");
+
     const votingPower = {
       address,
       amount: {

@@ -1,21 +1,15 @@
 import { CosmWasmClient } from "@cosmjs/cosmwasm-stargate";
-import { useEffect, useRef, useState } from "react";
-import { useChainInfo } from "../../useChainInfo";
+import { useEffect, useState } from "react";
 import { neutronSingleProposal } from "../../../config/chains/Neutron/contracts/SingleProposalModule";
 import { parseNanosecondTimeString, sleep } from "../../../utils/common";
 import { ILpCardProps } from "../../../components/Governance/LpCard";
 import { neutronVotingModule } from "../../../config/chains/Neutron/contracts/VotingModule";
 import { useRecoilState } from "recoil";
-import { proposalsState } from "../../../context/proposalsState";
 import { userVpState } from "../../../context/userVpState";
 
 export const useNeutronGovQuery = () => {
-  const { getRpcUrl } = useChainInfo("neutron-1");
   const [queryClient, setQueryClient] = useState<CosmWasmClient>();
   const [proposals, setProposals] = useState<any[]>([]);
-
-  const [{ sortedLpList, sortedOpList, userVotingPower }, setProposalsState] =
-    useRecoilState(proposalsState);
   const [vpState, setVpState] = useRecoilState(userVpState);
 
   useEffect(() => {
@@ -88,7 +82,7 @@ export const useNeutronGovQuery = () => {
 
     const response = await client?.queryContractSmart(neutronVotingModule.at, {
       voting_power_at_height: {
-        address: "neutron106v0dgp92mwgerjph7aw84wwkutzuq4zlx0lks",
+        address: address,
       },
     });
 
@@ -100,7 +94,7 @@ export const useNeutronGovQuery = () => {
     const totalUserDelegation = await getNeutronUserDelegations(address);
     const userVp = (
       Number(totalUserDelegation) / Number(totalDeposits)
-    ).toFixed(5);
+    ).toFixed(10);
     const votingPower = {
       address,
       amount: {
