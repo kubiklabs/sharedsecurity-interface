@@ -120,7 +120,7 @@ const LpCard = ({
             return (
               <BigSmallText
                 color={bigSmallTextColorMap[vote as keyof IVoteValueProps]}
-                bigText={voteDistribution[vote as keyof IVoteValueProps]}
+                bigText={voteDistribution[vote as keyof IVoteValueProps] || "-"}
                 smallText={vote}
               />
             );

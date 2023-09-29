@@ -35,6 +35,7 @@ const VpCard = ({ name }: { name: string }) => {
       bg={"rgba(255, 255, 255, 0.05)"}
       padding={"30px"}
       borderRadius={"10px"}
+      border={"2px solid rgba(156, 108, 255, 0.20)"}
     >
       <Stack justifyContent={"center"} gap={"15px"}>
         <Text mt={"0 "} color={"rgba(255, 255, 255, 0.40)"}>
@@ -55,7 +56,9 @@ const VpCard = ({ name }: { name: string }) => {
             </Text>
             <Flex alignItems={"center"} justifyContent={"center"} gap={"5px"}>
               <Text>
-                {userVp[name as keyof IUserVpType]?.amount.amount / 1000000}{" "}
+                {(
+                  userVp[name as keyof IUserVpType]?.amount.amount / 1000000
+                ).toLocaleString()}{" "}
                 {userVp[name as keyof IUserVpType]?.amount.denom}
               </Text>
               <Text color={"rgba(255, 255, 255, 0.40)"}>
