@@ -1,4 +1,18 @@
 import { IVoteValueProps } from "./interface";
+
+export const scrollbarStyle = {
+  "&::-webkit-scrollbar": {
+    width: "5px",
+  },
+  "&::-webkit-scrollbar-thumb": {
+    background: "gray",
+    borderRadius: "10px",
+  },
+  "&::-webkit-scrollbar-thumb:hover": {
+    background: "gray.400",
+  },
+};
+
 export const tagColorMap = {
   Cosmos: "rgba(156, 108, 255, 0.80)",
   "Software Update": "rgba(255, 139, 74, 0.80)",

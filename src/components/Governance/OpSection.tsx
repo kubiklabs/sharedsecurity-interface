@@ -60,7 +60,7 @@ const OpSection = ({
           bg={"rgba(255, 255, 255, 0.05)"}
         />
         <Flex gap={"15px"} alignItems={"center"}>
-          <Button>My Votes</Button>
+          {/* <Button>My Votes</Button> */}
           <span
             style={{ fontVariationSettings: "'FILL' 1", fontSize: "2rem" }}
             className="material-symbols-outlined"

@@ -1,9 +1,11 @@
 import { Grid } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Section from "../Layout/Section";
 import VoteCard from "./VoteCard";
 import { useGovernance } from "../../hooks/useGovernance";
 import { useParams } from "react-router-dom";
+import { useRecoilValue } from "recoil";
+import { walletState } from "../../context/walletState";
 
 const DUMMY_VOTE = [
   {
@@ -37,9 +39,16 @@ const DUMMY_VOTE = [
 ];
 
 const VoteSection = ({ voteDistribution, prettyDenom, status }: any) => {
+  const wallet = useRecoilValue(walletState);
   const { fetchUserVote } = useGovernance();
   const { chain, proposalId } = useParams();
   const [userVote, setUserVote] = useState("");
+  const chainAddress = useRef<string>("");
+
+  useEffect(() => {
+    const address = wallet[chain as keyof typeof wallet];
+    chainAddress.current = address as string;
+  }, [wallet]);
 
   const getUserVote = async () => {
     try {
@@ -61,7 +70,7 @@ const VoteSection = ({ voteDistribution, prettyDenom, status }: any) => {
         subtitle={
           userVote
             ? `You have already voted with ${userVote}.`
-            : "Looks like you haven't voted yet. Vote now."
+            : "Looks like you haven't voted on this proposal"
         }
       >
         <Grid
@@ -73,7 +82,11 @@ const VoteSection = ({ voteDistribution, prettyDenom, status }: any) => {
             Object.keys(voteDistribution.ratio).map((vote: any) => {
               return (
                 <VoteCard
-                  disable={status && status !== "PROPOSAL_STATUS_VOTING_PERIOD"}
+                  disable={
+                    status &&
+                    status !== "PROPOSAL_STATUS_VOTING_PERIOD" &&
+                    status !== "open"
+                  }
                   tokenAmountUnderVote={voteDistribution.tally[vote] / 1000000}
                   option={vote}
                   value={voteDistribution.ratio[vote]}

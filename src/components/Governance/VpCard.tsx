@@ -10,7 +10,7 @@ import {
 import { useRecoilValue } from "recoil";
 import { getShortHandAddress } from "../../utils/common";
 import { useGovernance } from "../../hooks/useGovernance";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { userVpState } from "../../context/userVpState";
 
 const VpCard = ({ name }: { name: string }) => {
@@ -19,6 +19,10 @@ const VpCard = ({ name }: { name: string }) => {
   const { fetchVotingPower } = useGovernance();
 
   const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    handleVpCalculate();
+  }, []);
 
   const handleVpCalculate = async () => {
     setIsLoading(true);

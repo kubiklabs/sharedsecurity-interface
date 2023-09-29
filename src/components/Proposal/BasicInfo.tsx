@@ -18,6 +18,7 @@ import {
 } from "@chakra-ui/react";
 import KeyValuePair from "../DataDisplay/KeyValuePair";
 import { marked } from "marked";
+import { scrollbarStyle } from "../../utils/constant";
 // const theme = extendBaseTheme({
 //   components: {
 //     Modal,
@@ -31,19 +32,6 @@ export interface IBasicInfo {
   description: string;
   turnout: string;
 }
-
-const scrollbarStyle = {
-  "&::-webkit-scrollbar": {
-    width: "5px",
-  },
-  "&::-webkit-scrollbar-thumb": {
-    background: "gray",
-    borderRadius: "10px",
-  },
-  "&::-webkit-scrollbar-thumb:hover": {
-    background: "gray.400",
-  },
-};
 
 const BasicInfo = ({ id, title, status, description, turnout }: IBasicInfo) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -102,16 +90,23 @@ const BasicInfo = ({ id, title, status, description, turnout }: IBasicInfo) => {
             <Text>Description</Text>
             <Box
               bg={"rgba(255, 255, 255, 0.10)"}
-              maxH={"300px"}
+              maxH={"400px"}
               overflowY={"scroll"}
               p={"25px"}
+              px={"50px"}
               borderRadius={"15px"}
               sx={scrollbarStyle}
               textAlign={"left"}
               color={"#bfbfbf"}
               width={"100%"}
             >
-              <Box id="description" fontSize={"1.1rem"}>
+              <Box
+                id="description"
+                fontSize={"1.1rem"}
+                display={"flex"}
+                flexDirection={"column"}
+                gap={"20px"}
+              >
                 {/* {description && marked(description)} */}
               </Box>
             </Box>
@@ -122,9 +117,15 @@ const BasicInfo = ({ id, title, status, description, turnout }: IBasicInfo) => {
         <ModalOverlay />
         <ModalContent
           width={"80%"}
-          bg={"rgba(255, 255, 255, 0.05)"}
-          backdropFilter={"blur(20px)"}
+          borderRadius={"15px"}
+          bg={"#201d27"}
+          // backdropFilter={"blur(20px)"}
           padding={"15px"}
+          px={"40px"}
+          color={"#bfbfbf"}
+          maxH={"90vh"}
+          overflow={"auto"}
+          sx={scrollbarStyle}
         >
           <ModalHeader>{`#${id}. ${title}`}</ModalHeader>
           <ModalCloseButton />
@@ -133,6 +134,9 @@ const BasicInfo = ({ id, title, status, description, turnout }: IBasicInfo) => {
               dangerouslySetInnerHTML={{ __html: parsedHTML }}
               id="description-modal"
               fontSize={"1.1rem"}
+              display={"flex"}
+              flexDirection={"column"}
+              gap={"15px"}
             >
               {/* {description && marked(description)} */}
             </Box>
