@@ -105,7 +105,7 @@ export const useNeutronGovQuery = () => {
       totalDeposits,
     };
     const updatedState = { ...vpState, Neutron: votingPower };
-    setVpState(updatedState);
+    // setVpState(updatedState);
     return votingPower;
   };
 

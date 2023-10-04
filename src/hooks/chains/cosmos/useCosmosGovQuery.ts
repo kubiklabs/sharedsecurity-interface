@@ -49,7 +49,7 @@ export const useCosmosGovQuery = () => {
     const updatedState = { ...userVp, Cosmos: votingPower };
     console.log(updatedState);
 
-    setUserVp(updatedState);
+    // setUserVp(updatedState);
     return votingPower;
   };
 

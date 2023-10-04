@@ -47,27 +47,36 @@ const VoteCard = (props: any) => {
         bg={colorVoteMap[props.option as keyof IColorVoteMap].bg}
         minWidth={"fit-content"}
         transition={"ease-in-out 500ms"}
+        border={
+          props.vote === props.option
+            ? `2px solid ${
+                colorVoteMap[props.option as keyof IColorVoteMap].color
+              }`
+            : ""
+        }
         _hover={{
-          boxShadow: `-5px -5px 5px ${
-            colorVoteMap[props.option as keyof IColorVoteMap].color
-          },15px 15px 15px rgba(0, 0, 0, 0.1),inset -5px -5px 5px ${
-            colorVoteMap[props.option as keyof IColorVoteMap].color
-          },inset 5px 5px 5px rgba(0, 0, 0, 0.1)`,
+          boxShadow: !props.disable
+            ? `-1px -1px 1px ${
+                colorVoteMap[props.option as keyof IColorVoteMap].color
+              },15px 15px 15px rgba(0, 0, 0, 0.1),inset -5px -5px 5px ${
+                colorVoteMap[props.option as keyof IColorVoteMap].color
+              },inset 5px 5px 5px rgba(0, 0, 0, 0.1)`
+            : "",
           // border: `2px solid ${
           //   colorVoteMap[props.option as keyof IColorVoteMap].color
           // }`,
-          cursor: "pointer",
+          cursor: props.disable ? "not-allowed" : "pointer",
         }}
       >
-        <Text
-          alignSelf={"flex-start"}
-          color={colorVoteMap[props.option as keyof IColorVoteMap].color}
-          m={"0"}
-          fontSize={"2rem"}
-        >
-          {props.option}
-        </Text>
-        <Flex align={"center"} justifyContent={"space-between"}>
+        <Flex gap={"10px"} align={"center"} justifyContent={"space-between"}>
+          <Text
+            alignSelf={"flex-start"}
+            color={colorVoteMap[props.option as keyof IColorVoteMap].color}
+            m={"0"}
+            fontSize={"1.7rem"}
+          >
+            {props.option}
+          </Text>
           <Text
             fontSize={"1.5rem"}
             color={colorVoteMap[props.option as keyof IColorVoteMap].color}
@@ -75,10 +84,15 @@ const VoteCard = (props: any) => {
           >
             {props.value}%
           </Text>
-          <Text fontSize={"0.9rem"} m={"0"}>
-            {props.tokenAmountUnderVote} {props.prettyDenom}
-          </Text>
         </Flex>
+        <Text
+          color={"#bfbfbf"}
+          alignSelf={"flex-end"}
+          fontSize={"0.9rem"}
+          m={"0"}
+        >
+          {props.tokenAmountUnderVote} {props.prettyDenom}
+        </Text>
       </Flex>
       <LoadingModal
         isOpen={loading}

@@ -1,11 +1,16 @@
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import { useCosmosGovQuery } from "./chains/cosmos/useCosmosGovQuery";
 import { useCosmosGovTxn } from "./chains/cosmos/useCosmosGovTxn";
 import { useNeutronGovQuery } from "./chains/neutron/useNeutronGovQuery";
 import { useNeutronGovTxn } from "./chains/neutron/useNeutronGovTxn";
 import { useStrideGovQuery } from "./chains/stride/useStrideGovQuery";
 import { useStrideGovTxn } from "./chains/stride/useStrideGovTxn";
+import { walletState } from "../context/walletState";
+import { userVpState } from "../context/userVpState";
 
 export const useGovernance = () => {
+  const { Cosmos, Neutron, Stride, isLoggedIn } = useRecoilValue(walletState);
+  const setUserVp = useSetRecoilState(userVpState);
   const {
     getParsedCosmosProposal,
     getCosmosTotalBondedToken,
@@ -19,6 +24,18 @@ export const useGovernance = () => {
   const { sendCosmosVote, getCosmosAddressSigner } = useCosmosGovTxn();
   const { sendStrideVote, getStrideAddressSigner } = useStrideGovTxn();
   const { sendNeutronVote, getNeutronAddressSigner } = useNeutronGovTxn();
+
+  const fetchAllUserVp = async () => {
+    if (!isLoggedIn) return;
+    const cosmosVp = await getCosmosVotingPower(Cosmos as string);
+    const neutronVp = await getNeutronVotingPower(Neutron as string);
+    const strideVp = await getStrideVotingPower(Stride as string);
+    setUserVp({
+      Cosmos: cosmosVp,
+      Neutron: neutronVp,
+      Stride: strideVp,
+    });
+  };
 
   const fetchProposalByIdAndName = async (name: string, id: string) => {
     console.log(id, name);
@@ -110,5 +127,6 @@ export const useGovernance = () => {
     sendGovVote,
     fetchVotingPower,
     fetchUserVote,
+    fetchAllUserVp,
   };
 };

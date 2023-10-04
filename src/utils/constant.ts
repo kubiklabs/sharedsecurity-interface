@@ -27,6 +27,13 @@ export const bigSmallTextColorMap: IVoteValueProps = {
   VETO: "rgba(212, 212, 212, 0.80)",
 };
 
+export const cosmosVoteOptionMap = {
+  VOTE_OPTION_YES: "YES",
+  VOTE_OPTION_NO: "NO",
+  VOTE_OPTION_ABSTAIN: "ABSTAIN",
+  VOTE_OPTION_NO_WITH_VETO: "VETO",
+};
+
 export const cosmosStatusMap = {
   PROPOSAL_STATUS_DEPOSIT_PERIOD: {
     pretty: "Deposit",

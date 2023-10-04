@@ -6,6 +6,7 @@ import { useGovernance } from "../../hooks/useGovernance";
 import { useParams } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import { walletState } from "../../context/walletState";
+import { getCosmosVoteOption } from "../../utils/common";
 
 const DUMMY_VOTE = [
   {
@@ -52,7 +53,8 @@ const VoteSection = ({ voteDistribution, prettyDenom, status }: any) => {
 
   const getUserVote = async () => {
     try {
-      const vote = await fetchUserVote(chain as string, proposalId as string);
+      let vote = await fetchUserVote(chain as string, proposalId as string);
+      vote = getCosmosVoteOption(vote);
       setUserVote(vote);
     } catch (error) {
       console.log(error);
@@ -60,8 +62,9 @@ const VoteSection = ({ voteDistribution, prettyDenom, status }: any) => {
   };
 
   useEffect(() => {
+    // if (!wallet.isLoggedIn) return;
     getUserVote();
-  }, []);
+  }, [wallet.isLoggedIn]);
 
   return (
     <>
@@ -87,6 +90,7 @@ const VoteSection = ({ voteDistribution, prettyDenom, status }: any) => {
                     status !== "PROPOSAL_STATUS_VOTING_PERIOD" &&
                     status !== "open"
                   }
+                  vote={userVote}
                   tokenAmountUnderVote={voteDistribution.tally[vote] / 1000000}
                   option={vote}
                   value={voteDistribution.ratio[vote]}

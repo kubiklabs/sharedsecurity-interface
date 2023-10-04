@@ -58,7 +58,7 @@ export const useStrideGovQuery = () => {
     const votingPower = await getVotingPower(address);
     const updatedState = { ...userVp, Stride: votingPower };
 
-    setUserVp(updatedState);
+    // setUserVp(updatedState);
     return votingPower;
   };
 

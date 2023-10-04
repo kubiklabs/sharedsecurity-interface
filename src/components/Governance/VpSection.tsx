@@ -1,15 +1,42 @@
 import Section from "../Layout/Section";
-import { Center, Grid, GridItem, Link, Skeleton, Text } from "@chakra-ui/react";
+import {
+  Center,
+  Grid,
+  GridItem,
+  Link,
+  Skeleton,
+  Spinner,
+  Text,
+} from "@chakra-ui/react";
 import VpCard from "./VpCard";
 import { useRecoilValue } from "recoil";
 import { walletState } from "../../context/walletState";
 import { useConnectWallet } from "../../hooks/useConnectWallet";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useGovernance } from "../../hooks/useGovernance";
+import { userVpState } from "../../context/userVpState";
 
 const VpSection = () => {
   const { isLoggedIn } = useRecoilValue(walletState);
+  const { fetchAllUserVp } = useGovernance();
+  const { Cosmos } = useRecoilValue(userVpState);
+
   const [isLoading, setIsLoading] = useState(false);
   const connectWallet = useConnectWallet();
+
+  useEffect(() => {
+    if (!isLoggedIn || Cosmos) return;
+    setIsLoading(true);
+    handleFetchAllUserVp();
+    setIsLoading(false);
+  }, [isLoggedIn]);
+
+  const handleFetchAllUserVp = async () => {
+    setIsLoading(true);
+    await fetchAllUserVp();
+    setIsLoading(false);
+  };
+
   const handleWalletConnect = async () => {
     setIsLoading(true);
     await connectWallet();
@@ -26,12 +53,16 @@ const VpSection = () => {
           bg={"rgba(255, 255, 255, 0.10)"}
           borderRadius={"10px"}
         >
-          <Text>
-            <Link onClick={handleWalletConnect} color={"blue.500"}>
-              Connect Wallet
-            </Link>{" "}
-            to see voting power.
-          </Text>
+          {!isLoading ? (
+            <Text>
+              <Link onClick={handleWalletConnect} color={"blue.500"}>
+                Connect Wallet
+              </Link>{" "}
+              to see voting power.
+            </Text>
+          ) : (
+            <Spinner width={"3rem"} height="3rem" />
+          )}
         </Center>
       ) : (
         <Grid
