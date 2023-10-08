@@ -130,3 +130,14 @@ export const getSymbolFromName = (name: string) => {
 export const getDenomFromName = (name: string) => {
   return assetChainMap[name as keyof typeof assetChainMap].symbol;
 };
+
+export const shortenString = (
+  inputString: string,
+  maxLength: number
+): string => {
+  if (inputString.length > maxLength) {
+    return inputString.slice(0, maxLength - 3) + "...";
+  } else {
+    return inputString;
+  }
+};

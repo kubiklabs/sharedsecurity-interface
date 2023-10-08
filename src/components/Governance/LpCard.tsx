@@ -11,6 +11,7 @@ import {
 } from "../../utils/constant";
 import { IVoteValueProps } from "../../utils/interface";
 import { useNavigate } from "react-router-dom";
+import { shortenString } from "../../utils/common";
 
 export interface ILpCardProps {
   proposalId: string;
@@ -54,8 +55,11 @@ const LpCard = ({
           justifyContent={"space-between"}
           alignItems={"center"}
         >
-          <Flex flexDirection={"column"}>
+          <Flex flexDirection={"column"} maxW={"80%"}>
             <Text
+              overflow={"hidden"}
+              whiteSpace={"nowrap"}
+              textOverflow={"ellipsis"}
               textAlign={"left"}
               m={"0"}
               fontSize={"1.1rem"}
@@ -120,7 +124,11 @@ const LpCard = ({
             return (
               <BigSmallText
                 color={bigSmallTextColorMap[vote as keyof IVoteValueProps]}
-                bigText={voteDistribution[vote as keyof IVoteValueProps] || "-"}
+                bigText={
+                  voteDistribution[vote as keyof IVoteValueProps] === "NaN"
+                    ? "-"
+                    : voteDistribution[vote as keyof IVoteValueProps]
+                }
                 smallText={vote}
               />
             );
