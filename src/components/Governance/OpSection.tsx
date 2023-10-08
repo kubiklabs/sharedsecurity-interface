@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import Section from "../Layout/Section";
 import {
   Button,
@@ -29,15 +29,20 @@ const OpSection = ({
   // useMemo(() => Math.ceil(opList?.length / itemsPerPage), [opList]) || 0;
   const [filteredItems, setFilteredItems] = useState(opList);
   const [searchText, setSearchText] = useState();
-  const [currentPage, setCurrentPage] = useState(1);
+  const currentPage = useRef(1);
+  // const [currentPage, setCurrentPage] = useState(1);
   const [currentItems, setCurrentItems] = useState(filteredItems?.slice(0, 10));
 
+  useEffect(() => {
+    setFilteredItems(opList);
+    setPageCount(Math.ceil(opList?.length / itemsPerPage) || 0);
+  }, [opList]);
   useEffect(() => {
     setCurrentItems(filteredItems?.slice(0, 10));
   }, [filteredItems]);
 
   const handlePageClick = (page: number) => {
-    setCurrentPage(page);
+    currentPage.current = page;
     const newOffset = ((page - 1) * itemsPerPage) % filteredItems.length;
     console.log(
       `User requested page number ${page}, which is offset ${newOffset}`
@@ -72,7 +77,7 @@ const OpSection = ({
     setFilteredItems(filteredList);
     console.log(filteredList);
     setPageCount(Math.ceil(filteredList.length / itemsPerPage) || 0);
-    setCurrentPage(1);
+    currentPage.current = 1;
     // handlePageClick(1);
   };
 
@@ -133,7 +138,7 @@ const OpSection = ({
         )}
       </Grid>
       <Pagination
-        currentPage={currentPage}
+        currentPage={currentPage.current}
         totalPages={pageCount}
         onPageChange={handlePageClick}
       />
