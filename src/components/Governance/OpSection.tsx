@@ -23,33 +23,64 @@ const OpSection = ({
   opList: Array<ILpCardProps>;
   isLoading?: boolean;
 }) => {
-  const pageCount =
-    useMemo(() => Math.ceil(opList?.length / itemsPerPage), [opList]) || 0;
-
-  const [itemOffset, setItemOffset] = useState(0);
+  const [pageCount, setPageCount] = useState(
+    Math.ceil(opList?.length / itemsPerPage) || 0
+  );
+  // useMemo(() => Math.ceil(opList?.length / itemsPerPage), [opList]) || 0;
+  const [filteredItems, setFilteredItems] = useState(opList);
+  const [searchText, setSearchText] = useState();
   const [currentPage, setCurrentPage] = useState(1);
-  const [currentItems, setCurrentItems] = useState(opList?.slice(0, 10));
+  const [currentItems, setCurrentItems] = useState(filteredItems?.slice(0, 10));
 
   useEffect(() => {
-    setCurrentItems(opList?.slice(0, 10));
-  }, [opList]);
+    setCurrentItems(filteredItems?.slice(0, 10));
+  }, [filteredItems]);
 
   const handlePageClick = (page: number) => {
     setCurrentPage(page);
-    const newOffset = ((page - 1) * itemsPerPage) % opList.length;
+    const newOffset = ((page - 1) * itemsPerPage) % filteredItems.length;
     console.log(
       `User requested page number ${page}, which is offset ${newOffset}`
     );
-    setItemOffset(newOffset);
+
     const endOffset = newOffset + itemsPerPage;
-    const currentItems = opList.slice(newOffset, endOffset);
+    const currentItems = filteredItems.slice(newOffset, endOffset);
     setCurrentItems(currentItems);
+  };
+
+  const searchObjects = (input: string) => {
+    const searchTerm = input.toLowerCase();
+
+    return opList.filter((obj) => {
+      const { proposalId, proposalTitle, tags, status } = obj;
+      // console.log(obj);
+
+      if (proposalId.toString().toLowerCase().includes(searchTerm)) return true;
+      if (proposalTitle.toLowerCase().includes(searchTerm)) return true;
+      if (status.toLowerCase().includes(searchTerm)) return true;
+      if (tags.some((element) => element.toLowerCase().includes(input)))
+        return true;
+
+      return false;
+    });
+  };
+
+  const handleSearch = (e: any) => {
+    // console.log(e.target.value);
+    setSearchText(e.target.value);
+    const filteredList = searchObjects(e.target.value);
+    setFilteredItems(filteredList);
+    console.log(filteredList);
+    setPageCount(Math.ceil(filteredList.length / itemsPerPage) || 0);
+    setCurrentPage(1);
+    // handlePageClick(1);
   };
 
   return (
     <Section heading="Other Proposals">
       <Flex px={"15px"} justifyContent={"space-between"}>
         <Input
+          onChange={handleSearch}
           placeholder="Search Proposals by name or Id....."
           size="lg"
           height={"50px"}
