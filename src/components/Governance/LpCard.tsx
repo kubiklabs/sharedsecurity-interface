@@ -6,6 +6,7 @@ import BigSmallText from "../DataDisplay/BigSmallText";
 import {
   bigSmallTextColorMap,
   borderTagColorMap,
+  colorVoteMap,
   cosmosStatusMap,
   neutronStatusMap,
   tagColorMap,
@@ -93,11 +94,11 @@ const LpCard = ({
           {tags.map((tag) => {
             return (
               <ColorTag
+                border={`1px solid ${
+                  tagColorMap[tags[0] as keyof typeof tagColorMap]
+                }`}
                 content={tag}
-                bgColor={
-                  tagColorMap[tag as keyof typeof tagColorMap] ||
-                  "rgba(255, 139, 74, 0.80)"
-                }
+                bgColor={tagColorMap[tag as keyof typeof tagColorMap]}
               />
             );
           })}
@@ -117,7 +118,7 @@ const LpCard = ({
                 width={`${voteDistribution[vote as keyof IVoteValueProps]}%`}
                 height={"5px"}
                 // borderRadius={"5px"}
-                bg={bigSmallTextColorMap[vote as keyof IVoteValueProps]}
+                bg={colorVoteMap[vote as keyof typeof colorVoteMap].color}
               ></Box>
             );
           })}
@@ -126,7 +127,7 @@ const LpCard = ({
           {Object.keys(voteDistribution).map((vote) => {
             return (
               <BigSmallText
-                color={bigSmallTextColorMap[vote as keyof IVoteValueProps]}
+                color={colorVoteMap[vote as keyof typeof colorVoteMap].color}
                 bigText={
                   voteDistribution[vote as keyof IVoteValueProps] === "NaN"
                     ? "-"

@@ -4,10 +4,12 @@ import React from "react";
 const ColorTag = ({
   content,
   bgColor,
+  border,
   sx,
 }: {
   content: string;
   bgColor: string;
+  border: string;
   sx?: SystemStyleObject | undefined;
 }) => {
   return (
@@ -16,9 +18,10 @@ const ColorTag = ({
       m={"0"}
       borderRadius={"4px"}
       //   py={"5px"}
-      pt={"1px"}
-      px={"10px"}
+      py={"3px"}
+      px={"12px"}
       bg={bgColor}
+      border={border}
       fontSize={"0.9rem"}
       width={"fit-content"}
     >

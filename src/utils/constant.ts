@@ -14,10 +14,10 @@ export const scrollbarStyle = {
 };
 
 export const tagColorMap = {
-  Cosmos: "rgba(156, 108, 255, 0.80)",
+  Cosmos: "#472776",
   "Software Update": "rgba(255, 139, 74, 0.80)",
-  Stride: "rgba(233, 17, 121, 0.80)",
-  Neutron: "#24684c",
+  Stride: "#B90064",
+  Neutron: "#2987E1",
 };
 export const borderTagColorMap = {
   Cosmos: "rgba(156, 108, 255, 0.20)",
@@ -59,7 +59,7 @@ export const cosmosStatusMap = {
    */
   PROPOSAL_STATUS_PASSED: {
     pretty: "Passed",
-    bg: "green",
+    bg: "#347F41",
   },
   /*
    * PROPOSAL_STATUS_REJECTED - PROPOSAL_STATUS_REJECTED defines a proposal status of a proposal that has
@@ -67,7 +67,7 @@ export const cosmosStatusMap = {
    */
   PROPOSAL_STATUS_REJECTED: {
     pretty: "Rejected",
-    bg: "red",
+    bg: "#993A31",
   },
   /**
    * PROPOSAL_STATUS_FAILED - PROPOSAL_STATUS_FAILED defines a proposal status of a proposal that has
@@ -75,11 +75,30 @@ export const cosmosStatusMap = {
    */
   PROPOSAL_STATUS_FAILED: {
     pretty: "Failed",
-    bg: "orange",
+    bg: "#CE3747",
   },
   UNRECOGNIZED: {
     pretty: "Unrecognised",
     bg: "gray",
+  },
+};
+
+export const colorVoteMap = {
+  YES: {
+    color: "#409F4E",
+    bg: "#409F4E14",
+  },
+  NO: {
+    color: "#CE3747",
+    bg: "#BE483A14",
+  },
+  ABSTAIN: {
+    color: "#B3876C",
+    bg: "#C8886414",
+  },
+  VETO: {
+    color: "#ADACAF",
+    bg: "#ADACAF14",
   },
 };
 
@@ -92,17 +111,17 @@ export const neutronStatusMap = {
   /// The proposal has been rejected.
   rejected: {
     pretty: "Rejected",
-    bg: "red",
+    bg: "#993A31",
   },
   /// The proposal has been passed but has not been executed.
   passed: {
     pretty: "Passed",
-    bg: "green",
+    bg: "#347F41",
   },
   /// The proposal has been passed and executed.
   executed: {
     pretty: "Executed",
-    bg: "green",
+    bg: "#029970",
   },
   /// The proposal has failed or expired and has been closed. A
   /// proposal deposit refund has been issued if applicable.
@@ -113,7 +132,7 @@ export const neutronStatusMap = {
   /// The proposal's execution failed.
   execution_failed: {
     pretty: "Failed",
-    bg: "orange",
+    bg: "#CE3747",
   },
 };
 

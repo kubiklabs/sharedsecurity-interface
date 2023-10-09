@@ -2,7 +2,7 @@ import React from "react";
 import Section from "../Layout/Section";
 import { Box, Flex, Text, Tooltip } from "@chakra-ui/react";
 import { IVoteValueProps } from "../../utils/interface";
-import { bigSmallTextColorMap } from "../../utils/constant";
+import { bigSmallTextColorMap, colorVoteMap } from "../../utils/constant";
 
 const Overview = ({ voteDistribution }: any) => {
   console.log(voteDistribution);
@@ -30,7 +30,7 @@ const Overview = ({ voteDistribution }: any) => {
                   width={`${voteDistribution[vote as keyof IVoteValueProps]}%`}
                   height={"5px"}
                   // borderRadius={"5px"}
-                  bg={bigSmallTextColorMap[vote as keyof IVoteValueProps]}
+                  bg={colorVoteMap[vote as keyof typeof colorVoteMap].color}
                 ></Box>
               </Tooltip>
             );

@@ -3,25 +3,8 @@ import { useState } from "react";
 import { useGovernance } from "../../hooks/useGovernance";
 import { useParams } from "react-router-dom";
 import LoadingModal from "../loading-modal/LoadingModal";
+import { colorVoteMap } from "../../utils/constant";
 
-const colorVoteMap = {
-  YES: {
-    color: "#409F4E",
-    bg: "#409F4E14",
-  },
-  NO: {
-    color: "#BE483A",
-    bg: "#BE483A14",
-  },
-  ABSTAIN: {
-    color: "#C88864",
-    bg: "#C8886414",
-  },
-  VETO: {
-    color: "#ADACAF",
-    bg: "#ADACAF14",
-  },
-};
 type IColorVoteMap = typeof colorVoteMap;
 
 const VoteCard = (props: any) => {
