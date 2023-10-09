@@ -80,7 +80,7 @@ function App() {
             </Box>
           </Flex>
         </BrowserRouter>
-        <Header />
+        {/* <Header /> */}
         <ToastContainer style={{ textAlign: "left" }} />
       </RecoilRoot>
     </ChakraProvider>

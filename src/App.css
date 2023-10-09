@@ -75,6 +75,11 @@
 .chakra-modal__overlay {
   backdrop-filter: blur(5px);
 }
+.chakra-button:focus {
+  background-color: transparent;
+  border: none !important;
+  outline: none !important;
+}
 .css-1wclaui:active,
 .css-1wclaui:focus {
   background-color: transparent;
@@ -90,4 +95,11 @@
 }
 &::-webkit-scrollbar-thumb:hover {
   background: "gray.400";
+}
+
+.copy-address-icon {
+  cursor: pointer;
+}
+.logout-logo {
+  cursor: pointer;
 }

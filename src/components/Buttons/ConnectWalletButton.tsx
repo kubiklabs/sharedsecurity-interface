@@ -36,6 +36,8 @@ const ConnectWalletButton = () => {
 
   const resetUserData = useDisconnetWallet();
 
+  const openAddressModal = () => {};
+
   // const copyAddress = () => {
   //   navigator.clipboard.writeText(address || "");
   //   // Success("Address copied to clipboard!");
@@ -44,34 +46,73 @@ const ConnectWalletButton = () => {
   return (
     <Box
       display={"flex"}
-      justifyContent={"center"}
+      justifyContent={"space-between"}
       alignItems={"center"}
+      fontSize={"1.2rem"}
       // width={"100%"}
       gap={"5px"}
+      width={"100%"}
+      bg={"transparent"}
+      color={"white"}
+      border={"1px solid white"}
+      borderRadius={"10px"}
+      px={"20px"}
+      py={"8px"}
     >
       {isLoading ? (
         <Button color={"white"} bg={"#BC3D70"}>
           Loading...
         </Button>
       ) : !isLoggedIn ? (
-        <Button onClick={connectHandler}>Connect Keplr</Button>
+        <Button
+          fontSize={"1.2rem"}
+          bg={"transparent"}
+          color={"white"}
+          width={"100%"}
+          onClick={connectHandler}
+          _hover={{
+            bg: "white.600",
+            borderColor: "white",
+          }}
+        >
+          Connect Keplr
+        </Button>
       ) : (
         <>
           {
-            <Button style={{ height: "100%" }} onClick={connectHandler}>
+            <Button
+              color={"white"}
+              bg={"transparent"}
+              disabled
+              style={{ height: "100%" }}
+              flex={1}
+              fontSize={"1.2rem"}
+              _hover={{
+                bg: "white.600",
+              }}
+              py={"8px"}
+            >
               {name}
             </Button>
           }
-          <Tooltip label="Disconnect">
-            <Button color={"white"} bg={"#BC3D70"}>
+          <Box display={"flex"} gap={"10px"}>
+            <Tooltip label="Copy Addresses">
+              <span
+                onClick={openAddressModal}
+                className="material-symbols-outlined copy-address-icon"
+              >
+                content_copy
+              </span>
+            </Tooltip>
+            <Tooltip label="Disconnect">
               <span
                 onClick={resetUserData}
                 className="material-symbols-outlined logout-logo"
               >
                 logout
               </span>
-            </Button>
-          </Tooltip>
+            </Tooltip>
+          </Box>
         </>
       )}
     </Box>

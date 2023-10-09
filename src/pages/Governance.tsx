@@ -60,7 +60,7 @@ const Governance = () => {
         flexDirection={"column"}
         position={"relative"}
         display={"flex"}
-        gap={"20px"}
+        gap={"50px"}
       >
         <VpSection />
         <LpSection isLoading={loading} lpList={sortedLpList} />
