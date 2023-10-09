@@ -52,6 +52,7 @@ const VpSection = () => {
           p={"25px"}
           bg={"rgba(255, 255, 255, 0.10)"}
           borderRadius={"10px"}
+          marginX={"15px"}
         >
           {!isLoading ? (
             <Text>

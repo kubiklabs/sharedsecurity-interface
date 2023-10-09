@@ -1,5 +1,4 @@
 import { Box, Flex, Heading, Text } from "@chakra-ui/react";
-import React from "react";
 import SubtitleText from "../DataDisplay/SubtitleText";
 
 const InfoSection = () => {
@@ -8,6 +7,7 @@ const InfoSection = () => {
       padding={"50px"}
       bg={"rgba(255, 255, 255, 0.05)"}
       borderRadius={"10px"}
+      marginX={"15px"}
     >
       <Heading m={"0"} textAlign={"left"}>
         Get Involved
