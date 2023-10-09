@@ -72,6 +72,15 @@
   z-index: 3;
 }
 
+.chakra-modal__overlay {
+  backdrop-filter: blur(5px);
+}
+.css-1wclaui:active,
+.css-1wclaui:focus {
+  background-color: transparent;
+  border: none !important;
+  outline: none;
+}
 &::-webkit-scrollbar {
   width: "5px";
 }

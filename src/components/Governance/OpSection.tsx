@@ -82,7 +82,10 @@ const OpSection = ({
   };
 
   return (
-    <Section heading="Other Proposals">
+    <Section
+      heading="Other Proposals"
+      sideText={`${filteredItems.length} / ${opList.length}`}
+    >
       <Flex px={"15px"} justifyContent={"space-between"}>
         <Input
           onChange={handleSearch}

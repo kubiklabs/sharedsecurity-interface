@@ -80,6 +80,9 @@ const LpCard = ({
                 neutronStatusMap[status as keyof typeof neutronStatusMap]
               )?.bg
             }
+            _hover={{
+              border: `1px solid white`,
+            }}
             height={"40px"}
           >
             {
