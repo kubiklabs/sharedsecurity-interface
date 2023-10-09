@@ -97,7 +97,7 @@ const LpCard = ({
           {tags.map((tag) => {
             return (
               <ColorTag
-                border={`1px solid ${
+                borderStyle={`1px solid ${
                   tagColorMap[tags[0] as keyof typeof tagColorMap]
                 }`}
                 content={tag}
