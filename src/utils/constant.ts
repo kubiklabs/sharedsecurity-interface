@@ -19,6 +19,12 @@ export const tagColorMap = {
   Stride: "rgba(233, 17, 121, 0.80)",
   Neutron: "#24684c",
 };
+export const borderTagColorMap = {
+  Cosmos: "rgba(156, 108, 255, 0.20)",
+  "Software Update": "rgba(255, 139, 74, 0.20)",
+  Stride: "rgba(233, 17, 121, 0.20)",
+  Neutron: "#24684c91",
+};
 
 export const bigSmallTextColorMap: IVoteValueProps = {
   YES: "#409F4E",
