@@ -17,9 +17,9 @@ const ColorTag = ({
       borderRadius={"4px"}
       //   py={"5px"}
       pt={"1px"}
-      px={"5px"}
+      px={"10px"}
       bg={bgColor}
-      fontSize={"0.8rem"}
+      fontSize={"0.9rem"}
       width={"fit-content"}
     >
       {content}
