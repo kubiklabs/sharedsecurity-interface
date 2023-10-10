@@ -19,7 +19,7 @@ const Pagination = ({
     setDisplayPages(
       generatePagination({ currentPage, totalPages, visiblePages: 5 })
     );
-  }, [currentPage]);
+  }, [currentPage, totalPages]);
 
   const generatePagination = (config: PaginationConfig): number[] => {
     const { currentPage, totalPages, visiblePages } = config;
