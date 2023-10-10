@@ -103,3 +103,9 @@
 .logout-logo {
   cursor: pointer;
 }
+.nav-icons {
+  cursor: pointer;
+}
+.nav-icons:hover {
+  color: #bc3d70;
+}

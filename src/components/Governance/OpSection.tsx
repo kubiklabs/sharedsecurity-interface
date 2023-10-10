@@ -11,7 +11,6 @@ import {
   Spinner,
 } from "@chakra-ui/react";
 import LpCard, { ILpCardProps } from "./LpCard";
-import { compareProposals } from "../../utils/common";
 import Pagination from "../Pagination/Pagination";
 
 const itemsPerPage = 10;
@@ -144,6 +143,7 @@ const OpSection = ({
         currentPage={currentPage.current}
         totalPages={pageCount}
         onPageChange={handlePageClick}
+        alignSelf={"center"}
       />
     </Section>
   );
