@@ -6,38 +6,7 @@ import { useGovernance } from "../../hooks/useGovernance";
 import { useParams } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import { walletState } from "../../context/walletState";
-import { getCosmosVoteOption } from "../../utils/common";
-
-const DUMMY_VOTE = [
-  {
-    color: "#409F4E",
-    option: "YES",
-    votePercentage: "96.11%",
-    tokenAmountUnderVote: "12,423,088 STRD",
-    bg: "linear-gradient(0deg, rgba(64, 159, 78, 0.10) 0%, rgba(64, 159, 78, 0.10) 100%)",
-  },
-  {
-    color: "#409F4E",
-    option: "NO",
-    votePercentage: "96.11%",
-    tokenAmountUnderVote: "12,423,088 STRD",
-    bg: "linear-gradient(0deg, rgba(64, 159, 78, 0.10) 0%, rgba(64, 159, 78, 0.10) 100%)",
-  },
-  {
-    color: "#409F4E",
-    option: "VETO",
-    votePercentage: "96.11%",
-    tokenAmountUnderVote: "12,423,088 STRD",
-    bg: "linear-gradient(0deg, rgba(64, 159, 78, 0.10) 0%, rgba(64, 159, 78, 0.10) 100%)",
-  },
-  {
-    color: "#409F4E",
-    option: "ABSTAIN",
-    votePercentage: "96.11%",
-    tokenAmountUnderVote: "12,423,088 STRD",
-    bg: "linear-gradient(0deg, rgba(64, 159, 78, 0.10) 0%, rgba(64, 159, 78, 0.10) 100%)",
-  },
-];
+import { getCommonVoteOption } from "../../utils/common";
 
 const VoteSection = ({ voteDistribution, prettyDenom, status }: any) => {
   const wallet = useRecoilValue(walletState);
@@ -54,7 +23,8 @@ const VoteSection = ({ voteDistribution, prettyDenom, status }: any) => {
   const getUserVote = async () => {
     try {
       let vote = await fetchUserVote(chain as string, proposalId as string);
-      vote = getCosmosVoteOption(vote);
+      vote = getCommonVoteOption(vote);
+
       setUserVote(vote);
     } catch (error) {
       console.log(error);
@@ -62,8 +32,8 @@ const VoteSection = ({ voteDistribution, prettyDenom, status }: any) => {
   };
 
   useEffect(() => {
-    // if (!wallet.isLoggedIn) return;
-    getUserVote();
+    if (!wallet.isLoggedIn) setUserVote("");
+    else getUserVote();
   }, [wallet.isLoggedIn]);
 
   return (
@@ -72,7 +42,7 @@ const VoteSection = ({ voteDistribution, prettyDenom, status }: any) => {
         heading="Your Vote"
         subtitle={
           userVote
-            ? `You have already voted with ${userVote}.`
+            ? `You have voted with ${userVote}.`
             : "Looks like you haven't voted on this proposal"
         }
       >

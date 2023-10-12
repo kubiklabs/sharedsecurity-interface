@@ -1,6 +1,10 @@
 import { Decimal } from "decimal.js";
 import { ILpCardProps } from "../components/Governance/LpCard";
-import { assetChainMap, cosmosVoteOptionMap } from "./constant";
+import {
+  assetChainMap,
+  cosmosVoteOptionMap,
+  neutronVoteOptionMap,
+} from "./constant";
 // import { networkConstants } from "./constants";
 
 // The number set here is an arbitrary number.
@@ -89,9 +93,9 @@ export const compareProposals = (a: ILpCardProps, b: ILpCardProps) => {
   // If end dates are the same, compare by endTime
   return new Date(b.endTime).getTime() - new Date(a.endTime).getTime();
 };
-
-export const getCosmosVoteOption = (vote: string) => {
-  return cosmosVoteOptionMap[vote as keyof typeof cosmosVoteOptionMap];
+export const getCommonVoteOption = (vote: string) => {
+  const commonVoteMap = { ...cosmosVoteOptionMap, ...neutronVoteOptionMap };
+  return commonVoteMap[vote as keyof typeof commonVoteMap];
 };
 
 export const getCosmosOption = (option: string) => {

@@ -17,8 +17,11 @@ export const useGovernance = () => {
     getCosmosVotingPower,
     getCosmosUserVote,
   } = useCosmosGovQuery();
-  const { getParsedNeutronProposal, getNeutronVotingPower } =
-    useNeutronGovQuery();
+  const {
+    getParsedNeutronProposal,
+    getNeutronVotingPower,
+    getNeutronUserVote,
+  } = useNeutronGovQuery();
   const { getParsedStrideProposal, getStrideVotingPower, getStrideUserVote } =
     useStrideGovQuery();
   const { sendCosmosVote, getCosmosAddressSigner } = useCosmosGovTxn();
@@ -95,6 +98,9 @@ export const useGovernance = () => {
 
       case "Stride":
         return await getStrideUserVote(id);
+
+      case "Neutron":
+        return await getNeutronUserVote(id);
 
       default:
         break;

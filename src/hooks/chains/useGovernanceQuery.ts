@@ -83,7 +83,7 @@ export const useGovernanceQuery = (restUrl: string, chain: string) => {
         `${restUrl}/cosmos/gov/v1beta1/proposals/${proposalId}/votes/${address}`
       );
       console.log("Voter", response);
-      return response.data.vote.option;
+      return response.data.vote.options[0].option;
     } catch (error) {
       console.log(error);
       return "";

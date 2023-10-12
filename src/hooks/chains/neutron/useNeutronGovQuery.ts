@@ -4,13 +4,15 @@ import { neutronSingleProposal } from "../../../config/chains/Neutron/contracts/
 import { parseNanosecondTimeString, sleep } from "../../../utils/common";
 import { ILpCardProps } from "../../../components/Governance/LpCard";
 import { neutronVotingModule } from "../../../config/chains/Neutron/contracts/VotingModule";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { userVpState } from "../../../context/userVpState";
+import { walletState } from "../../../context/walletState";
 
 export const useNeutronGovQuery = () => {
   const [queryClient, setQueryClient] = useState<CosmWasmClient>();
   const [proposals, setProposals] = useState<any[]>([]);
   const [vpState, setVpState] = useRecoilState(userVpState);
+  const addresses = useRecoilValue(walletState);
 
   useEffect(() => {
     createQueryClient();
@@ -107,6 +109,28 @@ export const useNeutronGovQuery = () => {
     const updatedState = { ...vpState, Neutron: votingPower };
     // setVpState(updatedState);
     return votingPower;
+  };
+
+  const getNeutronUserVote = async (id: string) => {
+    // const address =  ge
+    let client = queryClient;
+    if (!client) {
+      client = await createQueryClient();
+    }
+
+    const address = addresses["Neutron"];
+
+    const response = await client?.queryContractSmart(
+      neutronSingleProposal.at,
+      {
+        get_vote: {
+          proposal_id: Number(id),
+          voter: address,
+        },
+      }
+    );
+    console.log(response.vote.vote);
+    return response.vote.vote;
   };
 
   const calculateVoteDistribution = (votes: any) => {
@@ -225,5 +249,6 @@ export const useNeutronGovQuery = () => {
     getNeutronOpList,
     getParsedNeutronProposal,
     getNeutronVotingPower,
+    getNeutronUserVote,
   };
 };

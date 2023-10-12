@@ -40,6 +40,12 @@ export const cosmosVoteOptionMap = {
   VOTE_OPTION_NO_WITH_VETO: "VETO",
 };
 
+export const neutronVoteOptionMap = {
+  yes: "YES",
+  no: "NO",
+  abstain: "ABSTAIN",
+};
+
 export const cosmosStatusMap = {
   PROPOSAL_STATUS_DEPOSIT_PERIOD: {
     pretty: "Deposit",
