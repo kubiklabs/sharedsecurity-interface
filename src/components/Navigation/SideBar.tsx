@@ -24,7 +24,7 @@ const SideBar = () => {
         {/* <ConnectWalletButton />
       <Divider height={"1px"} bg={"white"} /> */}
 
-        <Box display={"flex"} flexDir={"column"} gap={"10px"}>
+        <Box mt={"30px"} display={"flex"} flexDir={"column"} gap={"10px"}>
           <NavItem path="overview" name="Overview" iconName="overview" />
           <NavItem
             path="aez"

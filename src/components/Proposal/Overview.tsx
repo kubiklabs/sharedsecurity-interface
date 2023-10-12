@@ -21,6 +21,7 @@ const Overview = ({ voteDistribution }: any) => {
           Object.keys(voteDistribution).map((vote) => {
             return (
               <Tooltip
+                key={colorVoteMap[vote as keyof typeof colorVoteMap].color}
                 content={`${vote}:${
                   voteDistribution[vote as keyof IVoteValueProps]
                 }%`}
@@ -36,7 +37,7 @@ const Overview = ({ voteDistribution }: any) => {
             );
           })}
       </Box>
-      <Box
+      {/* <Box
         textAlign={"left"}
         gap={"10px"}
         display={"flex"}
@@ -59,7 +60,7 @@ const Overview = ({ voteDistribution }: any) => {
             <Text>Less than 33% have voted 'Veto' </Text>
           </Flex>
         </Box>
-      </Box>
+      </Box> */}
     </Section>
   );
 };

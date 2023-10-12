@@ -65,11 +65,14 @@ export const useGovernanceQuery = (restUrl: string, chain: string) => {
   };
 
   const getProposalTally = async (proposalId: string) => {
-    const response = await axios.get(
-      `${restUrl}/cosmos/gov/v1beta1/proposals/${proposalId}/tally`
-    );
-    console.log(response.data);
-    return response.data;
+    try {
+      const response = await axios.get(
+        `${restUrl}/cosmos/gov/v1beta1/proposals/${proposalId}/tally`
+      );
+      return response.data;
+    } catch (error) {
+      return error;
+    }
   };
 
   const getUserVote = async (chain: string, proposalId: string) => {
@@ -229,8 +232,12 @@ export const useGovernanceQuery = (restUrl: string, chain: string) => {
 
   const getParsedProposal = async (id: string) => {
     const rawProposal = await getProposalById(id);
-    const turnout = await getProposalTurnout(rawProposal);
+    const totalBonded = await getTotalBondedToken();
     const voteDistribution = await getVoteDistributionById(id);
+    const turnout = (
+      (Number(voteDistribution.totalAmount) / Number(totalBonded)) *
+      100
+    ).toLocaleString();
     const voteEndTime = parseIsoTimeString(rawProposal.voting_end_time);
     const voteStartTime = parseIsoTimeString(rawProposal.voting_start_time);
     const parsedProposal = {
@@ -249,7 +256,10 @@ export const useGovernanceQuery = (restUrl: string, chain: string) => {
       turnout,
       threshold: "40",
       quorom: "40",
+      yesVotes: voteDistribution.ratio.YES,
+      vetoVotes: voteDistribution.ratio.VETO,
     };
+
     return parsedProposal;
   };
 

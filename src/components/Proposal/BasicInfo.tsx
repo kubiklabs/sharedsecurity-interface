@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Section from "../Layout/Section";
 import {
   Box,
@@ -27,6 +27,7 @@ import {
 import ColorTag from "../DataDisplay/ColorTag";
 import { useParams } from "react-router-dom";
 import StatusTags from "../PrettyUI/StatusTags/StatusTags";
+import StatDisplay from "../DataDisplay/StatDisplay";
 // const theme = extendBaseTheme({
 //   components: {
 //     Modal,
@@ -41,6 +42,8 @@ export interface IBasicInfo {
   turnout: string;
   threshold: string;
   quorom: string;
+  vetoVotes: string;
+  yesVotes: string;
 }
 
 const commonStatusMap = { ...neutronStatusMap, ...cosmosStatusMap };
@@ -53,6 +56,8 @@ const BasicInfo = ({
   turnout,
   threshold,
   quorom,
+  vetoVotes,
+  yesVotes,
 }: IBasicInfo) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [parsedHTML, setParsedHTML] = useState("");
@@ -75,6 +80,12 @@ const BasicInfo = ({
       parsedHTML;
   };
 
+  const isPassing = useRef(
+    Number(turnout) > Number(quorom) &&
+      Number(vetoVotes) < 33 &&
+      Number(yesVotes) >= 50
+  );
+
   return (
     <>
       <Section heading={`#${id}. ${title}`}>
@@ -91,16 +102,33 @@ const BasicInfo = ({
               status={commonStatusMap[status as keyof typeof commonStatusMap]}
             />
           </Flex>
-          <Flex gap={"10px"}></Flex>
           <Flex gap={"10px"} width={"100%"}>
-            <KeyValuePair
-              keyField="Turnout/Quorom"
-              value={`${turnout}%/${quorom}%`}
-            />
             {commonStatusMap[status as keyof typeof commonStatusMap]?.pretty ===
               "Vote Now" && (
-              <KeyValuePair keyField="Proposal expected to" value="PASS" />
-            )}{" "}
+              <StatDisplay
+                label="Proposal expected to"
+                number={isPassing.current ? "PASS" : "FAIL"}
+                isSatisfied={isPassing.current ? "yes" : "no"}
+                showSatisfiedBg
+              />
+            )}
+            <StatDisplay
+              label={"Turnout / Quorom"}
+              number={`${turnout}%/${quorom}%`}
+              isSatisfied={Number(turnout) > Number(quorom) ? "yes" : "no"}
+            />
+            {vetoVotes ? (
+              <StatDisplay
+                label={"Less than 33% have voted 'Veto'"}
+                number={vetoVotes + "%"}
+                isSatisfied={Number(vetoVotes) >= 33 ? "no" : "yes"}
+              />
+            ) : null}
+            <StatDisplay
+              label={"More than 50% have voted 'Yes'"}
+              number={yesVotes + "%"}
+              isSatisfied={Number(yesVotes) >= 50 ? "yes" : "no"}
+            />
           </Flex>
           <Flex
             fontSize={"1.2rem"}

@@ -211,7 +211,7 @@ export const useNeutronGovQuery = () => {
       },
       turnout,
       threshold: "40",
-
+      yesVotes: voteDistribution.ratio.YES,
       quorom: proposal?.threshold.threshold_quorum.quorum?.percent,
     };
     return parsedProposal;

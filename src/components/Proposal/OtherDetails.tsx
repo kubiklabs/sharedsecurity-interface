@@ -1,5 +1,16 @@
-import { Box, Flex, Grid, GridItem, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Grid,
+  GridItem,
+  Text,
+  Stat,
+  StatLabel,
+  StatNumber,
+  StatHelpText,
+} from "@chakra-ui/react";
 import React from "react";
+import StatDisplay from "../DataDisplay/StatDisplay";
 
 const OtherDetails = ({ votingStartTime, votingEndTime }: any) => {
   return (
@@ -8,19 +19,16 @@ const OtherDetails = ({ votingStartTime, votingEndTime }: any) => {
       gap={"20px"}
       // justifyContent={"space-evenly"}
       // gridAutoFlow={"column"}
-      gridTemplateColumns={"repeat(auto-fit, minmax(100px, 200px))"}
+      gridTemplateColumns={"repeat(auto-fit, minmax(100px, 300px))"}
     >
       <GridItem>
-        <Flex flexDirection={"column"}>
-          <Text m={"0"}>Voting Start Time</Text>
-          <Text>{votingStartTime || "-"}</Text>
-        </Flex>
+        <StatDisplay label={"Voting End Time"} number={votingEndTime || "-"} />
       </GridItem>
       <GridItem>
-        <Flex flexDirection={"column"}>
-          <Text m={"0"}>Voting End Time</Text>
-          <Text>{votingEndTime}</Text>
-        </Flex>
+        <StatDisplay
+          label={"Voting Start Time"}
+          number={votingStartTime || "-"}
+        />
       </GridItem>
     </Grid>
   );
