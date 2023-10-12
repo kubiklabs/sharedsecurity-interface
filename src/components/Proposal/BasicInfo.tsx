@@ -89,7 +89,7 @@ const BasicInfo = ({
   return (
     <>
       <Section heading={`#${id}. ${title}`}>
-        <Flex flexDirection={"column"} gap={"20px"}>
+        <Flex flexDirection={"column"} gap={"30px"}>
           <Flex gap={"10px"}>
             <ColorTag
               borderStyle={`1px solid ${

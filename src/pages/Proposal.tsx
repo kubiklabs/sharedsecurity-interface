@@ -32,7 +32,7 @@ const Proposal = () => {
   return isLoading ? (
     <Spinner width={"3rem"} height="3rem" />
   ) : (
-    <Box flexDirection={"column"} display={"flex"} gap={"20px"}>
+    <Box flexDirection={"column"} display={"flex"} gap={"50px"}>
       {/* {chain} */}
       {/* {proposalId} */}
       <BasicInfo {...proposalData} />
