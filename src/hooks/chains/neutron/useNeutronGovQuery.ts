@@ -55,7 +55,7 @@ export const useNeutronGovQuery = () => {
       }
     );
 
-    // console.log(response);
+    console.log(response);
     return response;
   };
 
@@ -195,6 +195,8 @@ export const useNeutronGovQuery = () => {
     const { localeStringFormat } = parseNanosecondTimeString(
       proposal.expiration.at_time
     );
+    console.log(proposal.threshold.threshold_quorum.quorum.percent);
+
     const parsedProposal = {
       id,
       title: proposal.title,
@@ -208,6 +210,9 @@ export const useNeutronGovQuery = () => {
         denom: "untrn",
       },
       turnout,
+      threshold: "40",
+
+      quorom: proposal?.threshold.threshold_quorum.quorum?.percent,
     };
     return parsedProposal;
   };

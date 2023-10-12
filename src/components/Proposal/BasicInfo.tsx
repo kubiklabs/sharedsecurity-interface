@@ -18,7 +18,15 @@ import {
 } from "@chakra-ui/react";
 import KeyValuePair from "../DataDisplay/KeyValuePair";
 import { marked } from "marked";
-import { scrollbarStyle } from "../../utils/constant";
+import {
+  cosmosStatusMap,
+  neutronStatusMap,
+  scrollbarStyle,
+  tagColorMap,
+} from "../../utils/constant";
+import ColorTag from "../DataDisplay/ColorTag";
+import { useParams } from "react-router-dom";
+import StatusTags from "../PrettyUI/StatusTags/StatusTags";
 // const theme = extendBaseTheme({
 //   components: {
 //     Modal,
@@ -31,11 +39,24 @@ export interface IBasicInfo {
   status: string;
   description: string;
   turnout: string;
+  threshold: string;
+  quorom: string;
 }
 
-const BasicInfo = ({ id, title, status, description, turnout }: IBasicInfo) => {
+const commonStatusMap = { ...neutronStatusMap, ...cosmosStatusMap };
+
+const BasicInfo = ({
+  id,
+  title,
+  status,
+  description,
+  turnout,
+  threshold,
+  quorom,
+}: IBasicInfo) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [parsedHTML, setParsedHTML] = useState("");
+  const { chain } = useParams();
 
   useEffect(() => {
     if (description) {
@@ -58,13 +79,28 @@ const BasicInfo = ({ id, title, status, description, turnout }: IBasicInfo) => {
     <>
       <Section heading={`#${id}. ${title}`}>
         <Flex flexDirection={"column"} gap={"20px"}>
-          <Flex gap={"10px"} justifyContent={"space-between"} width={"100%"}>
-            <KeyValuePair keyField="Current Status" value={status} />
+          <Flex gap={"10px"}>
+            <ColorTag
+              borderStyle={`1px solid ${
+                tagColorMap[chain as keyof typeof tagColorMap]
+              }`}
+              content={chain as string}
+              bgColor={tagColorMap[chain as keyof typeof tagColorMap]}
+            />
+            <StatusTags
+              status={commonStatusMap[status as keyof typeof commonStatusMap]}
+            />
+          </Flex>
+          <Flex gap={"10px"}></Flex>
+          <Flex gap={"10px"} width={"100%"}>
             <KeyValuePair
               keyField="Turnout/Quorom"
-              value={`${turnout}%/33.4%`}
+              value={`${turnout}%/${quorom}%`}
             />
-            <KeyValuePair keyField="Proposal expected to" value="PASS" />
+            {commonStatusMap[status as keyof typeof commonStatusMap]?.pretty ===
+              "Vote Now" && (
+              <KeyValuePair keyField="Proposal expected to" value="PASS" />
+            )}{" "}
           </Flex>
           <Flex
             fontSize={"1.2rem"}
@@ -87,7 +123,7 @@ const BasicInfo = ({ id, title, status, description, turnout }: IBasicInfo) => {
                 <span className="material-symbols-outlined">open_in_full</span>
               </Button>
             </Tooltip>
-            <Text>Description</Text>
+            <Text fontSize={"2xl"}>Description</Text>
             <Box
               bg={"rgba(255, 255, 255, 0.10)"}
               maxH={"400px"}
@@ -128,7 +164,11 @@ const BasicInfo = ({ id, title, status, description, turnout }: IBasicInfo) => {
           sx={scrollbarStyle}
         >
           <ModalHeader>{`#${id}. ${title}`}</ModalHeader>
-          <ModalCloseButton />
+          <ModalCloseButton
+            _focus={{
+              border: "none",
+            }}
+          />
           <ModalBody>
             <Box
               dangerouslySetInnerHTML={{ __html: parsedHTML }}

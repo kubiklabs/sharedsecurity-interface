@@ -247,6 +247,8 @@ export const useGovernanceQuery = (restUrl: string, chain: string) => {
         denom: getDenomFromName(chain),
       },
       turnout,
+      threshold: "40",
+      quorom: "40",
     };
     return parsedProposal;
   };

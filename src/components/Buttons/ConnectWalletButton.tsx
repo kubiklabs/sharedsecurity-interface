@@ -7,7 +7,7 @@ import {
   useDisconnetWallet,
 } from "../../hooks/useConnectWallet";
 import { coinConvert } from "../../utils/common";
-import { Box, Button, Tooltip } from "@chakra-ui/react";
+import { Box, Button, Center, Spinner, Tooltip } from "@chakra-ui/react";
 import CopyAddressModal from "../../modals/CopyAddressModal";
 
 const ConnectWalletButton = () => {
@@ -52,9 +52,9 @@ const ConnectWalletButton = () => {
         py={"8px"}
       >
         {isLoading ? (
-          <Button color={"white"} bg={"#BC3D70"}>
-            Loading...
-          </Button>
+          <Center py={"8px"} width={"100%"}>
+            <Spinner />
+          </Center>
         ) : !isLoggedIn ? (
           <Button
             fontSize={"1.2rem"}
