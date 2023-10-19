@@ -10,7 +10,7 @@ import { ecosystemState } from "../../context/ecosystemState";
 
 const Ecosystem = () => {
   const { getParsedEcosystemData } = useAez();
-  const data = useRecoilValue(ecosystemState);
+  const { data } = useRecoilValue(ecosystemState);
   useEffect(() => {
     if (!data.length) getParsedData();
     console.log(data);
@@ -37,7 +37,7 @@ const Ecosystem = () => {
           </TabList>
         </Tabs> */}
         {data && data.length ? (
-          <CustomTable keys={data.length && Object.keys(data[0])} data={data} />
+          <CustomTable keys={data && Object.keys(data[0])} data={data} />
         ) : (
           <Center>
             <Spinner />
