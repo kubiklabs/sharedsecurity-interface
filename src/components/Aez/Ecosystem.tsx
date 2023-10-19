@@ -2,13 +2,10 @@ import React, { useEffect } from "react";
 import Section from "../Layout/Section";
 import { Center, Spinner, Stack, Tab, TabList, Tabs } from "@chakra-ui/react";
 import CustomTable from "../DataDisplay/CustomTable";
-import { ecosystemData } from "../../utils/constant";
-import { protocols } from "../../config/aezProtocols.json";
 import { useAez } from "../../hooks/useAez";
 import { useRecoilValue } from "recoil";
 import { ecosystemState } from "../../context/ecosystemState";
 import strideAdapter from "../../hooks/chains/stride/adapter/useStrideDefiAdapter";
-import { log } from "@defillama/sdk";
 
 const Ecosystem = () => {
   const { getParsedEcosystemData } = useAez();
