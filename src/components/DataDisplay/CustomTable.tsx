@@ -40,7 +40,10 @@ const CustomTable = ({ data, keys }: any) => {
         <Tbody gap={"20px"}>
           {data?.map((item: any) => {
             return (
-              <Tr borderTop={"1px solid gray"}>
+              <Tr
+                // borderTop={"1px solid gray"}
+                borderBottom={"2px solid rgba(255, 255, 255, 0.40)"}
+              >
                 {item &&
                   Object.values(item)?.map((value: any) => {
                     return (

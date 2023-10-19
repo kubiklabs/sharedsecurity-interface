@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Section from "../Layout/Section";
-import { Stack, Tab, TabList, Tabs } from "@chakra-ui/react";
+import { Center, Spinner, Stack, Tab, TabList, Tabs } from "@chakra-ui/react";
 import CustomTable from "../DataDisplay/CustomTable";
 import { ecosystemData } from "../../utils/constant";
 import { protocols } from "../../config/aezProtocols.json";
@@ -36,9 +36,13 @@ const Ecosystem = () => {
             <Tab bg={"transparent"}>30 Days</Tab>
           </TabList>
         </Tabs> */}
-        {data && data.length && (
+        {data && data.length ? (
           <CustomTable keys={data.length && Object.keys(data[0])} data={data} />
-        )}{" "}
+        ) : (
+          <Center>
+            <Spinner />
+          </Center>
+        )}
       </Stack>
     </Section>
   );

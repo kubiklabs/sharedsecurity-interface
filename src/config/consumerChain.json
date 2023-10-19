@@ -1,0 +1,47 @@
+{
+    "consumerChainData":
+    [
+        {
+            "Chain": "Neutron",
+            "Status": ["Proposal Passed", "Launch on Replicated Security", "Gov-Confirmed"],
+            "Forum Date": "Mar 21, 2023",
+            "Cosmos Forum": "Draft Prop",
+            "Prop Date": "Apr 22, 2023",
+            "Proposal ID": "Prop792"
+        },
+        {
+            "Chain": "Stride",
+            "Status": ["Proposal Passed", "Signaling Proposal"],
+            "Forum Date": "Apr 13, 2023",
+            "Cosmos Forum": "Draft Prop",
+            "Prop Date": "Apr 27, 2023",
+            "Proposal ID": "Prop794"
+        },
+        {
+            "Chain": "Stride",
+            "Status": ["Launch on Replicated Security", "Proposal Passed", "Gov-Confirmed"],
+            "Forum Date": "Apr 13, 2023",
+            "Cosmos Forum": "Draft Prop",
+            "Prop Date": "Jun 13, 2023",
+            "Proposal ID": "Prop799"
+        },
+        {
+            "Chain": "EntryPoint",
+            "Status": ["Forum Post Live"],
+            "Forum Date": "Jun 30, 2023",
+            "Cosmos Forum": "Draft Prop",
+            "Prop Date": "-",
+            "Proposal ID": "-"
+    
+        },
+        {
+            "Chain": "Composable",
+            "Status": ["Forum Post Live"],
+            "Forum Date": "Sep 7, 2023",
+            "Cosmos Forum": "Draft Prop" ,
+            "Prop Date": "-",
+            "Proposal ID": "-"
+    
+        }
+    ]
+}

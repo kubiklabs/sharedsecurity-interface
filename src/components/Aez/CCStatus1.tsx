@@ -1,6 +1,7 @@
 import React from "react";
 import Section from "../Layout/Section";
 import CustomTable from "../DataDisplay/CustomTable";
+import { consumerChainData } from "../../config/consumerChain.json";
 
 const keys = ["Chains", "Status", "Forum Data", "Cosmos Forum", "Proposal"];
 const data = [
@@ -16,7 +17,10 @@ const data = [
 const CCStatus1 = () => {
   return (
     <Section heading="Consumer Chains: Proposals and Status">
-      <CustomTable data={data} keys={keys} />
+      <CustomTable
+        data={consumerChainData}
+        keys={Object.keys(consumerChainData[0])}
+      />
     </Section>
   );
 };
