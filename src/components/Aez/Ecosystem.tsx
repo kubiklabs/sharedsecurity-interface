@@ -7,14 +7,27 @@ import { protocols } from "../../config/aezProtocols.json";
 import { useAez } from "../../hooks/useAez";
 import { useRecoilValue } from "recoil";
 import { ecosystemState } from "../../context/ecosystemState";
+import strideAdapter from "../../hooks/chains/stride/adapter/useStrideDefiAdapter";
+import { log } from "@defillama/sdk";
 
 const Ecosystem = () => {
   const { getParsedEcosystemData } = useAez();
   const { data } = useRecoilValue(ecosystemState);
+  console.log(data);
+
+  const {
+    stride: { tvl },
+  } = strideAdapter;
+
   useEffect(() => {
-    if (!data.length) getParsedData();
+    if (!data || !data.length) getParsedData();
     console.log(data);
   }, []);
+
+  const getStrideTvl = async () => {
+    const stvl = await tvl();
+    console.log(stvl);
+  };
 
   const getParsedData = async () => {
     const data = await getParsedEcosystemData();
