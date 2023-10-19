@@ -1,0 +1,22 @@
+{
+  "protocols": [{
+        "name":"Astroport",
+        "tags":["Neutron", "Dexes"],
+        "tvl":"-",
+        "fees":"-"
+    },
+    {
+        "name":"Mars",
+        "tags":["Neutron","Lending"],
+        "tvl":"-",
+        "fees":"-"
+
+    },
+    {
+        "name":"Stride",
+        "tags":["Stride", "Liquid Staking"],
+        "tvl":"-",
+        "fees":"-"
+
+    }]
+}

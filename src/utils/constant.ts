@@ -142,6 +142,22 @@ export const neutronStatusMap = {
   },
 };
 
+export const commonTagColorMap = {
+  Cosmos: "#472776",
+  Stride: "#B90064",
+  Neutron: "#2987E1",
+  "Liquid Staking": "#3D9BE4",
+  Dexes: "#389A71",
+  Lending: "#E66A74",
+  "Launched on ICS": "#E68767",
+  "Shifted to ICS": "#76AE62",
+  "Proposal Passed": "#00ADC3",
+  "Signaling Proposal": "#C5898A",
+  "Launched in Replicated Security": "#786DB9",
+  "Gov-Confirmed": "#006E5E",
+  "Forum-Post-Live": "#7A6B68",
+};
+
 export const assetChainMap = {
   Cosmos: {
     symbol: "ATOM",
@@ -156,6 +172,185 @@ export const assetChainMap = {
     denom: "untrn",
   },
 };
+
+export const ecosystemData = [
+  {
+    DApp: "Stafi",
+    Tags: ["Liquid Staking", "Cosmos"],
+    TVL: "$13.9b",
+    Fee: "$1.47m",
+    Revenue: "$146,251",
+    Volume: "-",
+  },
+  {
+    DApp: "Thor Chain",
+    Tags: ["Dexes", "Cosmos"],
+    TVL: "$13.9b",
+    Fee: "$1.47m",
+    Revenue: "$146,251",
+    Volume: "-",
+  },
+  {
+    DApp: "Astroport",
+    Tags: ["Dexes", "Neutron"],
+    TVL: "$13.9b",
+    Fee: "$1.47m",
+    Revenue: "$146,251",
+    Volume: "-",
+  },
+  {
+    DApp: "Eris Protocol",
+    Tags: ["Liquid Staking", "Neutron"],
+    TVL: "$13.9b",
+    Fee: "$1.47m",
+    Revenue: "$146,251",
+    Volume: "-",
+  },
+  {
+    DApp: "Mars Protocol",
+    Tags: ["Lending", "Neutron"],
+    TVL: "$13.9b",
+    Fee: "$1.47m",
+    Revenue: "$146,251",
+    Volume: "-",
+  },
+  {
+    DApp: "Stride",
+    Tags: ["Liquid Staking", "Stride"],
+    TVL: "$13.9b",
+    Fee: "$1.47m",
+    Revenue: "$146,251",
+    Volume: "-",
+  },
+];
+
+export const communityCalls = [
+  {
+    Event: "Lambda Upgrade",
+    Tags: ["AtomZone #01"],
+    Date: "Mar 14, 2023",
+  },
+  {
+    Event: "Neutron Consumer Chain",
+    Tags: ["AtomZone #01"],
+    Date: "Mar 14, 2023",
+  },
+  {
+    Event: "Neutron Consumer Chain",
+    Tags: ["AtomZone #02"],
+    Date: "Mar 21, 2023",
+  },
+  {
+    Event: "Neutron-Round 2",
+    Tags: ["AtomZone #02"],
+    Date: "Mar 21, 2023",
+  },
+  {
+    Event: "Stride Consumer Chain",
+    Tags: ["AtomZone #04"],
+    Date: "Apr 4, 2023",
+  },
+  {
+    Event: "Stride Consumer Chain",
+    Tags: ["AtomZone #04"],
+    Date: "Apr 4, 2023",
+  },
+  {
+    Event: "Liquid Staking Module",
+    Tags: ["AtomZone #05"],
+    Date: "Apr 25, 2023",
+  },
+  {
+    Event: "Liquid Staking Module",
+    Tags: ["AtomZone #05"],
+    Date: "Apr 25, 2023",
+  },
+  {
+    Event: "Neutron join AEZ",
+    Tags: ["AtomZone #06"],
+    Date: "Apr 28, 2023",
+  },
+  {
+    Event: "Neutron join AEZ",
+    Tags: ["AtomZone #06"],
+    Date: "Apr 28, 2023",
+  },
+  {
+    Event: "Stride Round 2",
+    Tags: ["AtomZone #07"],
+    Date: "May 12, 2023",
+  },
+  {
+    Event: "Stride Round 2",
+    Tags: ["AtomZone #07"],
+    Date: "May 12, 2023",
+  },
+  {
+    Event: "Shared Security Talk",
+    Tags: ["AtomZone #08"],
+    Date: "May 16, 2023",
+  },
+  {
+    Event: "Shared Security Talk",
+    Tags: ["AtomZone #08"],
+    Date: "May 16, 2023",
+  },
+  {
+    Event: "Duality to adopt Replicated Security",
+    Tags: ["AtomZone #09"],
+    Date: "Jun 2, 2023",
+  },
+  {
+    Event: "Duality to adopt Replicated Security",
+    Tags: ["AtomZone #09"],
+    Date: "Jun 2, 2023",
+  },
+  {
+    Event: "EntryPoint within the AEZ",
+    Tags: ["AtomZone #10"],
+    Date: "Jun 27, 2023",
+  },
+  {
+    Event: "EntryPoint within the AEZ",
+    Tags: ["AtomZone #10"],
+    Date: "Jun 27, 2023",
+  },
+  {
+    Event: "Welcome Stride",
+    Tags: ["AtomZone #11"],
+    Date: "Jul 21, 2023",
+  },
+  {
+    Event: "Welcome Stride",
+    Tags: ["AtomZone #11"],
+    Date: "Jul 21, 2023",
+  },
+  {
+    Event: "Neutron and Duality Merger Proposal",
+    Tags: ["AtomZone #12"],
+    Date: "Jul 25, 2023",
+  },
+  {
+    Event: "Neutron and Duality Merger Proposal",
+    Tags: ["AtomZone #12"],
+    Date: "Jul 25, 2023",
+  },
+  {
+    Event: "Composable Proposal to join AEZ",
+    Tags: ["AtomZone #13"],
+    Date: "Aug 22, 2023",
+  },
+  {
+    Event: "Composable Proposal to join AEZ",
+    Tags: ["AtomZone #13"],
+    Date: "Aug 22, 2023",
+  },
+  {
+    Event: "Composable Proposal to join AEZ",
+    Tags: ["AtomZone #14"],
+    Date: "Sep 12, 2023",
+  },
+];
 
 export const prices = [
   [1695032451660, 7.31806830648303],

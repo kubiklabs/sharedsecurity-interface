@@ -1,0 +1,136 @@
+{
+  "pairs": [
+    {
+      "contract_addr": "neutron1wzsewgysr8ttdlw96lp7u2j55z3sg7rtuvfjmd70ajavvpr3308s3zekqu",
+      "pair_type": {
+        "xyk": {}
+      }
+    },
+    {
+      "contract_addr": "neutron17hdxfavyu4qen5fy8cy09js2qud02h6d97dvx72m4uhtjryhdcks8de0wq",
+      "pair_type": {
+        "xyk": {}
+      }
+    },
+    {
+      "contract_addr": "neutron1tx80z5v3nurwfm2mulyv6396pc7mjdh3pmydrv80ulu889a9wfxsn8jh2m",
+      "pair_type": {
+        "xyk": {}
+      }
+    },
+    {
+      "contract_addr": "neutron1ssz2lzs57l7f8znscaafc4lzxtfj0pyym9w0kj9q3qvhduxa28jsgt8gnd",
+      "pair_type": {
+        "xyk": {}
+      }
+    },
+    {
+      "contract_addr": "neutron14fv4gvf962xf565k53mx2zv6nj4cqwdz6ft8gv628046hv3c79asvntft2",
+      "pair_type": {
+        "xyk": {}
+      }
+    },
+    {
+      "contract_addr": "neutron1t6tnqqmp65uzmz9yr0udujhygegw85r2gfc5vvw2xlsmxgerm48s9euhss",
+      "pair_type": {
+        "xyk": {}
+      }
+    },
+    {
+      "contract_addr": "neutron1u4v7xcvkhz8sxs3u9mjhprwc8vwc2p08x0tje4ugtrrkjhkagdysztt5dq",
+      "pair_type": {
+        "xyk": {}
+      }
+    },
+    {
+      "contract_addr": "neutron1xj8y82q6q9ta8hgf8w6ntmgxkez3sc6d9rfy7cqadcwa756nsccq8ss9vg",
+      "pair_type": {
+        "xyk": {}
+      }
+    },
+    {
+      "contract_addr": "neutron1dj568n6pl8rdadc6waa5ygjnncqrecxy86aqzc0dtjku6r50vm2q0gte43",
+      "pair_type": {
+        "xyk": {}
+      }
+    },
+    {
+      "contract_addr": "neutron1km0xpyt8z8s9lzga3hyruvswulwwc7qscjvz6xll6pvmv7u8d5qqvcgv8h",
+      "pair_type": {
+        "xyk": {}
+      }
+    },
+    {
+      "contract_addr": "neutron1adk7gupr0thjr3e6wcnlxr7ugclcg4cukv2np8la29dz38zuzymqjcv5s4",
+      "pair_type": {
+        "xyk": {}
+      }
+    },
+    {
+      "contract_addr": "neutron14z9ke0yq90zcvu6uhctd48cgzqv8v4nqxhlx5w3gfamcvttmt0dsxdt7w7",
+      "pair_type": {
+        "xyk": {}
+      }
+    },
+    {
+      "contract_addr": "neutron18dll2ugfwfhjsytrm46r5dyv7gfka8q334wvxu824s0glev0hdlsg8757n",
+      "pair_type": {
+        "xyk": {}
+      }
+    },
+    {
+      "contract_addr": "neutron14z9ke0yq90zcvu6uhctd48cgzqv8v4nqxhlx5w3gfamcvttmt0dsxdt7w7",
+      "pair_type": {
+        "xyk": {}
+      }
+    },
+    {
+      "contract_addr": "neutron1u4v7xcvkhz8sxs3u9mjhprwc8vwc2p08x0tje4ugtrrkjhkagdysztt5dq",
+      "pair_type": {
+        "xyk": {}
+      }
+    },
+    {
+      "contract_addr": "neutron1xj8y82q6q9ta8hgf8w6ntmgxkez3sc6d9rfy7cqadcwa756nsccq8ss9vg",
+      "pair_type": {
+        "xyk": {}
+      }
+    },
+    {
+      "contract_addr": "neutron1dj568n6pl8rdadc6waa5ygjnncqrecxy86aqzc0dtjku6r50vm2q0gte43",
+      "pair_type": {
+        "xyk":{}
+      }
+    },
+    {
+      "contract_addr": "neutron1s2lr8u69xammmg3s8hemegcz57y07ae0wa7c7d2adupp6du3neyqd8ygp7",
+      "pair_type": {
+        "xyk": {}
+      }
+    },
+    {
+      "contract_addr": "neutron1y4048k0rn0y8wmcy8x6vj03w572g20xyj7s9zsarvcz283rslnyq9x50xx",
+      "pair_type": {
+        "xyk": {}
+      }
+    },
+    {
+      "contract_addr": "neutron18aud0kjwzdjj3m2cqm7gqyyw556ctgp3h4metpe0kxad0ewx6s8sp3zknv",
+      "pair_type": {
+        "xyk": {}
+      }
+    },
+    {
+      "contract_addr": "neutron1e22zh5p8meddxjclevuhjmfj69jxfsa8uu3jvht72rv9d8lkhves6t8veq",
+      "pair_type": {
+        "xyk": {}
+      }
+    },
+    {
+      "contract_addr": "neutron1l3gtxnwjuy65rzk63k352d52ad0f2sh89kgrqwczgt56jc8nmc3qh5kag3",
+      "pair_type": {
+        "xyk": {}
+      }
+    }
+]
+}

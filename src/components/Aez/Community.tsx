@@ -1,6 +1,7 @@
 import React from "react";
 import Section from "../Layout/Section";
 import CustomTable from "../DataDisplay/CustomTable";
+import { communityCalls } from "../../utils/constant";
 
 const keys = ["Topic", "Tags", "Date", "Twitter Spaces"];
 const data = [
@@ -27,7 +28,10 @@ const data = [
 const Community = () => {
   return (
     <Section heading="Community Calls">
-      <CustomTable keys={keys} data={data} />
+      <CustomTable
+        keys={Object.keys(communityCalls[0])}
+        data={communityCalls}
+      />
     </Section>
   );
 };

@@ -1,40 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Section from "../Layout/Section";
 import { Stack, Tab, TabList, Tabs } from "@chakra-ui/react";
 import CustomTable from "../DataDisplay/CustomTable";
+import { ecosystemData } from "../../utils/constant";
+import { protocols } from "../../config/aezProtocols.json";
+import { useAez } from "../../hooks/useAez";
+import { useRecoilValue } from "recoil";
+import { ecosystemState } from "../../context/ecosystemState";
 
-const data = [
-  {
-    DApp: "Lido",
-    Tags: ["Liquid Staking", "Cosmos"],
-    TVL: "$13.9b",
-    Fee: "$1.47m",
-    Revenue: "$146,251",
-    Volume: "-",
-  },
-  // {
-  //   DApp: "Lido",
-  //   Tags: ["Liquid Staking", "Cosmos"],
-  //   TVL: "$13.9b",
-  //   Fee: "$1.47m",
-  //   Revenue: "$146,251",
-  //   Volume: "-",
-  // },
-  // {
-  //   DApp: "Lido",
-  //   Tags: ["Liquid Staking", "Cosmos"],
-  //   TVL: "$13.9b",
-  //   Fee: "$1.47m",
-  //   Revenue: "$146,251",
-  //   Volume: "-",
-  // },
-];
-const keys = ["DApp", "Tags", "TVL", "Fee", "Revenue", "Volume"];
 const Ecosystem = () => {
+  const { getParsedEcosystemData } = useAez();
+  const data = useRecoilValue(ecosystemState);
+  useEffect(() => {
+    if (!data.length) getParsedData();
+    console.log(data);
+  }, []);
+
+  const getParsedData = async () => {
+    const data = await getParsedEcosystemData();
+    console.log(data);
+  };
   return (
     <Section heading="Ecosystem">
       <Stack>
-        <Tabs
+        {/* <Tabs
           border="1px solid rgba(255, 255, 255, 0.10)"
           variant="soft-rounded"
           colorScheme="green"
@@ -46,8 +35,10 @@ const Ecosystem = () => {
             <Tab bg={"transparent"}>7 Days</Tab>
             <Tab bg={"transparent"}>30 Days</Tab>
           </TabList>
-        </Tabs>
-        <CustomTable keys={keys} data={data} />
+        </Tabs> */}
+        {data && data.length && (
+          <CustomTable keys={data.length && Object.keys(data[0])} data={data} />
+        )}{" "}
       </Stack>
     </Section>
   );

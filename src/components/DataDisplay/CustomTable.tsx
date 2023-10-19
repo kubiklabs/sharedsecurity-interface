@@ -1,9 +1,7 @@
 import {
-  ChakraBaseProvider,
-  ChakraProvider,
   Grid,
+  GridItem,
   Table,
-  TableCaption,
   TableContainer,
   Tbody,
   Td,
@@ -13,6 +11,7 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import ColorTag from "./ColorTag";
+import { commonTagColorMap } from "../../utils/constant";
 
 const CustomTable = ({ data, keys }: any) => {
   return (
@@ -20,14 +19,17 @@ const CustomTable = ({ data, keys }: any) => {
       <Table width={"100%"}>
         {/* <TableCaption>Data fetched from different chains</TableCaption> */}
         <Thead fontSize={"1.2rem"}>
-          <Tr>
+          <Tr mb={"20px"}>
             {keys?.map((item: string) => {
               return (
                 <Th
                   px={"20px"}
                   py={"10px"}
-                  borderRight={"1px solid"}
+                  borderLeft={"1px solid"}
+                  borderColor={"gray"}
                   key={item}
+                  borderBottom={"none"}
+                  color={"white"}
                 >
                   {item}
                 </Th>
@@ -38,28 +40,45 @@ const CustomTable = ({ data, keys }: any) => {
         <Tbody gap={"20px"}>
           {data?.map((item: any) => {
             return (
-              <Tr>
+              <Tr borderTop={"1px solid gray"}>
                 {item &&
                   Object.values(item)?.map((value: any) => {
                     return (
-                      <Td px={"25px"} py={"10px"} borderRight={"1px solid"}>
+                      <Td
+                        px={"25px"}
+                        py={"10px"}
+                        border={"none"}
+                        width={"fit-content"}
+                      >
                         <Grid
                           p={"15px"}
-                          gap={"10px"}
+                          columnGap={"50px"}
                           gridTemplateColumns={
-                            "repeat(auto-fit, minmax(80px, 1fr))"
+                            "repeat(auto-fit, minmax(100px, 200px))"
                           }
                         >
                           {typeof value === "object"
                             ? value.map((tag: string) => {
                                 return (
-                                  <ColorTag
-                                    sx={{ m: "5px" }}
-                                    bgColor="#812CD6"
-                                    content={tag}
-                                  />
+                                  <GridItem>
+                                    <ColorTag
+                                      sx={{ m: "5px" }}
+                                      bgColor={
+                                        commonTagColorMap[
+                                          tag as keyof typeof commonTagColorMap
+                                        ]
+                                          ? commonTagColorMap[
+                                              tag as keyof typeof commonTagColorMap
+                                            ]
+                                          : "#812CD6"
+                                      }
+                                      content={tag}
+                                    />
+                                  </GridItem>
                                 );
                               })
+                            : typeof value === "number"
+                            ? `$ ${value.toLocaleString()}`
                             : value}
                         </Grid>
                       </Td>
