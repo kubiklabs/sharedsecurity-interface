@@ -65,7 +65,6 @@ function App() {
               maxH={"100vh"}
               overflowY={"scroll"}
               p={"50px"}
-              mt={"20px"}
               flex={"1"}
             >
               <Routes>

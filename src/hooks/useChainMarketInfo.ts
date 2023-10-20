@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useRecoilState } from "recoil";
 import { marketState } from "../context/marketState";
+import { borderTagColorMap, tagColorMap } from "../utils/constant";
 
 export const useChainMarketInfo = () => {
   const [marketData, setMarketData] = useRecoilState(marketState);
@@ -21,11 +22,34 @@ export const useChainMarketInfo = () => {
     return newData;
   };
 
-  const getHistoricalPrice = async (coin: string, days: string) => {
-    const response = await axios.get(`
-    https://api.coingecko.com/api/v3/coins/${coin}/market_chart?vs_currency=usd&days=${days}`);
+  const getHistoricalPrice = async (coin: string) => {
+    // const response = await axios.get(
+    //   `https://api.llama.fi/v2/historicalChainTvl/${coin}`
+    // );
+    const response = await axios.get(
+      `https://api.llama.fi/v2/historicalChainTvl/${coin}`
+    );
 
-    return response.data;
+    const parsedData = {
+      label: coin,
+      data: response.data.map((obj: any) => obj.tvl),
+      borderColor: borderTagColorMap[coin as keyof typeof borderTagColorMap],
+      backgroundColor: tagColorMap[coin as keyof typeof tagColorMap],
+    };
+
+    return {
+      labels: response.data.map((obj: any) => {
+        const date = new Date(obj.date * 1000); // Multiply by 1000 to convert from seconds to milliseconds
+
+        const day = date.getDate();
+        const month = date.getMonth() + 1; // Month is 0-based, so add 1 to get the actual month
+        const year = date.getFullYear();
+
+        const formattedDate = `${day}/${month}/${year}`;
+        return formattedDate;
+      }),
+      data: parsedData,
+    };
   };
 
   return { getAllCoinsMarket, getHistoricalPrice };

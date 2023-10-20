@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -33,7 +33,7 @@ export const options = {
     },
     title: {
       display: true,
-      text: "Chart.js Line Chart",
+      text: "",
     },
   },
 };
@@ -60,14 +60,26 @@ export const data = {
 
 const Trends = () => {
   const { getHistoricalPrice } = useChainMarketInfo();
+  const [finalData, setFinalData] = useState(data);
+  // const [finalLabels, setFinalLabels] = useState(labels);
+  useEffect(() => {
+    getData();
+  }, []);
   const getData = async () => {
-    const cosmosTrend = await getHistoricalPrice("cosmos", "1");
-    const strideTrend = await getHistoricalPrice("stride", "1");
-    const neutronTrend = await getHistoricalPrice("neutron", "1");
+    const cosmosTrend = await getHistoricalPrice("Cosmos");
+    const strideTrend = await getHistoricalPrice("Stride");
+    const neutronTrend = await getHistoricalPrice("Neutron");
+
+    console.log(cosmosTrend, strideTrend, neutronTrend);
+    const graphData = {
+      labels: neutronTrend.labels,
+      datasets: [cosmosTrend.data, strideTrend.data, neutronTrend.data],
+    };
+    setFinalData(graphData);
   };
   return (
     <Section>
-      <Line data={data} options={options} />
+      <Line data={finalData} options={options} />
     </Section>
   );
 };
