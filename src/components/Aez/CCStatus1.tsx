@@ -20,6 +20,8 @@ const CCStatus1 = () => {
       <CustomTable
         data={consumerChainData}
         keys={Object.keys(consumerChainData[0])}
+        minGridWidth="200px"
+        maxGridWidth="250px"
       />
     </Section>
   );

@@ -3,7 +3,7 @@
     [
         {
             "Chain": "Neutron",
-            "Status": ["Proposal Passed", "Launch on Replicated Security", "Gov-Confirmed"],
+            "Status": ["Proposal Passed", "L/o Replicated Security", "Gov-Confirmed"],
             "Forum Date": "Mar 21, 2023",
             "Cosmos Forum": "Draft Prop",
             "Prop Date": "Apr 22, 2023",
@@ -19,7 +19,7 @@
         },
         {
             "Chain": "Stride",
-            "Status": ["Launch on Replicated Security", "Proposal Passed", "Gov-Confirmed"],
+            "Status": ["L/o Replicated Security", "Proposal Passed", "Gov-Confirmed"],
             "Forum Date": "Apr 13, 2023",
             "Cosmos Forum": "Draft Prop",
             "Prop Date": "Jun 13, 2023",

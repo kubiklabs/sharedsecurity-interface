@@ -31,6 +31,7 @@ const Community = () => {
       <CustomTable
         keys={Object.keys(communityCalls[0])}
         data={communityCalls}
+        minGridWidth="150px"
       />
     </Section>
   );

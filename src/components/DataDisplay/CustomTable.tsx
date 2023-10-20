@@ -11,20 +11,30 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import ColorTag from "./ColorTag";
-import { commonTagColorMap } from "../../utils/constant";
+import {
+  commonTagColorMap,
+  scrollbarStyle,
+  thinScrollbarStyle,
+} from "../../utils/constant";
 
-const CustomTable = ({ data, keys }: any) => {
+const CustomTable = ({
+  data,
+  keys,
+  minGridWidth,
+  maxGridWidth,
+  gridColumnGap,
+}: any) => {
   return (
     <TableContainer textAlign={"left"}>
       <Table width={"100%"}>
         {/* <TableCaption>Data fetched from different chains</TableCaption> */}
         <Thead fontSize={"1.2rem"}>
-          <Tr mb={"20px"}>
+          <Tr>
             {keys?.map((item: string) => {
               return (
                 <Th
                   px={"20px"}
-                  py={"10px"}
+                  py={"20px"}
                   borderLeft={"1px solid"}
                   borderColor={"gray"}
                   key={item}
@@ -47,43 +57,47 @@ const CustomTable = ({ data, keys }: any) => {
                 {item &&
                   Object.values(item)?.map((value: any) => {
                     return (
-                      <Td
-                        px={"25px"}
-                        py={"10px"}
-                        border={"none"}
-                        width={"fit-content"}
-                      >
-                        <Grid
-                          p={"15px"}
-                          columnGap={"50px"}
-                          gridTemplateColumns={
-                            "repeat(auto-fit, minmax(100px, 200px))"
-                          }
-                        >
-                          {typeof value === "object"
-                            ? value.map((tag: string) => {
-                                return (
-                                  <GridItem>
-                                    <ColorTag
-                                      sx={{ m: "5px" }}
-                                      bgColor={
-                                        commonTagColorMap[
-                                          tag as keyof typeof commonTagColorMap
-                                        ]
-                                          ? commonTagColorMap[
-                                              tag as keyof typeof commonTagColorMap
-                                            ]
-                                          : "#812CD6"
-                                      }
-                                      content={tag}
-                                    />
-                                  </GridItem>
-                                );
-                              })
-                            : typeof value === "number"
-                            ? `$ ${value.toLocaleString()}`
-                            : value}
-                        </Grid>
+                      <Td py={"10px"} border={"none"} width={"fit-content"}>
+                        {typeof value === "object" ? (
+                          <Grid
+                            // overflowX={"auto"}
+                            // sx={thinScrollbarStyle}
+                            py={"15px"}
+                            columnGap={gridColumnGap || "10px"}
+                            gridTemplateColumns={`repeat(auto-fit, minmax(${
+                              minGridWidth || "100px"
+                            }, ${maxGridWidth || "1fr"}))`}
+                          >
+                            {value.map((tag: string) => {
+                              return (
+                                <GridItem width={"fit-content"}>
+                                  <ColorTag
+                                    sx={{
+                                      m: "5px",
+                                      wordBreak: "break-word",
+                                      width: "100%",
+                                      textAlign: "center",
+                                    }}
+                                    bgColor={
+                                      commonTagColorMap[
+                                        tag as keyof typeof commonTagColorMap
+                                      ]
+                                        ? commonTagColorMap[
+                                            tag as keyof typeof commonTagColorMap
+                                          ]
+                                        : "#812CD6"
+                                    }
+                                    content={tag}
+                                  />
+                                </GridItem>
+                              );
+                            })}
+                          </Grid>
+                        ) : typeof value === "number" ? (
+                          `$ ${value.toLocaleString()}`
+                        ) : (
+                          value
+                        )}
                       </Td>
                     );
                   })}

@@ -12,6 +12,18 @@ export const scrollbarStyle = {
     background: "gray.400",
   },
 };
+export const thinScrollbarStyle = {
+  "&::-webkit-scrollbar": {
+    width: "1px",
+  },
+  "&::-webkit-scrollbar-thumb": {
+    background: "transparent",
+    borderRadius: "1px",
+  },
+  "&::-webkit-scrollbar-thumb:hover": {
+    background: "gray.100",
+  },
+};
 
 export const tagColorMap = {
   Cosmos: "#472776",

@@ -47,7 +47,13 @@ const Ecosystem = () => {
           </TabList>
         </Tabs> */}
         {data && data.length ? (
-          <CustomTable keys={data && Object.keys(data[0])} data={data} />
+          <CustomTable
+            keys={data && Object.keys(data[0])}
+            data={data}
+            minGridWidth="80px"
+            maxGridWidth="100px"
+            gridColumnGap="20px"
+          />
         ) : (
           <Center>
             <Spinner />
