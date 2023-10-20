@@ -26,13 +26,14 @@ const CustomTable = ({
 }: any) => {
   return (
     <TableContainer textAlign={"left"}>
-      <Table width={"100%"}>
+      <Table width={"100%"} fontSize={"lg"}>
         {/* <TableCaption>Data fetched from different chains</TableCaption> */}
         <Thead fontSize={"1.2rem"}>
           <Tr>
             {keys?.map((item: string) => {
               return (
                 <Th
+                  width={"200px"}
                   px={"20px"}
                   py={"20px"}
                   borderLeft={"1px solid"}
@@ -47,22 +48,22 @@ const CustomTable = ({
             })}
           </Tr>
         </Thead>
-        <Tbody gap={"20px"}>
+        <Tbody>
           {data?.map((item: any) => {
             return (
               <Tr
                 // borderTop={"1px solid gray"}
-                borderBottom={"2px solid rgba(255, 255, 255, 0.40)"}
+                borderBottom={"1px solid rgba(255, 255, 255, 0.40)"}
               >
                 {item &&
                   Object.values(item)?.map((value: any) => {
                     return (
-                      <Td py={"10px"} border={"none"} width={"fit-content"}>
+                      <Td py={"10px"} border={"none"}>
                         {typeof value === "object" ? (
                           <Grid
                             // overflowX={"auto"}
                             // sx={thinScrollbarStyle}
-                            py={"15px"}
+                            py={"3px"}
                             columnGap={gridColumnGap || "10px"}
                             gridTemplateColumns={`repeat(auto-fit, minmax(${
                               minGridWidth || "100px"

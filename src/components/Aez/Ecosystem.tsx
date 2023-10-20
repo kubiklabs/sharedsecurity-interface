@@ -21,11 +21,6 @@ const Ecosystem = () => {
     console.log(data);
   }, []);
 
-  const getStrideTvl = async () => {
-    const stvl = await tvl();
-    console.log(stvl);
-  };
-
   const getParsedData = async () => {
     const data = await getParsedEcosystemData();
     console.log(data);

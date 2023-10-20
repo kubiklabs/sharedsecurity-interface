@@ -3,20 +3,23 @@
         "name":"Astroport",
         "tags":["Neutron", "Dexes"],
         "tvl":"-",
-        "fees":"-"
+        "fees":"-",
+        "volume":"-"
     },
     {
         "name":"Mars",
         "tags":["Neutron","Lending"],
         "tvl":"-",
-        "fees":"-"
+        "fees":"-",
+        "volume":"-"
 
     },
     {
         "name":"Stride",
         "tags":["Stride", "Liquid Staking"],
         "tvl":"-",
-        "fees":"-"
+        "fees":"-",
+        "volume":"-"
 
     }]
 }
