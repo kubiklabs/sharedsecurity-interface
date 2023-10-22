@@ -117,7 +117,7 @@ const OpSection = ({
         {currentItems?.length ? (
           currentItems?.map((item) => {
             return (
-              <GridItem id={item.proposalId}>
+              <GridItem maxW={"700px"} id={item.proposalId}>
                 <LpCard {...item} />
               </GridItem>
             );
@@ -139,12 +139,14 @@ const OpSection = ({
           </GridItem>
         )}
       </Grid>
-      <Pagination
-        currentPage={currentPage.current}
-        totalPages={pageCount}
-        onPageChange={handlePageClick}
-        alignSelf={"center"}
-      />
+      {filteredItems?.length ? (
+        <Pagination
+          currentPage={currentPage.current}
+          totalPages={pageCount}
+          onPageChange={handlePageClick}
+          alignSelf={"center"}
+        />
+      ) : null}
     </Section>
   );
 };

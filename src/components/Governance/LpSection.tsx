@@ -21,8 +21,11 @@ const LpSection = ({
   isLoading?: boolean;
 }) => {
   return (
-    <Section heading="Live Proposals">
-      <PulseLive />
+    <Section
+      heading="Live Proposals"
+      sideText={`${lpList?.length}/${lpList?.length}`}
+    >
+      <PulseLive left="325px" top="19px" />
       <Grid
         p={"15px"}
         gap={"20px"}

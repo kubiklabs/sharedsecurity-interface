@@ -1,7 +1,17 @@
 import React from "react";
 import "./PulseLive.css";
-const PulseLive = () => {
-  return <div className="circle"></div>;
+const PulseLive = ({ top, bottom, left, right }: any) => {
+  return (
+    <div
+      style={{
+        top,
+        bottom,
+        left,
+        right,
+      }}
+      className="circle"
+    ></div>
+  );
 };
 
 export default PulseLive;

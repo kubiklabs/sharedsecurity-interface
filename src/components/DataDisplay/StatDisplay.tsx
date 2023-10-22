@@ -25,8 +25,8 @@ const StatDisplay = ({
   isSatisfied = "na",
   showSatisfiedBg,
 }: {
-  label?: String;
-  number?: String;
+  label: String;
+  number: String;
   helpText?: String;
   isSatisfied?: String;
   showSatisfiedBg?: boolean;

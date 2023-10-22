@@ -46,7 +46,10 @@ export const useCosmosValidatorQuery = () => {
           "Share %": `${(
             (validator.tokens / Number(totalBonded)) *
             100
-          ).toLocaleString()}%`,
+          ).toFixed(2)}%`,
+          "Commision Rate": `${(
+            Number(validator.commission.commission_rates.rate) * 100
+          ).toFixed(2)}%`,
         });
       }
     }

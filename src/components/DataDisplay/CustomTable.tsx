@@ -5,17 +5,19 @@ import {
   TableContainer,
   Tbody,
   Td,
+  Text,
   Th,
   Thead,
   Tr,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ColorTag from "./ColorTag";
 import {
   commonTagColorMap,
   scrollbarStyle,
   thinScrollbarStyle,
 } from "../../utils/constant";
+import Pagination from "../Pagination/Pagination";
 
 const CustomTable = ({
   data,
@@ -23,7 +25,31 @@ const CustomTable = ({
   minGridWidth,
   maxGridWidth,
   gridColumnGap,
+  itemsPerPage = 10,
+  pagination,
 }: any) => {
+  const currentPage = useRef(1);
+  const totalPages = useRef(Math.ceil(data?.length / itemsPerPage) || 0);
+  const [currentItems, setCurrentItems] = useState(data);
+
+  useEffect(() => {
+    if (!pagination) return;
+    setCurrentItems(data.slice(0, itemsPerPage));
+    totalPages.current = Math.ceil(data?.length / itemsPerPage) || 0;
+  }, [data]);
+
+  const handlePageClick = (page: number) => {
+    currentPage.current = page;
+    const newOffset = ((page - 1) * itemsPerPage) % data.length;
+    console.log(
+      `User requested page number ${page}, which is offset ${newOffset}`
+    );
+
+    const endOffset = newOffset + itemsPerPage;
+    const currentItems = data.slice(newOffset, endOffset);
+    setCurrentItems(currentItems);
+  };
+
   return (
     <TableContainer textAlign={"left"}>
       <Table width={"100%"} fontSize={"lg"}>
@@ -34,22 +60,29 @@ const CustomTable = ({
               return (
                 <Th
                   width={"200px"}
-                  px={"20px"}
-                  py={"20px"}
-                  borderLeft={"1px solid"}
-                  borderColor={"gray"}
+                  py={"30px"}
                   key={item}
-                  borderBottom={"none"}
+                  borderBottom={"1px solid"}
+                  borderColor={"gray.400"}
                   color={"gray"}
+                  pl={"0"}
                 >
-                  {item}
+                  <Text
+                    borderLeft={"1px solid"}
+                    borderColor={"gray"}
+                    py={"10px"}
+                    px={"20px"}
+                    width={"100%"}
+                  >
+                    {item}
+                  </Text>
                 </Th>
               );
             })}
           </Tr>
         </Thead>
         <Tbody>
-          {data?.map((item: any) => {
+          {currentItems?.map((item: any) => {
             return (
               <Tr
                 // borderTop={"1px solid gray"}
@@ -107,6 +140,14 @@ const CustomTable = ({
           })}
         </Tbody>
       </Table>
+      {totalPages && pagination && (
+        <Pagination
+          currentPage={currentPage.current}
+          totalPages={totalPages.current}
+          onPageChange={handlePageClick}
+          alignSelf={"flex-end"}
+        />
+      )}
     </TableContainer>
   );
 };
