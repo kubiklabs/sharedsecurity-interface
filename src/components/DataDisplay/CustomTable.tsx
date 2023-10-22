@@ -40,7 +40,7 @@ const CustomTable = ({
                   borderColor={"gray"}
                   key={item}
                   borderBottom={"none"}
-                  color={"white"}
+                  color={"gray"}
                 >
                   {item}
                 </Th>
@@ -58,7 +58,7 @@ const CustomTable = ({
                 {item &&
                   Object.values(item)?.map((value: any) => {
                     return (
-                      <Td py={"10px"} border={"none"}>
+                      <Td py={"15px"} border={"none"}>
                         {typeof value === "object" ? (
                           <Grid
                             // overflowX={"auto"}

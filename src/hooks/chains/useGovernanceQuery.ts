@@ -32,7 +32,9 @@ export const useGovernanceQuery = (restUrl: string, chain: string) => {
 
     while (proposalsData.pagination.next_key != null) {
       const response = await axios.get(
-        `${restUrl}/cosmos/gov/v1beta1/proposals?pagination.key=${proposalsData.pagination.next_key}`
+        `${restUrl}/cosmos/gov/v1beta1/proposals?pagination.key=${encodeURIComponent(
+          proposalsData.pagination.next_key
+        )}`
       );
       proposalsData = response.data;
       allProposalData = allProposalData.concat(proposalsData.proposals);

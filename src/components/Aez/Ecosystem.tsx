@@ -47,7 +47,7 @@ const Ecosystem = () => {
             data={data}
             minGridWidth="80px"
             maxGridWidth="100px"
-            gridColumnGap="20px"
+            gridColumnGap="0px"
           />
         ) : (
           <Center>
