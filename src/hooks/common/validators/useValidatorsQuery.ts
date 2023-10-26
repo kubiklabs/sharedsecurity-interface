@@ -21,5 +21,16 @@ export const useValidatorQuery = (restUrl: string) => {
     }
   };
 
-  return { getFullValidatorList };
+  const getActiveValidatorSet = async () => {
+    try {
+      const response = await axios.get(
+        `${restUrl}/cosmos/base/tendermint/v1beta1/validatorsets/latest`
+      );
+      return response.data.validators;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  return { getFullValidatorList, getActiveValidatorSet };
 };

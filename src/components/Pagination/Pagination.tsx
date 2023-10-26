@@ -73,10 +73,11 @@ const Pagination = ({
   return (
     <Box
       display="flex"
-      justifyContent="center"
+      justifyContent="end"
       alignItems="center"
       marginTop="20px"
       alignSelf={alignSelf}
+      // justifyItems={"flex-end"}
     >
       <Tooltip label="First Page">
         <span

@@ -68,7 +68,11 @@ const VpCard = ({ name }: { name: string }) => {
             </Flex>
           </>
         ) : (
-          !isLoading && <Button onClick={handleVpCalculate}>Calculate</Button>
+          !isLoading && (
+            <Center>
+              <Spinner width={"3rem"} height="3rem" />
+            </Center>
+          )
         )}
       </Stack>
     </Box>

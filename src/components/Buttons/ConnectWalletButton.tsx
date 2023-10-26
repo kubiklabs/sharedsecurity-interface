@@ -8,7 +8,7 @@ import {
 } from "../../hooks/useConnectWallet";
 import { coinConvert } from "../../utils/common";
 import { Box, Button, Center, Spinner, Tooltip } from "@chakra-ui/react";
-import CopyAddressModal from "../../modals/CopyAddressModal";
+import CopyAddressModal from "../modals/CopyAddressModal";
 
 const ConnectWalletButton = () => {
   const { isLoggedIn, name } = useRecoilValue(walletState);

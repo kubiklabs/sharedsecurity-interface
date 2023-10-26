@@ -3,13 +3,15 @@ import { useValidatorQuery } from "../../common/validators/useValidatorsQuery";
 import { cosmosValidatorState } from "../../../context/cosmosValidatorState";
 import { useCosmosGovQuery } from "./useCosmosGovQuery";
 import { coinConvert } from "../../../utils/common";
+import axios from "axios";
 
 const COSMOS_REST_URL = "https://cosmoshub-api.lavenderfive.com:443";
 
 export const useCosmosValidatorQuery = () => {
   const [{ validators }, setValidators] = useRecoilState(cosmosValidatorState);
 
-  const { getFullValidatorList } = useValidatorQuery(COSMOS_REST_URL);
+  const { getFullValidatorList, getActiveValidatorSet } =
+    useValidatorQuery(COSMOS_REST_URL);
   const { getCosmosTotalBondedToken } = useCosmosGovQuery();
 
   const getAllCosmosValidators = async () => {
@@ -20,20 +22,30 @@ export const useCosmosValidatorQuery = () => {
     return allValidators;
   };
 
-  const getCosmosActiveValidators = async () => {
+  const getCosmosUnjailedValidators = async () => {
     let allValidators = validators;
     if (!allValidators.length) allValidators = await getAllCosmosValidators();
-    return allValidators.filter((validator) => validator.jailed === false);
+    allValidators = allValidators.filter(
+      (validator) => validator.jailed === false
+    );
+    allValidators = allValidators.sort((a, b) => Number(b.tokens) - a.tokens);
+    console.log(allValidators);
+
+    return allValidators;
   };
 
   const getParsedActiveValidators = async () => {
+    const activeValidators = await getActiveValidatorSet();
     const totalBonded = await getCosmosTotalBondedToken();
-    let allValidators = validators;
-    if (!allValidators.length) allValidators = await getAllCosmosValidators();
+    // await getCosmosUnjailedValidators();
+    let allValidators = await getAllCosmosValidators();
+    // if (!allValidators.length) allValidators = await getAllCosmosValidators();
     let parsedActiveValidators = [];
     // console.log(allValidators);
 
     for (const index in allValidators) {
+      // allValidators.find((validator)=>validator.)
+
       const validator = allValidators[index];
       //   console.log(validator);
 
@@ -62,7 +74,7 @@ export const useCosmosValidatorQuery = () => {
 
   return {
     getAllCosmosValidators,
-    getCosmosActiveValidators,
+    getCosmosUnjailedValidators,
     getParsedActiveValidators,
   };
 };

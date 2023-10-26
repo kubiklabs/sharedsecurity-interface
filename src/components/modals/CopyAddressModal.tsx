@@ -14,8 +14,8 @@ import {
   isStyleProp,
 } from "@chakra-ui/react";
 import { useRecoilValue } from "recoil";
-import { walletState } from "../context/walletState";
-import AddressDisplay from "../components/DataDisplay/AddressDisplay";
+import { walletState } from "../../context/walletState";
+import AddressDisplay from "../DataDisplay/AddressDisplay";
 
 const CopyAddressModal = ({ isOpen, onClose }: any) => {
   const addresses = useRecoilValue(walletState);

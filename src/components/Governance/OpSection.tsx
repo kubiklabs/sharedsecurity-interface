@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import Section from "../Layout/Section";
 import {
+  Box,
   Button,
   Flex,
   Grid,
@@ -9,9 +10,12 @@ import {
   Input,
   Skeleton,
   Spinner,
+  Text,
 } from "@chakra-ui/react";
 import LpCard, { ILpCardProps } from "./LpCard";
 import Pagination from "../Pagination/Pagination";
+import FilterModal, { I_InFil } from "../modals/FilterModal";
+import { useFilter } from "../../hooks/useFilter";
 
 const itemsPerPage = 10;
 
@@ -25,12 +29,11 @@ const OpSection = ({
   const [pageCount, setPageCount] = useState(
     Math.ceil(opList?.length / itemsPerPage) || 0
   );
-  // useMemo(() => Math.ceil(opList?.length / itemsPerPage), [opList]) || 0;
   const [filteredItems, setFilteredItems] = useState(opList);
-  const [searchText, setSearchText] = useState();
-  const currentPage = useRef(1);
-  // const [currentPage, setCurrentPage] = useState(1);
+  const [filterPopover, setFilterPopover] = useState(false);
   const [currentItems, setCurrentItems] = useState(filteredItems?.slice(0, 10));
+  const currentPage = useRef(1);
+  const { filter } = useFilter();
 
   useEffect(() => {
     setFilteredItems(opList);
@@ -39,6 +42,12 @@ const OpSection = ({
   useEffect(() => {
     setCurrentItems(filteredItems?.slice(0, 10));
   }, [filteredItems]);
+
+  const handleFilterPopover = () => {
+    const oldVal = filterPopover;
+    // console.log(oldVal);
+    setFilterPopover(!oldVal);
+  };
 
   const handlePageClick = (page: number) => {
     currentPage.current = page;
@@ -71,13 +80,74 @@ const OpSection = ({
 
   const handleSearch = (e: any) => {
     // console.log(e.target.value);
-    setSearchText(e.target.value);
     const filteredList = searchObjects(e.target.value);
     setFilteredItems(filteredList);
     console.log(filteredList);
     setPageCount(Math.ceil(filteredList.length / itemsPerPage) || 0);
     currentPage.current = 1;
     // handlePageClick(1);
+  };
+
+  const handleFilter = (allFilters: I_InFil) => {
+    let filteredList = filter(allFilters, opList);
+
+    setFilteredItems(filteredList);
+    setPageCount(Math.ceil(filteredList.length / itemsPerPage) || 0);
+    currentPage.current = 1;
+
+    // for (const category in allFilters) {
+    //   if (allFilters[category as keyof I_InFil].length === 0) {
+    //     continue;
+    //   }
+    //   filteredList = filteredList.filter((obj) => {
+    //     const {
+    //       tags: [chain, type],
+    //       status,
+    //     } = obj;
+
+    //     let current;
+    //     switch (category) {
+    //       case "chain":
+    //         current = allFilters.chain;
+    //         if (
+    //           current.some((element: string) =>
+    //             chain.toLowerCase().includes(element.toLowerCase())
+    //           )
+    //         ) {
+    //           return true;
+    //         }
+    //         break;
+
+    //       case "type":
+    //         current = allFilters.type;
+
+    //         if (
+    //           type &&
+    //           current.some((element: string) =>
+    //             (type as string).toLowerCase().includes(element.toLowerCase())
+    //           )
+    //         )
+    //           return true;
+
+    //         break;
+
+    //       case "result":
+    //         current = allFilters.result;
+
+    //         if (
+    //           current.some((element: string) =>
+    //             status.toLowerCase().includes(element.toLowerCase())
+    //           )
+    //         )
+    //           return true;
+
+    //         break;
+
+    //       default:
+    //         break;
+    //     }
+    //   });
+    // }
   };
 
   return (
@@ -97,14 +167,27 @@ const OpSection = ({
           width={"500px"}
           bg={"rgba(255, 255, 255, 0.05)"}
         />
-        <Flex gap={"15px"} alignItems={"center"}>
+        <Flex position={"relative"} gap={"15px"} alignItems={"center"}>
           {/* <Button>My Votes</Button> */}
-          <span
-            style={{ fontVariationSettings: "'FILL' 1", fontSize: "2rem" }}
-            className="material-symbols-outlined"
+          <Text
+            cursor={"pointer"}
+            _hover={{
+              color: "#BC3D70",
+            }}
+            onClick={handleFilterPopover}
           >
-            widgets
-          </span>
+            <span
+              style={{ fontVariationSettings: "'FILL' 1", fontSize: "2rem" }}
+              className="material-symbols-outlined"
+            >
+              tune
+            </span>
+          </Text>
+          <FilterModal
+            onFilterApply={handleFilter}
+            isPopoverOpen={filterPopover}
+            setIsPopoverOpen={setFilterPopover}
+          />
         </Flex>
       </Flex>
       <Grid
@@ -117,7 +200,7 @@ const OpSection = ({
         {currentItems?.length ? (
           currentItems?.map((item) => {
             return (
-              <GridItem maxW={"700px"} id={item.proposalId}>
+              <GridItem id={item.proposalId}>
                 <LpCard {...item} />
               </GridItem>
             );

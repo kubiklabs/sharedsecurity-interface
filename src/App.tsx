@@ -19,6 +19,8 @@ import Validators from "./pages/Validators";
 import Proposal from "./pages/Proposal";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useCallback, useEffect } from "react";
+import { useConnectWallet } from "./hooks/useConnectWallet";
 
 const scrollbarStyle = {
   "&::-webkit-scrollbar": {
@@ -53,36 +55,42 @@ const theme = extendTheme({
 });
 
 function App() {
+  const connectWallet = useConnectWallet();
+
+  const connectKeplr = useCallback(() => {
+    connectWallet();
+  }, []);
+
+  connectKeplr();
+
   return (
-    <ChakraProvider theme={theme}>
-      <RecoilRoot>
-        <BrowserRouter>
-          <Flex className="App">
-            <SideBar />
-            {/* <Divider orientation="vertical" /> */}
-            <Box
-              sx={scrollbarStyle}
-              maxH={"100vh"}
-              overflowY={"scroll"}
-              p={"50px"}
-              flex={"1"}
-            >
-              <Routes>
-                <Route path="/overview" element={<Overwiew />} />
-                <Route path="/aez" element={<Aez />} />
-                <Route path="/gov" element={<Governance />} />
-                <Route path="/gov/:chain/:proposalId" element={<Proposal />} />
-                <Route path="/assets" element={<Assets />} />
-                <Route path="/validators" element={<Validators />} />
-                <Route path="/" element={<Navigate to="/overview" replace />} />
-              </Routes>
-            </Box>
-          </Flex>
-        </BrowserRouter>
-        {/* <Header /> */}
-        <ToastContainer style={{ textAlign: "left" }} />
-      </RecoilRoot>
-    </ChakraProvider>
+    <>
+      <BrowserRouter>
+        <Flex className="App">
+          <SideBar />
+          {/* <Divider orientation="vertical" /> */}
+          <Box
+            sx={scrollbarStyle}
+            maxH={"100vh"}
+            overflowY={"scroll"}
+            p={"50px"}
+            flex={"1"}
+          >
+            <Routes>
+              <Route path="/overview" element={<Overwiew />} />
+              <Route path="/aez" element={<Aez />} />
+              <Route path="/gov" element={<Governance />} />
+              <Route path="/gov/:chain/:proposalId" element={<Proposal />} />
+              <Route path="/assets" element={<Assets />} />
+              <Route path="/validators" element={<Validators />} />
+              <Route path="/" element={<Navigate to="/overview" replace />} />
+            </Routes>
+          </Box>
+        </Flex>
+      </BrowserRouter>
+      {/* <Header /> */}
+      <ToastContainer style={{ textAlign: "left" }} />
+    </>
   );
 }
 

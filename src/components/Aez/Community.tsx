@@ -32,6 +32,7 @@ const Community = () => {
         keys={Object.keys(communityCalls[0])}
         data={communityCalls}
         minGridWidth="150px"
+        pagination={true}
       />
     </Section>
   );
