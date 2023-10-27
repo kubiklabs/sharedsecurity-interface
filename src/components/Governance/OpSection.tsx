@@ -11,6 +11,7 @@ import {
   Skeleton,
   Spinner,
   Text,
+  Tooltip,
 } from "@chakra-ui/react";
 import LpCard, { ILpCardProps } from "./LpCard";
 import Pagination from "../Pagination/Pagination";
@@ -90,64 +91,9 @@ const OpSection = ({
 
   const handleFilter = (allFilters: I_InFil) => {
     let filteredList = filter(allFilters, opList);
-
     setFilteredItems(filteredList);
     setPageCount(Math.ceil(filteredList.length / itemsPerPage) || 0);
     currentPage.current = 1;
-
-    // for (const category in allFilters) {
-    //   if (allFilters[category as keyof I_InFil].length === 0) {
-    //     continue;
-    //   }
-    //   filteredList = filteredList.filter((obj) => {
-    //     const {
-    //       tags: [chain, type],
-    //       status,
-    //     } = obj;
-
-    //     let current;
-    //     switch (category) {
-    //       case "chain":
-    //         current = allFilters.chain;
-    //         if (
-    //           current.some((element: string) =>
-    //             chain.toLowerCase().includes(element.toLowerCase())
-    //           )
-    //         ) {
-    //           return true;
-    //         }
-    //         break;
-
-    //       case "type":
-    //         current = allFilters.type;
-
-    //         if (
-    //           type &&
-    //           current.some((element: string) =>
-    //             (type as string).toLowerCase().includes(element.toLowerCase())
-    //           )
-    //         )
-    //           return true;
-
-    //         break;
-
-    //       case "result":
-    //         current = allFilters.result;
-
-    //         if (
-    //           current.some((element: string) =>
-    //             status.toLowerCase().includes(element.toLowerCase())
-    //           )
-    //         )
-    //           return true;
-
-    //         break;
-
-    //       default:
-    //         break;
-    //     }
-    //   });
-    // }
   };
 
   return (
@@ -169,20 +115,22 @@ const OpSection = ({
         />
         <Flex position={"relative"} gap={"15px"} alignItems={"center"}>
           {/* <Button>My Votes</Button> */}
-          <Text
-            cursor={"pointer"}
-            _hover={{
-              color: "#BC3D70",
-            }}
-            onClick={handleFilterPopover}
-          >
-            <span
-              style={{ fontVariationSettings: "'FILL' 1", fontSize: "2rem" }}
-              className="material-symbols-outlined"
+          <Tooltip label="Filter">
+            <Text
+              cursor={"pointer"}
+              _hover={{
+                color: "#BC3D70",
+              }}
+              onClick={handleFilterPopover}
             >
-              tune
-            </span>
-          </Text>
+              <span
+                style={{ fontVariationSettings: "'FILL' 1", fontSize: "2rem" }}
+                className="material-symbols-outlined"
+              >
+                tune
+              </span>
+            </Text>
+          </Tooltip>
           <FilterModal
             onFilterApply={handleFilter}
             isPopoverOpen={filterPopover}

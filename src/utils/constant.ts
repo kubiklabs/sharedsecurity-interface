@@ -1,3 +1,4 @@
+import { ISocialLinks } from "../components/Buttons/SocialIconGroup";
 import { IVoteValueProps } from "./interface";
 
 export const scrollbarStyle = {
@@ -363,6 +364,26 @@ export const communityCalls = [
     Date: "Sep 12, 2023",
   },
 ];
+
+export const COSMOS_SOCIALS: ISocialLinks = {
+  Telegram: "https://t.me/cosmosproject",
+  Twitter: "https://twitter.com/cosmos",
+  Discord: "https://discord.gg/cosmosnetwork",
+  Medium: "https://blog.cosmos.network/",
+  Reddit: "https://reddit.com/r/cosmosnetwork",
+  Youtube: "https://www.youtube.com/c/CosmosProject",
+};
+
+export const STRIDE_SOCIALS: ISocialLinks = {
+  Twitter: "https://twitter.com/stride_zone",
+  Discord: "https://stride.zone/discord",
+};
+
+export const NEUTRON_SOCIALS: ISocialLinks = {
+  Twitter: "https://twitter.com/Neutron_org",
+  Discord: "https://discord.neutron.org/",
+  Telegram: "https://t.me/neutron_community",
+};
 
 export const prices = [
   [1695032451660, 7.31806830648303],

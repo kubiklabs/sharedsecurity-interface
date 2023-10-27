@@ -2,7 +2,7 @@ import { useRecoilState } from "recoil";
 import { useGovernanceQuery } from "../useGovernanceQuery";
 import { userVpState } from "../../../context/userVpState";
 
-let trustedRest = "https://cosmoshub-api.lavenderfive.com:443";
+let trustedRest = "https://lcd-cosmoshub.blockapsis.com";
 
 export const useCosmosGovQuery = () => {
   const {
