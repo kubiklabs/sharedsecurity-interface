@@ -1,25 +1,34 @@
 {
-  "protocols": [{
-        "name":"Astroport",
-        "tags":["Neutron", "Dexes"],
-        "tvl":"-",
-        "fees":"-",
-        "volume":"-"
+  "protocols": [
+    {
+      "name": "Astroport",
+      "tags": {
+        "type": "tags",
+        "data": ["Neutron", "Dexes"]
+      },
+      "tvl": "-",
+      "fees": "-",
+      "volume": "-"
     },
     {
-        "name":"Mars",
-        "tags":["Neutron","Lending"],
-        "tvl":"-",
-        "fees":"-",
-        "volume":"-"
-
+      "name": "Mars",
+      "tags": {
+        "type": "tags",
+        "data": ["Neutron", "Lending"]
+      },
+      "tvl": "-",
+      "fees": "-",
+      "volume": "-"
     },
     {
-        "name":"Stride",
-        "tags":["Stride", "Liquid Staking"],
-        "tvl":"-",
-        "fees":"-",
-        "volume":"-"
-
-    }]
+      "name": "Stride",
+      "tags": {
+        "type": "tags",
+        "data": ["Stride", "Liquid Staking"]
+      },
+      "tvl": "-",
+      "fees": "-",
+      "volume": "-"
+    }
+  ]
 }

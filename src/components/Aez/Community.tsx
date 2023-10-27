@@ -1,7 +1,8 @@
 import React from "react";
 import Section from "../Layout/Section";
 import CustomTable from "../DataDisplay/CustomTable";
-import { communityCalls } from "../../utils/constant";
+import communityCalls from "../../config/communityCalls.json";
+// import { communityCalls } from "../../utils/constant";
 
 const keys = ["Topic", "Tags", "Date", "Twitter Spaces"];
 const data = [
@@ -30,7 +31,7 @@ const Community = () => {
     <Section heading="Community Calls">
       <CustomTable
         keys={Object.keys(communityCalls[0])}
-        data={communityCalls}
+        data={communityCalls.reverse()}
         minGridWidth="150px"
         pagination={true}
       />

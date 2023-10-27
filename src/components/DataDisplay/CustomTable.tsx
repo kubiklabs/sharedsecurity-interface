@@ -1,6 +1,8 @@
 import {
+  Flex,
   Grid,
   GridItem,
+  Link,
   Table,
   TableContainer,
   Tbody,
@@ -17,7 +19,9 @@ import {
   scrollbarStyle,
   thinScrollbarStyle,
 } from "../../utils/constant";
+import { Link as PathLink } from "react-router-dom";
 import Pagination from "../Pagination/Pagination";
+import TableTagGroup from "./table-helpers/TableTagGroup";
 
 const CustomTable = ({
   data,
@@ -86,47 +90,24 @@ const CustomTable = ({
             return (
               <Tr
                 // borderTop={"1px solid gray"}
-                borderBottom={"1px solid rgba(255, 255, 255, 0.40)"}
+                borderBottom={"1px solid rgba(255, 255, 255, 0.15)"}
               >
                 {item &&
                   Object.values(item)?.map((value: any) => {
                     return (
                       <Td py={"15px"} border={"none"}>
                         {typeof value === "object" ? (
-                          <Grid
-                            // overflowX={"auto"}
-                            // sx={thinScrollbarStyle}
-                            py={"3px"}
-                            columnGap={gridColumnGap || "10px"}
-                            gridTemplateColumns={`repeat(auto-fit, minmax(${
-                              minGridWidth || "100px"
-                            }, ${maxGridWidth || "1fr"}))`}
-                          >
-                            {value.map((tag: string) => {
-                              return (
-                                <GridItem width={"fit-content"}>
-                                  <ColorTag
-                                    sx={{
-                                      m: "5px",
-                                      wordBreak: "break-word",
-                                      width: "100%",
-                                      textAlign: "center",
-                                    }}
-                                    bgColor={
-                                      commonTagColorMap[
-                                        tag as keyof typeof commonTagColorMap
-                                      ]
-                                        ? commonTagColorMap[
-                                            tag as keyof typeof commonTagColorMap
-                                          ]
-                                        : "#812CD6"
-                                    }
-                                    content={tag}
-                                  />
-                                </GridItem>
-                              );
-                            })}
-                          </Grid>
+                          value.type === "tags" ? (
+                            <TableTagGroup data={value.data} />
+                          ) : value.type === "LINK" ? (
+                            <Link target="_blank" href={value.url}>
+                              {value.label}
+                            </Link>
+                          ) : value.type === "PATH" ? (
+                            <PathLink to={value.url}>{value.label}</PathLink>
+                          ) : (
+                            ""
+                          )
                         ) : typeof value === "number" ? (
                           `$ ${value.toLocaleString()}`
                         ) : (

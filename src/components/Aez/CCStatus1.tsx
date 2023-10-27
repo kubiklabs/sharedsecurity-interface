@@ -18,7 +18,7 @@ const CCStatus1 = () => {
   return (
     <Section heading="Consumer Chains: Proposals and Status">
       <CustomTable
-        data={consumerChainData}
+        data={consumerChainData.reverse()}
         keys={Object.keys(consumerChainData[0])}
         minGridWidth="200px"
         maxGridWidth="250px"

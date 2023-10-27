@@ -1,47 +1,83 @@
 {
-    "consumerChainData":
-    [
-        {
-            "Chain": "Neutron",
-            "Status": ["Proposal Passed", "L/o Replicated Security", "Gov-Confirmed"],
-            "Forum Date": "Mar 21, 2023",
-            "Cosmos Forum": "Draft Prop",
-            "Prop Date": "Apr 22, 2023",
-            "Proposal ID": "Prop792"
-        },
-        {
-            "Chain": "Stride",
-            "Status": ["Proposal Passed", "Signaling Proposal"],
-            "Forum Date": "Apr 13, 2023",
-            "Cosmos Forum": "Draft Prop",
-            "Prop Date": "Apr 27, 2023",
-            "Proposal ID": "Prop794"
-        },
-        {
-            "Chain": "Stride",
-            "Status": ["L/o Replicated Security", "Proposal Passed", "Gov-Confirmed"],
-            "Forum Date": "Apr 13, 2023",
-            "Cosmos Forum": "Draft Prop",
-            "Prop Date": "Jun 13, 2023",
-            "Proposal ID": "Prop799"
-        },
-        {
-            "Chain": "EntryPoint",
-            "Status": ["Forum Post Live"],
-            "Forum Date": "Jun 30, 2023",
-            "Cosmos Forum": "Draft Prop",
-            "Prop Date": "-",
-            "Proposal ID": "-"
-    
-        },
-        {
-            "Chain": "Composable",
-            "Status": ["Forum Post Live"],
-            "Forum Date": "Sep 7, 2023",
-            "Cosmos Forum": "Draft Prop" ,
-            "Prop Date": "-",
-            "Proposal ID": "-"
-    
-        }
-    ]
+  "consumerChainData": [
+    {
+      "Chain": "Neutron",
+      "Status": {
+        "type": "tags",
+        "data": ["Proposal Passed", "L/o Replicated Security", "Gov-Confirmed"]
+      },
+      "Forum Date": "Mar 21, 2023",
+      "Cosmos Forum": {
+        "type": "LINK",
+        "label": "Draft Prop",
+        "url": "https://forum.cosmos.network/t/proposal-792-accepted-launch-neutron-on-replicated-security/10230"
+      },
+      "Prop Date": "Apr 22, 2023",
+      "Proposal ID": {
+        "type": "PATH",
+        "label": "792",
+        "url": "/gov/Cosmos/792"
+      }
+    },
+    {
+      "Chain": "Stride",
+      "Status": {
+        "type": "tags",
+        "data": ["Proposal Passed", "Signaling Proposal"]
+      },
+      "Forum Date": "Apr 13, 2023",
+      "Cosmos Forum": {
+        "type": "LINK",
+        "label": "Draft Prop",
+        "url": "https://forum.cosmos.network/t/proposal-794-vote-onchain-stride-to-join-atom-economic-zone-and-adopt-ics/10418"
+      },
+      "Prop Date": "Apr 27, 2023",
+      "Proposal ID": {
+        "type": "PATH",
+        "label": "794",
+        "url": "/gov/Cosmos/794"
+      }
+    },
+    {
+      "Chain": "Stride",
+      "Status": {
+        "type": "tags",
+        "data": ["L/o Replicated Security", "Proposal Passed", "Gov-Confirmed"]
+      },
+      "Forum Date": "Apr 13, 2023",
+      "Cosmos Forum": {
+        "type": "LINK",
+        "label": "Draft Prop",
+        "url": "https://forum.cosmos.network/t/proposal-794-vote-onchain-stride-to-join-atom-economic-zone-and-adopt-ics/10418"
+      },
+      "Prop Date": "Jun 13, 2023",
+      "Proposal ID": {
+        "type": "PATH",
+        "label": "799",
+        "url": "/gov/Cosmos/799"
+      }
+    },
+    {
+      "Chain": "EntryPoint",
+      "Status": {
+        "type": "tags",
+        "data": ["Forum Post Live"]
+      },
+      "Forum Date": "Jun 30, 2023",
+      "Cosmos Forum": "Draft Prop",
+      "Prop Date": "-",
+      "Proposal ID": "-"
+    },
+    {
+      "Chain": "Composable",
+      "Status": {
+        "type": "tags",
+        "data": ["Forum Post Live"]
+      },
+      "Forum Date": "Sep 7, 2023",
+      "Cosmos Forum": "Draft Prop",
+      "Prop Date": "-",
+      "Proposal ID": "-"
+    }
+  ]
 }
