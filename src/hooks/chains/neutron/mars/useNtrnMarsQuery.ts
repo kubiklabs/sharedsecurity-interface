@@ -5,9 +5,13 @@ import neutronCoinRegistry from "../astroport/neutronTokenList.json";
 import { protocols } from "../../../../config/aezProtocols.json";
 
 import { contracts } from "../../../../config/chains/Neutron/contracts/mars/marsContractList.json";
+import { useSetRecoilState } from "recoil";
+import { marsTvlState } from "../../../../context/ecosystemState";
 
 export const useNtrnMarsQuery = () => {
   const [queryClient, setQueryClient] = useState<CosmWasmClient>();
+
+  const setMarsTvl = useSetRecoilState(marsTvlState);
 
   const { getAllContractBalances } = useEcosystem();
   const createQueryClient = async () => {
@@ -83,6 +87,10 @@ export const useNtrnMarsQuery = () => {
       ...data,
       tvl,
     };
+    setMarsTvl({
+      ...data,
+      tvl: tvl as number,
+    });
     return data;
   };
   return { getTvlMars, getParsedMarsData };

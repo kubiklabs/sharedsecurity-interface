@@ -9,11 +9,16 @@ import { coinConvert } from "../../../../utils/common";
 import { pairs } from "../../../../config/chains/Neutron/contracts/astroport/astroportPairList.json";
 import { protocols } from "../../../../config/aezProtocols.json";
 import { useEcosystem } from "../../../common/aez/useEcosystem";
+import { StargateClient } from "@cosmjs/stargate";
+import { useSetRecoilState } from "recoil";
+import { astroportTvlState } from "../../../../context/ecosystemState";
 
 type INeutronCR = typeof neutronCoinRegistry;
 
 export const useNtrnAstroQuery = () => {
   const [queryClient, setQueryClient] = useState<CosmWasmClient>();
+
+  const setAstroportTvl = useSetRecoilState(astroportTvlState);
 
   const { getAllContractBalances } = useEcosystem();
 
@@ -154,6 +159,10 @@ export const useNtrnAstroQuery = () => {
       ...data,
       tvl,
     };
+    setAstroportTvl({
+      ...data,
+      tvl: tvl as number,
+    });
     return data;
   };
 

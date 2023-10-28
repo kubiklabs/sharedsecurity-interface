@@ -2,6 +2,7 @@ import { CosmWasmClient } from "@cosmjs/cosmwasm-stargate";
 import { coinConvert } from "../../../utils/common";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { StargateClient } from "@cosmjs/stargate";
 
 export const useEcosystem = () => {
   const getAllCoinPrices = async (coinRegistry: any) => {
@@ -29,56 +30,61 @@ export const useEcosystem = () => {
     contractList: Array<any>
   ) => {
     type IConstractList = typeof contractList;
-    console.log(client, coinRegistry, contractList);
+    // console.log(client, coinRegistry, contractList);
 
     try {
       let tvl = 0;
       const prices = await getAllCoinPrices(coinRegistry);
       console.log(prices);
 
+      const stclient = await StargateClient.connect(
+        "https://rpc-kralum.neutron-1.neutron.org"
+      );
+
       //   const poolList = pairs;
 
       // Iterate through all the pair contracts
-      for (const i in contractList) {
+      for (const j in contractList) {
         let totalAmount = 0;
 
         //For every contract find the balance of each token
-        for (const token in coinRegistry) {
-          // console.log(token);
+        let balances = await stclient.getAllBalances(
+          contractList[j].contract_addr
+        );
+        console.log(j, balances);
 
-          //Get the balance for the token
-          const response = await client?.getBalance(
-            contractList[i].contract_addr,
-            token
-          );
-          // console.log(response);
+        for (const i in balances) {
+          const { amount, denom } = balances[i];
+
+          console.log(j, i, totalAmount);
 
           //Convert it to decimal places
           const balanceInDenom = coinConvert(
-            response?.amount as string,
-            coinRegistry[token as keyof IConstractList].decimals,
+            amount as string,
+            coinRegistry[denom as keyof IConstractList].decimals,
             "human"
           );
-          // console.log(token, balanceInDenom);
 
           //Calculate the rate in usd
           const rateInUsd =
-            prices[coinRegistry[token as keyof IConstractList].coingecko_id]
+            prices[coinRegistry[denom as keyof IConstractList].coingecko_id]
               .usd;
 
           //Calculate the balance in usd
           const balanceInUsd = Number(balanceInDenom) * Number(rateInUsd);
-          // console.log(response);
 
           //Sum up the usd balances to get the total amount held by the contract.
           totalAmount = totalAmount + balanceInUsd;
         }
-        console.log(contractList[i].contract_addr, totalAmount);
+        console.log(contractList[j].contract_addr, totalAmount);
+        //Sum up the total balances of each contract
         tvl += totalAmount;
       }
       console.log(tvl);
       return tvl;
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return { getAllCoinPrices, getAllContractBalances };

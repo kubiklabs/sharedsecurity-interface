@@ -4,12 +4,20 @@ import { Center, Spinner, Stack, Tab, TabList, Tabs } from "@chakra-ui/react";
 import CustomTable from "../DataDisplay/CustomTable";
 import { useAez } from "../../hooks/useAez";
 import { useRecoilValue } from "recoil";
-import { ecosystemState } from "../../context/ecosystemState";
+import {
+  ecosystemState,
+  astroportTvlState,
+  marsTvlState,
+  strideTvlState,
+} from "../../context/ecosystemState";
 import strideAdapter from "../../hooks/chains/stride/adapter/useStrideDefiAdapter";
 
 const Ecosystem = () => {
   const { getParsedEcosystemData } = useAez();
   const { data } = useRecoilValue(ecosystemState);
+  const astroportTvl = useRecoilValue(astroportTvlState);
+  const strideTvl = useRecoilValue(strideTvlState);
+  const marsTvl = useRecoilValue(marsTvlState);
   console.log(data);
 
   const {
@@ -18,7 +26,6 @@ const Ecosystem = () => {
 
   useEffect(() => {
     if (!data || !data.length) getParsedData();
-    console.log(data);
   }, []);
 
   const getParsedData = async () => {
