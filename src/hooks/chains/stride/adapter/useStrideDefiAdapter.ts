@@ -65,7 +65,6 @@ async function tvl() {
     const coinDecimals = getCoinDenom(hostZone.host_denom);
 
     const amount = assetBalance / coinDecimals;
-    console.log(amount);
 
     const geckoId =
       coinGeckoIds[hostZone.host_denom as keyof typeof coinGeckoIds];
@@ -77,17 +76,7 @@ async function tvl() {
     if (!geckoId) {
       throw new Error("Missing gecko mapping: " + hostZone.host_denom);
     }
-
-    // sdk.util.sumSingleBalance(
-    //   balances,
-    //   geckoId,
-    //   amount * hostZone.redemption_rate
-    // );
   }
-
-  console.log(tvl);
-
-  //   await Promise.all(hostZonePromises);
 
   return tvl;
 }

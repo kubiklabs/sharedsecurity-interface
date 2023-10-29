@@ -47,9 +47,6 @@ export const useCosmosGovQuery = () => {
   const getCosmosVotingPower = async (address: string) => {
     const votingPower = await getVotingPower(address);
     const updatedState = { ...userVp, Cosmos: votingPower };
-    console.log(updatedState);
-
-    // setUserVp(updatedState);
     return votingPower;
   };
 

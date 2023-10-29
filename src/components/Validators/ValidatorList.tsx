@@ -18,6 +18,8 @@ const ValidatorsList = () => {
     fetchValidators();
   }, []);
 
+  const getAvgCommission = () => {};
+
   const fetchValidators = async () => {
     let list = active;
     if (!list.length) list = await getParsedActiveValidators();

@@ -26,15 +26,12 @@ const Proposal = () => {
     );
     setProposalData(proposal);
     setIsLoading(false);
-    console.log(proposal);
   };
 
   return isLoading ? (
     <Spinner width={"3rem"} height="3rem" />
   ) : (
     <Box flexDirection={"column"} display={"flex"} gap={"50px"}>
-      {/* {chain} */}
-      {/* {proposalId} */}
       <BasicInfo {...proposalData} />
       <VoteSection
         prettyDenom={proposalData?.denom.pretty}

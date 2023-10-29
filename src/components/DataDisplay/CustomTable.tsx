@@ -46,9 +46,6 @@ const CustomTable = ({
   const handlePageClick = (page: number) => {
     currentPage.current = page;
     const newOffset = ((page - 1) * itemsPerPage) % data.length;
-    console.log(
-      `User requested page number ${page}, which is offset ${newOffset}`
-    );
 
     const endOffset = newOffset + itemsPerPage;
     const currentItems = data.slice(newOffset, endOffset);
@@ -64,9 +61,9 @@ const CustomTable = ({
             {keys?.map((item: string) => {
               return (
                 <Th
+                  key={item}
                   width={"200px"}
                   py={"30px"}
-                  key={item}
                   borderBottom={"1px solid"}
                   borderColor={"gray.400"}
                   color={"gray"}

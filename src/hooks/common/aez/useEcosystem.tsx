@@ -25,7 +25,7 @@ export const useEcosystem = () => {
   };
 
   const getAllContractBalances = async (
-    client: CosmWasmClient | undefined,
+    stClient: StargateClient,
     coinRegistry: any,
     contractList: Array<any>
   ) => {
@@ -35,28 +35,18 @@ export const useEcosystem = () => {
     try {
       let tvl = 0;
       const prices = await getAllCoinPrices(coinRegistry);
-      console.log(prices);
-
-      const stclient = await StargateClient.connect(
-        "https://rpc-kralum.neutron-1.neutron.org"
-      );
-
-      //   const poolList = pairs;
 
       // Iterate through all the pair contracts
       for (const j in contractList) {
         let totalAmount = 0;
 
         //For every contract find the balance of each token
-        let balances = await stclient.getAllBalances(
+        let balances = await stClient.getAllBalances(
           contractList[j].contract_addr
         );
-        console.log(j, balances);
 
         for (const i in balances) {
           const { amount, denom } = balances[i];
-
-          console.log(j, i, totalAmount);
 
           //Convert it to decimal places
           const balanceInDenom = coinConvert(
@@ -76,11 +66,9 @@ export const useEcosystem = () => {
           //Sum up the usd balances to get the total amount held by the contract.
           totalAmount = totalAmount + balanceInUsd;
         }
-        console.log(contractList[j].contract_addr, totalAmount);
         //Sum up the total balances of each contract
         tvl += totalAmount;
       }
-      console.log(tvl);
       return tvl;
     } catch (error) {
       console.log(error);

@@ -22,7 +22,6 @@ export const useNeutronGovQuery = () => {
     const queryClient = await CosmWasmClient.connect(
       "https://rpc-kralum.neutron-1.neutron.org"
     );
-    // console.log(queryClient);
     setQueryClient(queryClient);
     return queryClient;
   };
@@ -40,7 +39,6 @@ export const useNeutronGovQuery = () => {
       }
     );
     setProposals(response.proposal);
-    // console.log(response);
     return response.proposals;
   };
 
@@ -57,7 +55,6 @@ export const useNeutronGovQuery = () => {
       }
     );
 
-    console.log(response);
     return response;
   };
 
@@ -79,8 +76,6 @@ export const useNeutronGovQuery = () => {
     if (!client) {
       client = await createQueryClient();
     }
-
-    console.log(address);
 
     const response = await client?.queryContractSmart(neutronVotingModule.at, {
       voting_power_at_height: {
@@ -129,7 +124,6 @@ export const useNeutronGovQuery = () => {
         },
       }
     );
-    console.log(response.vote.vote);
     return response.vote.vote;
   };
 
@@ -168,14 +162,10 @@ export const useNeutronGovQuery = () => {
   const getNeutronProposalsList = async () => {
     let parsedProposals: ILpCardProps[] = [];
     let rawProposals: any[] = proposals;
-    // console.log(rawProposals);
 
     if (!rawProposals || !rawProposals?.length) {
-      console.log("yes");
-
       rawProposals = await getNeutronProposals();
     }
-    // console.log(rawProposals);
 
     (rawProposals as Array<any>)?.forEach((proposal) => {
       const { localeDateOnly, localeTimeOnly } = parseNanosecondTimeString(
@@ -193,7 +183,6 @@ export const useNeutronGovQuery = () => {
       };
       parsedProposals.push(parsedProposal);
     });
-    // console.log(parsedProposals);
 
     return parsedProposals;
   };
@@ -219,7 +208,6 @@ export const useNeutronGovQuery = () => {
     const { localeStringFormat } = parseNanosecondTimeString(
       proposal.expiration.at_time
     );
-    console.log(proposal.threshold.threshold_quorum.quorum.percent);
 
     const parsedProposal = {
       id,

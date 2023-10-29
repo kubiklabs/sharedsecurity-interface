@@ -17,6 +17,7 @@ type INeutronCR = typeof neutronCoinRegistry;
 
 export const useNtrnAstroQuery = () => {
   const [queryClient, setQueryClient] = useState<CosmWasmClient>();
+  const [stargateClient, setStargateClient] = useState<StargateClient>();
 
   const setAstroportTvl = useSetRecoilState(astroportTvlState);
 
@@ -30,8 +31,17 @@ export const useNtrnAstroQuery = () => {
     const queryClient = await CosmWasmClient.connect(
       "https://rpc-kralum.neutron-1.neutron.org"
     );
+
     setQueryClient(queryClient);
     return queryClient;
+  };
+
+  const createStargateClient = async () => {
+    const stClient = await StargateClient.connect(
+      "https://rpc-kralum.neutron-1.neutron.org"
+    );
+    setStargateClient(stClient);
+    return stClient;
   };
 
   const getAllNtrnPairs = async () => {
@@ -95,9 +105,9 @@ export const useNtrnAstroQuery = () => {
   };
 
   const getTvlAllPools = async () => {
-    let client = queryClient;
+    let client = stargateClient;
     if (!client) {
-      client = await createQueryClient();
+      client = await createStargateClient();
     }
 
     const tvl = await getAllContractBalances(
@@ -105,50 +115,6 @@ export const useNtrnAstroQuery = () => {
       neutronCoinRegistry,
       pairs
     );
-
-    // try {
-    //   let tvl = 0;
-    //   const prices = await getAllCoinPrices();
-
-    //   const poolList = pairs;
-
-    //   // Iterate through all the pair contracts
-    //   for (const i in poolList) {
-    //     let totalAmount = 0;
-
-    //     //For every contract find the balance of each token
-    //     for (const token in neutronCoinRegistry) {
-    //       //Get the balance for the token
-
-    //       const response = await client?.getBalance(
-    //         poolList[i].contract_addr,
-    //         token
-    //       );
-
-    //       //Convert it to decimal places
-    //       const balanceInDenom = coinConvert(
-    //         response?.amount as string,
-    //         neutronCoinRegistry[token as keyof INeutronCR].decimals,
-    //         "human"
-    //       );
-
-    //       //Calculate the rate in usd
-    //       const rateInUsd =
-    //         prices[neutronCoinRegistry[token as keyof INeutronCR].coingecko_id]
-    //           .usd;
-
-    //       //Calculate the balance in usd
-    //       const balanceInUsd = Number(balanceInDenom) * Number(rateInUsd);
-
-    //       //Sum up the usd balances to get the total amount held by the contract.
-    //       totalAmount = totalAmount + balanceInUsd;
-    //     }
-    //     console.log(poolList[i].contract_addr, totalAmount);
-    //     tvl += totalAmount;
-    //   }
-    //   console.log(tvl);
-    //   return tvl;
-    // } catch (error) {}
     return tvl;
   };
 

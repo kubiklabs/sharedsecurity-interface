@@ -19,8 +19,6 @@ export const useCosmosGovTxn = () => {
   const rpcEndPoints = cosmosChainInfo.apis.rpc;
 
   const getCosmosAddressSigner = async () => {
-    console.log("cosmos");
-
     while (
       !(window as any).keplr ||
       !(window as any).getEnigmaUtils ||
@@ -33,7 +31,6 @@ export const useCosmosGovTxn = () => {
     const offlineSigner = await (window as any).keplr.getOfflineSigner(
       "cosmoshub-4"
     );
-    console.log(offlineSigner.keplr);
 
     const [{ address }] = await offlineSigner.getAccounts();
 
@@ -52,7 +49,6 @@ export const useCosmosGovTxn = () => {
         option: getCosmosOption(voteOption),
       },
     };
-    console.log(voteOption, voteMsg.value);
 
     try {
       const client = await SigningStargateClient.connectWithSigner(
@@ -78,8 +74,6 @@ export const useCosmosGovTxn = () => {
       } else {
         toast.error(`Transaction failed with code: ${code}`);
       }
-
-      console.log(code);
     } catch (error) {
       toast.error(
         `Transaction failed with message ${(error as Error)?.message}`

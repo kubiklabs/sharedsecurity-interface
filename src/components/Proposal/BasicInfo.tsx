@@ -66,7 +66,6 @@ const BasicInfo = ({
   useEffect(() => {
     if (description) {
       const html = marked(description);
-      // console.log(html, description);
       setParsedHTML(html);
       (document.getElementById("description") as HTMLElement).innerHTML = html;
     }
@@ -74,7 +73,6 @@ const BasicInfo = ({
 
   const handleModalOpen = () => {
     onOpen();
-    console.log(document.getElementById("description-modal"));
 
     (document.getElementById("description-modal") as HTMLElement).innerHTML =
       parsedHTML;

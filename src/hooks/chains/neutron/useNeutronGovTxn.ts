@@ -42,8 +42,6 @@ export const useNeutronGovTxn = () => {
         "https://rpc-kralum.neutron-1.neutron.org",
         offlineSigner
       );
-      console.log("reached");
-      console.log(client);
 
       const { transactionHash } = await client.execute(
         address,
@@ -60,7 +58,6 @@ export const useNeutronGovTxn = () => {
       toast.success(
         `Transaction successfully broadcasted with hash ${transactionHash}`
       );
-      console.log(transactionHash);
     } catch (error) {
       toast.error(
         `Transaction failed with message ${(error as Error).message}`

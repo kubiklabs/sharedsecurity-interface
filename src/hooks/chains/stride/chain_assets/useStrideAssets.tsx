@@ -16,11 +16,9 @@ export const useStrideAssets = () => {
       const response = await axios.get(
         `${REST_URL}/cosmos/bank/v1beta1/supply?pagination.key=${paginationKey}`
       );
-      console.log(response.data);
       allSupply = [...allSupply, ...response.data.supply];
       paginationKey = response.data.pagination.next_key;
     }
-    console.log(allSupply);
     return allSupply;
   };
 
@@ -49,7 +47,6 @@ export const useStrideAssets = () => {
       assets: parsedAssets,
     });
 
-    console.log(parsedAssets);
     return parsedAssets;
   };
 

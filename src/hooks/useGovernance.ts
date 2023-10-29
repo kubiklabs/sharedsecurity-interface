@@ -41,8 +41,6 @@ export const useGovernance = () => {
   };
 
   const fetchProposalByIdAndName = async (name: string, id: string) => {
-    console.log(id, name);
-
     switch (name) {
       case "Cosmos":
         return await getParsedCosmosProposal(id);
@@ -112,8 +110,6 @@ export const useGovernance = () => {
     proposalId: string,
     voteOption: string
   ) => {
-    console.log(name, proposalId, voteOption);
-
     switch (name) {
       case "Cosmos":
         return await sendCosmosVote(proposalId, voteOption);

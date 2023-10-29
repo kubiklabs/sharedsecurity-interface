@@ -38,7 +38,6 @@ const Assets = () => {
         justifyContent={"space-between"}
         display={"flex"}
         gap={"20px"}
-        flexWrap={"wrap"}
       >
         <Section heading="Cosmos">
           {cosmosAssets.assets.length ? (

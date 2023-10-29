@@ -15,7 +15,6 @@ export const useNeutronAssets = () => {
     );
     allSupply.push(response.data.amount);
 
-    console.log(allSupply);
     return allSupply;
   };
 
@@ -42,7 +41,6 @@ export const useNeutronAssets = () => {
       assets: parsedAssets,
     });
 
-    console.log(parsedAssets);
     return parsedAssets;
   };
 

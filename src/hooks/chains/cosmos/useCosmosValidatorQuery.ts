@@ -16,7 +16,6 @@ export const useCosmosValidatorQuery = () => {
 
   const getAllCosmosValidators = async () => {
     const allValidators = await getFullValidatorList();
-    console.log(allValidators);
 
     allValidators.sort(
       (a: any, b: any) => Number(b?.tokens) - Number(a?.tokens)
@@ -32,7 +31,6 @@ export const useCosmosValidatorQuery = () => {
       (validator) => validator.jailed === false
     );
     allValidators = allValidators.sort((a, b) => Number(b.tokens) - a.tokens);
-    console.log(allValidators);
 
     return allValidators;
   };
@@ -43,8 +41,6 @@ export const useCosmosValidatorQuery = () => {
     let parsedValidators = [];
     let parsedJailedValidators = [];
     let parsedActiveValidators = [];
-
-    // console.log(allValidators);
 
     for (const index in allValidators) {
       const validator = allValidators[index];

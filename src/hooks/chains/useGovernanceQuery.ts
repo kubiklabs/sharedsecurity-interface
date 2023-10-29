@@ -38,7 +38,6 @@ export const useGovernanceQuery = (restUrl: string, chain: string) => {
       );
       proposalsData = response.data;
       allProposalData = allProposalData.concat(proposalsData.proposals);
-      console.log(allProposalData);
     }
     return allProposalData;
   };
@@ -48,7 +47,6 @@ export const useGovernanceQuery = (restUrl: string, chain: string) => {
       `${restUrl}/cosmos/gov/v1beta1/proposals/${proposalId}`
     );
     const proposal = response.data.proposal;
-    console.log(response);
 
     return proposal;
   };
@@ -84,7 +82,6 @@ export const useGovernanceQuery = (restUrl: string, chain: string) => {
       const response = await axios.get(
         `${restUrl}/cosmos/gov/v1beta1/proposals/${proposalId}/votes/${address}`
       );
-      console.log("Voter", response);
       return response.data.vote.options[0].option;
     } catch (error) {
       console.log(error);
@@ -105,7 +102,6 @@ export const useGovernanceQuery = (restUrl: string, chain: string) => {
     const userVp = (totalUserDelegatedAmount / Number(totalDeposits)).toFixed(
       10
     );
-    console.log(userVp, "string");
 
     const votingPower = {
       address,
@@ -126,7 +122,6 @@ export const useGovernanceQuery = (restUrl: string, chain: string) => {
       (Number(totalVoted) / Number(totalBonded)) *
       100
     ).toLocaleString();
-    // console.log(totalBonded, totalVoted, turnout);
 
     return turnout;
   };

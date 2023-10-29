@@ -5,8 +5,6 @@ import { IVoteValueProps } from "../../utils/interface";
 import { bigSmallTextColorMap, colorVoteMap } from "../../utils/constant";
 
 const Overview = ({ voteDistribution }: any) => {
-  console.log(voteDistribution);
-
   return (
     <Section heading="Overview">
       <Box
