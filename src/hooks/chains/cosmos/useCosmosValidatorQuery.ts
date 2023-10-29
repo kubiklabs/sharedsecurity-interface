@@ -16,9 +16,12 @@ export const useCosmosValidatorQuery = () => {
 
   const getAllCosmosValidators = async () => {
     const allValidators = await getFullValidatorList();
-    setValidators({
-      validators: allValidators,
-    });
+    console.log(allValidators);
+
+    allValidators.sort(
+      (a: any, b: any) => Number(b?.tokens) - Number(a?.tokens)
+    );
+
     return allValidators;
   };
 
@@ -35,41 +38,42 @@ export const useCosmosValidatorQuery = () => {
   };
 
   const getParsedActiveValidators = async () => {
-    const activeValidators = await getActiveValidatorSet();
     const totalBonded = await getCosmosTotalBondedToken();
-    // await getCosmosUnjailedValidators();
     let allValidators = await getAllCosmosValidators();
-    // if (!allValidators.length) allValidators = await getAllCosmosValidators();
+    let parsedValidators = [];
+    let parsedJailedValidators = [];
     let parsedActiveValidators = [];
+
     // console.log(allValidators);
 
     for (const index in allValidators) {
-      // allValidators.find((validator)=>validator.)
-
       const validator = allValidators[index];
-      //   console.log(validator);
 
-      if (validator.jailed === false) {
-        parsedActiveValidators.push({
-          Validator: validator.description.moniker,
-          Power: Number(
-            coinConvert(validator.tokens, 6, "human")
-          ).toLocaleString(),
-          "Share %": `${(
-            (validator.tokens / Number(totalBonded)) *
-            100
-          ).toFixed(2)}%`,
-          "Commision Rate": `${(
-            Number(validator.commission.commission_rates.rate) * 100
-          ).toFixed(2)}%`,
-        });
-      }
+      const parsedValidator = {
+        Validator: validator.description.moniker,
+        Power: Number(
+          coinConvert(validator.tokens, 6, "human")
+        ).toLocaleString(),
+        "Share %": `${((validator.tokens / Number(totalBonded)) * 100).toFixed(
+          2
+        )}%`,
+        "Commision Rate": `${(
+          Number(validator.commission.commission_rates.rate) * 100
+        ).toFixed(2)}%`,
+      };
+      parsedValidators.push(parsedValidator);
+
+      if (validator.jailed === true)
+        parsedJailedValidators.push(parsedValidator);
+      else parsedActiveValidators.push(parsedValidator);
     }
+    setValidators({
+      validators: parsedValidators,
+      jailed: parsedJailedValidators,
+      active: parsedActiveValidators.slice(0, 180),
+    });
 
-    return parsedActiveValidators.sort(
-      (a, b) =>
-        Number(b.Power.replace(/,/g, "")) - Number(a.Power.replace(/,/g, ""))
-    );
+    return parsedActiveValidators.slice(0, 180);
   };
 
   return {

@@ -9,3 +9,23 @@ export const strideAssetState = atom<{
   },
   dangerouslyAllowMutability: true,
 });
+
+export const cosmosAssetState = atom<{
+  assets: any[];
+}>({
+  key: "cosmosAssetState",
+  default: {
+    assets: [],
+  },
+  dangerouslyAllowMutability: true,
+});
+
+export const neutronAssetState = atom<{
+  assets: any[];
+}>({
+  key: "neutronAssetState",
+  default: {
+    assets: [],
+  },
+  dangerouslyAllowMutability: true,
+});

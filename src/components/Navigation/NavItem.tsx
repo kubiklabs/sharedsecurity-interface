@@ -18,7 +18,6 @@ const Navlink = ({
     if (!basePath.endsWith("/")) {
       basePath = "/" + basePath;
     }
-    console.log(basePath, currentPath);
 
     // Check if the current path starts with the basePath
     return currentPath.startsWith(basePath);

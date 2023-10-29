@@ -1,17 +1,17 @@
 import axios, { all } from "axios";
 import { coinConvert } from "../../../../utils/common";
 import { useSetRecoilState } from "recoil";
-import { cosmosAssetState } from "../../../../context/assetsState";
+import { neutronAssetState } from "../../../../context/assetsState";
 
-const REST_URL = "https://cosmos-rest.publicnode.com";
+const REST_URL = "https://rest-kralum.neutron-1.neutron.org";
 
-export const useCosmosAssets = () => {
-  const setCosmosAssets = useSetRecoilState(cosmosAssetState);
+export const useNeutronAssets = () => {
+  const setNeutronAssets = useSetRecoilState(neutronAssetState);
 
-  const getCosmosSupply = async () => {
+  const getNeutronSupply = async () => {
     let allSupply: any = [];
     const response = await axios.get(
-      `${REST_URL}/cosmos/bank/v1beta1/supply/uatom`
+      `${REST_URL}/cosmos/bank/v1beta1/supply/untrn`
     );
     allSupply.push(response.data.amount);
 
@@ -19,16 +19,16 @@ export const useCosmosAssets = () => {
     return allSupply;
   };
 
-  const getParsedCosmosAssets = async () => {
+  const getParsedNeutronAssets = async () => {
     let parsedAssets: any[] = [];
-    const allAssets = await getCosmosSupply();
+    const allAssets = await getNeutronSupply();
 
     allAssets.forEach((asset: any) => {
       parsedAssets = [
         {
           name: {
             type: "avatar",
-            label: "ATOM",
+            label: "NTRN",
             url: "",
           },
           amount: Number(
@@ -38,7 +38,7 @@ export const useCosmosAssets = () => {
       ];
     });
 
-    setCosmosAssets({
+    setNeutronAssets({
       assets: parsedAssets,
     });
 
@@ -46,5 +46,5 @@ export const useCosmosAssets = () => {
     return parsedAssets;
   };
 
-  return { getCosmosSupply, getParsedCosmosAssets };
+  return { getNeutronSupply, getParsedNeutronAssets };
 };

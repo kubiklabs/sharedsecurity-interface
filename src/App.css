@@ -109,3 +109,12 @@
 .nav-icons:hover {
   color: #bc3d70;
 }
+
+option {
+  background: #05010d !important;
+  padding: 10px !important;
+  height: 50px;
+}
+option:focus {
+  border: none !important;
+}

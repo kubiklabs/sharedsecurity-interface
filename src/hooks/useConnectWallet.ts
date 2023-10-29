@@ -53,7 +53,6 @@ export const useConnectWallet = () => {
     // const tid = toast.loading("Connecting to wallet");
     try {
       // setIsLoggingIn(true);
-      console.log("1");
 
       while (
         !(window as any).keplr ||
@@ -74,8 +73,6 @@ export const useConnectWallet = () => {
       await (window as any).keplr.enable("stride-1");
       await (window as any).keplr.enable("neutron-1");
 
-      console.log("1");
-
       const cosmosOfflineSigner = (
         window as any
       ).keplr.getOfflineSignerOnlyAmino("cosmoshub-4");
@@ -85,13 +82,7 @@ export const useConnectWallet = () => {
       const neutronOfflineSigner = (
         window as any
       ).keplr.getOfflineSignerOnlyAmino("neutron-1");
-      console.log(chainInfo.getChainId());
 
-      console.log(
-        cosmosOfflineSigner,
-        strideOfflineSigner,
-        neutronOfflineSigner
-      );
       const cosmosAddress = (await cosmosOfflineSigner.getAccounts())[0]
         ?.address;
       const strideAddress = (await strideOfflineSigner.getAccounts())[0]
@@ -101,7 +92,6 @@ export const useConnectWallet = () => {
       const walletName = (
         await (window as any).keplr.getKey(chainInfo.getChainId())
       ).name;
-      console.log(cosmosAddress, strideAddress, neutronAddress, walletName);
 
       // const wasmChainClient = await SigningCosmWasmClient.connectWithSigner(
       //   chainInfo.getRpcUrl(),

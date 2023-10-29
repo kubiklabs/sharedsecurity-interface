@@ -3,47 +3,71 @@ import { useEffect } from "react";
 import { useStrideAssets } from "../hooks/chains/stride/chain_assets/useStrideAssets";
 import CustomTable from "../components/DataDisplay/CustomTable";
 import { useRecoilValue } from "recoil";
-import { strideAssetState } from "../context/assetsState";
-import { data } from "../components/Overview/Trends";
+import {
+  cosmosAssetState,
+  neutronAssetState,
+  strideAssetState,
+} from "../context/assetsState";
 import Section from "../components/Layout/Section";
+import { useCosmosAssets } from "../hooks/chains/cosmos/chain_assets/useCosmosAssets";
+import { useNeutronAssets } from "../hooks/chains/neutron/chain_assets/useNeutronAssets";
+import CustomSkeleton from "../components/skeleton/CustomSkeleton";
 
 const Assets = () => {
-  const { getStrideSupply, getParsedStrideAssets } = useStrideAssets();
+  const { getParsedStrideAssets } = useStrideAssets();
+  const { getParsedCosmosAssets } = useCosmosAssets();
+  const { getParsedNeutronAssets } = useNeutronAssets();
   const strideAssets = useRecoilValue(strideAssetState);
+  const cosmosAssets = useRecoilValue(cosmosAssetState);
+  const neutronAssets = useRecoilValue(neutronAssetState);
 
   useEffect(() => {
     getSupply();
   }, []);
 
   const getSupply = async () => {
-    const response = await getParsedStrideAssets();
+    if (!strideAssets.assets.length) getParsedStrideAssets();
+    if (!cosmosAssets.assets.length) getParsedCosmosAssets();
+    if (!neutronAssets.assets.length) getParsedNeutronAssets();
   };
 
   return (
     <Box>
-      <Box justifyContent={"space-between"} display={"flex"} gap={"20px"}>
+      <Box
+        width={"100%"}
+        justifyContent={"space-between"}
+        display={"flex"}
+        gap={"20px"}
+        flexWrap={"wrap"}
+      >
         <Section heading="Cosmos">
-          {strideAssets.assets.length && (
+          {cosmosAssets.assets.length ? (
             <CustomTable
-              keys={Object.keys(strideAssets?.assets[0])}
-              data={strideAssets?.assets}
+              keys={Object.keys(cosmosAssets?.assets[0])}
+              data={cosmosAssets?.assets}
             />
+          ) : (
+            <CustomSkeleton count={5} height="20px" />
           )}
         </Section>
         <Section heading="Stride">
-          {strideAssets.assets.length && (
+          {strideAssets.assets.length ? (
             <CustomTable
               keys={Object.keys(strideAssets?.assets[0])}
               data={strideAssets?.assets}
             />
+          ) : (
+            <CustomSkeleton count={5} height="20px" />
           )}
         </Section>
         <Section heading="Neutron">
-          {strideAssets.assets.length && (
+          {neutronAssets.assets.length ? (
             <CustomTable
-              keys={Object.keys(strideAssets?.assets[0])}
-              data={strideAssets?.assets}
+              keys={Object.keys(neutronAssets?.assets[0])}
+              data={neutronAssets?.assets}
             />
+          ) : (
+            <CustomSkeleton count={5} height="20px" />
           )}
         </Section>
       </Box>
