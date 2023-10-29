@@ -13,7 +13,7 @@ const ChainSocialButton = ({ imgSrc, data, name, socialLinks }: any) => {
     >
       <Tooltip label={name}>
         <Center>
-          <Avatar zIndex={"10"} src={imgSrc} />
+          <Avatar name={name} zIndex={"10"} src={imgSrc} />
           {/* <Avatar src={neutron_logo} />
         <Avatar src={stride_logo} /> */}
         </Center>

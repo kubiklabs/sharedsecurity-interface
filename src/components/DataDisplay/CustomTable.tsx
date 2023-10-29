@@ -1,4 +1,5 @@
 import {
+  Avatar,
   Flex,
   Grid,
   GridItem,
@@ -105,6 +106,15 @@ const CustomTable = ({
                             </Link>
                           ) : value.type === "PATH" ? (
                             <PathLink to={value.url}>{value.label}</PathLink>
+                          ) : value.type === "avatar" ? (
+                            <Flex alignItems={"center"} gap={"15px"}>
+                              <Avatar
+                                name={value.label}
+                                size={"sm"}
+                                src={value.url}
+                              />
+                              {value.label}
+                            </Flex>
                           ) : (
                             ""
                           )

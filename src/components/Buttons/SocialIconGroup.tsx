@@ -1,4 +1,4 @@
-import { Box, Flex, Link } from "@chakra-ui/react";
+import { Box, Flex, Link, Tooltip } from "@chakra-ui/react";
 import {
   faDiscord,
   faMedium,
@@ -65,11 +65,13 @@ const SocialIconGroup = ({
                 color: "#BC3D70",
               }}
             >
-              <FontAwesomeIcon
-                cursor={"pointer"}
-                size="xl"
-                icon={SOCIAL_ICON_MAP[app as keyof typeof SOCIAL_ICON_MAP]}
-              />
+              <Tooltip label={app}>
+                <FontAwesomeIcon
+                  cursor={"pointer"}
+                  size="xl"
+                  icon={SOCIAL_ICON_MAP[app as keyof typeof SOCIAL_ICON_MAP]}
+                />
+              </Tooltip>
             </Link>
           );
         })}

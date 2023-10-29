@@ -1,0 +1,90 @@
+{
+  "staevmos": {
+    "name": "stEVMOS",
+    "symbol": "stEVMOS",
+    "token": "staevmos",
+    "icon": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/stevmos.svg",
+    "decimals": 18,
+    "coingecko_id": ""
+  },
+  "stinj": {
+    "name": "stINJ",
+    "symbol": "stINJ",
+    "token": "stinj",
+    "icon": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/stinj.svg",
+    "decimals": 18,
+    "coingecko_id": ""
+  },
+  "stuatom": {
+    "name": "stATOM",
+    "symbol": "stATOM",
+    "token": "stuatom",
+    "icon": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/statom.svg",
+    "decimals": 6,
+    "coingecko_id": ""
+  },
+  "stucmdx": {
+    "name": "stCMDX",
+    "symbol": "stCMDX",
+    "token": "stucmdx",
+    "icon": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/stcmdx.svg",
+    "decimals": 6,
+    "coingecko_id": ""
+  },
+  "stujuno": {
+    "name": "stJUNO",
+    "symbol": "stJUNO",
+    "token": "stujuno",
+    "icon": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/stjuno.svg",
+    "decimals": 6,
+    "coingecko_id": ""
+  },
+  "stuluna": {
+    "name": "stLUNA",
+    "symbol": "stLUNA",
+    "token": "stLUNA",
+    "icon": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/stluna.svg",
+    "decimals": 6,
+    "coingecko_id": ""
+  },
+  "stuosmo": {
+    "name": "stOSMO",
+    "symbol": "stOSMO",
+    "token": "stuosmo",
+    "icon": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/stosmo.svg",
+    "decimals": 6,
+    "coingecko_id": ""
+  },
+  "stusomm": {
+    "name": "stSOMM",
+    "symbol": "stSOMM",
+    "token": "stusomm",
+    "icon": "",
+    "decimals": 6,
+    "coingecko_id": ""
+  },
+  "stustars": {
+    "name": "stSTARS",
+    "symbol": "stSTARS",
+    "token": "stSTARS",
+    "icon": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/ststars.svg",
+    "decimals": 6,
+    "coingecko_id": ""
+  },
+  "stuumee": {
+    "name": "stUMEE",
+    "symbol": "stUMEE",
+    "token": "stuumee",
+    "icon": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/stumee.svg",
+    "decimals": 6,
+    "coingecko_id": ""
+  },
+  "ustrd": {
+    "name": "STRIDE",
+    "symbol": "STRD",
+    "token": "ustrd",
+    "icon": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/strd.svg",
+    "decimals": 6,
+    "coingecko_id": ""
+  }
+}
