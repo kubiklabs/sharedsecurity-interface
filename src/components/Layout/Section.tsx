@@ -6,7 +6,7 @@ const Section = (props: any) => {
     <Box
       display={"flex"}
       flexDirection={"column"}
-      gap={"20px"}
+      gap={props.gap || "20px"}
       position={"relative"}
     >
       <SectionHeading

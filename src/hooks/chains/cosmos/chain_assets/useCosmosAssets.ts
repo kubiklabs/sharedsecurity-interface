@@ -28,7 +28,7 @@ export const useCosmosAssets = () => {
           name: {
             type: "avatar",
             label: "ATOM",
-            url: "",
+            url: "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.png",
           },
           amount: Number(
             coinConvert(asset.amount, 6, "human")

@@ -28,7 +28,7 @@ export const useNeutronAssets = () => {
           name: {
             type: "avatar",
             label: "NTRN",
-            url: "",
+            url: "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/ntrn.png",
           },
           amount: Number(
             coinConvert(asset.amount, 6, "human")

@@ -26,19 +26,33 @@ export const useChainMarketInfo = () => {
     // const response = await axios.get(
     //   `https://api.llama.fi/v2/historicalChainTvl/${coin}`
     // );
-    const response = await axios.get(
-      `https://api.llama.fi/v2/historicalChainTvl/${coin}`
-    );
+    let rawData;
+    let parsedData;
+    if (coin === "Stride") {
+      const response = await axios.get("https://api.llama.fi/protocol/stride");
+      rawData = response.data.chainTvls.Stride.tvl;
+      parsedData = {
+        label: coin,
+        data: rawData.map((obj: any) => obj.totalLiquidityUSD),
+        borderColor: tagColorMap[coin as keyof typeof tagColorMap],
+        backgroundColor: tagColorMap[coin as keyof typeof tagColorMap],
+      };
+    } else {
+      const response = await axios.get(
+        `https://api.llama.fi/v2/historicalChainTvl/${coin}`
+      );
+      rawData = response.data;
 
-    const parsedData = {
-      label: coin,
-      data: response.data.map((obj: any) => obj.tvl),
-      borderColor: borderTagColorMap[coin as keyof typeof borderTagColorMap],
-      backgroundColor: tagColorMap[coin as keyof typeof tagColorMap],
-    };
+      parsedData = {
+        label: coin,
+        data: rawData.map((obj: any) => obj.tvl),
+        borderColor: tagColorMap[coin as keyof typeof tagColorMap],
+        backgroundColor: tagColorMap[coin as keyof typeof tagColorMap],
+      };
+    }
 
     return {
-      labels: response.data.map((obj: any) => {
+      labels: rawData.map((obj: any) => {
         const date = new Date(obj.date * 1000); // Multiply by 1000 to convert from seconds to milliseconds
 
         const day = date.getDate();

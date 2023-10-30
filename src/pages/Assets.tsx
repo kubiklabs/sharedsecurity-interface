@@ -39,11 +39,11 @@ const Assets = () => {
         display={"flex"}
         gap={"20px"}
       >
-        <Section heading="Cosmos">
-          {cosmosAssets.assets.length ? (
+        <Section heading="Neutron">
+          {neutronAssets.assets.length ? (
             <CustomTable
-              keys={Object.keys(cosmosAssets?.assets[0])}
-              data={cosmosAssets?.assets}
+              keys={Object.keys(neutronAssets?.assets[0])}
+              data={neutronAssets?.assets}
             />
           ) : (
             <CustomSkeleton count={5} height="20px" />
@@ -54,16 +54,18 @@ const Assets = () => {
             <CustomTable
               keys={Object.keys(strideAssets?.assets[0])}
               data={strideAssets?.assets}
+              pagination={true}
+              itemsPerPage={5}
             />
           ) : (
             <CustomSkeleton count={5} height="20px" />
           )}
         </Section>
-        <Section heading="Neutron">
-          {neutronAssets.assets.length ? (
+        <Section heading="Cosmos">
+          {cosmosAssets.assets.length ? (
             <CustomTable
-              keys={Object.keys(neutronAssets?.assets[0])}
-              data={neutronAssets?.assets}
+              keys={Object.keys(cosmosAssets?.assets[0])}
+              data={cosmosAssets?.assets}
             />
           ) : (
             <CustomSkeleton count={5} height="20px" />

@@ -63,7 +63,7 @@ const CustomTable = ({
                 <Th
                   key={item}
                   width={"200px"}
-                  py={"30px"}
+                  pb={"30px"}
                   borderBottom={"1px solid"}
                   borderColor={"gray.400"}
                   color={"gray"}
