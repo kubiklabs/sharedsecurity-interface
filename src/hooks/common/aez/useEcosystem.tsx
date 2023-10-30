@@ -32,6 +32,8 @@ export const useEcosystem = () => {
     type IConstractList = typeof contractList;
     // console.log(client, coinRegistry, contractList);
 
+    let assetBalances: any = {};
+
     try {
       let tvl = 0;
       const prices = await getAllCoinPrices(coinRegistry);
@@ -63,13 +65,19 @@ export const useEcosystem = () => {
           //Calculate the balance in usd
           const balanceInUsd = Number(balanceInDenom) * Number(rateInUsd);
 
+          assetBalances = {
+            ...assetBalances,
+            [denom]: Number(assetBalances[denom] || 0) + balanceInUsd,
+          };
+
           //Sum up the usd balances to get the total amount held by the contract.
           totalAmount = totalAmount + balanceInUsd;
         }
         //Sum up the total balances of each contract
         tvl += totalAmount;
       }
-      return tvl;
+      console.log(assetBalances);
+      return { tvl, assetBalances };
     } catch (error) {
       console.log(error);
     }

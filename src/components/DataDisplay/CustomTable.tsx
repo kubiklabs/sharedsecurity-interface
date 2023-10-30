@@ -98,11 +98,20 @@ const CustomTable = ({
                           value.type === "tags" ? (
                             <TableTagGroup data={value.data} />
                           ) : value.type === "LINK" ? (
-                            <Link target="_blank" href={value.url}>
+                            <Link
+                              textDecoration={"underline"}
+                              target="_blank"
+                              href={value.url}
+                            >
                               {value.label}
                             </Link>
                           ) : value.type === "PATH" ? (
-                            <PathLink to={value.url}>{value.label}</PathLink>
+                            <PathLink
+                              style={{ textDecoration: "underline" }}
+                              to={value.url}
+                            >
+                              {value.label}
+                            </PathLink>
                           ) : value.type === "avatar" ? (
                             <Flex alignItems={"center"} gap={"15px"}>
                               <Avatar

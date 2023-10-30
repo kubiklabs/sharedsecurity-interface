@@ -44,9 +44,11 @@ const Assets = () => {
             <CustomTable
               keys={Object.keys(neutronAssets?.assets[0])}
               data={neutronAssets?.assets}
+              pagination={true}
+              itemsPerPage={5}
             />
           ) : (
-            <CustomSkeleton count={5} height="20px" />
+            <CustomSkeleton count={5} height="50px" />
           )}
         </Section>
         <Section heading="Stride">
@@ -58,7 +60,7 @@ const Assets = () => {
               itemsPerPage={5}
             />
           ) : (
-            <CustomSkeleton count={5} height="20px" />
+            <CustomSkeleton count={5} height="50px" />
           )}
         </Section>
         <Section heading="Cosmos">
@@ -68,7 +70,7 @@ const Assets = () => {
               data={cosmosAssets?.assets}
             />
           ) : (
-            <CustomSkeleton count={5} height="20px" />
+            <CustomSkeleton count={5} height="50px" />
           )}
         </Section>
       </Box>

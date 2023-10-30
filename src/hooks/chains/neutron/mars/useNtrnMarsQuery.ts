@@ -43,7 +43,7 @@ export const useNtrnMarsQuery = () => {
       neutronCoinRegistry,
       contracts
     );
-    return tvl;
+    return tvl?.tvl;
   };
 
   const getParsedMarsData = async () => {

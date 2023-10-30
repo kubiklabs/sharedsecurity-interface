@@ -2,11 +2,15 @@ import axios, { all } from "axios";
 import { coinConvert } from "../../../../utils/common";
 import { useSetRecoilState } from "recoil";
 import { neutronAssetState } from "../../../../context/assetsState";
+import neutronAssetList from "../astroport/neutronTokenList.json";
+import { useNtrnAstroQuery } from "../astroport/useNtrnAstroQuery";
 
 const REST_URL = "https://rest-kralum.neutron-1.neutron.org";
 
 export const useNeutronAssets = () => {
   const setNeutronAssets = useSetRecoilState(neutronAssetState);
+
+  const { getAllAssetBalances } = useNtrnAstroQuery();
 
   const getNeutronSupply = async () => {
     let allSupply: any = [];
@@ -20,25 +24,30 @@ export const useNeutronAssets = () => {
 
   const getParsedNeutronAssets = async () => {
     let parsedAssets: any[] = [];
-    const allAssets = await getNeutronSupply();
+    // const allAssets = await getNeutronSupply();
+    const assetBalances = await getAllAssetBalances();
 
-    allAssets.forEach((asset: any) => {
+    Object.keys(assetBalances).forEach((asset: any) => {
+      const token = Object.keys(neutronAssetList).find(
+        (item) => item === asset
+      );
+
       parsedAssets = [
+        ...parsedAssets,
         {
           name: {
             type: "avatar",
-            label: "NTRN",
-            url: "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/ntrn.png",
+            label:
+              neutronAssetList[token as keyof typeof neutronAssetList].symbol,
+            url: neutronAssetList[token as keyof typeof neutronAssetList].icon,
           },
-          amount: Number(
-            coinConvert(asset.amount, 6, "human")
-          ).toLocaleString(),
+          amount: assetBalances[asset],
         },
       ];
     });
 
     setNeutronAssets({
-      assets: parsedAssets,
+      assets: parsedAssets.sort((a, b) => b.amount - a.amount),
     });
 
     return parsedAssets;

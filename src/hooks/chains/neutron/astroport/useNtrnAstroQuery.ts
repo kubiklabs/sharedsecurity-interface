@@ -115,7 +115,21 @@ export const useNtrnAstroQuery = () => {
       neutronCoinRegistry,
       pairs
     );
-    return tvl;
+    return tvl?.tvl;
+  };
+
+  const getAllAssetBalances = async () => {
+    let client = stargateClient;
+    if (!client) {
+      client = await createStargateClient();
+    }
+
+    const tvl = await getAllContractBalances(
+      client,
+      neutronCoinRegistry,
+      pairs
+    );
+    return tvl?.assetBalances;
   };
 
   const getParsedAstroportData = async () => {
@@ -137,5 +151,6 @@ export const useNtrnAstroQuery = () => {
     getAllNtrnPairs,
     getNtrnPoolInfo,
     getParsedAstroportData,
+    getAllAssetBalances,
   };
 };

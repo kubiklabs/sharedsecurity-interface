@@ -44,6 +44,7 @@ export const useCosmosValidatorQuery = () => {
 
     for (const index in allValidators) {
       const validator = allValidators[index];
+      // console.log(validator);
 
       const parsedValidator = {
         Validator: validator.description.moniker,

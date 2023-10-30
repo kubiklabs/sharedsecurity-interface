@@ -22,6 +22,12 @@ export const useCosmosAssets = () => {
     let parsedAssets: any[] = [];
     const allAssets = await getCosmosSupply();
 
+    const price = (
+      await axios.get(
+        "https://api.coingecko.com/api/v3/simple/price?ids=cosmos&vs_currencies=usd"
+      )
+    ).data.cosmos.usd;
+
     allAssets.forEach((asset: any) => {
       parsedAssets = [
         {
@@ -30,9 +36,7 @@ export const useCosmosAssets = () => {
             label: "ATOM",
             url: "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.png",
           },
-          amount: Number(
-            coinConvert(asset.amount, 6, "human")
-          ).toLocaleString(),
+          amount: Number(coinConvert(asset.amount, 6, "human")) * price,
         },
       ];
     });
