@@ -1,5 +1,5 @@
 import { Box } from "@chakra-ui/react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useStrideAssets } from "../hooks/chains/stride/chain_assets/useStrideAssets";
 import CustomTable from "../components/DataDisplay/CustomTable";
 import { useRecoilValue } from "recoil";
@@ -12,6 +12,62 @@ import Section from "../components/Layout/Section";
 import { useCosmosAssets } from "../hooks/chains/cosmos/chain_assets/useCosmosAssets";
 import { useNeutronAssets } from "../hooks/chains/neutron/chain_assets/useNeutronAssets";
 import CustomSkeleton from "../components/skeleton/CustomSkeleton";
+import { Pie } from "react-chartjs-2";
+
+export const options = {
+  responsive: true,
+  plugins: {
+    customCanvasBackgroundColor: {
+      color: "lightGreen",
+    },
+    colors: {
+      forceOverride: true,
+    },
+    legend: {
+      position: "top" as const,
+    },
+    title: {
+      display: true,
+      text: "Chains",
+    },
+    decimation: {
+      enabled: true,
+      algoritghm: "min-max",
+      sample: 50,
+    },
+  },
+  scales: {
+    x: {
+      title: {
+        display: true,
+        text: "Date",
+      },
+      border: {
+        display: true,
+      },
+      grid: {
+        display: true,
+        drawOnChartArea: true,
+        drawTicks: true,
+        color: "#000",
+      },
+    },
+    y: {
+      title: {
+        display: true,
+        text: "TVL(in USD)",
+      },
+      border: {
+        display: true,
+      },
+      grid: {
+        display: true,
+        drawOnChartArea: true,
+        drawTicks: true,
+      },
+    },
+  },
+};
 
 const Assets = () => {
   const { getParsedStrideAssets } = useStrideAssets();
@@ -21,14 +77,30 @@ const Assets = () => {
   const cosmosAssets = useRecoilValue(cosmosAssetState);
   const neutronAssets = useRecoilValue(neutronAssetState);
 
+  const [finalData, setFinalData] = useState<any>();
+
   useEffect(() => {
     getSupply();
   }, []);
+
+  useEffect(() => {
+    const graphData = {
+      labels: strideAssets.assets.map((asset) => asset.name.label),
+      datasets: strideAssets.assets.map((asset) => asset.amount),
+    };
+    setFinalData(graphData);
+  }, [strideAssets]);
+  // console.log(strideAssets, cosmosAssets, neutronAssets);
 
   const getSupply = async () => {
     if (!strideAssets.assets.length) getParsedStrideAssets();
     if (!cosmosAssets.assets.length) getParsedCosmosAssets();
     if (!neutronAssets.assets.length) getParsedNeutronAssets();
+    const graphData = {
+      labels: strideAssets.assets.map((asset) => asset.name.label),
+      datasets: strideAssets.assets.map((asset) => asset.amount),
+    };
+    setFinalData(graphData);
   };
 
   return (
@@ -74,6 +146,7 @@ const Assets = () => {
           )}
         </Section>
       </Box>
+      {/* {strideAssets.assets.length && <Pie data={finalData} options={options} />} */}
     </Box>
   );
 };

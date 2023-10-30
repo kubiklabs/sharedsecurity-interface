@@ -16,6 +16,7 @@ const Overview = ({
       <StatDisplay label={"Active"} number={active || "-"} />
       <StatDisplay label={"Allocated"} number={total || "-"} />
       <StatDisplay label={"Average Commission"} number={averageComm || "-"} />
+      <StatDisplay label={"Soft opt-out: Neutron/Stride"} number={"5%"} />
     </Flex>
   );
 };
