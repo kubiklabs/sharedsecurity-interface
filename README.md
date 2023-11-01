@@ -8,6 +8,10 @@ The shared security interface, developed by Kubik Labs, is a unified interface t
 - **Assets**: All assets of the consumer chains along with the amount.
 - **Validators**: All validators validating Cosmos Hub and the consumer chains.
 
+The data flow of the data from the chain to the Governance Page UI is explained as an example in the diagram below.
+
+![DFD](src/assets//dfd//gov-page-dataflow.png)
+
 ## Overview
 
 ![Overview](src/assets/snapshots/overview.png)
