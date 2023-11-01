@@ -1,27 +1,33 @@
-# React + TypeScript + Vite
+# Shared Security Interface
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The shared security interface, developed by Kubik Labs, is a unified interface to view, manage and interact with the ICS aspect of all the chain opted-in. Currently there are two chains in the ICS: Neutron and Stride, along with Cosmos Hub which provides its $2.3b marjket cap to secure the consumer chains. There are 5 main pages which provide the data related to the shared-security.
 
-Currently, two official plugins are available:
+- **Overview**: Provides the insights and quick stats of the chains with the graphical data.
+- **Atom Economic Zone**: Provides the insights of the community. Displays upcoming community calls, consumer chains and their proposals(if any) and the assets available.
+- **Governance**: All the governance proposals on Cosmos Hub and the consumer chains, seperated by appropriate tags. See details for any proposal or cast you vote.
+- **Assets**: All assets of the consumer chains along with the amount.
+- **Validators**: All validators validating Cosmos Hub and the consumer chains.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Overview
 
-## Expanding the ESLint configuration
+![Overview](src/assets/snapshots/overview.png)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Atom Economic Zone(AEZ)
 
-- Configure the top-level `parserOptions` property like this:
+![Ecosystem](src/assets//snapshots/aez.png)
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+## Governance
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+![Live Proposals](src/assets/snapshots/gov-live.png)
+
+![Legacy Proposals](src/assets/snapshots/gov-leg.png)
+
+![Single Live Proposal](src/assets/snapshots/lp.png)
+
+## Assets
+
+![Assets](src/assets/snapshots/assets.png)
+
+## Validators
+
+![Validators](src/assets/snapshots/validators.png)
