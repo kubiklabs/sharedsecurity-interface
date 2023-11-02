@@ -8,30 +8,30 @@ The shared security interface, developed by Kubik Labs, is a unified interface t
 - **Assets**: All assets of the consumer chains along with the amount.
 - **Validators**: All validators validating Cosmos Hub and the consumer chains.
 
-The data flow of the data from the chain to the Governance Page UI is explained as an example in the diagram below.
+The General data flow of the data from the chain to the Governance Page UI is explained as an example in the diagram below.
 
-![DFD](src/assets//dfd//gov-page-dataflow.png)
+![DFD](src/assets//dfd//gov-page-dataflow-light.png)
+
+A more specific Data Flow has been illustrated section-wise below:
 
 ## Overview
 
-![Overview](src/assets/snapshots/overview.png)
+The Data Flow of the overview page showing the collection of Data from the DefiLlama API, its modification to the appropriate format and then rendering in the UI using chart.js and react-chart-js2 libraries.
+
+![Overview DFD](src/assets/dfd/overview-dfd.png)
 
 ## Atom Economic Zone(AEZ)
 
-![Ecosystem](src/assets//snapshots/aez.png)
+The Data Flow of the AEZ page showing the collection of Data from the Coingecko API and the contracts of the protocol, its modification to the appropriate format and then rendering in the UI.
+
+![AEZ TVL DFD](src/assets/dfd/aez-dfd.png)
 
 ## Governance
 
-![Live Proposals](src/assets/snapshots/gov-live.png)
+The Data Flow of the Governance page showing the collection of Data from the Contract and REST API, its modification to the appropriate format and then rendering in the UI.
 
-![Legacy Proposals](src/assets/snapshots/gov-leg.png)
+![Proposals DFD](src/assets/dfd/gov-dfd.png)
 
-![Single Live Proposal](src/assets/snapshots/lp.png)
+The Data Flow of the Governance page showing the collection of Data from the UI, its modification to the appropriate format and then sending the VoteMsg by executing the transaction on the contract and Msg type URL.
 
-## Assets
-
-![Assets](src/assets/snapshots/assets.png)
-
-## Validators
-
-![Validators](src/assets/snapshots/validators.png)
+![Voting DFD](src/assets/dfd/voting-dfd.png)
