@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useStrideAssets } from "../hooks/chains/stride/chain_assets/useStrideAssets";
 import CustomTable from "../components/DataDisplay/CustomTable";
@@ -102,6 +102,9 @@ const Assets = () => {
     };
     setFinalData(graphData);
   };
+  const getTotalValue = (assets) => {
+    return assets.reduce((total, asset) => total + asset.amount, 0);
+  };
 
   return (
     <Box>
@@ -113,34 +116,43 @@ const Assets = () => {
       >
         <Section heading="Neutron">
           {neutronAssets.assets.length ? (
-            <CustomTable
-              keys={Object.keys(neutronAssets?.assets[0])}
-              data={neutronAssets?.assets}
-              pagination={true}
-              itemsPerPage={5}
-            />
+              <>
+              <CustomTable
+                keys={Object.keys(neutronAssets?.assets[0])}
+                data={neutronAssets?.assets}
+                pagination={true}
+                itemsPerPage={5}
+                totalValue={getTotalValue(neutronAssets.assets).toLocaleString()}
+              />
+            </>
           ) : (
             <CustomSkeleton count={5} height="50px" />
           )}
         </Section>
         <Section heading="Stride">
           {strideAssets.assets.length ? (
+            <>
             <CustomTable
               keys={Object.keys(strideAssets?.assets[0])}
               data={strideAssets?.assets}
               pagination={true}
               itemsPerPage={5}
+              totalValue={getTotalValue(strideAssets.assets).toLocaleString()}
             />
+          </>
           ) : (
             <CustomSkeleton count={5} height="50px" />
           )}
         </Section>
         <Section heading="Cosmos">
           {cosmosAssets.assets.length ? (
-            <CustomTable
-              keys={Object.keys(cosmosAssets?.assets[0])}
-              data={cosmosAssets?.assets}
-            />
+           <>
+           <CustomTable
+             keys={Object.keys(cosmosAssets?.assets[0])}
+             data={cosmosAssets?.assets}
+             totalValue={getTotalValue(cosmosAssets.assets).toLocaleString()}
+           />
+         </>
           ) : (
             <CustomSkeleton count={5} height="50px" />
           )}
