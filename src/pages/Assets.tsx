@@ -102,8 +102,8 @@ const Assets = () => {
     };
     setFinalData(graphData);
   };
-  const getTotalValue = (assets) => {
-    return assets.reduce((total, asset) => total + asset.amount, 0);
+  const getTotalValue = (assets:any) => {
+    return assets.reduce((total:number, asset:any) => total + asset.amount, 0);
   };
 
   return (
