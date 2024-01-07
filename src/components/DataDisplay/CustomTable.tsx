@@ -146,7 +146,7 @@ const CustomTable = ({
                 key={index}
                 py={"15px"}
                 border={"none"}
-                borderTop={"1px solid rgba(255, 255, 255, 0.15)"}
+                borderTop={"1px solid"} 
                 fontWeight="bold"
               >
                 $ {typeof totalValue === "number" ? `$ ${totalValue.toLocaleString()}` : totalValue}
