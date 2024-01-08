@@ -4,19 +4,32 @@ import kubikLogo from "../../assets/kubik-logo-white.png";
 import NavItem from "./NavItem";
 import ConnectWalletButton from "../Buttons/ConnectWalletButton";
 import { Resizable } from 're-resizable';
+import { useState, useRef, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLeftLong } from "@fortawesome/free-solid-svg-icons";
+import { faRightLong } from "@fortawesome/free-solid-svg-icons";
 
 
 const SideBar = () => {
+
+  const [isOpen, setIsOpen] = useState(false)
+
   return (
     <>
+      <Button variant={"solid"} padding={2} marginTop="35px" onClick={() => {
+        setIsOpen(!isOpen);
+      }}>
+        <FontAwesomeIcon icon={isOpen ? faLeftLong : faRightLong} color="gray" />
+      </Button>
       <Resizable
-        minWidth="230px"
+        minWidth={isOpen ? "300px" : "0px"}
+        size={{ width: isOpen ? "" : "0px", height: "100%" }}
         minHeight={'100vh'}
         maxWidth={"50%"}
       >
         <Box
           position={"relative"}
-          display={"flex"}
+          display={isOpen ? "flex" : "none"}
           flexDirection={"column"}
           borderRight={"1px solid white"}
           justifyContent={"space-between"}
@@ -28,6 +41,7 @@ const SideBar = () => {
           backgroundColor={"black"}
           zIndex={10}
         >
+
           <Box minWidth={"200px"}>
             <Flex gap={"10px"} alignItems={"center"}>
               <Image width={"60px"} src={kubikLogo} alt="logo" />
@@ -56,6 +70,7 @@ const SideBar = () => {
           <ConnectWalletButton />
         </Box>
       </Resizable>
+
     </>
   );
 };
