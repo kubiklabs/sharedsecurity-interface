@@ -12,7 +12,7 @@ import { faRightLong } from "@fortawesome/free-solid-svg-icons";
 
 const SideBar = () => {
 
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(true)
 
   return (
     <>
