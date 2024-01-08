@@ -45,7 +45,7 @@ const Navlink = ({
         }}
       >
         <span className="material-symbols-outlined">{iconName}</span>
-        <Text m={"0"} fontSize={"1.2rem"}>
+        <Text m={"0"} fontSize={"1.2rem"} textAlign={"left"} noOfLines={1}>
           {name}
         </Text>
       </Flex>

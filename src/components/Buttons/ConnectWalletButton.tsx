@@ -66,6 +66,7 @@ const ConnectWalletButton = () => {
               bg: "white.600",
               borderColor: "white",
             }}
+            overflow={"hidden"}
           >
             Connect Keplr
           </Button>

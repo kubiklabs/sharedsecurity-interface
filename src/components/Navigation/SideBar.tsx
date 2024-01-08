@@ -3,50 +3,27 @@ import kubikLogo from "../../assets/kubik-logo-white.png";
 // import { NavLink } from "react-router-dom";
 import NavItem from "./NavItem";
 import ConnectWalletButton from "../Buttons/ConnectWalletButton";
-import { useState, useRef, useEffect } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { Resizable } from 're-resizable';
+
 
 const SideBar = () => {
-
-  const [isOpen, setIsOpen] = useState(false)
-  const sidebarRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    const handleOutsideClick = (event: MouseEvent) => {
-      if (
-        sidebarRef.current
-      ) {
-        setIsOpen(false);
-      }
-    };
-
-    document.addEventListener("click", handleOutsideClick);
-
-    return () => {
-      document.removeEventListener("click", handleOutsideClick);
-    };
-  }, [sidebarRef]);
-
   return (
     <>
-      <Button colorScheme='gray' variant="outline" padding={2} marginY="25px" onClick={(e) => {
-        e.stopPropagation(); // Stop the event propagation
-        setIsOpen(!isOpen);
-      }}>
-        <FontAwesomeIcon icon={faBars} color="gray" />
-      </Button>
-      <Slide direction='left' in={isOpen} style={{ zIndex: 10 }}>
+      <Resizable
+        minWidth="230px"
+        minHeight={'100vh'}
+        maxWidth={"50%"}
+      >
         <Box
-          position={"absolute"}
-          ref={sidebarRef}
-          display={isOpen ? "flex" : "none"}
+          position={"relative"}
+          display={"flex"}
           flexDirection={"column"}
           borderRight={"1px solid white"}
           justifyContent={"space-between"}
           py={"20px"}
           px={"20px"}
-          width={"300px"}
+          // width={"300px"}
+          overflow={"hidden"}
           height={"100vh"}
           backgroundColor={"black"}
           zIndex={10}
@@ -54,7 +31,7 @@ const SideBar = () => {
           <Box minWidth={"200px"}>
             <Flex gap={"10px"} alignItems={"center"}>
               <Image width={"60px"} src={kubikLogo} alt="logo" />
-              <Text fontSize={"2xl"}>Shared Security</Text>
+              <Text fontSize={"2xl"} noOfLines={1} textAlign={"left"}>Shared Security</Text>
             </Flex>
             <Divider height={"1px"} bg={"white"} />
             {/* <ConnectWalletButton />
@@ -78,7 +55,7 @@ const SideBar = () => {
           </Box>
           <ConnectWalletButton />
         </Box>
-      </Slide>
+      </Resizable>
     </>
   );
 };
