@@ -22,7 +22,7 @@ const SideBar = () => {
         <FontAwesomeIcon icon={faBars} color="gray"  size={"lg"}/>
       </Button>
       <Resizable
-        minWidth={isOpen ? "250px" : "0px"}
+        minWidth={isOpen ? "300px" : "0px"}
         size={{ width: isOpen ? "" : "0px", height: "100%" }}
         minHeight={'100vh'}
         maxWidth={"50%"}
