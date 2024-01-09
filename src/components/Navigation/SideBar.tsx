@@ -16,10 +16,10 @@ const SideBar = () => {
   return (
     <>
 
-      <Button variant={"ghost"} _hover={{ bgColor: "#bc3d70" }} position={"absolute"} top={"41px"} left={"8px"} zIndex={999} padding={2} marginTop="0px" onClick={() => {
+      <Button variant={"ghost"} border={"none"} _hover={{ bgColor: "#bc3d70", color:"white" }} color={"gray"} position={"absolute"} top={"41px"} left={"8px"} zIndex={999} padding={2} marginTop="0px" onClick={() => {
         setIsOpen(!isOpen);
       }}>
-        <FontAwesomeIcon icon={faBars} color="gray" fontSize={"1.4rem"} />
+        <FontAwesomeIcon icon={faBars} fontSize={"1.4rem"} />
       </Button>
       <Resizable
         minWidth={isOpen ? "300px" : "0px"}
