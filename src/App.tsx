@@ -74,7 +74,7 @@ function App() {
             maxH={"100vh"}
             overflowY={"scroll"}
             px={"50px"}
-            pt={"75px"}
+            pt={"38px"}
             pb={"50px"}
             flex={"1"}
           >

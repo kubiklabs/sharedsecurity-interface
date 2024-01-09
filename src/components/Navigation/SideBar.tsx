@@ -16,10 +16,10 @@ const SideBar = () => {
   return (
     <>
 
-      <Button variant={"ghost"} position={"absolute"} top={"-10px"} left={"20px"} zIndex={999} colorScheme="gray" padding={2} marginTop="35px" onClick={() => {
+      <Button variant={"ghost"} _hover={{ bgColor: "#bc3d70" }} position={"absolute"} top={"41px"} left={"8px"} zIndex={999} padding={2} marginTop="0px" onClick={() => {
         setIsOpen(!isOpen);
       }}>
-        <FontAwesomeIcon icon={faBars} color="gray"  size={"lg"}/>
+        <FontAwesomeIcon icon={faBars} color="gray" fontSize={"1.4rem"} />
       </Button>
       <Resizable
         minWidth={isOpen ? "300px" : "0px"}
@@ -42,7 +42,7 @@ const SideBar = () => {
           zIndex={10}
         >
 
-          <Box minWidth={"200px"} marginTop={10}>
+          <Box minWidth={"200px"} marginTop={"10px"}>
             <Flex gap={"10px"} alignItems={"center"}>
               <Image width={"60px"} src={kubikLogo} alt="logo" />
               <Text fontSize={"2xl"} noOfLines={1} textAlign={"left"}>Shared Security</Text>
