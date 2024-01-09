@@ -19,7 +19,7 @@ const SideBar = () => {
       <Button variant={"ghost"} position={"absolute"} top={"-10px"} left={"20px"} zIndex={999} colorScheme="gray" padding={2} marginTop="35px" onClick={() => {
         setIsOpen(!isOpen);
       }}>
-        <FontAwesomeIcon icon={faBars} color="gray" />
+        <FontAwesomeIcon icon={faBars} color="gray"  size={"lg"}/>
       </Button>
       <Resizable
         minWidth={isOpen ? "250px" : "0px"}
