@@ -73,7 +73,9 @@ function App() {
             sx={scrollbarStyle}
             maxH={"100vh"}
             overflowY={"scroll"}
-            p={"50px"}
+            px={"50px"}
+            pt={"75px"}
+            pb={"50px"}
             flex={"1"}
           >
             <Routes>

@@ -4,10 +4,9 @@ import kubikLogo from "../../assets/kubik-logo-white.png";
 import NavItem from "./NavItem";
 import ConnectWalletButton from "../Buttons/ConnectWalletButton";
 import { Resizable } from 're-resizable';
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLeftLong } from "@fortawesome/free-solid-svg-icons";
-import { faRightLong } from "@fortawesome/free-solid-svg-icons";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 
 const SideBar = () => {
@@ -16,13 +15,14 @@ const SideBar = () => {
 
   return (
     <>
-      <Button variant={"solid"} padding={2} marginTop="35px" onClick={() => {
+
+      <Button variant={"ghost"} position={"absolute"} top={"-10px"} left={"60px"} zIndex={999} colorScheme="gray" padding={2} marginTop="35px" onClick={() => {
         setIsOpen(!isOpen);
       }}>
-        <FontAwesomeIcon icon={isOpen ? faLeftLong : faRightLong} color="gray" />
+        <FontAwesomeIcon icon={faBars} color="gray" />
       </Button>
       <Resizable
-        minWidth={isOpen ? "300px" : "0px"}
+        minWidth={isOpen ? "250px" : "0px"}
         size={{ width: isOpen ? "" : "0px", height: "100%" }}
         minHeight={'100vh'}
         maxWidth={"50%"}
@@ -42,7 +42,7 @@ const SideBar = () => {
           zIndex={10}
         >
 
-          <Box minWidth={"200px"}>
+          <Box minWidth={"200px"} marginTop={14}>
             <Flex gap={"10px"} alignItems={"center"}>
               <Image width={"60px"} src={kubikLogo} alt="logo" />
               <Text fontSize={"2xl"} noOfLines={1} textAlign={"left"}>Shared Security</Text>
