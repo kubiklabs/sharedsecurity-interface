@@ -137,12 +137,12 @@ const CustomTable = ({
           })}
           
           <Tr>
-          <Td py={"15px"} border={"none"} fontWeight="bold" borderTop={"1px solid"} fontSize={20}>
+          {totalValue && <Td py={"15px"} border={"none"} fontWeight="bold" borderTop={"1px solid"} fontSize={20}>
             Total
-          </Td>
+          </Td>}
           {keys?.slice(1).map((key: string, index: number) => {
             return (
-              <Td
+              totalValue && <Td
                 key={index}
                 py={"15px"}
                 border={"none"}
