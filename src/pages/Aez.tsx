@@ -10,8 +10,9 @@ const Aez = () => {
       <Box flexDirection={"column"} display={"flex"} gap={"60px"}>
         {/* <Featured /> */}
         <Ecosystem />
-        <Community />
         <CCStatus1 />
+        <Community />
+       
         {/* <CCStatus2 /> */}
       </Box>
     </Box>
