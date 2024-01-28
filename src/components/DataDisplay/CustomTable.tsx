@@ -27,6 +27,7 @@ import TableTagGroup from "./table-helpers/TableTagGroup";
 const CustomTable = ({
   data,
   keys,
+  totalValue,
   minGridWidth,
   maxGridWidth,
   gridColumnGap,
@@ -51,7 +52,6 @@ const CustomTable = ({
     const currentItems = data.slice(newOffset, endOffset);
     setCurrentItems(currentItems);
   };
-
   return (
     <TableContainer textAlign={"left"}>
       <Table width={"100%"} fontSize={"lg"}>
@@ -135,6 +135,26 @@ const CustomTable = ({
               </Tr>
             );
           })}
+          
+          <Tr>
+          {totalValue && <Td py={"15px"} border={"none"} fontWeight="bold" borderTop={"1px solid"} fontSize={20}>
+            Total
+          </Td>}
+          {keys?.slice(1).map((key: string, index: number) => {
+            return (
+              totalValue && <Td
+                key={index}
+                py={"15px"}
+                border={"none"}
+                borderTop={"1px solid"} 
+                fontWeight="bold"
+              >
+                $ {typeof totalValue === "number" ? `$ ${totalValue.toLocaleString()}` : totalValue}
+              </Td>
+            );
+          })}
+        </Tr>
+
         </Tbody>
       </Table>
       {totalPages && pagination && (
