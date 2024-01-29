@@ -14,6 +14,8 @@ import {
 import { IVoteValueProps } from "../../utils/interface";
 import { useNavigate } from "react-router-dom";
 import { shortenString } from "../../utils/common";
+import { convertDateFormat } from "../../utils/common";
+import { removeSecondsFromTime } from "../../utils/common";
 
 export interface ILpCardProps {
   proposalId: string;
@@ -23,6 +25,7 @@ export interface ILpCardProps {
   tags: Array<string>;
   status: string;
   voteDistribution: any;
+  showButtons?: boolean;
 }
 ("");
 const LpCard = ({
@@ -33,14 +36,14 @@ const LpCard = ({
   tags,
   voteDistribution,
   status,
+  showButtons = true,
 }: ILpCardProps) => {
   const navigate = useNavigate();
   return (
     <Box
       // maxWidth={"fit-content"}
-      border={`2px solid ${
-        borderTagColorMap[tags[0] as keyof typeof tagColorMap]
-      }`}
+      border={`2px solid ${borderTagColorMap[tags[0] as keyof typeof tagColorMap]
+        }`}
       bg={"rgba(255, 255, 255, 0.05)"}
       padding={"30px"}
       // paddingY={"20px"}
@@ -59,20 +62,20 @@ const LpCard = ({
           justifyContent={"space-between"}
           alignItems={"center"}
         >
-          <Flex flexDirection={"column"} maxW={"80%"}>
+          <Flex flexDirection={"column"} maxW={showButtons?"60%":"90%"}>
             <Text
               overflow={"hidden"}
               whiteSpace={"nowrap"}
               textOverflow={"ellipsis"}
               textAlign={"left"}
               m={"0"}
-              fontSize={"1.1rem"}
+              fontSize={"1.2rem"}
             >{`#${proposalId}. ${proposalTitle}`}</Text>
-            <SubtitleText textAlign={"left"}>
-              voting ends on : {endDate} : {endTime}
+            <SubtitleText textAlign={"left"} fontSize={"0.9rem"}>
+              voting ends on : {convertDateFormat(endDate)} {removeSecondsFromTime(endTime)}
             </SubtitleText>
           </Flex>
-          <Button
+          {showButtons && <Button
             color={"white"}
             bg={
               (
@@ -91,15 +94,14 @@ const LpCard = ({
                 neutronStatusMap[status as keyof typeof neutronStatusMap]
               )?.pretty
             }
-          </Button>
+          </Button>}
         </Flex>
         <Flex gap={"5px"}>
           {tags.map((tag) => {
             return (
               <ColorTag
-                borderStyle={`1px solid ${
-                  tagColorMap[tags[0] as keyof typeof tagColorMap]
-                }`}
+                borderStyle={`1px solid ${tagColorMap[tags[0] as keyof typeof tagColorMap]
+                  }`}
                 content={tag}
                 bgColor={tagColorMap[tag as keyof typeof tagColorMap]}
               />
@@ -126,7 +128,7 @@ const LpCard = ({
             );
           })}
         </Box>
-        <Flex gap={"20px"}>
+        <Flex justifyContent={"space-between"}>
           {Object.keys(voteDistribution).map((vote) => {
             return (
               <BigSmallText

@@ -75,9 +75,9 @@ function App() {
             maxH={"100vh"}
             overflowY={"scroll"}
             px={"50px"}
-            pt={"38px"}
-            pb={"50px"}
+            pt={"50px"}
             flex={"1"}
+            pb={"140px"}
           >
             <Routes>
               <Route path="/overview" element={<Overwiew />} />

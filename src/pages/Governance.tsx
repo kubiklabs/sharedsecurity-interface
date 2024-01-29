@@ -29,14 +29,41 @@ const Governance = () => {
     if (!sortedLpList?.length || !sortedOpList?.length) fetchAllProposalsList();
   }, []);
 
+
+
+  const [sizeOfAllProposals, setSizeOfAllProposals] = useState({});
+
+
   const fetchAllProposalsList = async () => {
     setLoading(true);
     const lpList = await getCosmosLpList();
     neutronLpList.current = await getNeutronLpList();
     strideLpList.current = await getStrideLpList();
+    console.log("Cosmos LL", lpList);
+    console.log("Neutron LL", neutronLpList.current);
+    console.log("Stride LL", strideLpList.current);
     const opList = await getCosmosOpList();
     neutronOpList.current = await getNeutronOpList();
     strideOpList.current = await getStrideOpList();
+    console.log("Cosmos PL", opList);
+    console.log("Neutron PL", neutronOpList.current);
+    console.log("Stride PL", strideOpList.current);
+
+    setSizeOfAllProposals({
+      Cosmos: {
+        Lp: lpList.length,
+        Op: opList.length,
+      },
+      Neutron: {
+        Lp: neutronLpList.current.length,
+        Op: neutronOpList.current.length,
+      },
+      Stride: {
+        Lp: strideLpList.current.length,
+        Op: strideOpList.current.length,
+      },
+    })
+    
     const updatedState = {
       userVotingPower,
       sortedLpList: [
@@ -62,7 +89,7 @@ const Governance = () => {
         display={"flex"}
         gap={"50px"}
       >
-        <VpSection />
+        <VpSection sizeOfAllProposals={sizeOfAllProposals}/>
         <LpSection isLoading={loading} lpList={sortedLpList} />
         <InfoSection />
         <OpSection isLoading={loading} opList={sortedOpList} />

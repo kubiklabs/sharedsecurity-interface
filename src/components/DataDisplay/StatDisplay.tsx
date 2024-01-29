@@ -24,12 +24,14 @@ const StatDisplay = ({
   helpText,
   isSatisfied = "na",
   showSatisfiedBg,
+  numberTitle,
 }: {
   label: String;
   number: String;
   helpText?: String;
   isSatisfied?: String;
   showSatisfiedBg?: boolean;
+  numberTitle?: String;
 }) => {
   return (
     <Stat
@@ -66,19 +68,26 @@ const StatDisplay = ({
         width={"100%"}
       >
         <Text flex={"1"}>{number}</Text>{" "}
+        {
+          numberTitle && (
+            <Text>
+              {numberTitle}
+            </Text>
+          )
+        }
         {isSatisfied !== "na" ? (
           <span
-            style={{
-              color:
-                isSatisfied === "na"
-                  ? "white"
-                  : satisfiedBgMap[isSatisfied as keyof typeof satisfiedBgMap]
-                      .borderColor,
-            }}
+          style={{
+            color:
+              isSatisfied === "na"
+                ? "white"
+                : satisfiedBgMap[isSatisfied as keyof typeof satisfiedBgMap]
+                    .borderColor,
+          }}
             className="material-symbols-outlined"
           >
             {isSatisfied === "yes" ? "done" : "close"}
-          </span>
+          </span> 
         ) : null}
       </StatNumber>
 

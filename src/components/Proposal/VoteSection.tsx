@@ -1,4 +1,4 @@
-import { Grid } from "@chakra-ui/react";
+import { Box, Grid, Text } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
 import Section from "../Layout/Section";
 import VoteCard from "./VoteCard";
@@ -37,15 +37,16 @@ const VoteSection = ({ voteDistribution, prettyDenom, status }: any) => {
   }, [wallet.isLoggedIn]);
 
   return (
-    <>
-      <Section
+    <Box>
+    <Text fontSize={"2xl"} mb={"20px"} textAlign={"left"}>Your Vote</Text>
+      {/* <Section
         heading="Your Vote"
         subtitle={
           userVote
             ? `You have voted with ${userVote}.`
             : "Looks like you haven't voted on this proposal"
         }
-      >
+      > */}
         <Grid
           p={"15px"}
           gap={"20px"}
@@ -69,8 +70,8 @@ const VoteSection = ({ voteDistribution, prettyDenom, status }: any) => {
               );
             })}
         </Grid>
-      </Section>
-    </>
+      {/* </Section> */}
+    </Box>
   );
 };
 

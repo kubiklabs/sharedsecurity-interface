@@ -7,6 +7,7 @@ import {
   Skeleton,
   Spinner,
   Text,
+  Box
 } from "@chakra-ui/react";
 import Section from "../Layout/Section";
 import LpCard, { ILpCardProps } from "./LpCard";
@@ -21,9 +22,11 @@ const LpSection = ({
   isLoading?: boolean;
 }) => {
   return (
+    <Box py={"40px"} px={"60px"} bgColor={"#17131E"} borderRadius={"15px"}>
     <Section
       heading="Live Proposals"
       sideText={`${lpList?.length}/${lpList?.length}`}
+      subtitle="All the live proposals"
     >
       <PulseLive left="325px" top="19px" />
       <Grid
@@ -31,7 +34,7 @@ const LpSection = ({
         gap={"20px"}
         // justifyContent={"space-evenly"}
         // gridAutoFlow={"column"}
-        gridTemplateColumns={"repeat(auto-fit, minmax(550px, 1fr))"}
+        gridTemplateColumns={"repeat(auto-fit, minmax(400px, 1fr))"}
       >
         {isLoading ? (
           <Center>
@@ -44,7 +47,7 @@ const LpSection = ({
           ? lpList.map((item) => {
               return (
                 <GridItem id={item.proposalId}>
-                  <LpCard {...item} />
+                  <LpCard {...item} showButtons={false}/>
                 </GridItem>
               );
             })
@@ -62,6 +65,7 @@ const LpSection = ({
             )}
       </Grid>
     </Section>
+    </Box>
   );
 };
 

@@ -6,7 +6,8 @@ import { bigSmallTextColorMap, colorVoteMap } from "../../utils/constant";
 
 const Overview = ({ voteDistribution }: any) => {
   return (
-    <Section heading="Overview">
+    <Box>
+    <Text fontSize={"2xl"} mb={"20px"} textAlign={"left"}>Overview</Text>
       <Box
         display={"flex"}
         my={"10px"}
@@ -59,7 +60,7 @@ const Overview = ({ voteDistribution }: any) => {
           </Flex>
         </Box>
       </Box> */}
-    </Section>
+      </Box>
   );
 };
 

@@ -145,3 +145,33 @@ export const shortenString = (
     return inputString;
   }
 };
+
+export const convertDateFormat = (dateString: string) => {
+  const dateObject: Date = new Date(dateString);
+
+  const day: number = dateObject.getDate();
+  const month: number = dateObject.getMonth();
+
+  const paddedDay: string = day < 10 ? `0${day}` : `${day}`;
+  const paddedMonth: string = month + 1 < 10 ? `0${month + 1}` : `${month + 1}`;
+
+  return `${paddedDay}/${paddedMonth}`;
+};
+
+export const removeSecondsFromTime = (timeString: string) => {
+  const [hour, minute, second] = timeString.split(":");
+
+  const modifiedTimeString: string = `${hour}:${minute}`;
+
+  return modifiedTimeString;
+};
+
+export const shortenCosmosAddress = (address: string) => {
+  const prefix = address.substring(0, 7);
+
+  const suffix = address.substring(address.length - 3);
+
+  const shortenedAddress = `${prefix}...${suffix}`;
+
+  return shortenedAddress;
+};
