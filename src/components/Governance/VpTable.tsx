@@ -9,11 +9,12 @@ const VpTable = () => {
 
     return (
         <Box>
-            {tableArray && tableArray.length === 0 ?
-                <CustomSkeleton count={4} height="50px" /> : <CustomTable
+            {tableArray && tableArray.length !== 0 ?
+                <CustomTable
                     keys={Object.keys(tableArray[0])}
                     data={tableArray}
-                />}
+                /> :
+                <CustomSkeleton count={4} height="50px" />}
         </Box>
     );
 };
