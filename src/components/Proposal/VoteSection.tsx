@@ -1,4 +1,4 @@
-import { Box, Grid, Text } from "@chakra-ui/react";
+import { Box, Flex, Grid, Text } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
 import Section from "../Layout/Section";
 import VoteCard from "./VoteCard";
@@ -7,8 +7,12 @@ import { useParams } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import { walletState } from "../../context/walletState";
 import { getCommonVoteOption } from "../../utils/common";
+import { calculateDaysLeft } from "../../utils/common";
 
-const VoteSection = ({ voteDistribution, prettyDenom, status }: any) => {
+const VoteSection = ({ voteDistribution, prettyDenom, status, votingEndTime }: any) => {
+
+  console.log(votingEndTime);
+
   const wallet = useRecoilValue(walletState);
   const { fetchUserVote } = useGovernance();
   const { chain, proposalId } = useParams();
@@ -38,7 +42,13 @@ const VoteSection = ({ voteDistribution, prettyDenom, status }: any) => {
 
   return (
     <Box>
-    <Text fontSize={"2xl"} mb={"20px"} textAlign={"left"}>Your Vote</Text>
+      <Flex justifyContent={"space-between"}>
+        <Text fontSize={"2xl"} mb={"20px"} textAlign={"left"}>Your Vote</Text>
+        {
+          (status === "PROPOSAL_STATUS_VOTING_PERIOD" ||
+          status === "open") && <Text fontSize={"1.2rem"} color={"#A9A8AA"}>Voting ends in {calculateDaysLeft(votingEndTime)} days</Text>
+        }
+      </Flex>
       {/* <Section
         heading="Your Vote"
         subtitle={
@@ -47,29 +57,29 @@ const VoteSection = ({ voteDistribution, prettyDenom, status }: any) => {
             : "Looks like you haven't voted on this proposal"
         }
       > */}
-        <Grid
-          p={"15px"}
-          gap={"20px"}
-          gridTemplateColumns={"repeat(auto-fit, minmax(250px, 1fr))"}
-        >
-          {voteDistribution &&
-            Object.keys(voteDistribution.ratio).map((vote: any) => {
-              return (
-                <VoteCard
-                  disable={
-                    status &&
-                    status !== "PROPOSAL_STATUS_VOTING_PERIOD" &&
-                    status !== "open"
-                  }
-                  vote={userVote}
-                  tokenAmountUnderVote={voteDistribution.tally[vote] / 1000000}
-                  option={vote}
-                  value={voteDistribution.ratio[vote]}
-                  prettyDenom={prettyDenom}
-                />
-              );
-            })}
-        </Grid>
+      <Grid
+        p={"15px"}
+        gap={"20px"}
+        gridTemplateColumns={"repeat(auto-fit, minmax(250px, 1fr))"}
+      >
+        {voteDistribution &&
+          Object.keys(voteDistribution.ratio).map((vote: any) => {
+            return (
+              <VoteCard
+                disable={
+                  status &&
+                  status !== "PROPOSAL_STATUS_VOTING_PERIOD" &&
+                  status !== "open"
+                }
+                vote={userVote}
+                tokenAmountUnderVote={voteDistribution.tally[vote] / 1000000}
+                option={vote}
+                value={voteDistribution.ratio[vote]}
+                prettyDenom={prettyDenom}
+              />
+            );
+          })}
+      </Grid>
       {/* </Section> */}
     </Box>
   );

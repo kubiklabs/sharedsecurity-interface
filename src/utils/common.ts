@@ -175,3 +175,25 @@ export const shortenCosmosAddress = (address: string) => {
 
   return shortenedAddress;
 };
+
+export const calculateDaysLeft = (targetDate: string) => {
+  const currentDate: Date = new Date();
+  const targetDateString: string[] = targetDate.split("/");
+  const targetYear: number = parseInt(targetDateString[2]);
+  const targetMonth: number = parseInt(targetDateString[1]) - 1; // Month is zero-based
+  const targetDay: number = parseInt(targetDateString[0]);
+
+  const targetDateTime: Date = new Date(targetYear, targetMonth, targetDay);
+
+  // Set hours, minutes, seconds, milliseconds to 0 for accurate calculation
+  targetDateTime.setHours(0, 0, 0, 0);
+  currentDate.setHours(0, 0, 0, 0);
+
+  // Calculate the difference in milliseconds
+  const difference: number = targetDateTime.getTime() - currentDate.getTime();
+
+  // Convert milliseconds to days
+  const days: number = Math.ceil(difference / (1000 * 60 * 60 * 24));
+
+  return days;
+};

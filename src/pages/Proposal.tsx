@@ -40,6 +40,7 @@ const Proposal = () => {
         prettyDenom={proposalData?.denom.pretty}
         voteDistribution={proposalData && proposalData.voteDistribution}
         status={proposalData?.status}
+        votingEndTime={proposalData?.votingEndTime}
       />
       <Overview voteDistribution={proposalData?.voteDistribution.ratio} />
       <Requirements turnout={proposalData?.turnout} quorom={proposalData?.quorom} yesVotes={proposalData?.yesVotes} vetoVotes={proposalData?.vetoVotes} />
