@@ -28,7 +28,7 @@ const EcoCards = ({ data, key }: any) => {
           <Button
             height="20px"
             alignItems="center"
-            _hover="none"
+            _hover={{ textDecoration: "none" }}
             borderRadius="4px"
             color="#fff"
             fontSize="12px"
@@ -42,7 +42,7 @@ const EcoCards = ({ data, key }: any) => {
           <Button
             height="20px"
             alignItems="center"
-            _hover="none"
+            _hover={{ textDecoration: "none" }}
             borderRadius="4px"
             backgroundColor={
               data?.tags?.data[1] === "Dexes"

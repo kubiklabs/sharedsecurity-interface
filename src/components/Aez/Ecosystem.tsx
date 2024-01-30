@@ -29,7 +29,7 @@ const Ecosystem = () => {
   const getParsedData = async () => {
     const data = await getParsedEcosystemData();
   };
-  //console.log(data);
+  console.log(data);
 
   const modifyData = (data: any) => {
     const newData = data.map((item: any) => {

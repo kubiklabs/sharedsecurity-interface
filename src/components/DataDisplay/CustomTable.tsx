@@ -15,7 +15,6 @@ import {
   Tr,
 } from "@chakra-ui/react";
 import React, { useEffect, useRef, useState } from "react";
-import ColorTag from "./ColorTag";
 import {
   commonTagColorMap,
   scrollbarStyle,
@@ -25,7 +24,7 @@ import {
   validatorKeys,
   ValidatorKeys,
 } from "../../utils/constant";
-import { Link as PathLink } from "react-router-dom";
+import { Link as PathLink, useLocation } from "react-router-dom";
 import Pagination from "../Pagination/Pagination";
 import TableTagGroup from "./table-helpers/TableTagGroup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -44,6 +43,8 @@ const CustomTable = ({
   const currentPage = useRef(1);
   const totalPages = useRef(Math.ceil(data?.length / itemsPerPage) || 0);
   const [currentItems, setCurrentItems] = useState(data);
+  const location = useLocation();
+  const currentPath = location.pathname;
 
   useEffect(() => {
     if (!pagination) return;
@@ -66,7 +67,7 @@ const CustomTable = ({
   //console.log(currentItems);
 
   return (
-    <TableContainer textAlign={"left"} overflowX="hidden">
+    <TableContainer textAlign={"left"}>
       <Table width={"100%"} fontSize={"lg"}>
         {/* <TableCaption>Data fetched from different chains</TableCaption> */}
         <Thead fontSize={"1.2rem"}>
@@ -84,7 +85,13 @@ const CustomTable = ({
                   borderBottom={"1px solid"}
                   borderColor={"gray.400"}
                   color={"#fff"}
-                  pl={"0"}
+                  pl={
+                    currentPath === "/aez"
+                      ? "10px"
+                      : currentPath === "/validators"
+                      ? "20px"
+                      : 0
+                  }
                 >
                   <Text
                     // borderLeft={"1px solid"}
@@ -145,6 +152,7 @@ const CustomTable = ({
                               textDecoration={"underline"}
                               target="_blank"
                               href={value.url}
+                              pl={currentPath === "/aez" ? "10px" : 0}
                             >
                               {value.type === "LINK"
                                 ? value.label
@@ -175,6 +183,13 @@ const CustomTable = ({
                           <Flex
                             alignItems={"center"}
                             gap={"10px"}
+                            pl={
+                              currentPath === "/aez"
+                                ? "10px"
+                                : currentPath === "/validators"
+                                ? "20px"
+                                : 0
+                            }
                             color={
                               item.type === "avatarNeutron" ||
                               item.type === "avatarAtom" ||
