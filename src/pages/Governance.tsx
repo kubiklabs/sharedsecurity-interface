@@ -11,6 +11,8 @@ import { useStrideGovQuery } from "../hooks/chains/stride/useStrideGovQuery";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import { proposalsState } from "../context/proposalsState";
 import { compareProposals } from "../utils/common";
+import { userVpState } from "../context/userVpState";
+
 
 const Governance = () => {
   const [loading, setLoading] = useState(false);
@@ -24,14 +26,11 @@ const Governance = () => {
   const { sortedLpList, sortedOpList, userVotingPower } =
     useRecoilValue(proposalsState);
   const setAllProposals = useSetRecoilState(proposalsState);
+  const [userVp, setUserVp] = useRecoilState(userVpState);
 
   useEffect(() => {
     if (!sortedLpList?.length || !sortedOpList?.length) fetchAllProposalsList();
   }, []);
-
-
-
-  const [sizeOfAllProposals, setSizeOfAllProposals] = useState({});
 
 
   const fetchAllProposalsList = async () => {
@@ -39,31 +38,32 @@ const Governance = () => {
     const lpList = await getCosmosLpList();
     neutronLpList.current = await getNeutronLpList();
     strideLpList.current = await getStrideLpList();
-    console.log("Cosmos LL", lpList);
-    console.log("Neutron LL", neutronLpList.current);
-    console.log("Stride LL", strideLpList.current);
     const opList = await getCosmosOpList();
     neutronOpList.current = await getNeutronOpList();
     strideOpList.current = await getStrideOpList();
-    console.log("Cosmos PL", opList);
-    console.log("Neutron PL", neutronOpList.current);
-    console.log("Stride PL", strideOpList.current);
 
-    setSizeOfAllProposals({
+    console.log(userVp);
+
+    setUserVp((prevUserVp) => ({
+      ...prevUserVp,
       Cosmos: {
+        ...prevUserVp.Cosmos,
         Lp: lpList.length,
         Op: opList.length,
       },
       Neutron: {
+        ...prevUserVp.Neutron,
         Lp: neutronLpList.current.length,
         Op: neutronOpList.current.length,
       },
       Stride: {
+        ...prevUserVp.Stride,
         Lp: strideLpList.current.length,
         Op: strideOpList.current.length,
       },
-    })
-    
+    }));
+  
+
     const updatedState = {
       userVotingPower,
       sortedLpList: [
@@ -89,7 +89,7 @@ const Governance = () => {
         display={"flex"}
         gap={"50px"}
       >
-        <VpSection sizeOfAllProposals={sizeOfAllProposals}/>
+        <VpSection/>
         <LpSection isLoading={loading} lpList={sortedLpList} />
         <InfoSection />
         <OpSection isLoading={loading} opList={sortedOpList} />

@@ -19,7 +19,7 @@ import { userVpState } from "../../context/userVpState";
 import CustomTable from "../DataDisplay/CustomTable";
 import VpTable from "./VpTable";
 
-const VpSection = ({ sizeOfAllProposals }: { sizeOfAllProposals: object }) => {
+const VpSection = () => {
   const { isLoggedIn } = useRecoilValue(walletState);
   const { fetchAllUserVp } = useGovernance();
   const { Cosmos } = useRecoilValue(userVpState);
@@ -71,7 +71,7 @@ const VpSection = ({ sizeOfAllProposals }: { sizeOfAllProposals: object }) => {
           </Center>
         ) : (
           <Box>
-            <VpTable sizeOfAllProposals={sizeOfAllProposals} />
+            <VpTable/>
             {/* <Grid
             p={"15px"}
             gap={"20px"}

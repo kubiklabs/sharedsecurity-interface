@@ -17,7 +17,7 @@ import { useGovernanceQuery } from "../../hooks/chains/useGovernanceQuery";
 const VpCard = ({ name }: { name: string }) => {
   const userVp = useRecoilValue(userVpState);
 
-  console.log(userVp);
+  // console.log(userVp);
 
 
   type IUserVpType = typeof userVp;

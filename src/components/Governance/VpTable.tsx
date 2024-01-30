@@ -16,22 +16,19 @@ const chainLogoImg = {
 };
 
 
-const VpTable = ({ sizeOfAllProposals }: { sizeOfAllProposals: object }) => {
+const VpTable = () => {
     const userVp: any = useRecoilValue(userVpState);
+
     const [tableArray, setTableArray] = useState<any[]>([]);
 
-
     useEffect(() => {
-        if (!userVp || Object.keys(sizeOfAllProposals).length === 0) return;
-
+        if (!userVp?.Cosmos?.Lp) return;
 
         const updatedTableArray = Object.keys(userVp).map((chainKey) => {
             const chain = userVp[chainKey];
 
-
             // Check if chain is defined before accessing its properties
             if (chain) {
-                console.log("Inside", sizeOfAllProposals);
                 return {
                     "Chain": {
                         label: chainKey,
@@ -41,7 +38,7 @@ const VpTable = ({ sizeOfAllProposals }: { sizeOfAllProposals: object }) => {
                     "Wallet Address": shortenCosmosAddress(chain.address),
                     "Token Staked": `${chain.amount?.amount} ${chain.amount?.denom}`,
                     "Your Voting Power": `${chain.userVotingPower}%`,
-                    "Live/Total Proposals": `${sizeOfAllProposals[chainKey as keyof typeof sizeOfAllProposals]["Lp"]}/${sizeOfAllProposals[chainKey as keyof typeof sizeOfAllProposals]["Op"]}`
+                    "Live/Total Proposals": `${chain?.Lp}/${chain?.Op}`
                 };
             } else {
                 return null; // Handle the case where chain is undefined
@@ -50,13 +47,13 @@ const VpTable = ({ sizeOfAllProposals }: { sizeOfAllProposals: object }) => {
 
         // Filter out null entries before setting the state
         setTableArray(updatedTableArray.filter((entry) => entry !== null));
-    }, [userVp, sizeOfAllProposals]);
+    }, [userVp]);
 
     return (
         <Box>
             {tableArray.length === 0 ?
                 <CustomSkeleton count={4} height="50px" /> : <CustomTable
-                    keys={["Chain", "Wallet Address", "Token Staked", "Your Voting Power", "Live/Total Proposals"]}
+                    keys={Object.keys(tableArray[0])}
                     data={tableArray}
                 />}
         </Box>

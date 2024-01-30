@@ -157,7 +157,7 @@ const OpSection = ({
           gap={"20px"}
           // justifyContent={"space-evenly"}
           // gridAutoFlow={"column"}
-          gridTemplateColumns={"repeat(auto-fit, minmax(400px, 1fr))"}
+          gridTemplateColumns={"repeat(auto-fit, minmax(550px, 1fr))"}
         >
           {currentItems?.length ? (
             currentItems?.map((item) => {
