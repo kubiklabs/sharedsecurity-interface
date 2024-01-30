@@ -12,10 +12,10 @@ const BigSmallText = ({
 }) => {
   return (
     <Flex alignItems={"end"} gap={"2px"}>
-      <Text color={color} m={"0"} fontWeight={"800"} fontSize={"0.9rem"}>
+      <Text color={color} m={"0"} fontWeight={"800"} fontSize={"1rem"}>
         {bigText}%
       </Text>
-      <Text color={color} m={"0"} fontSize={"0.9rem"}>
+      <Text color={color} m={"0"} fontSize={"0.8rem"}>
         {smallText}
       </Text>
     </Flex>

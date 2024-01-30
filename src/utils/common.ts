@@ -167,9 +167,9 @@ export const removeSecondsFromTime = (timeString: string) => {
 };
 
 export const shortenCosmosAddress = (address: string) => {
-  const prefix = address.substring(0, 7);
+  const prefix = address.substring(0, 12);
 
-  const suffix = address.substring(address.length - 3);
+  const suffix = address.substring(address.length - 4);
 
   const shortenedAddress = `${prefix}...${suffix}`;
 

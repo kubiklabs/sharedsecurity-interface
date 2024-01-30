@@ -82,6 +82,7 @@ const CustomTable = ({
                     width={"100%"}
                     textTransform={"none"}
                     fontWeight={500}
+                    fontFamily={"Alata, sans-serif"}
                   >
                     {item}
                   </Text>

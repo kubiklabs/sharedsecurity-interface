@@ -128,7 +128,7 @@ const LpCard = ({
             );
           })}
         </Box>
-        <Flex justifyContent={"space-between"}>
+        <Flex gap={"15px"} flexWrap={"wrap"}>
           {Object.keys(voteDistribution).map((vote) => {
             return (
               <BigSmallText
