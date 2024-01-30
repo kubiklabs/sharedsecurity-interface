@@ -38,7 +38,7 @@ const Navlink = ({
         alignItems={"center"}
         gap={"10px"}
         color="#F2F2F2"
-        transition={"ease-in-out 100ms"}
+        // transition={"ease-in-out 100ms"}
         _hover={{
           // borderBottom: "5px solid #BC3D70",
           color: onThisPath ? "white" : "#BC3D70",
