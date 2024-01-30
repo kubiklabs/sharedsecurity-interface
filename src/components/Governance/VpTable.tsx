@@ -9,7 +9,7 @@ const VpTable = () => {
 
     return (
         <Box>
-            {tableArray.length === 0 ?
+            {tableArray && tableArray.length === 0 ?
                 <CustomSkeleton count={4} height="50px" /> : <CustomTable
                     keys={Object.keys(tableArray[0])}
                     data={tableArray}
