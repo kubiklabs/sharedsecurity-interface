@@ -3,25 +3,40 @@ import SectionHeading from "../DataDisplay/SectionHeading";
 
 const Section = (props: any) => {
   return (
+    // <Box
+    //   display={"flex"}
+    //   flexDirection={"column"}
+    //   justifyContent={"center"}
+    //   mx={"auto"}
+    //   gap={props.gap || "20px"}
+    //   position={"relative"}
+    //   backgroundColor={props?.backgroundColor || "#17131e" }
+    //   borderRadius={"15px"}
+    //   padding="30px 40px"
+    //   width={props?.width || "full"}
+
+    // >
+    //   <SectionHeading
+    //     heading={props.heading}
+    //     sideText={props.sideText}
+    //     subtitle={props.subtitle}
+    //   />
+    //   {props.children} 
+    // </Box>
+
+
     <Box
       display={"flex"}
       flexDirection={"column"}
-      justifyContent={"center"}
-      mx={"auto"}
       gap={props.gap || "20px"}
       position={"relative"}
-      backgroundColor={props?.backgroundColor || "#17131e" }
-      borderRadius={"15px"}
-      padding="30px 40px"
-      width={props?.width || "full"}
-  
     >
       <SectionHeading
         heading={props.heading}
         sideText={props.sideText}
         subtitle={props.subtitle}
       />
-      {props.children} 
+      {props.children}
     </Box>
   );
 };
