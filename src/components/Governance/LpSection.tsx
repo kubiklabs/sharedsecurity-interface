@@ -22,13 +22,13 @@ const LpSection = ({
   isLoading?: boolean;
 }) => {
   return (
-    <Box py={"40px"} px={"60px"} bgColor={"#17131E"} borderRadius={"15px"}>
+    // <Box py={"40px"} px={"60px"} bgColor={"#17131E"} borderRadius={"15px"}>
     <Section
       heading="Live Proposals"
       sideText={`${lpList?.length}/${lpList?.length}`}
       subtitle="All the live proposals"
     >
-      <PulseLive left="325px" top="19px" />
+      <PulseLive left="350px" top="60px" />
       <Grid
         p={"15px"}
         gap={"20px"}
@@ -65,7 +65,7 @@ const LpSection = ({
             )}
       </Grid>
     </Section>
-    </Box>
+    // </Box>
   );
 };
 

@@ -88,7 +88,7 @@ const BasicInfo = ({
 
   return (
     <>
-      <Section heading={`#${id}. ${title}`} sideText={<Flex gap={"10px"} ml={"40px"}>
+      <Section borderBottomRadius={"0px"} heading={`#${id}. ${title}`} sideText={<Flex gap={"10px"} ml={"40px"}>
         <ColorTag
           borderStyle={`1px solid ${tagColorMap[chain as keyof typeof tagColorMap]
             }`}
