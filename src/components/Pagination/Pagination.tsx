@@ -73,7 +73,7 @@ const Pagination = ({
   return (
     <Box
       display="flex"
-      justifyContent="end"
+      justifyContent="center"
       alignItems="center"
       marginTop="20px"
       alignSelf={alignSelf}

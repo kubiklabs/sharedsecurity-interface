@@ -17,7 +17,7 @@ const SectionHeading = ({
       textAlign={"left"}
     >
       <Box display={"flex"} gap={"10px"} alignItems={"end"}>
-        <Heading size={"xl"} margin={"0px"}>
+        <Heading size={"24px"} margin={"0px"}>
           {heading}
         </Heading>
         <Text margin={"0"} fontSize={"1.5rem"} color={"gray"}>
@@ -25,7 +25,7 @@ const SectionHeading = ({
         </Text>
       </Box>
       <Box>
-        <Text color={"gray"} margin={"0"}>
+        <Text color={"gray"} margin={"0"} fontSize={"14px"}>
           {subtitle}
         </Text>
       </Box>
