@@ -30,14 +30,14 @@ const VoteCard = (props: any) => {
         bg={colorVoteMap[props.option as keyof IColorVoteMap].bg}
         minWidth={"fit-content"}
         // transition={"ease-in-out 500ms"}
-        // border={
-        //   props.vote === props.option
-        //     ? `2px solid ${
-        //         colorVoteMap[props.option as keyof IColorVoteMap].color
-        //       }`
-        //     : ""
-        // }
-        border={"2px solid transparent"}
+        border={
+          props.vote === props.option
+            ? `2px solid ${
+                colorVoteMap[props.option as keyof IColorVoteMap].color
+              }`
+            : "2px solid transparent"
+        }
+        // border={"2px solid transparent"}
         _hover={{
           // boxShadow: !props.disable
           //   ? `-1px -1px 1px ${

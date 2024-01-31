@@ -42,11 +42,16 @@ const VoteSection = ({ voteDistribution, prettyDenom, status, votingEndTime }: a
 
   return (
     <Box>
-      <Flex justifyContent={"space-between"}>
-        <Text fontSize={"2xl"} mb={"20px"} textAlign={"left"}>Your Vote</Text>
+      <Flex justifyContent={"space-between"} mb={"20px"} >
+        <Flex flexDir={"column"}>
+          <Text fontSize={"2xl"} textAlign={"left"}>Your Vote</Text>
+          <Text  fontSize={"lg"} color={"#A9A8AA"}>{userVote
+            ? `You have voted with ${userVote}.`
+            : "Looks like you haven't voted on this proposal"}</Text>
+        </Flex>
         {
           (status === "PROPOSAL_STATUS_VOTING_PERIOD" ||
-          status === "open") && <Text fontSize={"1.2rem"} color={"#A9A8AA"}>Voting ends in {calculateDaysLeft(votingEndTime)} days</Text>
+            status === "open") && <Text fontSize={"1.2rem"} color={"#A9A8AA"}>Voting ends in {calculateDaysLeft(votingEndTime)} days</Text>
         }
       </Flex>
       {/* <Section

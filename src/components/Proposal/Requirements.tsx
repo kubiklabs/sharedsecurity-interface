@@ -42,7 +42,7 @@ const Requirements = ({
 }: IRequirements) => {
 
 
-    const isTurnOutQuoromSatisfied = (turnout && quorom === undefined) ? "na" : Number(turnout) > Number(quorom) ? "yes" : "no";
+    const isTurnOutQuoromSatisfied = (turnout && quorom === undefined) ? "na" : Number(turnout) >= Number(quorom) ? "yes" : "no";
     const isYesSatisfied = (yesVotes === undefined) ? "na" : Number(yesVotes) >= 50 ? "yes" : "no";
     const isVetoSatisfied = (vetoVotes === undefined) ? "na" : Number(vetoVotes) >= 33 ? "no" : "yes";
 
@@ -53,7 +53,7 @@ const Requirements = ({
             <VStack color={"#409F4E"} fontSize={"1.2rem"} align='stretch'>
                 <Box display={"flex"} alignItems={"center"} color={
                     satisfiedBgMap[isTurnOutQuoromSatisfied as keyof typeof satisfiedBgMap]
-                        .color} gap={"10px"}>{satisfiedBgMap[isTurnOutQuoromSatisfied as keyof typeof satisfiedBgMap].icon}<Text>Turnout threshold is {turnout}%. {quorom}% have voted.</Text></Box>
+                        .color} gap={"10px"}>{satisfiedBgMap[isTurnOutQuoromSatisfied as keyof typeof satisfiedBgMap].icon}<Text>Turnout threshold is {quorom}%. {turnout}% have voted.</Text></Box>
                 <Box display={"flex"} color={
                     satisfiedBgMap[isYesSatisfied as keyof typeof satisfiedBgMap]
                         .color} alignItems={"center"} gap={"10px"}>{satisfiedBgMap[isYesSatisfied as keyof typeof satisfiedBgMap].icon}<Text>{isYesSatisfied === "na" ? "N/A" : isYesSatisfied === "yes" ? "More" : "Less"} than 50.0% have voted 'Yes', excluding 'Abstain'.</Text></Box>
