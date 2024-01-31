@@ -98,13 +98,13 @@ const OpSection = ({
   };
 
   return (
-    <Box py={"40px"} px={"60px"} bgColor={"#17131E"} borderRadius={"15px"}>
+    // <Box py={"40px"} px={"60px"} bgColor={"#17131E"} borderRadius={"15px"}>
       <Section
         heading="All Proposals"
         sideText={`${filteredItems.length} / ${opList.length}`}
         subtitle="All proposals"
       >
-        <Flex position={"absolute"} gap={"20px"} right={0} px={"15px"} justifyContent={"space-between"}>
+        <Flex position={"absolute"} gap={"20px"} right={"60px"} px={"15px"} justifyContent={"space-between"}>
           <Flex flexDirection={"row"} pl={"25px"} alignItems={"center"} borderWidth={"1px"}
             borderColor={"#37343D"} borderRadius={"5px"} height={"50px"}>
             <IoIosSearch size={24} color="#999999" />
@@ -193,7 +193,7 @@ const OpSection = ({
           />
         ) : null}
       </Section>
-    </Box>
+    // </Box>
   );
 };
 
