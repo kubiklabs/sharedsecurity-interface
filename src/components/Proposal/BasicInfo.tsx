@@ -42,7 +42,7 @@ export interface IBasicInfo {
   turnout: string;
   threshold: string;
   quorom: string;
-  vetoVotes: string;
+  vetoVotes: string; 
   yesVotes: string;
 }
 
@@ -63,6 +63,8 @@ const BasicInfo = ({
   const [parsedHTML, setParsedHTML] = useState("");
   const { chain } = useParams();
 
+  
+
   useEffect(() => {
     if (description) {
       const html = marked(description);
@@ -80,36 +82,47 @@ const BasicInfo = ({
 
   const isPassing = useRef(
     Number(turnout) > Number(quorom) &&
-      Number(vetoVotes) < 33 &&
-      Number(yesVotes) >= 50
+    Number(vetoVotes) < 33 &&
+    Number(yesVotes) >= 50
   );
 
   return (
     <>
-      <Section heading={`#${id}. ${title}`}>
+      <Section heading={`#${id}. ${title}`} sideText={<Flex gap={"10px"} ml={"40px"}>
+        <ColorTag
+          borderStyle={`1px solid ${tagColorMap[chain as keyof typeof tagColorMap]
+            }`}
+          content={chain as string}
+          bgColor={tagColorMap[chain as keyof typeof tagColorMap]}
+        />
+        <StatusTags
+          status={commonStatusMap[status as keyof typeof commonStatusMap]}
+        />
+      </Flex>}>
         <Flex flexDirection={"column"} gap={"30px"}>
-          <Flex gap={"10px"}>
-            <ColorTag
-              borderStyle={`1px solid ${
-                tagColorMap[chain as keyof typeof tagColorMap]
-              }`}
-              content={chain as string}
-              bgColor={tagColorMap[chain as keyof typeof tagColorMap]}
-            />
-            <StatusTags
-              status={commonStatusMap[status as keyof typeof commonStatusMap]}
-            />
-          </Flex>
-          <Flex gap={"10px"} width={"100%"}>
+          <Flex gap={"20px"} color={"#BFBFBF"} alignItems={"center"}>
             {commonStatusMap[status as keyof typeof commonStatusMap]?.pretty ===
               "Vote Now" && (
-              <StatDisplay
-                label="Proposal expected to"
-                number={isPassing.current ? "PASS" : "FAIL"}
-                isSatisfied={isPassing.current ? "yes" : "no"}
-                showSatisfiedBg
-              />
-            )}
+                <>
+                  <Text fontSize={"1.2rem"} display={"flex"}>Proposal Expected to &nbsp;
+                    <Text color={isPassing.current ? "#0aa12f" : "#CE3747"}>{isPassing.current ? "PASS" : "FAIL"}</Text>
+                  </Text>
+                  <Text color={"#37343D"} fontSize={"1.6rem"}>|</Text>
+                </>
+              )}
+
+            <Text fontSize={"1.2rem"}>{turnout}% / {quorom}% : Turnout / Quorum</Text>
+          </Flex>
+          {/* <Flex gap={"10px"} width={"100%"}>
+            {commonStatusMap[status as keyof typeof commonStatusMap]?.pretty ===
+              "Vote Now" && (
+                <StatDisplay
+                  label="Proposal expected to"
+                  number={isPassing.current ? "PASS" : "FAIL"}
+                  isSatisfied={isPassing.current ? "yes" : "no"}
+                  showSatisfiedBg
+                />
+              )}
             <StatDisplay
               label={"Turnout / Quorom"}
               number={`${turnout}%/${quorom}%`}
@@ -127,7 +140,7 @@ const BasicInfo = ({
               number={yesVotes + "%"}
               isSatisfied={Number(yesVotes) >= 50 ? "yes" : "no"}
             />
-          </Flex>
+          </Flex> */}
           <Flex
             fontSize={"1.2rem"}
             alignItems={"flex-start"}
