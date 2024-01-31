@@ -29,9 +29,9 @@ const Featured = () => {
               <Card
                 minH={"200px"}
                 minW={"100px"}
-                bg={"rgba(255, 255, 255, 0.05)"}
+                bg={"red"}
                 padding={"30px"}
-                // paddingY={"20px"}
+                paddingY={"20px"}
                 borderRadius={"10px"}
               >
                 <CardBody>

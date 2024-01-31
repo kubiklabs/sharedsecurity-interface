@@ -76,6 +76,7 @@ const Pagination = ({
       justifyContent="end"
       alignItems="center"
       marginTop="20px"
+      justifyItems={"center"}
       alignSelf={alignSelf}
       // justifyItems={"flex-end"}
     >

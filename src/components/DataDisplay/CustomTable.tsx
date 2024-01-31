@@ -53,7 +53,7 @@ const CustomTable = ({
     setCurrentItems(currentItems);
   };
   return (
-    <TableContainer textAlign={"left"}>
+    <TableContainer textAlign={"left"} display={"block"}>
       <Table width={"100%"} fontSize={"lg"}>
         {/* <TableCaption>Data fetched from different chains</TableCaption> */}
         <Thead fontSize={"1.2rem"}>
@@ -162,7 +162,7 @@ const CustomTable = ({
           currentPage={currentPage.current}
           totalPages={totalPages.current}
           onPageChange={handlePageClick}
-          alignSelf={"flex-end"}
+          alignSelf={"flex-start"}
         />
       )}
     </TableContainer>
