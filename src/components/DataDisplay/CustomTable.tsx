@@ -40,6 +40,7 @@ const CustomTable = ({
   itemsPerPage = 10,
   pagination,
 }: any) => {
+
   const currentPage = useRef(1);
   const totalPages = useRef(Math.ceil(data?.length / itemsPerPage) || 0);
   const [currentItems, setCurrentItems] = useState(data);
@@ -81,17 +82,20 @@ const CustomTable = ({
                 <Th
                   key={item}
                   width={"200px"}
-                  pb={"30px"}
+                  // pb={"30px"}
                   borderBottom={"1px solid"}
-                  borderColor={"gray.400"}
-                  color={"#fff"}
+                  borderColor={"gray.400"} 
                   pl={
                     currentPath === "/aez"
                       ? "10px"
                       : currentPath === "/validators"
                       ? "20px"
                       : 0
-                  }
+                  }                 
+                  color={"#D9D9D9"}
+                  fontSize={"1.2rem"}
+                  
+
                 >
                   <Text
                     // borderLeft={"1px solid"}
@@ -99,7 +103,10 @@ const CustomTable = ({
                     py={"10px"}
                     px={"4px"}
                     width={"100%"}
-                    cursor={"pointer"}
+//                  cursor={"pointer"}
+                    textTransform={"none"}
+                    fontWeight={500}
+                    fontFamily={"Alata, sans-serif"}
                   >
                     {item}{" "}
                     {(item === "Forum Date" ||

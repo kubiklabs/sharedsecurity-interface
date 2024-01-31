@@ -12,8 +12,10 @@ import {
 import React from "react";
 import StatDisplay from "../DataDisplay/StatDisplay";
 
-const OtherDetails = ({ votingStartTime, votingEndTime }: any) => {
+const OtherDetails = ({ votingStartTime, votingEndTime, totalDeposit, denom }: any) => {
   return (
+    <Box>
+    <Text fontSize={"2xl"} mb={"20px"} textAlign={"left"}>Other Details</Text>
     <Grid
       p={"15px"}
       gap={"20px"}
@@ -30,7 +32,15 @@ const OtherDetails = ({ votingStartTime, votingEndTime }: any) => {
           number={votingStartTime || "-"}
         />
       </GridItem>
+      <GridItem>
+        <StatDisplay
+          label={"Total Deposit"}
+          number={totalDeposit || "-"}
+          numberTitle={denom}
+        />
+      </GridItem>
     </Grid>
+    </Box>
   );
 };
 

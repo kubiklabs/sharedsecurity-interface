@@ -118,6 +118,8 @@ const Pagination = ({
               color={page === currentPage ? "#BC3D70" : ""}
               transform={`scale(${page === currentPage ? "1.3" : "1"})`}
               borderRadius="md"
+              noOfLines={1}
+              whiteSpace={"nowrap"}
               onClick={() => onPageChange(page)}
               _hover={{
                 color: "#BC3D70",

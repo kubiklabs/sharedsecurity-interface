@@ -14,7 +14,7 @@ const SelectFilters = ({
 }) => {
   // const [selected, setSelected] = useState<string[]>([]);
 
-  useEffect(() => {}, [selected.length]);
+  useEffect(() => { }, [selected.length]);
   // onClear();
 
   const clickItemHandler = (
@@ -23,23 +23,30 @@ const SelectFilters = ({
   ) => {
     let bufferSelection = selected;
     if (bufferSelection.find((selection) => selection === item)) {
-      bufferSelection = bufferSelection.filter(
-        (selection) => selection !== item
-      );
-      // setSelected(bufferSelection);
+      // To deselect
+      if (item === "ALL") bufferSelection = [];
+      else {
+        bufferSelection = bufferSelection.filter(
+          (selection) => selection !== item && selection !== "ALL"
+        );
+      }
     } else {
-      bufferSelection = bufferSelection.concat(item);
-      // setSelected(bufferSelection);
+      // To select
+      if (item === "ALL") bufferSelection = data;
+      else
+        bufferSelection = bufferSelection.concat(item);
+
+      if(item!="ALL" && bufferSelection.length === data.length-1) bufferSelection=data;
     }
     onChange(category, bufferSelection);
   };
 
   return (
-    <Flex alignItems={"center"} gap={"50px"}>
+    <Flex alignItems={"start"} flexDir={"column"} color={"#BFBFBF"} gap={"15px"}>
       <Box>
-        <Text width={"max-content"}> Select a {category}(s)</Text>
+        <Text width={"max-content"} color={"#BFBFBF"} fontSize={"1.2rem"}> {category.charAt(0).toUpperCase() + category.slice(1)}(s)</Text>
       </Box>
-      <Flex columnGap={"20px"} rowGap={"10px"} flexWrap={"wrap"}>
+      <Flex columnGap={"15px"} rowGap={"15px"} flexWrap={"wrap"}>
         {data?.map((item) => {
           return (
             <Box
@@ -50,13 +57,14 @@ const SelectFilters = ({
               borderColor={
                 selected.find((selection) => selection === item)
                   ? "#BC3D70"
-                  : "white"
+                  : "#FFFFFF33"
               }
               borderRadius={"5px"}
-              padding={"10px"}
+              paddingY={"10px"}
+              paddingX={"15px"}
               key={item}
             >
-              <Text id={category}>{item}</Text>
+              <Text color={"white"} fontSize={"1rem"} id={category}>{item}</Text>
             </Box>
           );
         })}
