@@ -66,7 +66,8 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Flex className="App">
+        {/* <Box className="App"> */}
+        <Box>
           <SideBar />
           {/* <Divider orientation="vertical" /> */}
           <Box
@@ -88,7 +89,7 @@ function App() {
               <Route path="/" element={<Navigate to="/overview" replace />} />
             </Routes>
           </Box>
-        </Flex>
+        </Box>
       </BrowserRouter>
       {/* <Header /> */}
       <ToastContainer style={{ textAlign: "left" }} />

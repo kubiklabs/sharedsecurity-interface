@@ -8,7 +8,7 @@ const Navlink = ({
   path,
 }: {
   name: string;
-  iconName: string;
+  iconName?: string;
   path: string;
 }) => {
   const location = useLocation();
@@ -31,20 +31,21 @@ const Navlink = ({
   return (
     <Link to={`/${path}`}>
       <Flex
-        borderRadius={"5px"}
-        p={"10px "}
-        bg={onThisPath ? "#BC3D70" : ""}
+        borderRadius={"1px"}
+        p={"2px "}
+        // bg={onThisPath ? "#BC3D70" : ""}
+        borderBottom={onThisPath ? "2px solid #BC3D70" : ""}
         alignItems={"center"}
         gap={"10px"}
-        color="rgba(255, 255, 255)"
-        transition={"ease-in-out 100ms"}
+        color="#F2F2F2"
+        // transition={"ease-in-out 100ms"}
         _hover={{
           // borderBottom: "5px solid #BC3D70",
           color: onThisPath ? "white" : "#BC3D70",
           // transform: "scale(1.05)",
         }}
       >
-        <span className="material-symbols-outlined">{iconName}</span>
+       {iconName && <span className="material-symbols-outlined">{iconName}</span>}
         <Text m={"0"} fontSize={"1.2rem"} textAlign={"left"} noOfLines={1}>
           {name}
         </Text>
