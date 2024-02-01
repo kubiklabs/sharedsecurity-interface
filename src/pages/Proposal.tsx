@@ -34,8 +34,9 @@ const Proposal = () => {
   return isLoading ? (
     <Spinner width={"3rem"} height="3rem" />
   ) : (
-    <Box flexDirection={"column"} display={"flex"} gap={"50px"} py={"40px"} px={"60px"} bgColor={"#17131E"} borderRadius={"15px"} >
-      <BasicInfo {...proposalData} />
+    <>
+    <BasicInfo {...proposalData} />
+    <Box flexDirection={"column"} display={"flex"} gap={"50px"} py={"40px"} px={"60px"} bgColor={"#17131E"} borderBottomRadius={"15px"} >
       <VoteSection
         prettyDenom={proposalData?.denom.pretty}
         voteDistribution={proposalData && proposalData.voteDistribution}
@@ -52,6 +53,7 @@ const Proposal = () => {
       />
       <ForumLink redirectLink="/" />
     </Box>
+    </>
   );
 };
 
