@@ -66,7 +66,8 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Flex className="App">
+        {/* <Box className="App"> */}
+        <Box>
           <SideBar />
           {/* <Divider orientation="vertical" /> */}
           <Box
@@ -74,9 +75,9 @@ function App() {
             maxH={"100vh"}
             overflowY={"scroll"}
             px={"50px"}
-            pt={"38px"}
-            pb={"50px"}
+            pt={"50px"}
             flex={"1"}
+            pb={"140px"}
           >
             <Routes>
               <Route path="/overview" element={<Overwiew />} />
@@ -88,7 +89,7 @@ function App() {
               <Route path="/" element={<Navigate to="/overview" replace />} />
             </Routes>
           </Box>
-        </Flex>
+        </Box>
       </BrowserRouter>
       {/* <Header /> */}
       <ToastContainer style={{ textAlign: "left" }} />

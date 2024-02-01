@@ -1,4 +1,4 @@
-import {Flex} from "@chakra-ui/react";
+import {Box, Flex} from "@chakra-ui/react";
 import { useEffect } from "react";
 import { useStrideAssets } from "../hooks/chains/stride/chain_assets/useStrideAssets";
 import { useRecoilValue } from "recoil";
@@ -10,6 +10,7 @@ import {
 import { useCosmosAssets } from "../hooks/chains/cosmos/chain_assets/useCosmosAssets";
 import { useNeutronAssets } from "../hooks/chains/neutron/chain_assets/useNeutronAssets";
 import AssetSection1 from "../components/Assets.tsx/AssetSection1";
+import AssetGraph from "../components/Assets.tsx/AssetGraph";
 
 export const options = {
   responsive: true,
@@ -85,9 +86,12 @@ const Assets = () => {
     if (!neutronAssets.assets.length) getParsedNeutronAssets();
   };
   return (
+    <Box display={"flex"} flexDirection={"column"} gap={"30px"}>
     <Flex justifyContent={"space-around"}>
       <AssetSection1 neutronAssets={neutronAssets.assets} cosmosAssets={cosmosAssets.assets} strideAssets={strideAssets.assets} />
     </Flex>
+      <AssetGraph/>
+    </Box>
   );
 };
 

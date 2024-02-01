@@ -3,11 +3,12 @@ import React from "react";
 import ColorTag from "../ColorTag";
 import { commonTagColorMap } from "../../../utils/constant";
 
-const TableTagGroup = ({ data }: { data: string[] }) => {
+const TableTagGroup = ({ data , tagToShow}: { data: string[],tagToShow : number }) => {
   return (
     <Flex columnGap={"20px"} rowGap={"10px"} flexWrap={"wrap"} py={"3px"}>
-      {data.map((tag: string) => {
+      {data.map((tag: string,index) => {
         return (
+          tagToShow === index &&  // to show only one tag in consumer chain status
           <ColorTag
             sx={{
               m: "5px",
@@ -21,6 +22,7 @@ const TableTagGroup = ({ data }: { data: string[] }) => {
             }
             content={tag}
           />
+          
         );
       })}
     </Flex>

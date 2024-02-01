@@ -24,6 +24,7 @@ const ColorTag = ({
       border={borderStyle}
       fontSize={"0.9rem"}
       width={"fit-content"}
+      color={"white"}
     >
       {content}
     </Box>

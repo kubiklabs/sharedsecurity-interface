@@ -48,8 +48,8 @@ const ConnectWalletButton = () => {
         color={"white"}
         border={"1px solid white"}
         borderRadius={"10px"}
-        px={"20px"}
-        py={"8px"}
+        px={"10px"}
+        py={"5px"}
       >
         {isLoading ? (
           <Center py={"8px"} width={"100%"}>
@@ -62,13 +62,17 @@ const ConnectWalletButton = () => {
             color={"white"}
             width={"100%"}
             onClick={connectHandler}
+            // _hover={{
+            //   bg: "white.600",
+            //   // borderColor: "white",
+            // }}
             _hover={{
-              bg: "white.600",
-              borderColor: "white",
+              bg: 'transparent',
             }}
             overflow={"hidden"}
+            border={"none"}
           >
-            Connect Keplr
+            Connect Wallet
           </Button>
         ) : (
           <>
@@ -81,8 +85,9 @@ const ConnectWalletButton = () => {
                 flex={1}
                 fontSize={"1.2rem"}
                 _hover={{
-                  bg: "white.600",
+                  bg: 'transparent',
                 }}
+                border={"none"}
                 py={"8px"}
               >
                 {name}

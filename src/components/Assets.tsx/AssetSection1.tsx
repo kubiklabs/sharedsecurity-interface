@@ -106,10 +106,10 @@ const AssetSection1 = ({ neutronAssets, strideAssets, cosmosAssets }: propsType)
     }
   }
   return (
-    <Flex justifyContent={"space-around"} width={"100%"}>
+    <Flex justifyContent={"space-between"} width={"100%"}>
 
       <Box
-        width={"40%"}
+        width={"45%"}
         display={"flex"}
         gap={"20px"}
         backgroundColor={"#17131E"}
@@ -135,7 +135,7 @@ const AssetSection1 = ({ neutronAssets, strideAssets, cosmosAssets }: propsType)
             </Select>
           </Flex>
           {option.length ? (
-            <Flex justifyContent={"center"}>
+            <Flex justifyContent={"center"} alignItems={"center"} width={"80%"} height={"80%"}>
               <CustomTable
                 keys={Object.keys(option[0])}
                 data={option}
@@ -145,32 +145,34 @@ const AssetSection1 = ({ neutronAssets, strideAssets, cosmosAssets }: propsType)
               />
             </Flex>
           ) : (
+            
             <CustomSkeleton count={5} height="50px" />
           )}
         </Section>
       </Box>
 
       <Box
-        width={"40%"}
+        width={"45%"}
         display={"flex"}
         gap={"20px"}
         backgroundColor={"#17131E"}
         justifyContent={"center"}
+        alignItems={"center"}
         flexDirection={"column"}
         height={"auto"}
         padding={"10px 20px"}
         borderRadius={"15px"}
       >
-            <Heading>Total supply on {option === cosmosAssets ? " Cosmos Hub" : option === neutronAssets ? " Neutron" : " Stride"} </Heading>
-            {finalData && finalData.labels.length>0 && <DoughnutChart data={finalData} />}
-          {option.length ? (
-            <>
-            </>
-          ) : (
-            <Box height={"90%"} display={"flex"} flexDirection={"column"} alignItems={"center"} justifyContent={"center"}>
-            <Spinner/>
-            </Box>
-          )}
+        <Heading>Total supply on {option === cosmosAssets ? " Cosmos Hub" : option === neutronAssets ? " Neutron" : " Stride"} </Heading>
+        {finalData && finalData.labels.length > 0 && <Flex alignItems={"center"} width={"80%"} height={"80%"} > <DoughnutChart data={finalData} /></Flex>}
+        {option.length ? (
+          <>
+          </>
+        ) : (
+          <Box height={"90%"} display={"flex"} flexDirection={"column"} alignItems={"center"} justifyContent={"center"}>
+            <Spinner />
+          </Box>
+        )}
       </Box>
     </Flex>
   );

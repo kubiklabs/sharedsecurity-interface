@@ -8,6 +8,9 @@ import {
   ModalOverlay,
   Stack,
   useDisclosure,
+  ModalHeader,
+  ModalCloseButton,
+  border
 } from "@chakra-ui/react";
 import React, {
   Dispatch,
@@ -20,6 +23,7 @@ import SelectFilters from "../Input/SelectFilters/SelectFilters";
 
 const CHAINS = ["COSMOS", "NEUTRON", "STRIDE"];
 const TYPE = [
+  "ALL",
   "Software Upgrade",
   "Text",
   "Equivocation",
@@ -28,7 +32,7 @@ const TYPE = [
   "Parameter Change",
   "Client Update",
 ];
-const RESULT = ["Passed", "Failed", "Executed", "Rejected"];
+const RESULT = ["ALL","Passed", "Failed", "Executed", "Rejected"];
 
 const IN_FIL = {
   chain: [],
@@ -82,7 +86,9 @@ const FilterModal = ({
   return (
     <Modal size={"2xl"} isCentered isOpen={isOpen} onClose={handleClosePopover}>
       <ModalOverlay />
-      <ModalContent bg={"#17151A"}>
+      <ModalContent bg={"#17151A"} paddingX={"30px"} paddingY={"20px"}>
+        <ModalHeader fontSize={"2rem"}>Filters</ModalHeader>
+        <ModalCloseButton border={"none"} margin={"35px"} fontSize={"1rem"} _focus={{ outline: "none" }} />
         <ModalBody p={"25px"}>
           <Stack gap={"30px"}>
             <SelectFilters
@@ -106,11 +112,20 @@ const FilterModal = ({
           </Stack>
         </ModalBody>
         <ModalFooter>
-          <ButtonGroup size="sm">
-            <Button onClick={handleClear} colorScheme="blue" variant="outline">
+          <ButtonGroup size="md">
+            <Button onClick={handleClear} bg={"transparent"} borderWidth={"2px"} borderColor={"#BC3D70"} paddingX={"28px"} color={"white"} paddingY={"7px"}
+              _hover={
+                {
+                  bg: '#BC3D70',
+                  borderColor: '#BC3D70'
+                }
+              }
+            >
               Clear
             </Button>
-            <Button onClick={applyFilters} colorScheme="pink">
+            <Button onClick={applyFilters} bgColor={"#BC3D70"} paddingX={"28px"} color={"white"} paddingY={"7px"} _hover={{
+              bg: '#BC3D70',
+            }}>
               Apply
             </Button>
           </ButtonGroup>

@@ -145,3 +145,55 @@ export const shortenString = (
     return inputString;
   }
 };
+
+export const convertDateFormat = (dateString: string) => {
+  const dateObject: Date = new Date(dateString);
+
+  const day: number = dateObject.getDate();
+  const month: number = dateObject.getMonth();
+
+  const paddedDay: string = day < 10 ? `0${day}` : `${day}`;
+  const paddedMonth: string = month + 1 < 10 ? `0${month + 1}` : `${month + 1}`;
+
+  return `${paddedDay}/${paddedMonth}`;
+};
+
+export const removeSecondsFromTime = (timeString: string) => {
+  const [hour, minute, second] = timeString.split(":");
+
+  const modifiedTimeString: string = `${hour}:${minute}`;
+
+  return modifiedTimeString;
+};
+
+export const shortenCosmosAddress = (address: string) => {
+  const prefix = address.substring(0, 12);
+
+  const suffix = address.substring(address.length - 4);
+
+  const shortenedAddress = `${prefix}...${suffix}`;
+
+  return shortenedAddress;
+};
+
+export const calculateDaysLeft = (targetDate: string) => {
+  const currentDate: Date = new Date();
+  const targetDateString: string[] = targetDate.split("/");
+  const targetYear: number = parseInt(targetDateString[2]);
+  const targetMonth: number = parseInt(targetDateString[1]) - 1; // Month is zero-based
+  const targetDay: number = parseInt(targetDateString[0]);
+
+  const targetDateTime: Date = new Date(targetYear, targetMonth, targetDay);
+
+  // Set hours, minutes, seconds, milliseconds to 0 for accurate calculation
+  targetDateTime.setHours(0, 0, 0, 0);
+  currentDate.setHours(0, 0, 0, 0);
+
+  // Calculate the difference in milliseconds
+  const difference: number = targetDateTime.getTime() - currentDate.getTime();
+
+  // Convert milliseconds to days
+  const days: number = Math.ceil(difference / (1000 * 60 * 60 * 24));
+
+  return days;
+};
