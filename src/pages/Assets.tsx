@@ -86,7 +86,7 @@ const Assets = () => {
     if (!neutronAssets.assets.length) getParsedNeutronAssets();
   };
   return (
-    <Box display={"flex"} flexDirection={"column"} gap={"30px"}>
+    <Box display={"flex"} flexDirection={"column"} gap={"30px"} width={"100%"}>
     <Flex justifyContent={"space-around"}>
       <AssetSection1 neutronAssets={neutronAssets.assets} cosmosAssets={cosmosAssets.assets} strideAssets={strideAssets.assets} />
     </Flex>

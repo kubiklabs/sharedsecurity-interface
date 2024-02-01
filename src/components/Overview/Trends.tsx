@@ -72,6 +72,7 @@ const otherfilters = [
 ]
 export const options = {
   responsive: true,
+  maintainAspectRatio: false,
   plugins: {
     customCanvasBackgroundColor: {
       color: "lightGreen",
@@ -84,7 +85,6 @@ export const options = {
     },
     decimation: {
       enabled: true,
-      // algorithm: "min-max",
       sample: 50,
     },
   },
@@ -130,10 +130,9 @@ const Trends = () => {
   const [finalCosmosData, setFinalCosmosData] = useState<any>();
   const [finalStrideData, setFinalStrideData] = useState<any>();
   const [finalNeutronData, setFinalNeutronData] = useState<any>();
-  // const [finalLabels, setFinalLabels] = useState(labels);
   useEffect(() => {
     getData();
-  },[]);
+  }, []);
   const getData = async () => {
     let cosmosTrend = await getHistoricalPrice("Cosmos");
     let strideTrend = await getHistoricalPrice("Stride");
@@ -182,8 +181,8 @@ const Trends = () => {
   };
 
   const [selectedOption, setOption] = useState<any>(finalNeutronData);
-  const [finalData,setFinalData]=useState<any>(selectedOption)
-  const [length,setLength]=useState<number>(0)
+  const [finalData, setFinalData] = useState<any>(selectedOption)
+  const [length, setLength] = useState<number>(0)
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const item = e.target.value;
     if (item === "neutron") {
@@ -204,14 +203,13 @@ const Trends = () => {
   useEffect(() => {
     setFinalData(selectedOption);
   }, [selectedOption]);
-  
+
   const [selectedDateFilter, setDateFilter] = useState<string>("All time")
 
 
-  const handleDateFilterChange = (e: React.MouseEvent<HTMLDivElement, MouseEvent>,item: string) => {
+  const handleDateFilterChange = (e: React.MouseEvent<HTMLDivElement, MouseEvent>, item: string) => {
     setDateFilter(item);
     let updatedOption: any = {};
-    // Assuming selectedOption has the structure { labels: [...], datasets: [...] }
     const dataInRange = (start: number, end: number) => ({
       labels: selectedOption.labels.slice(start, end + 1),
       datasets: [
@@ -221,80 +219,82 @@ const Trends = () => {
         },
       ],
     });
-    const len=selectedOption.labels.length
+    const len = selectedOption.labels.length
     switch (item) {
       case "24 Hours":
-        updatedOption = dataInRange(len-2,len-1);
+        updatedOption = dataInRange(len - 2, len - 1);
         break;
       case "7 Days":
-        updatedOption = dataInRange( len-8,len-1);
+        updatedOption = dataInRange(len - 8, len - 1);
         break;
       case "30 Days":
-        updatedOption = dataInRange(len-31,len-1);
+        updatedOption = dataInRange(len - 31, len - 1);
         break;
       case "All Time":
-        updatedOption = dataInRange(0,selectedOption.labels.length);
+        updatedOption = dataInRange(0, selectedOption.labels.length);
         break;
       default:
         updatedOption = dataInRange(0, - 1);
     }
-  
+
     setFinalData(updatedOption);
   };
-  
-  
+
+
   const [selectedOtherFilter, setOtherFilter] = useState<string>("All time")
-  const handleOtherFilterChange = (e: React.MouseEvent<HTMLDivElement, MouseEvent>,item:string) => {
+  const handleOtherFilterChange = (e: React.MouseEvent<HTMLDivElement, MouseEvent>, item: string) => {
     setOtherFilter(item);
   }
   return (
     <Section heading="Stats and Graphs" subtitle="You might find it interesting">
       <Box position={"relative"}>
-      <Flex justifyContent={"space-between"} paddingX={"20px"} position={"absolute"} top={10} right={50} left={100} >
-        <Flex border={"1px solid rgba(57, 56, 60, 0.6)"} borderRadius={"5px"} alignItems={"center"} px={"5px"}>
-        {dateFilters.map((item) => ((
-          <Box
-            cursor={"pointer"}
+        <Flex justifyContent={"space-between"} paddingX={"20px"} position={"absolute"} top={10} right={50} left={100} >
+          <Flex border={"1px solid rgba(57, 56, 60, 0.6)"} borderRadius={"5px"} alignItems={"center"} px={"5px"}>
+            {dateFilters.map((item) => ((
+              <Box
+                cursor={"pointer"}
+                width={"fit-content"}
+                onClick={(e) => handleDateFilterChange(e, item.label)}
+                backgroundColor={
+                  selectedDateFilter === item.label
+                    ? "#2d2a2b"
+                    : "transparent"
+                }
+                borderRadius={"5px"}
+                padding={"5px 10px"}
+                key={item.label}
+              >
+                <Text>{item.label}</Text>
+              </Box>
+            )))}
+          </Flex>
+          <Select
+            onChange={handleChange}
+            size="lg"
+            minW={"100px"}
             width={"fit-content"}
-            onClick={(e) => handleDateFilterChange(e,item.label)}
-            backgroundColor={
-              selectedDateFilter===item.label
-                ? "#2d2a2b"
-                : "transparent"
-            }
-            borderRadius={"5px"}
-            padding={"5px 10px"}
-            key={item.label}
           >
-            <Text>{item.label}</Text>
-          </Box>
-        )))}
+            <option value="neutron">Neutron</option>
+            <option value="stride">Stride</option>
+            <option value="cosmos">Cosmos Hub</option>
+          </Select>
         </Flex>
-        <Select
-          onChange={handleChange}
-          size="lg"
-          minW={"100px"}
-          width={"fit-content"}
-        >
-          <option value="neutron">Neutron</option>
-          <option value="stride">Stride</option>
-          <option value="cosmos">Cosmos Hub</option>
-        </Select>
-      </Flex>
-      {finalData ? (
-        <Line data={finalData} options={options} />
-      ) : (
-        <CustomSkeleton count={1} height="500px" />
-      )}
+        {finalData ? (
+          <Box width={"100%"} height={"80vh"}>
+            <Line data={finalData} options={options} />
+          </Box>
+        ) : (
+          <CustomSkeleton count={1} height="500px" />
+        )}
       </Box>
-       <Flex alignItems={"center"} px={"5px"} gap={"6px"}>
+      <Flex alignItems={"center"} px={"5px"} gap={"6px"}>
         {otherfilters.map((item) => ((
           <Box
             cursor={"pointer"}
             width={"fit-content"}
-            onClick={(e) => handleOtherFilterChange(e,item.label)}
+            onClick={(e) => handleOtherFilterChange(e, item.label)}
             backgroundColor={
-              selectedOtherFilter===item.label
+              selectedOtherFilter === item.label
                 ? "#2d2a2b"
                 : "transparent"
             }
@@ -306,7 +306,7 @@ const Trends = () => {
             <Text>{item.label}</Text>
           </Box>
         )))}
-        </Flex>
+      </Flex>
     </Section>
   );
 };

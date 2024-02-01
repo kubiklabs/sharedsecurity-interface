@@ -18,7 +18,7 @@ const data = {
 
 const options = {
     responsive: true,
-    // aspectRatio: 0, 
+    maintainAspectRatio: false,
     plugins: {
       customCanvasBackgroundColor: {
         color: "lightGreen",
@@ -31,16 +31,11 @@ const options = {
       },
       decimation: {
         enabled: true,
-        // algorithm: "min-max",
         sample: 50,
       },
     },
     scales: {
       x: {
-        // title: {
-        //   display: true,
-        //   text: "Date",
-        // },
         border: {
           display: true,
           color: "#000",
@@ -53,10 +48,6 @@ const options = {
         },
       },
       y: {
-        // title: {
-        //   display: true,
-        //   text: "TVL(in USD)",
-        // },
         border: {
           display: true,
           color: "#000",
@@ -91,7 +82,7 @@ const AssetGraph = () => {
 
   return (
     <Section heading="Total Supply" subtitle="Our top picks to get you started" >
-        <Box position={"relative"}>
+        <Box position={"relative"} width={"100%"} height={"60vh"}>
         <Select
           onChange={handleChange}
           size="lg"
