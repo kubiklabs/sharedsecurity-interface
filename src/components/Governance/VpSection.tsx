@@ -28,7 +28,7 @@ const VpSection = () => {
   const connectWallet = useConnectWallet();
 
   useEffect(() => {
-    if (!isLoggedIn || Cosmos) return;
+    if (!isLoggedIn) return;
     setIsLoading(true);
     handleFetchAllUserVp();
     setIsLoading(false);

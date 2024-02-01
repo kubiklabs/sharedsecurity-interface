@@ -19,7 +19,7 @@ const useVpTableEffect = () => {
   const [tableArray, setTableArray] = useState<any[]>([]);
 
   useEffect(() => {
-    if (!userVp?.Cosmos?.Lp) return;
+    if (!userVp?.Cosmos?.Op || !userVp?.Cosmos?.address || !userVp?.Neutron?.Op || !userVp?.Neutron?.address || !userVp?.Stride?.Op || !userVp?.Stride?.address) return;
 
     const updatedTableArray = Object.keys(userVp).map((chainKey) => {
       const chain = userVp[chainKey];
