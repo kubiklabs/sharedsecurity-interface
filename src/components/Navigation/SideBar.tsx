@@ -16,7 +16,7 @@ const SideBar = () => {
   return (
     <>
 
-      <Flex flexDir={"row"} borderBottom={"1px"} borderBottomColor={"#37343D"} paddingX={"30px"} paddingY={"20px"} bgColor={"#120E19"} justifyContent={"space-between"} alignItems={"center"}>
+      <Flex position={"fixed"} width={"100%"} zIndex={60} flexDir={"row"} borderBottom={"1px"} borderBottomColor={"#37343D"} paddingX={"30px"} paddingY={"20px"} bgColor={"#120E19"} justifyContent={"space-between"} alignItems={"center"}>
         <Flex flexDir={"row"} alignItems={"center"} gap={"10px"}>
           <Image width={"45px"} src={kubikLogo} alt="logo" />
           <Text fontSize={"1.2rem"} noOfLines={1} color={"#F2F2F2"} textAlign={"left"}>Shared Security Info</Text>
