@@ -84,7 +84,7 @@ export const options = {
     },
     decimation: {
       enabled: true,
-      algorithm: "min-max",
+      // algorithm: "min-max",
       sample: 50,
     },
   },
