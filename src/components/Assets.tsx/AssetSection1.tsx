@@ -1,67 +1,10 @@
-import { Box, Flex, Heading, Select, Spinner } from "@chakra-ui/react";
+import { Box, Flex, Heading, Select, Spinner, Text } from "@chakra-ui/react";
 import CustomTable from "../DataDisplay/CustomTable";
 import Section from "../Layout/Section";
 import { useEffect, useState } from "react";
 import CustomSkeleton from "../skeleton/CustomSkeleton";
 import { assetPieType, assetType } from "../types/types";
 import DoughnutChart from "../Graphs and Chart/DoughnutChart";
-
-
-
-// export const options = {
-//   responsive: true,
-//   plugins: {
-//     customCanvasBackgroundColor: {
-//       color: "lightGreen",
-//     },
-//     colors: {
-//       forceOverride: true,
-//     },
-//     legend: {
-//       position: "top" as const,
-//     },
-//     title: {
-//       display: true,
-//       text: "Chains",
-//     },
-//     decimation: {
-//       enabled: true,
-//       algoritghm: "min-max",
-//       sample: 50,
-//     },
-//   },
-//   scales: {
-//     x: {
-//       title: {
-//         display: true,
-//         text: "Date",
-//       },
-//       border: {
-//         display: true,
-//       },
-//       grid: {
-//         display: true,
-//         drawOnChartArea: true,
-//         drawTicks: true,
-//         color: "#000",
-//       },
-//     },
-//     y: {
-//       title: {
-//         display: true,
-//         text: "TVL(in USD)",
-//       },
-//       border: {
-//         display: true,
-//       },
-//       grid: {
-//         display: true,
-//         drawOnChartArea: true,
-//         drawTicks: true,
-//       },
-//     },
-//   },
-// };
 
 
 type propsType = {
@@ -114,15 +57,17 @@ const AssetSection1 = ({ neutronAssets, strideAssets, cosmosAssets }: propsType)
         gap={"20px"}
         backgroundColor={"#17131E"}
         justifyContent={"center"}
-        // alignItems={"stretch"}
+        alignItems={"center"}
         flexDirection={"column"}
         height={"auto"}
-        padding={"10px 20px"}
         borderRadius={"15px"}
       >
         <Section>
           <Flex justifyContent={"space-between"}>
-            <Heading>Assets on {option === cosmosAssets ? " Cosmos Hub" : option === neutronAssets ? " Neutron" : " Stride"} </Heading>
+            <Flex flexDirection={"column"} alignItems={"flex-start"} justifyContent={"flex-start"}>
+            <Heading size={"24px"}>Assets on {option === cosmosAssets ? " Cosmos Hub" : option === neutronAssets ? " Neutron" : " Stride"} </Heading>
+            <Text color={"gray"} fontSize={"14px"}>Stay up to date</Text>
+            </Flex>
             <Select
               onChange={handleChange}
               size="lg"
@@ -135,7 +80,7 @@ const AssetSection1 = ({ neutronAssets, strideAssets, cosmosAssets }: propsType)
             </Select>
           </Flex>
           {option.length ? (
-            <Flex justifyContent={"center"} alignItems={"center"} width={"80%"} height={"80%"}>
+            // <Flex justifyContent={"center"} alignItems={"center"} width={"100%"} height={"90%"}>
               <CustomTable
                 keys={Object.keys(option[0])}
                 data={option}
@@ -143,7 +88,7 @@ const AssetSection1 = ({ neutronAssets, strideAssets, cosmosAssets }: propsType)
                 itemsPerPage={5}
                 totalValue={getTotalValue(option).toLocaleString()}
               />
-            </Flex>
+            // </Flex>
           ) : (
             
             <CustomSkeleton count={5} height="50px" />
@@ -160,19 +105,22 @@ const AssetSection1 = ({ neutronAssets, strideAssets, cosmosAssets }: propsType)
         alignItems={"center"}
         flexDirection={"column"}
         height={"auto"}
-        padding={"10px 20px"}
         borderRadius={"15px"}
       >
-        <Heading>Total supply on {option === cosmosAssets ? " Cosmos Hub" : option === neutronAssets ? " Neutron" : " Stride"} </Heading>
-        {finalData && finalData.labels.length > 0 && <Flex alignItems={"center"} width={"80%"} height={"80%"} > <DoughnutChart data={finalData} /></Flex>}
+        <Section heading={`Total supply on ${option === cosmosAssets ? " Cosmos Hub" : option === neutronAssets ? " Neutron" : " Stride"}`}
+        subtitle="A gathering place to address the topics shaping the ATOM Ecosystem"
+        >
+
+        {finalData && finalData.labels.length > 0 && <DoughnutChart data={finalData} />}
         {option.length ? (
           <>
           </>
         ) : (
-          <Box height={"90%"} display={"flex"} flexDirection={"column"} alignItems={"center"} justifyContent={"center"}>
+          <Box height={"40vh"} display={"flex"} flexDirection={"column"} alignItems={"center"} justifyContent={"center"}>
             <Spinner />
           </Box>
         )}
+        </Section>
       </Box>
     </Flex>
   );
