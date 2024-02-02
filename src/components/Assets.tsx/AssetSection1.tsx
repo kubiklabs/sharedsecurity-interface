@@ -48,6 +48,12 @@ const AssetSection1 = ({ neutronAssets, strideAssets, cosmosAssets }: propsType)
       setOption(cosmosAssets)
     }
   }
+  // const chartOption={
+  //   legend: {
+  //     display: true,
+  //     position: "right",
+  //   },
+  // }
   return (
     <Flex justifyContent={"space-between"} width={"100%"}>
 
@@ -111,15 +117,16 @@ const AssetSection1 = ({ neutronAssets, strideAssets, cosmosAssets }: propsType)
         subtitle="A gathering place to address the topics shaping the ATOM Ecosystem"
         >
 
-        {finalData && finalData.labels.length > 0 && <DoughnutChart data={finalData} />}
-        {option.length ? (
-          <>
-          </>
-        ) : (
+        {finalData && finalData.labels.length > 0 ?
+        <Flex flexDirection={"column"} minWidth={"80%"} margin={"auto"} height={"auto"} justifyContent={"space-around"} gap={"10px"} >
+          <DoughnutChart data={finalData} />
+          <Text fontSize={"14px"}>Asset Supply Distribution on Atom</Text>
+        </Flex>
+        :
           <Box height={"40vh"} display={"flex"} flexDirection={"column"} alignItems={"center"} justifyContent={"center"}>
             <Spinner />
           </Box>
-        )}
+        }
         </Section>
       </Box>
     </Flex>
