@@ -10,6 +10,10 @@ const stats = [
     number: "31,000,21",
   },
   {
+    label: "Recent Transactions (last 24hr)",
+    number: "31,000,21",
+  },
+  {
     label: "Active Accounts",
     number: "310,121",
   },

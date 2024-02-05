@@ -1,18 +1,16 @@
-import { Box, Text } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import {Box, Flex} from "@chakra-ui/react";
+import { useEffect } from "react";
 import { useStrideAssets } from "../hooks/chains/stride/chain_assets/useStrideAssets";
-import CustomTable from "../components/DataDisplay/CustomTable";
 import { useRecoilValue } from "recoil";
 import {
   cosmosAssetState,
   neutronAssetState,
   strideAssetState,
 } from "../context/assetsState";
-import Section from "../components/Layout/Section";
 import { useCosmosAssets } from "../hooks/chains/cosmos/chain_assets/useCosmosAssets";
 import { useNeutronAssets } from "../hooks/chains/neutron/chain_assets/useNeutronAssets";
-import CustomSkeleton from "../components/skeleton/CustomSkeleton";
-import { Pie } from "react-chartjs-2";
+import AssetSection1 from "../components/Assets.tsx/AssetSection1";
+import AssetGraph from "../components/Assets.tsx/AssetGraph";
 
 export const options = {
   responsive: true,
@@ -77,88 +75,22 @@ const Assets = () => {
   const cosmosAssets = useRecoilValue(cosmosAssetState);
   const neutronAssets = useRecoilValue(neutronAssetState);
 
-  const [finalData, setFinalData] = useState<any>();
-
   useEffect(() => {
     getSupply();
   }, []);
 
-  useEffect(() => {
-    const graphData = {
-      labels: strideAssets.assets.map((asset) => asset.name.label),
-      datasets: strideAssets.assets.map((asset) => asset.amount),
-    };
-    setFinalData(graphData);
-  }, [strideAssets]);
-  // console.log(strideAssets, cosmosAssets, neutronAssets);
 
   const getSupply = async () => {
     if (!strideAssets.assets.length) getParsedStrideAssets();
     if (!cosmosAssets.assets.length) getParsedCosmosAssets();
     if (!neutronAssets.assets.length) getParsedNeutronAssets();
-    const graphData = {
-      labels: strideAssets.assets.map((asset) => asset.name.label),
-      datasets: strideAssets.assets.map((asset) => asset.amount),
-    };
-    setFinalData(graphData);
   };
-  const getTotalValue = (assets:any) => {
-    return assets.reduce((total:number, asset:any) => total + asset.amount, 0);
-  };
-
   return (
-    <Box>
-      <Box
-        width={"100%"}
-        justifyContent={"space-between"}
-        display={"flex"}
-        gap={"20px"}
-      >
-        <Section heading="Neutron">
-          {neutronAssets.assets.length ? (
-              <>
-              <CustomTable
-                keys={Object.keys(neutronAssets?.assets[0])}
-                data={neutronAssets?.assets}
-                pagination={true}
-                itemsPerPage={5}
-                totalValue={getTotalValue(neutronAssets.assets).toLocaleString()}
-              />
-            </>
-          ) : (
-            <CustomSkeleton count={5} height="50px" />
-          )}
-        </Section>
-        <Section heading="Stride">
-          {strideAssets.assets.length ? (
-            <>
-            <CustomTable
-              keys={Object.keys(strideAssets?.assets[0])}
-              data={strideAssets?.assets}
-              pagination={true}
-              itemsPerPage={5}
-              totalValue={getTotalValue(strideAssets.assets).toLocaleString()}
-            />
-          </>
-          ) : (
-            <CustomSkeleton count={5} height="50px" />
-          )}
-        </Section>
-        <Section heading="Cosmos">
-          {cosmosAssets.assets.length ? (
-           <>
-           <CustomTable
-             keys={Object.keys(cosmosAssets?.assets[0])}
-             data={cosmosAssets?.assets}
-             totalValue={getTotalValue(cosmosAssets.assets).toLocaleString()}
-           />
-         </>
-          ) : (
-            <CustomSkeleton count={5} height="50px" />
-          )}
-        </Section>
-      </Box>
-      {/* {strideAssets.assets.length && <Pie data={finalData} options={options} />} */}
+    <Box display={"flex"} flexDirection={"column"} gap={"30px"} width={"100%"}>
+    <Flex justifyContent={"space-around"}>
+      <AssetSection1 neutronAssets={neutronAssets.assets} cosmosAssets={cosmosAssets.assets} strideAssets={strideAssets.assets} />
+    </Flex>
+      <AssetGraph/>
     </Box>
   );
 };

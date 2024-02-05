@@ -68,7 +68,7 @@ const CustomTable = ({
   //console.log(currentItems);
 
   return (
-    <TableContainer textAlign={"left"}>
+    <TableContainer textAlign={"left"} display={"block"}>
       <Table width={"100%"} fontSize={"lg"}>
         {/* <TableCaption>Data fetched from different chains</TableCaption> */}
         <Thead fontSize={"1.2rem"}>
@@ -94,7 +94,6 @@ const CustomTable = ({
                   }                 
                   color={"#D9D9D9"}
                   fontSize={"1.2rem"}
-                  
 
                 >
                   <Text
@@ -104,7 +103,7 @@ const CustomTable = ({
                     px={"4px"}
                     width={"100%"}
 //                  cursor={"pointer"}
-                    textTransform={"none"}
+                    textTransform={"capitalize"}
                     fontWeight={500}
                     fontFamily={"Alata, sans-serif"}
                   >
@@ -272,7 +271,7 @@ const CustomTable = ({
           currentPage={currentPage.current}
           totalPages={totalPages.current}
           onPageChange={handlePageClick}
-          alignSelf={"flex-end"}
+          alignSelf={"flex-start"}
         />
       )}
     </TableContainer>
