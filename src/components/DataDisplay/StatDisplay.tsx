@@ -24,14 +24,16 @@ const StatDisplay = ({
   helpText,
   isSatisfied = "na",
   showSatisfiedBg,
+  bg,
   numberTitle,
 }: {
-  label: String;
-  number: String;
-  helpText?: String;
-  isSatisfied?: String;
+  label: string;
+  number: string;
+  helpText?: string;
+  isSatisfied?: string;
   showSatisfiedBg?: boolean;
-  numberTitle?: String;
+  bg?:string,
+  numberTitle?: string;
 }) => {
   return (
     <Stat
@@ -39,6 +41,8 @@ const StatDisplay = ({
       bg={
         showSatisfiedBg
           ? satisfiedBgMap[isSatisfied as keyof typeof satisfiedBgMap].bg
+          : bg?
+          bg
           : "rgba(255, 255, 255, 0.05)"
       }
       gap={"20px"}

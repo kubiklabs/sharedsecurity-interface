@@ -33,11 +33,28 @@ export const useGovernance = () => {
     const cosmosVp = await getCosmosVotingPower(Cosmos as string);
     const neutronVp = await getNeutronVotingPower(Neutron as string);
     const strideVp = await getStrideVotingPower(Stride as string);
-    setUserVp({
-      Cosmos: cosmosVp,
-      Neutron: neutronVp,
-      Stride: strideVp,
-    });
+    // setUserVp({
+    //   Cosmos: cosmosVp,
+    //   Neutron: neutronVp,
+    //   Stride: strideVp,
+    // });
+    // console.log(cosmosVp, neutronVp, strideVp);
+
+    setUserVp((prevUserVp) => ({
+      ...prevUserVp,
+      Cosmos: {
+        ...prevUserVp.Cosmos,
+        ...cosmosVp,
+      },
+      Neutron: {
+        ...prevUserVp.Neutron,
+        ...neutronVp,
+      },
+      Stride: {
+        ...prevUserVp.Stride,
+        ...strideVp,
+      },
+    }));
   };
 
   const fetchProposalByIdAndName = async (name: string, id: string) => {

@@ -1,44 +1,81 @@
 import React, { useEffect, useState } from "react";
 import Section from "../Layout/Section";
 import {
-  Grid,
-  GridItem,
-  Stat,
-  StatHelpText,
-  StatLabel,
-  StatNumber,
+  Box,
+  Flex,
 } from "@chakra-ui/react";
 import StatDisplay from "../DataDisplay/StatDisplay";
 import { useRecoilState } from "recoil";
 import { marketState } from "../../context/marketState";
+import { Line } from "react-chartjs-2";
+import FeaturedDataDisplay from "../DataDisplay/FeaturedDataFisplay";
 
-const stats = [
-  {
-    label: "Transaction Monitoring",
-    number: "31,000,21",
-  },
-  {
-    label: "Active Accounts",
-    number: "310,121",
-  },
-  {
-    label: "Total Market Cap",
-    number: "3,076,723,101",
-  },
-  {
-    label: "Total Proposals",
-    number: "1,002",
-  },
-];
 
+const data = {
+  labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+  datasets: [
+    {
+      label: "Transactional Marketing Price",
+      data: [100, 120, 130, 140, 150, 100, 90, 180, 70, 80, 110, 120],
+      backgroundColor: "rgba(75, 192, 192, 0.2)",
+      borderColor: "rgba(75, 192, 192, 1)",
+      borderWidth: 2,
+    },
+  ],
+};
+const options = {
+  responsive: true,
+  // aspectRatio: 1, 
+  maintainAspectRatio: false,
+  plugins: {
+    customCanvasBackgroundColor: {
+      color: "lightGreen",
+    },
+    colors: {
+      forceOverride: true,
+    },
+    legend: {
+      display: false,
+    },
+    decimation: {
+      enabled: true,
+      sample: 50,
+    },
+  },
+  scales: {
+    x: {
+      border: {
+        display: true,
+        color: "#000",
+      },
+      grid: {
+        display: true,
+        drawOnChartArea: true,
+        drawTicks: true,
+        color: "#272525",
+      },
+    },
+    y: {
+      border: {
+        display: true,
+        color: "#000",
+      },
+      grid: {
+        display: true,
+        drawOnChartArea: true,
+        drawTicks: true,
+        color: "#272525",
+      },
+    },
+  },
+};
+const numberWithCommas = (value: number) => {
+  return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+}
 const Featured = ({ stats }: { stats: Array<any> }) => {
   const [totalMarketCap, setTotalMarketCap] = useState("-");
-  const [{ Cosmos, Neutron, Stride }, setMarketState] =
-    useRecoilState(marketState);
-
-  // useEffect(() => {
-  //   calculateTotalMarketCap();
-  // }, [Cosmos]);
+  const [{ Cosmos, Neutron, Stride }, setMarketState] = useRecoilState(marketState);
+    const [chartData, setChartData] = useState(data);
 
   const calculateTotalMarketCap = () => {
     let totalMarketCap = 0;
@@ -55,31 +92,24 @@ const Featured = ({ stats }: { stats: Array<any> }) => {
     setTotalMarketCap(totalMarketCap.toLocaleString());
     return totalMarketCap.toLocaleString();
   };
+  useEffect(() => {
+    calculateTotalMarketCap()
+  }, []);
   return (
-    <Section heading="Featured">
-      <Grid
-        p={"15px"}
-        gap={"20px"}
-        // justifyContent={"space-evenly"}
-        // gridAutoFlow={"column"}
-        gridTemplateColumns={"repeat(auto-fit, minmax(100px, 300px))"}
-      >
-        <GridItem>
-          <StatDisplay label={"Transactions Monitoring"} number={"3,100,012"} />
-        </GridItem>
-        <GridItem>
-          <StatDisplay label={"Active Accounts"} number={"310,121"} />
-        </GridItem>
-        <GridItem>
-          <StatDisplay
-            label={"Total Market Cap"}
-            number={`$ ${totalMarketCap}`}
-          />
-        </GridItem>
-        <GridItem>
-          <StatDisplay label={"Total Proposals"} number={"1,012"} />
-        </GridItem>
-      </Grid>
+    <Section heading="Featured" subtitle="Our top picks to get you started">
+      <Box width={"100%"} position={"relative"} display={"flex"} flexDirection={"column"} gap={"30px"}>
+      <Flex gap={"4px"} alignItems={"flex-end"} position={"absolute"} top={20} right={30} borderRadius={"10px"} border={"1px solid rgba(188, 61, 112, 1)"}>
+            <StatDisplay label={numberWithCommas(stats[0].label)} number={stats[0].number} bg="transparent"/>
+        </Flex>
+        <Box width={"100%"} height={"60vh"}>
+          <Line data={data} options={options} />
+        </Box>
+        <Flex width={"100%"} justifyContent={"space-around"}>
+        {stats.map((item)=>(
+          item.label!="Transaction Monitoring"&&<FeaturedDataDisplay key={item.label} text={item.label} value={item.label==="Total Market Cap"?`$ ${totalMarketCap}`:item.number}/>
+        ))}
+        </Flex>
+        </Box>
     </Section>
   );
 };
