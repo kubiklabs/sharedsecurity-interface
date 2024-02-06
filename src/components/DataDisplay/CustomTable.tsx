@@ -39,6 +39,7 @@ const CustomTable = ({
   gridColumnGap,
   itemsPerPage = 10,
   pagination,
+  overflow
 }: any) => {
 
   const currentPage = useRef(1);
@@ -68,7 +69,7 @@ const CustomTable = ({
   //console.log(currentItems);
 
   return (
-    <TableContainer textAlign={"left"} display={"block"}>
+    <TableContainer textAlign={"left"} display={"block"} overflowX={`${overflow}`}>
       <Table width={"100%"} fontSize={"lg"}>
         {/* <TableCaption>Data fetched from different chains</TableCaption> */}
         <Thead fontSize={"1.2rem"}>
@@ -166,11 +167,16 @@ const CustomTable = ({
                             </Link>
                           ) : value.type === "PATH" ? (
                             <PathLink
-                              style={{ textDecoration: "underline" }}
-                              to={value.url}
-                            >
-                              Proposal#{value.label}
-                            </PathLink>
+                            style={{
+                              textDecoration: "underline",
+                              paddingLeft: `${
+                                currentPath === "/aez" ? "10px" : 0
+                              }`,
+                            }}
+                            to={value.url}
+                          >
+                           {value.label ? `Proposal#${value.label}` : "-" }
+                          </PathLink>
                           ) : value.type === "avatar" ? (
                             <Flex alignItems={"center"} gap={"15px"}>
                               <Avatar

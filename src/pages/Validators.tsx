@@ -1,6 +1,7 @@
 import { Box } from "@chakra-ui/react";
 import React from "react";
 import ValidatorsList from "../components/Validators/ValidatorList";
+import ChainValidatorsGraph from "../components/Validators/ChainValidatorsGraph";
 
 const Validators = () => {
   return (
@@ -12,6 +13,7 @@ const Validators = () => {
         gap={"50px"}
       >
         <ValidatorsList />
+        <ChainValidatorsGraph />
       </Box>
     </Box>
   );
