@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { Line } from "react-chartjs-2";
 import Section from "../Layout/Section";
-import { Box, Select } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 
 const data = {
   labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
@@ -63,40 +63,11 @@ const options = {
   };
 
 const AssetGraph = () => {
-  const [chartData, setChartData] = useState(data);
-  const [selectedOption, setOption] = useState<any>()
-  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    // const item = e.target.value;
-    // if (item === "neutron") {
-    //   setOption()
-    // }
-    // if (item === "stride") {
-    //   setOption()
-    // }
-    // if (item === "cosmos") {
-    //   setOption()
-    // }
-    console.log(selectedOption)
-  }
-  // Update chart data if needed
 
   return (
     <Section heading="Total Supply" subtitle="Our top picks to get you started" >
         <Box position={"relative"} width={"100%"} height={"60vh"}>
-        <Select
-          onChange={handleChange}
-          size="lg"
-          minW={"100px"}
-          width={"fit-content"}
-          position={"absolute"}
-          top={"10"}
-          right={"30"}
-        >
-          <option value="neutron">Neutron</option>
-          <option value="stride">Stride</option>
-          <option value="cosmos">Cosmos Hub</option>
-        </Select>
-      <Line data={chartData} options={options} />
+      <Line data={data} options={options} />
       </Box>
     </Section>
   );
