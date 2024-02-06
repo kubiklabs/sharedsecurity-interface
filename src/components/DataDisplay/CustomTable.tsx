@@ -69,7 +69,7 @@ const CustomTable = ({
   //console.log(currentItems);
 
   return (
-    <TableContainer textAlign={"left"} display={"block"} overflowX={`${overflow}`}>
+    <TableContainer textAlign={"left"} display={"block"} overflowX={overflow ? "clip" : undefined} >
       <Table width={"100%"} fontSize={"lg"}>
         {/* <TableCaption>Data fetched from different chains</TableCaption> */}
         <Thead fontSize={"1.2rem"}>

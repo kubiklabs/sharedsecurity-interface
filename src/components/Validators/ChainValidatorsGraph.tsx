@@ -79,7 +79,7 @@ const DummyChart = () => {
     },
   };
 
-  const handleSelectChange = (event) => {
+  const handleSelectChange = (event : any) => {
     setSelectedOption(event.target.value);
   };
 

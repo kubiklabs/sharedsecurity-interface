@@ -198,7 +198,7 @@ export const calculateDaysLeft = (targetDate: string) => {
   return days;
 };
 
-export const calculateAverageCommissionRate = (validators) => {
+export const calculateAverageCommissionRate = (validators : any) => {
   let totalCommission = 0;
   
   // Loop through each validator and sum up the commission rates
