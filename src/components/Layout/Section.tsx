@@ -10,20 +10,21 @@ const Section = (props: any) => {
       mx={"auto"}
       gap={props.gap || "20px"}
       position={"relative"}
-      backgroundColor={props?.backgroundColor || "#17131e" }
+      backgroundColor={props?.backgroundColor || "#17131e"}
       borderTopRadius={"15px"}
       borderBottomRadius={props?.borderBottomRadius || "15px"}
       // padding="30px 40px"
-      py={"40px"} px={"60px"}
+      py={"40px"}
+      px={"60px"}
       width={props?.width || "full"}
-  
+      height={props.height}
     >
       <SectionHeading
         heading={props.heading}
         sideText={props.sideText}
         subtitle={props.subtitle}
       />
-      {props.children} 
+      {props.children}
     </Box>
   );
 };
