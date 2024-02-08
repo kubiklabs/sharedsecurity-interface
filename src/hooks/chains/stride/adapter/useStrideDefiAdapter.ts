@@ -69,6 +69,13 @@ async function tvl() {
     const geckoId =
       coinGeckoIds[hostZone.host_denom as keyof typeof coinGeckoIds];
 
+    //TODO: Add support for adydx in config
+
+    if (!geckoId) {
+      console.log(`${hostZone.host_denom} not found in config!`);
+      continue;
+    }
+
     const amountInUsd =
       Number(prices[geckoId].usd) * Number(amount) * hostZone.redemption_rate;
     tvl += amountInUsd;

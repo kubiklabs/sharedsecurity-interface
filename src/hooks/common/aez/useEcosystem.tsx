@@ -30,7 +30,7 @@ export const useEcosystem = () => {
     contractList: Array<any>
   ) => {
     type IConstractList = typeof contractList;
-    // console.log(client, coinRegistry, contractList);
+    console.log(coinRegistry, contractList);
 
     let assetBalances: any = {};
 
@@ -50,10 +50,17 @@ export const useEcosystem = () => {
         for (const i in balances) {
           const { amount, denom } = balances[i];
 
+          if (!coinRegistry[denom as keyof IConstractList]) {
+            console.log(`${denom} not found in config.`);
+            continue;
+          }
+
+          // TODO:ibc/2CB87BCE0937B1D1DFCEE79BE4501AAF3C265E923509AEAC410AD85D27F35130 add denom to config
+
           //Convert it to decimal places
           const balanceInDenom = coinConvert(
             amount as string,
-            coinRegistry[denom as keyof IConstractList].decimals,
+            coinRegistry[denom as keyof IConstractList]?.decimals,
             "human"
           );
 
