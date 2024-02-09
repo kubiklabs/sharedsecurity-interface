@@ -22,7 +22,8 @@ const Ecosystem = () => {
   const { getParsedEcosystemData } = useAez();
   const { data } = useRecoilValue(ecosystemState);
   const [items, setItems] = useState(data);
-  const [visibleItems, setVisibleItems] = useState(4);
+  const noOfDappsToShow = 3;
+  const [visibleItems, setVisibleItems] = useState(noOfDappsToShow);
 
   useEffect(() => {
     if (!data || !data.length) getParsedData();
@@ -34,10 +35,10 @@ const Ecosystem = () => {
   console.log(data);
 
   const loadMoreItems = () => {
-    setVisibleItems((prevVisibleItems) => prevVisibleItems + 4);
+    setVisibleItems((prevVisibleItems) => prevVisibleItems + noOfDappsToShow);
   };
   const collapseItems = () => {
-    setVisibleItems(4);
+    setVisibleItems(noOfDappsToShow);
   };
 
   const modifyData = (data: any) => {
@@ -79,7 +80,7 @@ const Ecosystem = () => {
             </Flex>
 
             <Box>
-              {visibleItems < items.length ? (
+              {visibleItems <= items.length ? (
                 <Button
                   background={"transparent"}
                   color={"#b3b3b3"}
