@@ -1,17 +1,7 @@
-import axios from "axios";
-import { ILpCardProps } from "../../../components/Governance/LpCard";
-import { parseIsoTimeString } from "../../../utils/common";
-import { useState } from "react";
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
-import { proposalsState } from "../../../context/proposalsState";
+import { useRecoilState } from "recoil";
 import { useGovernanceQuery } from "../useGovernanceQuery";
 import { userVpState } from "../../../context/userVpState";
 import { Stride } from "../../../config/nodeConfig.json";
-
-interface IProposalData {
-  proposals: Array<any>;
-  pagination: any;
-}
 
 const trustedRest = `${Stride.REST}/`;
 
@@ -57,9 +47,6 @@ export const useStrideGovQuery = () => {
 
   const getStrideVotingPower = async (address: string) => {
     const votingPower = await getVotingPower(address);
-    const updatedState = { ...userVp, Stride: votingPower };
-
-    // setUserVp(updatedState);
     return votingPower;
   };
 
