@@ -1,6 +1,4 @@
-import { useRecoilState } from "recoil";
 import { useGovernanceQuery } from "../useGovernanceQuery";
-import { userVpState } from "../../../context/userVpState";
 import { Stride } from "../../../config/nodeConfig.json";
 
 const trustedRest = `${Stride.REST}/`;
@@ -22,8 +20,6 @@ export const useStrideGovQuery = () => {
     getParsedProposal,
     getUserVote,
   } = useGovernanceQuery(trustedRest, "Stride");
-
-  const [userVp, setUserVp] = useRecoilState(userVpState);
 
   const getStrideGovProposals = async () => {
     return await getGovProposals();
