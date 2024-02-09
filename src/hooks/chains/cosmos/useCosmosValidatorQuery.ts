@@ -3,9 +3,11 @@ import { useValidatorQuery } from "../../common/validators/useValidatorsQuery";
 import { cosmosValidatorState } from "../../../context/cosmosValidatorState";
 import { useCosmosGovQuery } from "./useCosmosGovQuery";
 import { coinConvert } from "../../../utils/common";
+import { Cosmos } from "../../../config/nodeConfig.json";
+
 import axios from "axios";
 
-const COSMOS_REST_URL = "https://cosmoshub-api.lavenderfive.com:443";
+const COSMOS_REST_URL = Cosmos.REST;
 
 export const useCosmosValidatorQuery = () => {
   const [{ validators }, setValidators] = useRecoilState(cosmosValidatorState);

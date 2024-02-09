@@ -2,6 +2,7 @@ import { SigningStargateClient } from "@cosmjs/stargate";
 import { getCosmosOption, sleep } from "../../../utils/common";
 // import { useConnectWallet, useDisconnetWallet } from "../../useConnectWallet";
 import cosmosChainInfo from "../../../config/chains/CosmosHub/cosmos_mainnet.json";
+import nodeConfig from "../../../config/nodeConfig.json";
 import { toast } from "react-toastify";
 import Long from "long";
 
@@ -16,7 +17,7 @@ const style = {
 };
 
 export const useCosmosGovTxn = () => {
-  const rpcEndPoints = cosmosChainInfo.apis.rpc;
+  const rpcEndPoint = nodeConfig.Cosmos.RPC;
 
   const getCosmosAddressSigner = async () => {
     while (
@@ -52,7 +53,7 @@ export const useCosmosGovTxn = () => {
 
     try {
       const client = await SigningStargateClient.connectWithSigner(
-        rpcEndPoints[9].address,
+        rpcEndPoint,
         offlineSigner
       );
       const fee = {
@@ -86,29 +87,3 @@ export const useCosmosGovTxn = () => {
 
   return { sendCosmosVote, getCosmosAddressSigner };
 };
-//voteOption may be either in the form 0,1,2,3,4,5 or VOTE_OPTION_YES,NO,NO_WITH_VETO,
-// {
-//   "account_number": "396871",
-//   "chain_id": "juno-1",
-//   "fee": {
-//     "gas": "87804",
-//     "amount": [
-//       {
-//         "amount": "6586",
-//         "denom": "ujuno"
-//       }
-//     ]
-//   },
-//   "memo": "",
-//   "msgs": [
-//     {
-//       "type": "cosmos-sdk/MsgVote",
-//       "value": {
-//         "option": 1,
-//         "proposal_id": "317",
-//         "voter": "juno1zd4guuajjyr5sdzzq52x8es4l4hmy5uvnweljh"
-//       }
-//     }
-//   ],
-//   "sequence": "0"
-// }

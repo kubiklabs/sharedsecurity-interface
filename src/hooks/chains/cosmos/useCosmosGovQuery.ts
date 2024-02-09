@@ -1,8 +1,9 @@
 import { useRecoilState } from "recoil";
 import { useGovernanceQuery } from "../useGovernanceQuery";
 import { userVpState } from "../../../context/userVpState";
+import { Cosmos } from "../../../config/nodeConfig.json";
 
-let trustedRest = "https://cosmos-rest.publicnode.com";
+let trustedRest = Cosmos.REST;
 
 export const useCosmosGovQuery = () => {
   const {

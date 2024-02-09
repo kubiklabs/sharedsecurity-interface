@@ -6,13 +6,14 @@ import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import { proposalsState } from "../../../context/proposalsState";
 import { useGovernanceQuery } from "../useGovernanceQuery";
 import { userVpState } from "../../../context/userVpState";
+import { Stride } from "../../../config/nodeConfig.json";
 
 interface IProposalData {
   proposals: Array<any>;
   pagination: any;
 }
 
-const trustedRest = "https://stride-api.polkachu.com/";
+const trustedRest = `${Stride.REST}/`;
 
 export const useStrideGovQuery = () => {
   const {
