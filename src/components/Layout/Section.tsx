@@ -13,9 +13,7 @@ const Section = (props: any) => {
       backgroundColor={props?.backgroundColor || "#17131e"}
       borderTopRadius={"15px"}
       borderBottomRadius={props?.borderBottomRadius || "15px"}
-      // padding="30px 40px"
-      py={"40px"}
-      px={"60px"}
+      padding={props?.padding || "40px 60px"}
       width={props?.width || "full"}
       height={props.height}
     >

@@ -36,6 +36,7 @@ const Community = () => {
        //width={"auto"}
         heading="Atom Zone Community Calls"
         subtitle="Stay up to date"
+        padding="30px 40px"
       >
         <CustomTable
           keys={Object.keys(communityCalls[0])}
@@ -44,6 +45,7 @@ const Community = () => {
           pagination={true}
           itemsPerPage={5}
           color="#bfbfbfcc"
+          overflow="clip"
         />
       </Section>
       <Section
@@ -51,6 +53,7 @@ const Community = () => {
       // width={"auto"}
         heading="Atom Zone Agora Calls"
         subtitle="A gathering place to address the topics shaping ATOM Ecosystem"
+        padding="30px 40px"
       >
         <CustomTable
           keys={Object.keys(communityCalls[0])}
@@ -59,6 +62,7 @@ const Community = () => {
           pagination={true}
           color="#bfbfbfcc"
           itemsPerPage={5}
+          overflow="clip"
         />
       </Section>
     </SimpleGrid>

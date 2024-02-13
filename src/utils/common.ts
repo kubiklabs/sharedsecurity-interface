@@ -197,3 +197,17 @@ export const calculateDaysLeft = (targetDate: string) => {
 
   return days;
 };
+
+export const calculateAverageCommissionRate = (validators : any) => {
+  let totalCommission = 0;
+  
+  // Loop through each validator and sum up the commission rates
+  for (const validator of validators) {
+    totalCommission += parseFloat(validator['Commision Rate'].replace('%', ''));
+  }
+  
+  // Calculate the average commission rate
+  const averageCommission = totalCommission / validators.length;
+  
+  return averageCommission;
+};

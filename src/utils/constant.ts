@@ -575,6 +575,15 @@ export const urlObject = {
   "Stride": "/Stride.svg",
 }
 
+export const featuredOverviewValidators = [
+  { name: "Active Validators", value: "180" },
+  { name: "Allocated Validators", value: "578" },
+  { name: "AVG. Commission", value: "11.41%" },
+  { name: "On-chain Commission", value: "10.64%" },
+  { name: "Nakamoto Coefficient", value: "6.775" },
+  { name: "Meanful Coefficient", value: "24.597" },
+];
+
 export const ValidatorNames = ['Coinbase Custody', 'SG-1', 'Everstake', 'Zero Knowledge Validator (ZKV)', 'Binance Node', 'Allnodes ⚡️ 0% fee', 'DokiaCapital', 'Cosmostation', 'GAME', '🐠stake.fish', 'Sikka', 'NO! Fee to 2025 💸 | melea.xyz', 'Kraken', 'P2P.ORG - P2P Validator', 'Ledger', 'Provalidator', 'Informal Systems', 'Chorus One', 'Imperator.co', 'Upbit Staking', 'Swiss Staking', 'MultiChain ventures', 'Binance Staking', 'Figment', 'Citadel.one', 'PRYZM | StakeDrop', 'iqlusion', 'hashtower', 'Matterhorn', 'BouBouNode', 'strangelove', 'StakeLab', 'Stakecito', 'Forbole', 'CoinoneNode', 'Blockpower', 'dForce', 'Coinbase Cloud', 'ShapeShift DAO', 'Staking Facilities', 'POSTHUMAN ꝏ DVS', 'ChainLayer', 'PRO Delegators', 'B-Harvest', 'Kiln', ' polkachu.com', 'Stakely.io', 'Ubik Capital 0%Fee', 'KalpaTech', ' Lavender.Five Nodes 🐝', 'S16 Research Ventures', 'Golden Ratio Staking', 'IRISNET', 'Atomic Nodes', '0base.vc', 'Simply Staking', 'Blockdaemon', 'Keplr', 'stakezone', '01node', '🇨🇭 Vortex.live 🟢', '🌐 KysenPool Sky ☁️ ', '✅ CryptoCrew Validators 🏆 Winner #GameOfChains', 'Twinstake', '#decentralizehk - DHK dao', 'WeStaking', 'HyperblocksPro', 'Staked', 'Binary Holdings', 'Dora Factory PGS', 'NodeStake', 'IcyCRO 🧊', '🛡️Bunkerstake.io', 'Meria', 'HighStakes.ch | Stake for Airdrop', 'EZ Staking', 'StakeWithUs', 'Enigma', 'Cypher Core', 'Stakin', 'Frens (🤝,🤝)', 'stake.systems | autocompound', 'SmartNodes', 'AUDIT.one', 'BlockHunters 🎯', 'Witval', 'Node Guardians', 'nylira.net', 'Citizen Web3', 'validator.network', 'Umbrella ☔', 'Cosmic Validator | 100% Uptime & Auto-compound', 'HashKey Cloud', 'Luganodes', 'Leap Wallet', 'DACM', 'interchain.FM🥩', 'StakeSeeker by BTCS', 'Trust Nodes', 'Silk Nodes','WhisperNode 🤐',
 'TienThuatToan 🚀 Coinback 100%',
 'DelegaNetworks ∞',
