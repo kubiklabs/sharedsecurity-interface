@@ -11,8 +11,8 @@ const BigSmallText = ({
   color: string;
 }) => {
   return (
-    <Flex alignItems={"end"} gap={"2px"}>
-      <Text color={color} m={"0"} fontWeight={"800"} fontSize={"1rem"}>
+    <Flex alignItems={"end"} gap={"5px"}>
+      <Text color={color} m={"0"} fontWeight={"800"} fontSize={"14px"}>
         {bigText}%
       </Text>
       <Text color={color} m={"0"} fontSize={"0.8rem"}>

@@ -22,7 +22,7 @@ const ColorTag = ({
       px={"12px"}
       bg={bgColor}
       border={borderStyle}
-      fontSize={"0.9rem"}
+      fontSize={"14px"}
       width={"fit-content"}
       color={"white"}
     >

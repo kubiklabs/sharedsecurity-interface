@@ -100,44 +100,49 @@ const ValidatorsList = () => {
           alignItems={"center"}
           gap={"50px"}
           justifyContent={"flex-end"}
-          marginTop={"-80px"}
+          marginTop={"-50px"}
         >
+          {softOptIndex > 0 && (
+            <FormControl width={"fit-content"}>
+              <Flex gap={"15px"}>
+                <Switch
+                  onChange={handleSoftOptToggle}
+                  colorScheme={"pink"}
+                  id="soft-opt-out"
+                  size="lg"
+                />
+                <Flex alignItems={"center"} gap={"10px"}>
+                  <Text>Soft opt-out</Text>
+                  <Tooltip label="In order to make the economics of ICS more favorable for Cosmos Hub validators, validators in the bottom 5% of vote power in the Cosmos Hub validator set would be given the option to opt-out from validating for the Stride/Neutron blockchain. This translates to roughly the bottom sixty-five validators.">
+                    <Text
+                      transform={"scale(0.8) translateY(5px)"}
+                      height={"fit-content"}
+                      cursor={"pointer"}
+                    >
+                      <span className="material-symbols-outlined">info</span>
+                    </Text>
+                  </Tooltip>
+                </Flex>
+              </Flex>
+            </FormControl>
+          )}
           <Select
             isDisabled={softOpt}
             onChange={handleChange}
             size="lg"
             minW={"100px"}
-            width={"fit-content"}
+            width={"137px"}
             height={"36px"}
+            fontSize={"14px"}
+            display={"flex"}
+            justifyContent={"center"}
+            alignItems={"center"}
+            textAlign={"center"}
           >
-            <option value="active">Active</option>
-            <option value="jailed">Jailed</option>
-            <option value="all">All</option>
+            <option value="active">ACTIVE</option>
+            <option value="jailed">JAILED</option>
+            <option value="all">ALL</option>
           </Select>
-          {/* {softOptIndex > 0 && (
-          <FormControl>
-            <Flex gap={"15px"}>
-              <Switch
-                onChange={handleSoftOptToggle}
-                colorScheme={"pink"}
-                id="soft-opt-out"
-                size="lg"
-              />
-              <Flex alignItems={"center"} gap={"10px"}>
-                <Text>Soft opt-out</Text>
-                <Tooltip label="In order to make the economics of ICS more favorable for Cosmos Hub validators, validators in the bottom 5% of vote power in the Cosmos Hub validator set would be given the option to opt-out from validating for the Stride/Neutron blockchain. This translates to roughly the bottom sixty-five validators.">
-                  <Text
-                    transform={"scale(0.8) translateY(5px)"}
-                    height={"fit-content"}
-                    cursor={"pointer"}
-                  >
-                    <span className="material-symbols-outlined">info</span>
-                  </Text>
-                </Tooltip>
-              </Flex>
-            </Flex>
-          </FormControl>
-        )} */}
         </Flex>
 
         {activeValidators && activeValidators.length ? (

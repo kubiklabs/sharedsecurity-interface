@@ -17,11 +17,14 @@ const Section = (props: any) => {
       width={props?.width || "full"}
       height={props.height}
     >
-      <SectionHeading
-        heading={props.heading}
-        sideText={props.sideText}
-        subtitle={props.subtitle}
-      />
+      {props.heading && (
+        <SectionHeading
+          heading={props.heading}
+          sideText={props.sideText}
+          subtitle={props.subtitle}
+          sideTextPos={props.sideTextPos}
+        />
+      )}
       {props.children}
     </Box>
   );
