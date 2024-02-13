@@ -4,6 +4,9 @@ import { neutronSingleProposal } from "../../../config/chains/Neutron/contracts/
 import { toast } from "react-toastify";
 import Long from "long";
 import { StdFee } from "@cosmjs/stargate";
+import { Neutron } from "../../../config/nodeConfig.json";
+
+const rpcEndpoint = Neutron.RPC;
 enum Vote {
   Yes,
   No,
@@ -39,7 +42,7 @@ export const useNeutronGovTxn = () => {
     const { address, offlineSigner } = await getNeutronAddressSigner();
     try {
       const client = await SigningCosmWasmClient.connectWithSigner(
-        "https://rpc-kralum.neutron-1.neutron.org",
+        rpcEndpoint,
         offlineSigner
       );
 

@@ -13,6 +13,10 @@ import { StargateClient } from "@cosmjs/stargate";
 import { useSetRecoilState } from "recoil";
 import { astroportTvlState } from "../../../../context/ecosystemState";
 
+import { Neutron } from "../../../../config/nodeConfig.json";
+
+const rpcEndpoint = Neutron.RPC;
+
 type INeutronCR = typeof neutronCoinRegistry;
 
 export const useNtrnAstroQuery = () => {
@@ -28,18 +32,14 @@ export const useNtrnAstroQuery = () => {
   }, []);
 
   const createQueryClient = async () => {
-    const queryClient = await CosmWasmClient.connect(
-      "https://rpc-kralum.neutron-1.neutron.org"
-    );
+    const queryClient = await CosmWasmClient.connect(rpcEndpoint);
 
     setQueryClient(queryClient);
     return queryClient;
   };
 
   const createStargateClient = async () => {
-    const stClient = await StargateClient.connect(
-      "https://rpc-kralum.neutron-1.neutron.org"
-    );
+    const stClient = await StargateClient.connect(rpcEndpoint);
     setStargateClient(stClient);
     return stClient;
   };

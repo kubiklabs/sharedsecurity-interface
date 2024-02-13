@@ -18,8 +18,6 @@ export const useChainInfo = (chainName: string) => {
     setChainInfo(chainIDInfoMap[chainName as keyof typeof chainIDInfoMap]);
   }, [chainName]);
 
-  //   const { chainInfo } = useRecoilValue(configState);
-
   /*
    * Returns the chainInfo data of selected chain
    */

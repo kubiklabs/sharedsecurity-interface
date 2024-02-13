@@ -7,6 +7,9 @@ import { neutronVotingModule } from "../../../config/chains/Neutron/contracts/Vo
 import { useRecoilState, useRecoilValue } from "recoil";
 import { userVpState } from "../../../context/userVpState";
 import { walletState } from "../../../context/walletState";
+import { Neutron } from "../../../config/nodeConfig.json";
+
+const rpcEndpoint = Neutron.RPC;
 
 export const useNeutronGovQuery = () => {
   const [queryClient, setQueryClient] = useState<CosmWasmClient>();
@@ -19,9 +22,7 @@ export const useNeutronGovQuery = () => {
   }, []);
 
   const createQueryClient = async () => {
-    const queryClient = await CosmWasmClient.connect(
-      "https://rpc-kralum.neutron-1.neutron.org"
-    );
+    const queryClient = await CosmWasmClient.connect(rpcEndpoint);
     setQueryClient(queryClient);
     return queryClient;
   };

@@ -4,8 +4,9 @@ import { useSetRecoilState } from "recoil";
 import { neutronAssetState } from "../../../../context/assetsState";
 import neutronAssetList from "../astroport/neutronTokenList.json";
 import { useNtrnAstroQuery } from "../astroport/useNtrnAstroQuery";
+import { Neutron } from "../../../../config/nodeConfig.json";
 
-const REST_URL = "https://rest-kralum.neutron-1.neutron.org";
+const REST_URL = Neutron.REST;
 
 export const useNeutronAssets = () => {
   const setNeutronAssets = useSetRecoilState(neutronAssetState);

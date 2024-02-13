@@ -8,6 +8,9 @@ import { contracts } from "../../../../config/chains/Neutron/contracts/mars/mars
 import { useSetRecoilState } from "recoil";
 import { marsTvlState } from "../../../../context/ecosystemState";
 import { StargateClient } from "@cosmjs/stargate";
+import { Neutron } from "../../../../config/nodeConfig.json";
+
+const rpcEndpoint = Neutron.RPC;
 
 export const useNtrnMarsQuery = () => {
   const [queryClient, setQueryClient] = useState<CosmWasmClient>();
@@ -17,17 +20,13 @@ export const useNtrnMarsQuery = () => {
 
   const { getAllContractBalances } = useEcosystem();
   const createQueryClient = async () => {
-    const queryClient = await CosmWasmClient.connect(
-      "https://rpc-kralum.neutron-1.neutron.org"
-    );
+    const queryClient = await CosmWasmClient.connect(rpcEndpoint);
     setQueryClient(queryClient);
     return queryClient;
   };
 
   const createStargateClient = async () => {
-    const stClient = await StargateClient.connect(
-      "https://rpc-kralum.neutron-1.neutron.org"
-    );
+    const stClient = await StargateClient.connect(rpcEndpoint);
     setStargateClient(stClient);
     return stClient;
   };
