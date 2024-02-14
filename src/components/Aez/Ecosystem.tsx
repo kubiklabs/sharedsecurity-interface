@@ -32,7 +32,6 @@ const Ecosystem = () => {
   const getParsedData = async () => {
     const data = await getParsedEcosystemData();
   };
-  console.log(data);
 
   const loadMoreItems = () => {
     setVisibleItems((prevVisibleItems) => prevVisibleItems + noOfDappsToShow);
@@ -41,13 +40,14 @@ const Ecosystem = () => {
     setVisibleItems(noOfDappsToShow);
   };
 
-  const modifyData = (data: any) => {
+  const modifyData = () => {
     const newData = data.map((item: any) => {
       return {
         ...item,
         url: urlImgObject[item.name as keyof typeof urlImgObject],
       };
     });
+
     return newData;
   };
 
@@ -59,20 +59,11 @@ const Ecosystem = () => {
     >
       <Stack>
         {data && data.length ? (
-          // <CustomTable
-          //   keys={data && Object.keys(data[0])}
-          //   data={data}
-          //   minGridWidth="80px"
-          //   maxGridWidth="100px"
-          //   gridColumnGap="0px"
-          // />
-
           <>
             <Flex gap={"30px"} flexWrap={"wrap"} justifyContent={"center"}>
-              {modifyData(items)
+              {modifyData()
                 .slice(0, visibleItems)
                 .map((dataItem: any) => {
-                  // console.log(dataItem);
                   return (
                     <EcoCards data={dataItem} key={Object.keys(dataItem)} />
                   );

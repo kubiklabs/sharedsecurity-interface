@@ -1,15 +1,13 @@
-// Card.js
-import React from "react";
 import {
   Button,
   Card,
   CardFooter,
   Flex,
-  Text, useMediaQuery
+  Text,
+  useMediaQuery,
 } from "@chakra-ui/react";
 
 const EcoCards = ({ data, key }: any) => {
-  // console.log(data);
   const [isLargerThan] = useMediaQuery("(min-width: 1424px)");
 
   return (
@@ -22,8 +20,8 @@ const EcoCards = ({ data, key }: any) => {
       boxShadow="lg"
       position="relative"
       width={isLargerThan ? "287px" : "250px"}
-      height={isLargerThan ? "250px" : "235px" }
-     // You can adjust the height as needed
+      height={isLargerThan ? "250px" : "235px"}
+      // You can adjust the height as needed
     >
       <Flex direction="column" height="100%" justifyContent="space-between">
         <Flex gap="10px" p="10px" justifyContent="end">
