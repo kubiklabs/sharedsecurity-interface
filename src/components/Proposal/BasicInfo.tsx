@@ -161,7 +161,11 @@ const BasicInfo = ({
           >
             <Tooltip content="Expand">
               <Button
-                bg={"whiteAlpha.700"}
+                fontSize={"10px"}
+                _focus={{
+                  bg: "#c9c9c991",
+                }}
+                bg={"#c9c9c991"}
                 sx={{
                   position: "absolute",
                   top: "50px",
@@ -170,7 +174,14 @@ const BasicInfo = ({
                 }}
                 onClick={handleModalOpen}
               >
-                <span className="material-symbols-outlined">open_in_full</span>
+                <span
+                  style={{
+                    fontSize: "20px",
+                  }}
+                  className="material-symbols-outlined"
+                >
+                  open_in_full
+                </span>
               </Button>
             </Tooltip>
             <Text fontSize={"20px"}>Description</Text>

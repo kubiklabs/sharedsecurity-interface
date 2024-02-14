@@ -69,20 +69,16 @@ function App() {
     <>
       <BrowserRouter>
         {/* <Box className="App"> */}
-        <Box  
-            sx={scrollbarStyle}
-            maxH={"100vh"}
-            overflowY={"scroll"}
-            flex={1}
+        <Box
+          sx={scrollbarStyle}
+          maxH={"100vh"}
+          overflowY={"scroll"}
+          minH={"100vh"}
+          flex={1}
         >
-        <SideBar/>
+          <SideBar />
           {/* <Divider orientation="vertical" /> */}
-          <Box
-            px={"50px"}
-            pt={"150px"}
-            flex={"1"}
-            pb={"50px"}
-          >
+          <Box px={"50px"} pt={"150px"} flex={"1"} pb={"50px"} minH={"100vh"}>
             <Routes>
               <Route path="/overview" element={<Overwiew />} />
               <Route path="/aez" element={<Aez />} />
@@ -93,11 +89,11 @@ function App() {
               <Route path="/" element={<Navigate to="/overview" replace />} />
             </Routes>
           </Box>
-          <Footer/>
+          <Footer />
         </Box>
       </BrowserRouter>
       {/* <Header /> */}
-      
+
       <ToastContainer style={{ textAlign: "left" }} />
     </>
   );

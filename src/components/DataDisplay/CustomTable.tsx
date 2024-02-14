@@ -168,17 +168,21 @@ const CustomTable = ({
                                 : value.label}
                             </Link>
                           ) : value.type === "PATH" ? (
-                            <PathLink
-                              style={{
-                                textDecoration: "underline",
-                                paddingLeft: `${
-                                  currentPath === "/aez" ? "10px" : 0
-                                }`,
-                              }}
-                              to={value.url}
-                            >
-                              {value.label ? `Proposal#${value.label}` : "-"}
-                            </PathLink>
+                            value.label !== "-" ? (
+                              <PathLink
+                                style={{
+                                  textDecoration: "underline",
+                                  paddingLeft: `${
+                                    currentPath === "/aez" ? "10px" : 0
+                                  }`,
+                                }}
+                                to={value.url}
+                              >
+                                Proposal #{value.label}
+                              </PathLink>
+                            ) : (
+                              "-"
+                            )
                           ) : value.type === "avatar" ? (
                             <Flex alignItems={"center"} gap={"15px"}>
                               <Avatar

@@ -42,8 +42,9 @@ const LpCard = ({
   return (
     <Box
       // maxWidth={"fit-content"}
-      border={`2px solid ${borderTagColorMap[tags[0] as keyof typeof tagColorMap]
-        }`}
+      border={`2px solid ${
+        borderTagColorMap[tags[0] as keyof typeof tagColorMap]
+      }`}
       bg={"rgba(255, 255, 255, 0.05)"}
       padding={"30px"}
       // paddingY={"20px"}
@@ -62,46 +63,51 @@ const LpCard = ({
           justifyContent={"space-between"}
           alignItems={"center"}
         >
-          <Flex flexDirection={"column"} maxW={showButtons?"60%":"90%"}>
+          <Flex flexDirection={"column"} maxW={showButtons ? "60%" : "90%"}>
             <Text
               overflow={"hidden"}
               whiteSpace={"nowrap"}
               textOverflow={"ellipsis"}
               textAlign={"left"}
               m={"0"}
-              fontSize={"1.2rem"}
+              fontSize={"20px"}
             >{`#${proposalId}. ${proposalTitle}`}</Text>
-            <SubtitleText textAlign={"left"} fontSize={"0.9rem"}>
-              voting ends on : {convertDateFormat(endDate)} {removeSecondsFromTime(endTime)}
+            <SubtitleText textAlign={"left"} fontSize={"14px"}>
+              voting ends on : {convertDateFormat(endDate)}{" "}
+              {removeSecondsFromTime(endTime)}
             </SubtitleText>
           </Flex>
-          {showButtons && <Button
-            color={"white"}
-            bg={
-              (
-                cosmosStatusMap[status as keyof typeof cosmosStatusMap] ||
-                neutronStatusMap[status as keyof typeof neutronStatusMap]
-              )?.bg
-            }
-            _hover={{
-              border: `1px solid white`,
-            }}
-            height={"40px"}
-          >
-            {
-              (
-                cosmosStatusMap[status as keyof typeof cosmosStatusMap] ||
-                neutronStatusMap[status as keyof typeof neutronStatusMap]
-              )?.pretty
-            }
-          </Button>}
+          {showButtons && (
+            <Button
+              fontSize={"14px"}
+              color={"white"}
+              bg={
+                (
+                  cosmosStatusMap[status as keyof typeof cosmosStatusMap] ||
+                  neutronStatusMap[status as keyof typeof neutronStatusMap]
+                )?.bg
+              }
+              _hover={{
+                border: `1px solid white`,
+              }}
+              height={"40px"}
+            >
+              {
+                (
+                  cosmosStatusMap[status as keyof typeof cosmosStatusMap] ||
+                  neutronStatusMap[status as keyof typeof neutronStatusMap]
+                )?.pretty
+              }
+            </Button>
+          )}
         </Flex>
         <Flex gap={"5px"}>
           {tags.map((tag) => {
             return (
               <ColorTag
-                borderStyle={`1px solid ${tagColorMap[tags[0] as keyof typeof tagColorMap]
-                  }`}
+                borderStyle={`1px solid ${
+                  tagColorMap[tags[0] as keyof typeof tagColorMap]
+                }`}
                 content={tag}
                 bgColor={tagColorMap[tag as keyof typeof tagColorMap]}
               />

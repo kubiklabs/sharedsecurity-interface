@@ -28,7 +28,7 @@ const LpSection = ({
       sideText={`${lpList?.length}/${lpList?.length}`}
       subtitle="All the live proposals"
     >
-      <PulseLive left="350px" top="60px" />
+      <PulseLive left="300px" top="55px" />
       <Grid
         p={"15px"}
         gap={"20px"}

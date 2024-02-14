@@ -27,7 +27,7 @@ const SectionHeading = ({
         <Heading size={"20px"} margin={"0px"}>
           {heading}
         </Heading>
-        <Text margin={"0"} fontSize={"16px"} color={"gray"}>
+        <Text margin={"0"} mb={"3px"} fontSize={"16px"} color={"gray"}>
           {sideText}
         </Text>
       </Box>
