@@ -1,0 +1,107 @@
+{
+    "All Network": {
+      "1D": [
+        { "month": "Jan", "Cosmos Hub": 38, "Stride": 63, "Neutron": 82 },
+        { "month": "Feb", "Cosmos Hub": 28, "Stride": 47, "Neutron": 74 },
+        { "month": "Mar", "Cosmos Hub": 32, "Stride": 54, "Neutron": 93 },
+        { "month": "Apr", "Cosmos Hub": 26, "Stride": 29, "Neutron": 61 }
+      ],
+      "7D": [
+        { "month": "Jan", "Cosmos Hub": 10, "Stride": 72, "Neutron": 57 },
+        { "month": "Feb", "Cosmos Hub": 15, "Stride": 35, "Neutron": 89 },
+        { "month": "Mar", "Cosmos Hub": 25, "Stride": 58, "Neutron": 42 },
+        { "month": "Apr", "Cosmos Hub": 5 , "Stride": 41, "Neutron": 35 }
+      ],
+      "30D": [
+        { "month": "Jan", "Cosmos Hub": 54, "Stride": 86, "Neutron": 67 },
+        { "month": "Feb", "Cosmos Hub": 78, "Stride": 21, "Neutron": 48 },
+        { "month": "Mar", "Cosmos Hub": 90, "Stride": 67, "Neutron": 29 },
+        { "month": "Apr", "Cosmos Hub": 20, "Stride": 39, "Neutron": 76 }
+      ],
+      "ALL": [
+        { "month": "Jan", "Cosmos Hub": 43, "Stride": 50, "Neutron": 53 },
+        { "month": "Feb", "Cosmos Hub": 67, "Stride": 78, "Neutron": 87 },
+        { "month": "Mar", "Cosmos Hub": 86, "Stride": 93, "Neutron": 68 },
+        { "month": "Apr", "Cosmos Hub": 26, "Stride": 24, "Neutron": 94 }
+      ]
+    },
+    "Cosmos Hub": {
+      "1D": [
+        { "month": "Jan", "Cosmos Hub": 38 },
+        { "month": "Feb", "Cosmos Hub": 28 },
+        { "month": "Mar", "Cosmos Hub": 32 },
+        { "month": "Apr", "Cosmos Hub": 26 }
+      ],
+      "7D": [
+        { "month": "Jan", "Cosmos Hub": 10 },
+        { "month": "Feb", "Cosmos Hub": 15 },
+        { "month": "Mar", "Cosmos Hub": 25 },
+        { "month": "Apr", "Cosmos Hub": 5 }
+      ],
+      "30D": [
+        { "month": "Jan", "Cosmos Hub": 54 },
+        { "month": "Feb", "Cosmos Hub": 78 },
+        { "month": "Mar", "Cosmos Hub": 90 },
+        { "month": "Apr", "Cosmos Hub": 20 }
+      ],
+      "ALL": [
+        { "month": "Jan", "Cosmos Hub": 43 },
+        { "month": "Feb", "Cosmos Hub": 67 },
+        { "month": "Mar", "Cosmos Hub": 86 },
+        { "month": "Apr", "Cosmos Hub": 26 }
+      ]
+    },
+    "Stride": {
+      "1D": [
+        { "month": "Jan", "Stride": 63 },
+        { "month": "Feb", "Stride": 47 },
+        { "month": "Mar", "Stride": 54 },
+        { "month": "Apr", "Stride": 29 }
+      ],
+      "7D": [
+        { "month": "Jan", "Stride": 72 },
+        { "month": "Feb", "Stride": 35 },
+        { "month": "Mar", "Stride": 58 },
+        { "month": "Apr", "Stride": 41 }
+      ],
+      "30D": [
+        { "month": "Jan", "Stride": 86 },
+        { "month": "Feb", "Stride": 21 },
+        { "month": "Mar", "Stride": 67 },
+        { "month": "Apr", "Stride": 39 }
+      ],
+      "ALL": [
+        { "month": "Jan", "Stride": 50 },
+        { "month": "Feb", "Stride": 78 },
+        { "month": "Mar", "Stride": 93 },
+        { "month": "Apr", "Stride": 24 }
+      ]
+    },
+    "Neutron": {
+      "1D": [
+        { "month": "Jan", "Neutron": 82 },
+        { "month": "Feb", "Neutron": 74 },
+        { "month": "Mar", "Neutron": 93 },
+        { "month": "Apr", "Neutron": 61 }
+      ],
+      "7D": [
+        { "month": "Jan", "Neutron": 57 },
+        { "month": "Feb", "Neutron": 89 },
+        { "month": "Mar", "Neutron": 42 },
+        { "month": "Apr", "Neutron": 35 }
+      ],
+      "30D": [
+        { "month": "Jan", "Neutron": 67 },
+        { "month": "Feb", "Neutron": 48 },
+        { "month": "Mar", "Neutron": 29 },
+        { "month": "Apr", "Neutron": 76 }
+      ],
+      "ALL": [
+        { "month": "Jan", "Neutron": 53 },
+        { "month": "Feb", "Neutron": 87 },
+        { "month": "Mar", "Neutron": 68 },
+        { "month": "Apr", "Neutron": 94 }
+      ]
+    }
+  }
+  

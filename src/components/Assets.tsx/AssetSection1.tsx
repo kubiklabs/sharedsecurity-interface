@@ -7,6 +7,7 @@ import { assetPieType, assetType } from "../types/types";
 import DoughnutChart from "../Graphs and Chart/DoughnutChart";
 import AssetGraph from "./AssetGraph";
 import AssetOptions from "./AssetOptions";
+import DoughnutGraph from "../Graphs and Chart/DoughnutGraph";
 
 type propsType = {
   allAssets: assetType[];
@@ -28,18 +29,44 @@ const AssetSection1 = ({
     );
   };
   const [option, setOption] = useState<assetType[]>(neutronAssets);
-  const [finalData, setFinalData] = useState<assetPieType>();
+  const [finalData, setFinalData] = useState<assetPieType[]>([]);
   const [selectedOption, setSelectedOption] = useState<string>("all network");
   useEffect(() => {
     setOption(allAssets);
   }, [allAssets]);
 
   useEffect(() => {
-    const graphData = {
-      labels: option.map((asset) => asset.name.label),
-      datasets: option.map((asset) => asset.amount),
+    // const graphData = {
+    //   labels: option.map((asset) => asset.name.label),
+    //   datasets: option.map((asset) => asset.amount),
+    // };
+
+    let graphData = option.map((item) => {
+      return {
+        label: item.name.label,
+        amount: item.amount
+      }
+    })
+
+    graphData.sort((a, b) => b.amount - a.amount);
+
+    // Keep the top 2 elements
+    let top2 = graphData.slice(0, 2);
+
+    // Calculate the sum of the remaining elements
+    let sumOthers = graphData.slice(2).reduce((sum, item) => sum + item.amount, 0);
+
+    // Create a new object for "Others"
+    let others = {
+      "label": "Others",
+      "amount": sumOthers
     };
-    setFinalData(graphData);
+
+    // Combine top 2 and others
+    let result = [...top2, others];
+
+
+    setFinalData(result);
   }, [option]);
 
   const handleChange = (option: string) => {
@@ -82,15 +109,14 @@ const AssetSection1 = ({
         >
           <Section
             height="100%"
-            heading={`Assets on ${
-              option === cosmosAssets
-                ? " Cosmos Hub"
-                : option === neutronAssets
+            heading={`Assets on ${option === cosmosAssets
+              ? " Cosmos Hub"
+              : option === neutronAssets
                 ? " Neutron"
                 : option === allAssets
-                ? "All Network"
-                : " Stride"
-            }`}
+                  ? "All Network"
+                  : " Stride"
+              }`}
             subtitle="Stay up to date"
           >
             {option.length ? (
@@ -121,18 +147,17 @@ const AssetSection1 = ({
           <Section
             height="100%"
             gap="60px"
-            heading={`Total supply on ${
-              option === cosmosAssets
-                ? " Cosmos Hub"
-                : option === neutronAssets
+            heading={`Total supply on ${option === cosmosAssets
+              ? " Cosmos Hub"
+              : option === neutronAssets
                 ? " Neutron"
                 : option === allAssets
-                ? " All Network"
-                : " Stride"
-            }`}
+                  ? " All Network"
+                  : " Stride"
+              }`}
             subtitle="A gathering place to address the topics shaping the ATOM Ecosystem"
           >
-            {finalData && finalData.labels.length > 0 ? (
+            {finalData.length > 0 ? (
               <Flex
                 flexDirection={"column"}
                 maxHeight={"400px"}
@@ -141,7 +166,8 @@ const AssetSection1 = ({
                 alignItems={"center"}
                 gap={"35px"}
               >
-                <DoughnutChart data={finalData} />
+                {/* <DoughnutChart data={finalData} /> */}
+                <DoughnutGraph doughnutData={finalData} dataKey="amount" labelKey="label" colors={["#fc7779", "#bc3d70", "#fc6c9f"]} />
                 <Text fontSize={"14px"}>Asset Supply Distribution on Atom</Text>
               </Flex>
             ) : (

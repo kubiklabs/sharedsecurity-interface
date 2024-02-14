@@ -2,11 +2,19 @@ import { Box, Heading, Text } from "@chakra-ui/react";
 
 const SectionHeading = ({
   heading,
+  headingSize = "32px",
+  headingColor = "white",
   subtitle,
+  subtitleSize = "14px",
+  subtitleColor = "gray",
   sideText,
 }: {
   heading: string;
+  headingSize?: string;
+  headingColor?: string;
   subtitle: string;
+  subtitleSize?: string;
+  subtitleColor?: string;
   sideText: string;
 }) => {
   return (
@@ -17,7 +25,7 @@ const SectionHeading = ({
       textAlign={"left"}
     >
       <Box display={"flex"} gap={"10px"} alignItems={"end"}>
-        <Heading size={"24px"} margin={"0px"}>
+        <Heading fontSize={headingSize} textColor={headingColor} margin={"0px"}>
           {heading}
         </Heading>
         <Text margin={"0"} fontSize={"1.5rem"} color={"gray"}>
@@ -25,7 +33,7 @@ const SectionHeading = ({
         </Text>
       </Box>
       <Box>
-        <Text color={"gray"} margin={"0"} fontSize={"14px"}>
+        <Text color={subtitleColor} margin={"0"} fontSize={subtitleSize}>
           {subtitle}
         </Text>
       </Box>
