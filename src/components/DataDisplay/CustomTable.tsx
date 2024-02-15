@@ -39,8 +39,8 @@ const CustomTable = ({
   gridColumnGap,
   itemsPerPage = 10,
   pagination,
+  overflow,
 }: any) => {
-
   const currentPage = useRef(1);
   const totalPages = useRef(Math.ceil(data?.length / itemsPerPage) || 0);
   const [currentItems, setCurrentItems] = useState(data);
@@ -68,10 +68,14 @@ const CustomTable = ({
   //console.log(currentItems);
 
   return (
-    <TableContainer textAlign={"left"} display={"block"}>
+    <TableContainer
+      textAlign={"left"}
+      display={"block"}
+      overflowX={overflow ? "clip" : undefined}
+    >
       <Table width={"100%"} fontSize={"lg"}>
         {/* <TableCaption>Data fetched from different chains</TableCaption> */}
-        <Thead fontSize={"1.2rem"}>
+        <Thead fontSize={"24px"}>
           <Tr>
             {keys?.map((item: string) => {
               if (item === "Prop Date") return;
@@ -84,17 +88,16 @@ const CustomTable = ({
                   width={"200px"}
                   // pb={"30px"}
                   borderBottom={"1px solid"}
-                  borderColor={"gray.400"} 
+                  borderColor={"gray.400"}
                   pl={
                     currentPath === "/aez"
                       ? "10px"
                       : currentPath === "/validators"
                       ? "20px"
                       : 0
-                  }                 
+                  }
                   color={"#D9D9D9"}
-                  fontSize={"1.2rem"}
-
+                  fontSize={"20px"}
                 >
                   <Text
                     // borderLeft={"1px solid"}
@@ -102,7 +105,7 @@ const CustomTable = ({
                     py={"10px"}
                     px={"4px"}
                     width={"100%"}
-//                  cursor={"pointer"}
+                    //                  cursor={"pointer"}
                     textTransform={"capitalize"}
                     fontWeight={500}
                     fontFamily={"Alata, sans-serif"}
@@ -165,12 +168,21 @@ const CustomTable = ({
                                 : value.label}
                             </Link>
                           ) : value.type === "PATH" ? (
-                            <PathLink
-                              style={{ textDecoration: "underline" }}
-                              to={value.url}
-                            >
-                              Proposal#{value.label}
-                            </PathLink>
+                            value.label !== "-" ? (
+                              <PathLink
+                                style={{
+                                  textDecoration: "underline",
+                                  paddingLeft: `${
+                                    currentPath === "/aez" ? "10px" : 0
+                                  }`,
+                                }}
+                                to={value.url}
+                              >
+                                Proposal #{value.label}
+                              </PathLink>
+                            ) : (
+                              "-"
+                            )
                           ) : value.type === "avatar" ? (
                             <Flex alignItems={"center"} gap={"15px"}>
                               <Avatar

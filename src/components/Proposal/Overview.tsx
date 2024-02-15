@@ -1,13 +1,13 @@
-import React from "react";
-import Section from "../Layout/Section";
-import { Box, Flex, Text, Tooltip } from "@chakra-ui/react";
+import { Box, Flex, Stack, Text, Tooltip } from "@chakra-ui/react";
 import { IVoteValueProps } from "../../utils/interface";
 import { bigSmallTextColorMap, colorVoteMap } from "../../utils/constant";
 
 const Overview = ({ voteDistribution }: any) => {
   return (
-    <Box>
-    <Text fontSize={"2xl"} mb={"20px"} textAlign={"left"}>Overview</Text>
+    <Stack gap="10px">
+      <Text fontSize={"24px"} textAlign={"left"}>
+        Overview
+      </Text>
       <Box
         display={"flex"}
         my={"10px"}
@@ -60,7 +60,7 @@ const Overview = ({ voteDistribution }: any) => {
           </Flex>
         </Box>
       </Box> */}
-      </Box>
+    </Stack>
   );
 };
 

@@ -1,13 +1,12 @@
 import { SigningStargateClient } from "@cosmjs/stargate";
 import { getCosmosOption, sleep } from "../../../utils/common";
-// import { useConnectWallet, useDisconnetWallet } from "../../useConnectWallet";
-import strideChainInfo from "../../../config/chains/Stride/stride_mainnet.json";
 import { toast } from "react-toastify";
 import Long from "long";
+import { Stride } from "../../../config/nodeConfig.json";
+
+const rpcEndpoint = Stride.RPC;
 
 export const useStrideGovTxn = () => {
-  const rpcEndPoints = strideChainInfo.apis.rpc;
-
   const getStrideAddressSigner = async () => {
     while (
       !(window as any).keplr ||
@@ -44,7 +43,7 @@ export const useStrideGovTxn = () => {
 
     try {
       const client = await SigningStargateClient.connectWithSigner(
-        rpcEndPoints[1].address,
+        rpcEndpoint,
         offlineSigner
       );
       const fee = {
@@ -66,19 +65,6 @@ export const useStrideGovTxn = () => {
       } else {
         toast.error(`Transaction failed with code: ${code}`);
       }
-
-      // toast.success(
-      //   `Transaction broadcasted successfully with hash ${transactionHash}`,
-      //   {
-      //     position: "top-right",
-      //     autoClose: 5000,
-      //     hideProgressBar: false,
-      //     closeOnClick: true,
-      //     pauseOnHover: true,
-      //     draggable: true,
-      //     progress: undefined,
-      //   }
-      // );
     } catch (error) {
       toast.error(
         `Transaction failed with message ${(error as Error)?.message}`

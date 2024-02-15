@@ -6,22 +6,26 @@ const Section = (props: any) => {
     <Box
       display={"flex"}
       flexDirection={"column"}
-      justifyContent={"center"}
+      // justifyContent={"center"}
       mx={"auto"}
       gap={props.gap || "20px"}
       position={"relative"}
-      backgroundColor={props?.backgroundColor || "#17131e" }
-      borderRadius={"15px"}
-      padding="30px 40px"
+      backgroundColor={props?.backgroundColor || "#17131e"}
+      borderTopRadius={"15px"}
+      borderBottomRadius={props?.borderBottomRadius || "15px"}
+      padding={props?.padding || "40px 60px"}
       width={props?.width || "full"}
-  
+      height={props.height}
     >
-      <SectionHeading
-        heading={props.heading}
-        sideText={props.sideText}
-        subtitle={props.subtitle}
-      />
-      {props.children} 
+      {props.heading && (
+        <SectionHeading
+          heading={props.heading}
+          sideText={props.sideText}
+          subtitle={props.subtitle}
+          sideTextPos={props.sideTextPos}
+        />
+      )}
+      {props.children}
     </Box>
   );
 };

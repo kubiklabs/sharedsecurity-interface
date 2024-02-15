@@ -9,8 +9,12 @@ import { walletState } from "../../context/walletState";
 import { getCommonVoteOption } from "../../utils/common";
 import { calculateDaysLeft } from "../../utils/common";
 
-const VoteSection = ({ voteDistribution, prettyDenom, status, votingEndTime }: any) => {
-
+const VoteSection = ({
+  voteDistribution,
+  prettyDenom,
+  status,
+  votingEndTime,
+}: any) => {
   console.log(votingEndTime);
 
   const wallet = useRecoilValue(walletState);
@@ -41,27 +45,22 @@ const VoteSection = ({ voteDistribution, prettyDenom, status, votingEndTime }: a
   }, [wallet.isLoggedIn]);
 
   return (
-    <Box>
-      <Flex justifyContent={"space-between"} mb={"20px"} >
-        <Flex flexDir={"column"}>
-          <Text fontSize={"2xl"} textAlign={"left"}>Your Vote</Text>
-          <Text  fontSize={"lg"} color={"#A9A8AA"}>{userVote
-            ? `You have voted with ${userVote}.`
-            : "Looks like you haven't voted on this proposal"}</Text>
-        </Flex>
-        {
-          (status === "PROPOSAL_STATUS_VOTING_PERIOD" ||
-            status === "open") && <Text fontSize={"1.2rem"} color={"#A9A8AA"}>Voting ends in {calculateDaysLeft(votingEndTime)} days</Text>
-        }
-      </Flex>
-      {/* <Section
-        heading="Your Vote"
-        subtitle={
-          userVote
-            ? `You have voted with ${userVote}.`
-            : "Looks like you haven't voted on this proposal"
-        }
-      > */}
+    <Section
+      heading="Your Vote"
+      subtitle={
+        userVote
+          ? `You have voted with ${userVote}.`
+          : "Looks like you haven't voted on this proposal"
+      }
+      sideText={
+        (status === "PROPOSAL_STATUS_VOTING_PERIOD" || status === "open") && (
+          <Text fontSize={"1.2rem"} color={"#A9A8AA"}>
+            Voting ends in {calculateDaysLeft(votingEndTime)} days
+          </Text>
+        )
+      }
+      sideTextPos="apart"
+    >
       <Grid
         p={"15px"}
         gap={"20px"}
@@ -85,8 +84,7 @@ const VoteSection = ({ voteDistribution, prettyDenom, status, votingEndTime }: a
             );
           })}
       </Grid>
-      {/* </Section> */}
-    </Box>
+    </Section>
   );
 };
 

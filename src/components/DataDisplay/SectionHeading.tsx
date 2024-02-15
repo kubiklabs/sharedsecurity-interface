@@ -4,10 +4,12 @@ const SectionHeading = ({
   heading,
   subtitle,
   sideText,
+  sideTextPos,
 }: {
   heading: string;
   subtitle: string;
   sideText: string;
+  sideTextPos?: string;
 }) => {
   return (
     <Box
@@ -16,11 +18,16 @@ const SectionHeading = ({
       display={"flex"}
       textAlign={"left"}
     >
-      <Box display={"flex"} gap={"10px"} alignItems={"end"}>
-        <Heading size={"24px"} margin={"0px"}>
+      <Box
+        justifyContent={sideTextPos === "apart" ? "space-between" : "normal"}
+        display={"flex"}
+        gap={"10px"}
+        alignItems={"end"}
+      >
+        <Heading size={"20px"} margin={"0px"}>
           {heading}
         </Heading>
-        <Text margin={"0"} fontSize={"1.5rem"} color={"gray"}>
+        <Text margin={"0"} mb={"3px"} fontSize={"16px"} color={"gray"}>
           {sideText}
         </Text>
       </Box>

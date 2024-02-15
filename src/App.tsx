@@ -10,6 +10,7 @@ import {
   extendTheme,
   defineStyle,
   defineStyleConfig,
+  Heading,
 } from "@chakra-ui/react";
 import Overwiew from "./pages/Overwiew";
 import Aez from "./pages/Aez";
@@ -21,6 +22,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useCallback, useEffect } from "react";
 import { useConnectWallet } from "./hooks/useConnectWallet";
+import Footer from "./components/Footer/Footer";
 
 const scrollbarStyle = {
   "&::-webkit-scrollbar": {
@@ -67,18 +69,16 @@ function App() {
     <>
       <BrowserRouter>
         {/* <Box className="App"> */}
-        <Box>
+        <Box
+          sx={scrollbarStyle}
+          maxH={"100vh"}
+          overflowY={"scroll"}
+          minH={"100vh"}
+          flex={1}
+        >
           <SideBar />
           {/* <Divider orientation="vertical" /> */}
-          <Box
-            sx={scrollbarStyle}
-            maxH={"100vh"}
-            overflowY={"scroll"}
-            px={"50px"}
-            pt={"50px"}
-            flex={"1"}
-            pb={"140px"}
-          >
+          <Box px={"50px"} pt={"150px"} flex={"1"} pb={"50px"} minH={"100vh"}>
             <Routes>
               <Route path="/overview" element={<Overwiew />} />
               <Route path="/aez" element={<Aez />} />
@@ -89,9 +89,11 @@ function App() {
               <Route path="/" element={<Navigate to="/overview" replace />} />
             </Routes>
           </Box>
+          <Footer />
         </Box>
       </BrowserRouter>
       {/* <Header /> */}
+
       <ToastContainer style={{ textAlign: "left" }} />
     </>
   );

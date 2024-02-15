@@ -1,25 +1,31 @@
-import { useEffect, useState } from 'react';
-import { useRecoilValue } from 'recoil';
-import { userVpState } from '../context/userVpState';
-import { shortenCosmosAddress } from '../utils/common';
-import CosmosImg from '../assets/chains/cosmos.png';
-import NeutronImg from '../assets/chains/neutron.jpg';
-import StrideImg from '../assets/chains/stride.png';
-
+import { useEffect, useState } from "react";
+import { useRecoilValue } from "recoil";
+import { userVpState } from "../context/userVpState";
+import { coinConvert, shortenCosmosAddress } from "../utils/common";
+import CosmosImg from "../assets/chains/cosmos.png";
+import NeutronImg from "../assets/chains/neutron.jpg";
+import StrideImg from "../assets/chains/stride.png";
 
 const chainLogoImg = {
-    Cosmos: CosmosImg,
-    Neutron: NeutronImg,
-    Stride: StrideImg
+  Cosmos: CosmosImg,
+  Neutron: NeutronImg,
+  Stride: StrideImg,
 };
-
 
 const useVpTableEffect = () => {
   const userVp: any = useRecoilValue(userVpState);
   const [tableArray, setTableArray] = useState<any[]>([]);
 
   useEffect(() => {
-    if (!userVp?.Cosmos?.Lp) return;
+    if (
+      !userVp?.Cosmos?.Op ||
+      !userVp?.Cosmos?.address ||
+      !userVp?.Neutron?.Op ||
+      !userVp?.Neutron?.address ||
+      !userVp?.Stride?.Op ||
+      !userVp?.Stride?.address
+    )
+      return;
 
     const updatedTableArray = Object.keys(userVp).map((chainKey) => {
       const chain = userVp[chainKey];
@@ -29,13 +35,15 @@ const useVpTableEffect = () => {
         return {
           Chain: {
             label: chainKey,
-            type: 'avatar',
+            type: "avatar",
             url: chainLogoImg[chainKey as keyof typeof chainLogoImg],
           },
-          'Wallet Address': shortenCosmosAddress(chain.address),
-          'Token Staked': `${chain.amount?.amount} ${chain.amount?.denom}`,
-          'Your Voting Power': `${chain.userVotingPower}%`,
-          'Live/Total Proposals': `${chain?.Lp}/${chain?.Op}`,
+          "Wallet Address": shortenCosmosAddress(chain.address),
+          "Token Staked": `${coinConvert(chain.amount?.amount, 6, "human")} ${
+            chain.amount?.denom
+          }`,
+          "Your Voting Power": `${chain.userVotingPower}%`,
+          "Live/Total Proposals": `${chain?.Lp}/${chain?.Op}`,
         };
       } else {
         return null; // Handle the case where chain is undefined

@@ -28,7 +28,7 @@ const VpSection = () => {
   const connectWallet = useConnectWallet();
 
   useEffect(() => {
-    if (!isLoggedIn || Cosmos) return;
+    if (!isLoggedIn) return;
     setIsLoading(true);
     handleFetchAllUserVp();
     setIsLoading(false);
@@ -46,7 +46,7 @@ const VpSection = () => {
     setIsLoading(false);
   };
   return (
-    <Box py={"40px"} px={"60px"} bgColor={"#17131E"} borderRadius={"15px"}>
+    // <Box py={"40px"} px={"60px"} bgColor={"#17131E"} borderRadius={"15px"}>
       <Section
         heading="Your Voting Power"
         subtitle="Get to know the value of your vote."
@@ -94,7 +94,7 @@ const VpSection = () => {
 
 
       </Section>
-    </Box>
+    // </Box>
   );
 };
 

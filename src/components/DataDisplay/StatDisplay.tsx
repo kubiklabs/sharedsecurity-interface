@@ -53,14 +53,8 @@ const StatDisplay = ({
       textAlign={"center"}
       p={"15px"}
       // border={"1px solid"}
-      // // borderColor={
-      // //   isSatisfied === "na"
-      // //     ? "transparent"
-      // //     : satisfiedBgMap[isSatisfied as keyof typeof satisfiedBgMap]
-      // //         .borderColor
-      // // }
     >
-      <StatLabel color={"gray"}>{label}</StatLabel>
+      <StatLabel color={"#B3B3B3"} fontSize={"14px"} fontWeight={400} noOfLines={1}>{label}</StatLabel>
       <StatNumber
         display={"flex"}
         alignItems={"center"}

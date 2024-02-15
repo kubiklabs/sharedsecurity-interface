@@ -5,12 +5,12 @@ import PulseLive from "../PulseLive/PulseLive";
 const StatusTags = ({ status }: any) => {
   return (
     <Tag
-      fontSize={"1rem"}
+      fontSize={"14px"}
       gap={"10px"}
       size={"lg"}
       variant="solid"
       colorScheme="orange"
-      bg={status?.pretty === "Vote Now" ? "#DB8F40" : status?.bg}
+      bg={status?.pretty === "Vote Now" ? "#D97807" : status?.bg}
     >
       <TagLabel>
         {status?.pretty === "Vote Now" ? "Voting in Progress" : status?.pretty}

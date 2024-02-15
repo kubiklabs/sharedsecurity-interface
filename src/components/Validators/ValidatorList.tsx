@@ -18,6 +18,7 @@ import Overview from "./Overview";
 import { useRecoilValue } from "recoil";
 import { cosmosValidatorState } from "../../context/cosmosValidatorState";
 import CustomSkeleton from "../skeleton/CustomSkeleton";
+import { calculateAverageCommissionRate } from "../../utils/common";
 
 const ValidatorsList = () => {
   const { getParsedActiveValidators } = useCosmosValidatorQuery();
@@ -31,8 +32,6 @@ const ValidatorsList = () => {
     if (!validators.length) fetchValidators();
     getSoftOptOutIndex();
   }, [active]);
-
-  const getAvgCommission = () => {};
 
   const getSoftOptOutIndex = () => {
     let power = 0;
@@ -71,84 +70,106 @@ const ValidatorsList = () => {
   const upTime = "100%";
   const UpTime = "UpTime";
 
-  const modifyData = (data : any,upTime : any) => {
+  const modifyData = (data: any, upTime: any) => {
     const newData = data.map((item: any) => {
       return {
         ...item,
-        types: upTime
+        types: upTime,
       };
     });
     return newData;
-  }
+  };
 
+  const averageCommission =
+    calculateAverageCommissionRate(activeValidators).toFixed(2) + "%";
 
   return (
-    <Section
-      heading="Validators"
-      sideText={`${activeValidators.length}/${validators?.length || "-"}`}
-      subtitle={" 573 Allocated"}
-    >
-      {/* <Overview active="180" total="573" averageComm="11.03%" /> */}
-      <Flex alignItems={"center"} gap={"50px"} justifyContent={"flex-end"} marginTop={"-80px"} >
-        <Select
-          isDisabled={softOpt}
-          onChange={handleChange}
-          size="lg"
-          minW={"100px"}
-          width={"fit-content"}
-          height={"36px"}
+    <>
+      <Overview
+        active={`${activeValidators?.length}`}
+        total={`${validators?.length}`}
+        averageComm={`${averageCommission}`}
+      />
+      <Section
+        heading="Validators"
+        sideText={`${activeValidators.length}/${validators?.length || "-"}`}
+        subtitle={` ${validators?.length} Allocated`}
+      >
+        {/* <Overview active="180" total="573" averageComm="11.03%" /> */}
+        <Flex
+          alignItems={"center"}
+          gap={"50px"}
+          justifyContent={"flex-end"}
+          marginTop={"-50px"}
         >
-          <option value="active">Active</option>
-          <option value="jailed">Jailed</option>
-          <option value="all">All</option>
-        </Select>
-        {/* {softOptIndex > 0 && (
-          <FormControl>
-            <Flex gap={"15px"}>
-              <Switch
-                onChange={handleSoftOptToggle}
-                colorScheme={"pink"}
-                id="soft-opt-out"
-                size="lg"
-              />
-              <Flex alignItems={"center"} gap={"10px"}>
-                <Text>Soft opt-out</Text>
-                <Tooltip label="In order to make the economics of ICS more favorable for Cosmos Hub validators, validators in the bottom 5% of vote power in the Cosmos Hub validator set would be given the option to opt-out from validating for the Stride/Neutron blockchain. This translates to roughly the bottom sixty-five validators.">
-                  <Text
-                    transform={"scale(0.8) translateY(5px)"}
-                    height={"fit-content"}
-                    cursor={"pointer"}
-                  >
-                    <span className="material-symbols-outlined">info</span>
-                  </Text>
-                </Tooltip>
+          {softOptIndex > 0 && (
+            <FormControl width={"fit-content"}>
+              <Flex gap={"15px"}>
+                <Switch
+                  onChange={handleSoftOptToggle}
+                  colorScheme={"pink"}
+                  id="soft-opt-out"
+                  size="lg"
+                />
+                <Flex alignItems={"center"} gap={"10px"}>
+                  <Text>Soft opt-out</Text>
+                  <Tooltip label="In order to make the economics of ICS more favorable for Cosmos Hub validators, validators in the bottom 5% of vote power in the Cosmos Hub validator set would be given the option to opt-out from validating for the Stride/Neutron blockchain. This translates to roughly the bottom sixty-five validators.">
+                    <Text
+                      transform={"scale(0.8) translateY(5px)"}
+                      height={"fit-content"}
+                      cursor={"pointer"}
+                    >
+                      <span className="material-symbols-outlined">info</span>
+                    </Text>
+                  </Tooltip>
+                </Flex>
               </Flex>
-            </Flex>
-          </FormControl>
-        )} */}
-      </Flex>
+            </FormControl>
+          )}
+          <Select
+            isDisabled={softOpt}
+            onChange={handleChange}
+            size="lg"
+            minW={"100px"}
+            width={"137px"}
+            height={"36px"}
+            fontSize={"14px"}
+            display={"flex"}
+            justifyContent={"center"}
+            alignItems={"center"}
+            textAlign={"center"}
+          >
+            <option value="active">ACTIVE</option>
+            <option value="jailed">JAILED</option>
+            <option value="all">ALL</option>
+          </Select>
+        </Flex>
 
-      {activeValidators && activeValidators.length ? (
-        <CustomTable
-          keys={activeValidators && Object.keys(activeValidators[0])}
-          data={modifyData( softOpt
-            ? active.slice(softOptIndex, active.length)
-            : activeValidators, upTime)}
-          minGridWidth="80px"
-          maxGridWidth="100px"
-          gridColumnGap="0px"
-          pagination={true}
-          itemsPerPage={20}
-        />
-      ) : (
-        <>
-          <Center>
-            <Spinner />
-          </Center>
-          <CustomSkeleton count={10} height="50px" />
-        </>
-      )}
-    </Section>
+        {activeValidators && activeValidators.length ? (
+          <CustomTable
+            keys={activeValidators && Object.keys(activeValidators[0])}
+            data={modifyData(
+              softOpt
+                ? active.slice(softOptIndex, active.length)
+                : activeValidators,
+              upTime
+            )}
+            minGridWidth="80px"
+            maxGridWidth="100px"
+            gridColumnGap="0px"
+            pagination={true}
+            itemsPerPage={5}
+          />
+        ) : (
+          <>
+            <Center>
+              <Spinner />
+            </Center>
+            <CustomSkeleton count={5} height="50px" />
+          </>
+        )}
+      </Section>
+    </>
   );
 };
 

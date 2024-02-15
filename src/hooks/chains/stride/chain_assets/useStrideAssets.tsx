@@ -4,8 +4,9 @@ import { coinConvert } from "../../../../utils/common";
 import { useSetRecoilState } from "recoil";
 import { strideAssetState } from "../../../../context/assetsState";
 import { useEcosystem } from "../../../common/aez/useEcosystem";
+import { Stride } from "../../../../config/nodeConfig.json";
 
-const REST_URL = "https://stride-api.polkachu.com";
+const REST_URL = `${Stride.REST}/`;
 
 export const useStrideAssets = () => {
   const setStrideAssets = useSetRecoilState(strideAssetState);
@@ -33,6 +34,11 @@ export const useStrideAssets = () => {
       if (!asset.denom.includes("ibc")) {
         const assetData =
           strideAssets[asset.denom as keyof typeof strideAssets];
+        if (!assetData) {
+          console.log(`${asset.denom} not found in config`);
+          return;
+        }
+
         const price = allPrices[assetData.coingecko_id].usd;
 
         parsedAssets.push({

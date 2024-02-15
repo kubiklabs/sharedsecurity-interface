@@ -42,7 +42,7 @@ export interface IBasicInfo {
   turnout: string;
   threshold: string;
   quorom: string;
-  vetoVotes: string; 
+  vetoVotes: string;
   yesVotes: string;
 }
 
@@ -63,8 +63,6 @@ const BasicInfo = ({
   const [parsedHTML, setParsedHTML] = useState("");
   const { chain } = useParams();
 
-  
-
   useEffect(() => {
     if (description) {
       const html = marked(description);
@@ -82,36 +80,49 @@ const BasicInfo = ({
 
   const isPassing = useRef(
     Number(turnout) > Number(quorom) &&
-    Number(vetoVotes) < 33 &&
-    Number(yesVotes) >= 50
+      Number(vetoVotes) < 33 &&
+      Number(yesVotes) >= 50
   );
 
   return (
     <>
-      <Section heading={`#${id}. ${title}`} sideText={<Flex gap={"10px"} ml={"40px"}>
-        <ColorTag
-          borderStyle={`1px solid ${tagColorMap[chain as keyof typeof tagColorMap]
-            }`}
-          content={chain as string}
-          bgColor={tagColorMap[chain as keyof typeof tagColorMap]}
-        />
-        <StatusTags
-          status={commonStatusMap[status as keyof typeof commonStatusMap]}
-        />
-      </Flex>}>
+      <Section
+        heading={`#${id}. ${title}`}
+        sideText={
+          <Flex gap={"10px"} ml={"40px"}>
+            <ColorTag
+              borderStyle={`1px solid ${
+                tagColorMap[chain as keyof typeof tagColorMap]
+              }`}
+              content={chain as string}
+              bgColor={tagColorMap[chain as keyof typeof tagColorMap]}
+            />
+            <StatusTags
+              status={commonStatusMap[status as keyof typeof commonStatusMap]}
+            />
+          </Flex>
+        }
+      >
         <Flex flexDirection={"column"} gap={"30px"}>
           <Flex gap={"20px"} color={"#BFBFBF"} alignItems={"center"}>
             {commonStatusMap[status as keyof typeof commonStatusMap]?.pretty ===
               "Vote Now" && (
-                <>
-                  <Text fontSize={"1.2rem"} display={"flex"}>Proposal Expected to &nbsp;
-                    <Text color={isPassing.current ? "#0aa12f" : "#CE3747"}>{isPassing.current ? "PASS" : "FAIL"}</Text>
+              <>
+                <Text fontSize={"16px"} display={"flex"}>
+                  Proposal Expected to &nbsp;
+                  <Text color={isPassing.current ? "#0aa12f" : "#CE3747"}>
+                    {isPassing.current ? "PASS" : "FAIL"}
                   </Text>
-                  <Text color={"#37343D"} fontSize={"1.6rem"}>|</Text>
-                </>
-              )}
+                </Text>
+                <Text color={"#37343D"} fontSize={"1.6rem"}>
+                  |
+                </Text>
+              </>
+            )}
 
-            <Text fontSize={"1.2rem"}>{turnout}% / {quorom}% : Turnout / Quorum</Text>
+            <Text fontSize={"16px"}>
+              {turnout}% / {quorom}% : Turnout / Quorum
+            </Text>
           </Flex>
           {/* <Flex gap={"10px"} width={"100%"}>
             {commonStatusMap[status as keyof typeof commonStatusMap]?.pretty ===
@@ -145,12 +156,16 @@ const BasicInfo = ({
             fontSize={"1.2rem"}
             alignItems={"flex-start"}
             flexDirection={"column"}
-            gap={"10px"}
+            gap={"15px"}
             position={"relative"}
           >
             <Tooltip content="Expand">
               <Button
-                bg={"whiteAlpha.700"}
+                fontSize={"10px"}
+                _focus={{
+                  bg: "#c9c9c991",
+                }}
+                bg={"#c9c9c991"}
                 sx={{
                   position: "absolute",
                   top: "50px",
@@ -159,10 +174,17 @@ const BasicInfo = ({
                 }}
                 onClick={handleModalOpen}
               >
-                <span className="material-symbols-outlined">open_in_full</span>
+                <span
+                  style={{
+                    fontSize: "20px",
+                  }}
+                  className="material-symbols-outlined"
+                >
+                  open_in_full
+                </span>
               </Button>
             </Tooltip>
-            <Text fontSize={"2xl"}>Description</Text>
+            <Text fontSize={"20px"}>Description</Text>
             <Box
               bg={"rgba(255, 255, 255, 0.10)"}
               maxH={"400px"}
@@ -177,7 +199,7 @@ const BasicInfo = ({
             >
               <Box
                 id="description"
-                fontSize={"1.1rem"}
+                fontSize={"16px"}
                 display={"flex"}
                 flexDirection={"column"}
                 gap={"20px"}

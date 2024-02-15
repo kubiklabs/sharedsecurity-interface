@@ -44,16 +44,14 @@ export const useConnectWallet = () => {
     localStorage.getItem("activeNetworkChainId") as string
   );
   const baseDenom = chainInfo.getChainDenom();
-  // const navigate = useNavigate();
-
-  // const { network } = useRecoilValue(networkState);
-  // const toaster = useMessageToaster();
 
   return async () => {
     // const tid = toast.loading("Connecting to wallet");
     try {
-      // setIsLoggingIn(true);
-
+      if (!(window as any).keplr) {
+        toast.error("Keplr Wallet not installed !");
+        return;
+      }
       while (
         !(window as any).keplr ||
         !(window as any).getEnigmaUtils ||
@@ -61,13 +59,6 @@ export const useConnectWallet = () => {
       ) {
         await sleep(0.5);
       }
-
-      // console.log("1");
-
-      // //   await (window as any).keplr.experimentalSuggestChain(
-      // //     chainInfo.getChainInfoData()
-      // //   );
-      // console.log("1");
 
       await (window as any).keplr.enable("cosmoshub-4");
       await (window as any).keplr.enable("stride-1");
@@ -93,17 +84,6 @@ export const useConnectWallet = () => {
         await (window as any).keplr.getKey(chainInfo.getChainId())
       ).name;
 
-      // const wasmChainClient = await SigningCosmWasmClient.connectWithSigner(
-      //   chainInfo.getRpcUrl(),
-      //   offlineSigner
-      // );
-
-      // const balance = await wasmChainClient.getBalance(address, baseDenom);
-
-      // const walletName = await (window as any).keplr.getKey(
-      //   chainInfo.getChainId()
-      // );
-
       /* successfully update the wallet state */
       setWalletState({
         Cosmos: cosmosAddress,
@@ -114,18 +94,6 @@ export const useConnectWallet = () => {
       });
       sessionStorage.setItem("isLoggedIn", "true");
       toast.success("Keplr is connected");
-
-      // TODO: make an efficient method to check the keplr account switch, instead of checking every second
-      // setInterval(async () => {
-      //   const tmepdata = await offlineSigner.getAccounts();
-      //   const temp = tmepdata[0]?.address;
-      //   if (temp === address) {
-      //     await sleep(2);
-      //   } else {
-      //     //   navigate("/");
-      //     window.location.reload();
-      //   }
-      // }, 4000);
     } catch (error) {
       console.log(error);
     }
