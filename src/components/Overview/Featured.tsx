@@ -200,7 +200,9 @@ const Featured = ({ stats }: { stats: Array<any> }) => {
                 borderWidth={"1px"}
                 borderColor={(selectedOption[item.identifier as keyof typeof selectedOption]) ? colorSelectorObject[item.identifier as keyof typeof selectedOption] : "transparent"}
                 onClick={() => {
-                  setSelectedOption({ ...selectedOption, [item.identifier]: !selectedOption[item.identifier as keyof typeof selectedOption] })
+                  if ((selectedOption[item.identifier as keyof typeof selectedOption] && showLine.length > 1) || !selectedOption[item.identifier as keyof typeof selectedOption]) {
+                    setSelectedOption({ ...selectedOption, [item.identifier]: !selectedOption[item.identifier as keyof typeof selectedOption] })
+                  }
                 }}
                 bgColor={"transparent"}
               >

@@ -1,7 +1,7 @@
 import Section from "../Layout/Section";
 import React, { useState } from "react";
 import { Line } from "react-chartjs-2";
-import { Box, Select, Flex } from "@chakra-ui/react";
+import { Box, Select, Flex, Text } from "@chakra-ui/react";
 import AreaGraph from "../Graphs and Chart/AreaGraph";
 
 const ChainValidatorsGraph = () => {
@@ -99,17 +99,16 @@ const DummyChart = () => {
       <Box width="full" height="300px" margin="20px auto" position={"relative"}>
         {/* <Line data={data} options={options} /> */}
         <Flex justifyContent={"flex-end"} position={"absolute"} right={'15px'} top={"20px"} zIndex={40}>
-          <Select
-            width={"150px"}
+          <Box
+            paddingX={"23px"}
+            paddingY={"12px"}
+            borderWidth={"1px"}
+            borderColor={"#37343D"}
+            borderRadius={"5px"}
             mr={"20px"}
             position="absolute"
-            value={selectedOption}
-            onChange={handleSelectChange}
-          >
-            <option value="Option 1">25 Meanfuls</option>
-            <option value="Option 2">Option 2</option>
-            <option value="Option 3">Option 3</option>
-          </Select>
+            whiteSpace={"nowrap"}
+          ><Text>25 Meanfuls</Text></Box>
         </Flex>
         <AreaGraph lineData={data} colors={["#C88864"]} xKey={"month"} yKey={["value"]} />
       </Box>
