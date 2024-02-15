@@ -16,7 +16,14 @@ import { Line } from "react-chartjs-2";
 import Section from "../Layout/Section";
 import { useChainMarketInfo } from "../../hooks/useChainMarketInfo";
 import CustomSkeleton from "../skeleton/CustomSkeleton";
-import { Box, Flex, Select, Text } from "@chakra-ui/react";
+import { Box, Flex, Select, SimpleGrid, Text } from "@chakra-ui/react";
+import ChainSelector from "./ChainSelector";
+import AreaGraph from "../Graphs and Chart/AreaGraph";
+import AreaGraphCard from "./AreaGraphCard";
+import homeLinesAndGraphPrice from '../../config/homeLinesAndGraphsPrice.json'
+import homeLinesAndGraphsCirculatingSupply from '../../config/homeLinesAndGraphsCirculatingSupply.json'
+import homeLinesAndGraphsAPY from '../../config/homeLinesAndGraphsAPY.json'
+import homeLinesAndGraphsMarketCap from '../../config/homeLinesAndGraphsMarketCap.json'
 
 ChartJS.register(
   CategoryScale,
@@ -201,10 +208,11 @@ const Trends = () => {
     setOption(finalNeutronData);
   }, [finalNeutronData]);
   useEffect(() => {
+    console.log(selectedOption);
     setFinalData(selectedOption);
   }, [selectedOption]);
 
-  const [selectedDateFilter, setDateFilter] = useState<string>("All time")
+  const [selectedDateFilter, setDateFilter] = useState<string>()
 
 
   const handleDateFilterChange = (e: React.MouseEvent<HTMLDivElement, MouseEvent>, item: string) => {
@@ -241,12 +249,25 @@ const Trends = () => {
   };
 
 
-  const [selectedOtherFilter, setOtherFilter] = useState<string>("All time")
+  const [selectedOtherFilter, setOtherFilter] = useState<string>("Cosmos Hub")
   const handleOtherFilterChange = (e: React.MouseEvent<HTMLDivElement, MouseEvent>, item: string) => {
     setOtherFilter(item);
   }
+
+  const [selectedChain, setSelectedChain] = useState<string>("All Network");
+
   return (
-    <Section heading="Stats and Graphs" subtitle="You might find it interesting">
+    <>
+      <ChainSelector selectedChain={selectedChain} setSelectedChain={setSelectedChain} />
+
+      <SimpleGrid columns={2} row={2} gap={"20px"}>
+        {<AreaGraphCard title="Price" subTitle="$10.02" objData={homeLinesAndGraphPrice[selectedChain as keyof typeof homeLinesAndGraphPrice]} selectedChain={selectedChain} />}
+        {<AreaGraphCard title="APY" subTitle="$10.02" objData={homeLinesAndGraphsAPY[selectedChain as keyof typeof homeLinesAndGraphsAPY]} selectedChain={selectedChain} />}
+        {<AreaGraphCard title="Market Cap" subTitle="$10.02" objData={homeLinesAndGraphsMarketCap[selectedChain as keyof typeof homeLinesAndGraphsMarketCap]} selectedChain={selectedChain} />}
+        {<AreaGraphCard title="Circulating Supply" subTitle="$10.02" objData={homeLinesAndGraphsCirculatingSupply[selectedChain as keyof typeof homeLinesAndGraphsCirculatingSupply]} selectedChain={selectedChain} />}
+      </SimpleGrid>
+
+      {/* <Section heading="Stats and Graphs" subtitle="You might find it interesting">
       <Box position={"relative"}>
         <Flex justifyContent={"space-between"} paddingX={"20px"} position={"absolute"} top={10} right={50} left={100} >
           <Flex border={"1px solid rgba(57, 56, 60, 0.6)"} borderRadius={"5px"} alignItems={"center"} px={"5px"}>
@@ -282,6 +303,7 @@ const Trends = () => {
         {finalData ? (
           <Box width={"100%"} height={"80vh"}>
             <Line data={finalData} options={options} />
+            <AreaGraph lineData={finalData} color="#ffffff"/>
           </Box>
         ) : (
           <CustomSkeleton count={1} height="500px" />
@@ -307,7 +329,9 @@ const Trends = () => {
           </Box>
         )))}
       </Flex>
-    </Section>
+    </Section> */}
+      {/* <AreaGraphCard/> */}
+    </>
   );
 };
 

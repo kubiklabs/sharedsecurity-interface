@@ -8,6 +8,6 @@ export type assetType = {
 }
 
 export type assetPieType = {
-    labels: string[];
-    datasets: number[];
+    label: string;
+    amount: number;
 }
