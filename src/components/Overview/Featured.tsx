@@ -27,7 +27,7 @@ import AreaGraph from "../Graphs and Chart/AreaGraph";
 //   ],
 // };
 
-let data = [];
+let data: object[] = [];
 
 // Generate 100 rows for each time period with randomized numerical values
 let time = "Feb ";
