@@ -129,7 +129,11 @@ export const useNtrnAstroQuery = () => {
       neutronCoinRegistry,
       pairs
     );
-    return tvl?.assetBalances;
+
+    return {
+      assetBalances: tvl?.assetBalances,
+      assetBalancesInDenom: tvl?.assetBalancesInDenom,
+    };
   };
 
   const getParsedAstroportData = async () => {

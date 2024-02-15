@@ -47,7 +47,10 @@ export const useStrideAssets = () => {
             label: assetData?.name,
             url: assetData.icon,
           },
-          amount:
+          amount: Number(
+            coinConvert(asset.amount, assetData?.decimals, "human")
+          ),
+          value:
             Number(coinConvert(asset.amount, assetData?.decimals, "human")) *
             Number(price),
         });
