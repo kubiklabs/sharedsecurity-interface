@@ -37,3 +37,12 @@ export const strideTvlState = atom<{
   },
   dangerouslyAllowMutability: true,
 });
+export const apolloTvlState = atom<{
+  tvl: string | number;
+}>({
+  key: "apolloTvl",
+  default: {
+    tvl: "",
+  },
+  dangerouslyAllowMutability: true,
+});

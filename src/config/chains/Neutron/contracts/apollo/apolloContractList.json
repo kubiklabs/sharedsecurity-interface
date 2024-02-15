@@ -1,0 +1,16 @@
+{
+  "contracts": [
+    {
+      "contract_addr": "neutron135nkp0fth0vtertv7ngvkkgc4cwamp2tpnmjdlppat0047f9wjmqxeu9p8"
+    },
+    {
+      "contract_addr": "neutron1yvhe4f0q3swtf37pkf9kku59l52nevr3trxs62vah004a08pkl8qlaccc7"
+    },
+    {
+      "contract_addr": "neutron17vedy2clhctw0654k93m375ud7h5jsy8nj9gnlkjnyd4mcfnfrdql226al"
+    },
+    {
+      "contract_addr": "neutron1qzf6t478xuutq0ahkm07pl2y2tctreccrlafkrl38k4cafk3rgdq3lfky5"
+    }
+  ]
+}

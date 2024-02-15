@@ -30,8 +30,6 @@ export const useEcosystem = () => {
     contractList: Array<any>
   ) => {
     type IConstractList = typeof contractList;
-    console.log(coinRegistry, contractList);
-
     let assetBalances: any = {};
 
     try {

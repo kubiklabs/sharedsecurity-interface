@@ -4,11 +4,13 @@ import { useNtrnAstroQuery } from "./chains/neutron/astroport/useNtrnAstroQuery"
 import { ecosystemState } from "../context/ecosystemState";
 import { useNtrnMarsQuery } from "./chains/neutron/mars/useNtrnMarsQuery";
 import { useStrideProtocol } from "./chains/stride/protocols/useStrideProtocols";
+import { useNtrnApolloQuery } from "./chains/neutron/apollo/useNtrnApolloQuery";
 
 export const useAez = () => {
   const { getParsedAstroportData } = useNtrnAstroQuery();
   const { getParsedMarsData } = useNtrnMarsQuery();
   const { getParsedStrideData } = useStrideProtocol();
+  const { getParsedApolloData } = useNtrnApolloQuery();
   const setEcosystemState = useSetRecoilState(ecosystemState);
 
   const getParsedEcosystemData = async () => {
@@ -29,7 +31,11 @@ export const useAez = () => {
         case "Stride":
           const strideData = await getParsedStrideData();
           parsedProtocols = [...parsedProtocols, strideData];
+          break;
 
+        case "Apollo":
+          const apolloData = await getParsedApolloData();
+          parsedProtocols = [...parsedProtocols, apolloData];
           break;
         default:
           break;
