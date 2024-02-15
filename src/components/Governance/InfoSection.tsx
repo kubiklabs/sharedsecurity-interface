@@ -15,22 +15,23 @@ import {
 const InfoSection = () => {
   return (
     <Box
-      paddingX={"40px"}
-      paddingY={"30px"}
+      paddingX={"60px"}
+      paddingY={"40px"}
       bg={"#17131E"}
       borderRadius={"10px"}
-      // marginX={"15px"}
     >
-      <Heading m={"0"} color={"#E5E5E5"} textAlign={"left"} marginBottom={"10px"}>
+      <Text m={"0"} color={"#E5E5E5"} textAlign={"left"} fontSize={"24px"}>
         GET INVOLVED
-      </Heading>
+      </Text>
       <Flex justifyContent={"space-between"} alignItems={"center"}>
-        <SubtitleText mb={"0"} maxWidth={"60%"} textAlign={"left"}>
-          To learn more about proposals and governance of the chains{" "}
-          <Link color={"#BC3D70"} textDecoration={"underline"} _hover={{
-            color: "#BC3D70",
-          }}>click here</Link>.<br></br> For regular updates and discussions, join
-          the community on Discord or on the Forum.
+        <SubtitleText
+          fontSize={"14px"}
+          mb={"0"}
+          maxWidth={"60%"}
+          textAlign={"left"}
+        >
+          For regular updates and discussions, join the community on Discord or
+          on the Forum.
         </SubtitleText>
         <Flex
           alignItems={"center"}

@@ -1,15 +1,14 @@
-// Card.js
-import React from "react";
 import {
   Button,
   Card,
   CardFooter,
   Flex,
-  Text, useMediaQuery
+  Stack,
+  Text,
+  useMediaQuery,
 } from "@chakra-ui/react";
 
 const EcoCards = ({ data, key }: any) => {
-  // console.log(data);
   const [isLargerThan] = useMediaQuery("(min-width: 1424px)");
 
   return (
@@ -22,8 +21,8 @@ const EcoCards = ({ data, key }: any) => {
       boxShadow="lg"
       position="relative"
       width={isLargerThan ? "287px" : "250px"}
-      height={isLargerThan ? "250px" : "235px" }
-     // You can adjust the height as needed
+      height={isLargerThan ? "250px" : "235px"}
+      // You can adjust the height as needed
     >
       <Flex direction="column" height="100%" justifyContent="space-between">
         <Flex gap="10px" p="10px" justifyContent="end">
@@ -64,20 +63,33 @@ const EcoCards = ({ data, key }: any) => {
         </Flex>
 
         <CardFooter
-          px={"15px"}
-          height="50px"
+          height="fit-content"
           width="100%"
           left="0"
           backgroundColor="#1e1a2599"
-          justifyContent="space-between"
           alignItems="center"
+          flexDirection={"column"}
+          padding={"10px"}
         >
-          <Text fontWeight={400} fontSize="16px" color="#fff">
+          <Text
+            fontWeight={400}
+            fontSize="14px"
+            color="#c7c7c7"
+            letterSpacing={"1px"}
+          >
             {data?.name?.toUpperCase()}
           </Text>
-          <Text fontWeight={400} fontSize="10px" color="#fff" display={"flex"}>
-            TVL - $ {data?.tvl?.toLocaleString()}
-          </Text>
+          <Flex alignItems={"center"} gap={"10px"}>
+            <Text fontSize="14px">TVL : </Text>
+            <Text
+              fontWeight={400}
+              fontSize="16px"
+              color="#fff"
+              display={"flex"}
+            >
+              $ {data?.tvl?.toLocaleString()}
+            </Text>
+          </Flex>
         </CardFooter>
       </Flex>
     </Card>

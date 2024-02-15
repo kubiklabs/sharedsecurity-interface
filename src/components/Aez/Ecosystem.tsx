@@ -22,7 +22,7 @@ const Ecosystem = () => {
   const { getParsedEcosystemData } = useAez();
   const { data } = useRecoilValue(ecosystemState);
   const [items, setItems] = useState(data);
-  const noOfDappsToShow = 3;
+  const noOfDappsToShow = 4;
   const [visibleItems, setVisibleItems] = useState(noOfDappsToShow);
 
   useEffect(() => {
@@ -31,8 +31,8 @@ const Ecosystem = () => {
 
   const getParsedData = async () => {
     const data = await getParsedEcosystemData();
+    console.log(data);
   };
-  console.log(data);
 
   const loadMoreItems = () => {
     setVisibleItems((prevVisibleItems) => prevVisibleItems + noOfDappsToShow);
@@ -41,13 +41,14 @@ const Ecosystem = () => {
     setVisibleItems(noOfDappsToShow);
   };
 
-  const modifyData = (data: any) => {
+  const modifyData = () => {
     const newData = data.map((item: any) => {
       return {
         ...item,
         url: urlImgObject[item.name as keyof typeof urlImgObject],
       };
     });
+
     return newData;
   };
 
@@ -57,63 +58,57 @@ const Ecosystem = () => {
       heading="Ecosystem"
       subtitle="Dapps you might find interesting"
     >
-      <Stack>
+      <Stack gap={"30px"}>
         {data && data.length ? (
-          // <CustomTable
-          //   keys={data && Object.keys(data[0])}
-          //   data={data}
-          //   minGridWidth="80px"
-          //   maxGridWidth="100px"
-          //   gridColumnGap="0px"
-          // />
-
           <>
             <Flex gap={"30px"} flexWrap={"wrap"} justifyContent={"center"}>
-              {modifyData(items)
+              {modifyData()
                 .slice(0, visibleItems)
                 .map((dataItem: any) => {
-                  // console.log(dataItem);
                   return (
                     <EcoCards data={dataItem} key={Object.keys(dataItem)} />
                   );
                 })}
             </Flex>
 
-            <Box>
-              {visibleItems <= items.length ? (
-                <Button
-                  background={"transparent"}
-                  color={"#b3b3b3"}
-                  _hover={{ outline: "none" }}
-                  onClick={loadMoreItems}
-                >
-                  <Text
-                    fontSize={"14px"}
-                    width={"90px"}
-                    alignItems={"center"}
-                    justifyContent={"center"}
+            {data.length !== visibleItems && (
+              <Box>
+                {visibleItems < data.length ? (
+                  <Button
+                    background={"transparent"}
+                    color={"#b3b3b3"}
+                    _hover={{ outline: "none" }}
+                    onClick={loadMoreItems}
                   >
-                    More Dapps <FontAwesomeIcon icon={faAngleDown} />
-                  </Text>
-                </Button>
-              ) : (
-                <Button
-                  background={"transparent"}
-                  color={"#b3b3b3"}
-                  _hover={{ outline: "none" }}
-                  onClick={collapseItems}
-                >
-                  <Text
-                    fontSize={"14px"}
-                    width={"90px"}
-                    alignItems={"center"}
-                    justifyContent={"center"}
+                    <Text
+                      fontSize={"14px"}
+                      width={"90px"}
+                      alignItems={"center"}
+                      justifyContent={"center"}
+                    >
+                      More Dapps <FontAwesomeIcon icon={faAngleDown} />
+                    </Text>
+                  </Button>
+                ) : (
+                  <Button
+                    disabled
+                    background={"transparent"}
+                    color={"#b3b3b3"}
+                    _hover={{ outline: "none" }}
+                    onClick={collapseItems}
                   >
-                    Show less <FontAwesomeIcon icon={faAngleUp} />
-                  </Text>
-                </Button>
-              )}
-            </Box>
+                    <Text
+                      fontSize={"14px"}
+                      width={"90px"}
+                      alignItems={"center"}
+                      justifyContent={"center"}
+                    >
+                      Show less <FontAwesomeIcon icon={faAngleUp} />
+                    </Text>
+                  </Button>
+                )}
+              </Box>
+            )}
           </>
         ) : (
           <Center>

@@ -1,5 +1,4 @@
 import axios, { all } from "axios";
-import { coinConvert } from "../../../../utils/common";
 import { useSetRecoilState } from "recoil";
 import { neutronAssetState } from "../../../../context/assetsState";
 import neutronAssetList from "../astroport/neutronTokenList.json";
@@ -27,8 +26,9 @@ export const useNeutronAssets = () => {
     let parsedAssets: any[] = [];
     // const allAssets = await getNeutronSupply();
     const assetBalances = await getAllAssetBalances();
+    console.log(assetBalances);
 
-    Object.keys(assetBalances).forEach((asset: any) => {
+    Object.keys(assetBalances.assetBalances).forEach((asset: any) => {
       const token = Object.keys(neutronAssetList).find(
         (item) => item === asset
       );
@@ -39,10 +39,11 @@ export const useNeutronAssets = () => {
           name: {
             type: "avatar",
             label:
-              neutronAssetList[token as keyof typeof neutronAssetList].symbol,
-            url: neutronAssetList[token as keyof typeof neutronAssetList].icon,
+              neutronAssetList[token as keyof typeof neutronAssetList]?.symbol,
+            url: neutronAssetList[token as keyof typeof neutronAssetList]?.icon,
           },
-          amount: assetBalances[asset],
+          amount: assetBalances.assetBalancesInDenom[asset],
+          value: assetBalances.assetBalances[asset],
         },
       ];
     });

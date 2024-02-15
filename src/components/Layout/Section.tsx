@@ -17,7 +17,8 @@ const Section = (props: any) => {
       width={props?.width || "full"}
       height={props.height}
     >
-      <SectionHeading
+      {props.heading && (
+        <SectionHeading
         heading={props.heading}
         headingSize = {props.headingSize}
         headingColor = {props.headingColor}
@@ -25,7 +26,10 @@ const Section = (props: any) => {
         subtitle={props.subtitle}
         subtitleSize = {props.subtitleSize}
         subtitleColor = {props.subtitleColor}
-      />
+          sideTextPos={props.sideTextPos}
+        />
+      )}
+
       {props.children}
     </Box>
   );
