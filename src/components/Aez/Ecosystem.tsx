@@ -22,7 +22,7 @@ const Ecosystem = () => {
   const { getParsedEcosystemData } = useAez();
   const { data } = useRecoilValue(ecosystemState);
   const [items, setItems] = useState(data);
-  const noOfDappsToShow = 3;
+  const noOfDappsToShow = 4;
   const [visibleItems, setVisibleItems] = useState(noOfDappsToShow);
 
   useEffect(() => {
@@ -31,6 +31,7 @@ const Ecosystem = () => {
 
   const getParsedData = async () => {
     const data = await getParsedEcosystemData();
+    console.log(data);
   };
 
   const loadMoreItems = () => {
@@ -57,7 +58,7 @@ const Ecosystem = () => {
       heading="Ecosystem"
       subtitle="Dapps you might find interesting"
     >
-      <Stack>
+      <Stack gap={"30px"}>
         {data && data.length ? (
           <>
             <Flex gap={"30px"} flexWrap={"wrap"} justifyContent={"center"}>
@@ -70,41 +71,44 @@ const Ecosystem = () => {
                 })}
             </Flex>
 
-            <Box>
-              {visibleItems <= items.length ? (
-                <Button
-                  background={"transparent"}
-                  color={"#b3b3b3"}
-                  _hover={{ outline: "none" }}
-                  onClick={loadMoreItems}
-                >
-                  <Text
-                    fontSize={"14px"}
-                    width={"90px"}
-                    alignItems={"center"}
-                    justifyContent={"center"}
+            {data.length !== visibleItems && (
+              <Box>
+                {visibleItems < data.length ? (
+                  <Button
+                    background={"transparent"}
+                    color={"#b3b3b3"}
+                    _hover={{ outline: "none" }}
+                    onClick={loadMoreItems}
                   >
-                    More Dapps <FontAwesomeIcon icon={faAngleDown} />
-                  </Text>
-                </Button>
-              ) : (
-                <Button
-                  background={"transparent"}
-                  color={"#b3b3b3"}
-                  _hover={{ outline: "none" }}
-                  onClick={collapseItems}
-                >
-                  <Text
-                    fontSize={"14px"}
-                    width={"90px"}
-                    alignItems={"center"}
-                    justifyContent={"center"}
+                    <Text
+                      fontSize={"14px"}
+                      width={"90px"}
+                      alignItems={"center"}
+                      justifyContent={"center"}
+                    >
+                      More Dapps <FontAwesomeIcon icon={faAngleDown} />
+                    </Text>
+                  </Button>
+                ) : (
+                  <Button
+                    disabled
+                    background={"transparent"}
+                    color={"#b3b3b3"}
+                    _hover={{ outline: "none" }}
+                    onClick={collapseItems}
                   >
-                    Show less <FontAwesomeIcon icon={faAngleUp} />
-                  </Text>
-                </Button>
-              )}
-            </Box>
+                    <Text
+                      fontSize={"14px"}
+                      width={"90px"}
+                      alignItems={"center"}
+                      justifyContent={"center"}
+                    >
+                      Show less <FontAwesomeIcon icon={faAngleUp} />
+                    </Text>
+                  </Button>
+                )}
+              </Box>
+            )}
           </>
         ) : (
           <Center>
