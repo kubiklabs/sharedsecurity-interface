@@ -1,6 +1,10 @@
 import React from 'react';
-import { Doughnut } from 'react-chartjs-2';
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import { Pie } from 'react-chartjs-2';
+// import 'chartjs-plugin-labels';
+// import ChartDataLabels from 'chartjs-plugin-datalabels';
+// import 'chartjs-plugin-labels'
+// import  'chartjs-plugin-piechart-outlabels';
+import { Chart as ChartJS, ArcElement, Tooltip, Legend, DoughnutController } from 'chart.js';
 
 type DoughnutChartProps = {
   data: {
@@ -9,8 +13,8 @@ type DoughnutChartProps = {
   };
 };
 
-const DoughnutChart= ({ data }:DoughnutChartProps) => {
-  ChartJS.register(ArcElement, Tooltip, Legend);
+const DoughnutChart = ({ data }: DoughnutChartProps) => {
+  ChartJS.register(ArcElement, Tooltip, Legend, DoughnutController);
 
   // Calculate different shades of pink
   const baseColor = [252, 108, 159, 1];
@@ -33,20 +37,45 @@ const DoughnutChart= ({ data }:DoughnutChartProps) => {
 
   const options = {
     aspectRatio: 1, // Adjust the aspect ratio as needed
+    layout: { padding: 10 },
     plugins: {
+      aspectRatio: 1,
       legend: {
-        display: false,
+        display: false
       },
-      datalabels: {
-        color: '#fff',
-        formatter: (value: any, context: any) => {
-          return data.labels[context.dataIndex];
-        },
-      },
+      outlabels: {
+        text: '%l %p',
+        color: 'white',
+        stretch: 45,
+        font: {
+            resizable: true,
+            minSize: 12,
+            maxSize: 18
+        }
+    }
+      // outerLabels: {
+      //   fontNormalSize: 14,
+      //   fontNormalColor: '#565d64',
+      //   fontBoldSize: 14,
+      //   fontBoldColor: '#2e2e2e',
+      //   // debug: true,
+      // },
+      // labels: {
+      //   render: 'label',
+      //   arc: true,
+      //   fontColor: '#000',
+      //   position: 'outside'
+      // },
+      // datalabels: {
+      //   display: true,
+      //   color: "white"
+        
+      // }
+  
     },
   };
 
-  return <Doughnut data={chartData} options={options} />;
+  return <Pie data={chartData} options={options} />;
 };
 
 export default DoughnutChart;
