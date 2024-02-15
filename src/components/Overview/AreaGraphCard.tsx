@@ -37,7 +37,7 @@ const AreaGraphCard = ({ objData, yKey, title, subTitle, selectedChain }: any) =
         <DurationButtons data={objData} selectedDuration={selectedDuration} setSelectedDuration={setSelectedDuration} />
       </Box>
       <Box width={"100%"} height={"300px"}>
-        <AreaGraph lineData={objData[selectedDuration]} colors={chainColorSelector[selectedChain]} xKey={"month"} yKey={chain} />
+        <AreaGraph lineData={objData[selectedDuration]} colors={chainColorSelector[selectedChain]} xKey={"time"} yKey={chain} />
       </Box>
     </Section>
   )

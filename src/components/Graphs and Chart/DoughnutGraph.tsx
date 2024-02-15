@@ -42,7 +42,7 @@ const renderActiveShape = (props: any, dataKey: any, labelKey: any) => {
       />
       <path d={`M${sx},${sy}L${mx},${my}L${ex},${ey}`} stroke={fill} fill="none" />
       <circle cx={ex} cy={ey} r={2} fill={fill} stroke="none" />
-      <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} textAnchor={textAnchor} fontSize={"12px"} fill={fill}>{payload[dataKey]}</text>
+      <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} textAnchor={textAnchor} fontSize={"12px"} fill={fill}>{"$"+payload[dataKey].toLocaleString('en', { maximumFractionDigits: 3 })}</text>
       <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} dy={18} textAnchor={textAnchor} fill={"#b4a89e"} fontSize={"10px"} fontWeight={"bold"}>
         {`${payload[labelKey]} (${(percent * 100).toFixed(2)}%)`}
       </text>
@@ -62,7 +62,7 @@ const DoughnutGraph = ({ doughnutData, dataKey, labelKey, colors }: { doughnutDa
   })
 
   return (
-    <PieChart width={5000} height={300}>
+    <PieChart width={700} height={300}>
       <Pie
         data={doughnutData}
         cx={"50%"}

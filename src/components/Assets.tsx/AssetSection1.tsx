@@ -31,15 +31,38 @@ const AssetSection1 = ({
   const [option, setOption] = useState<assetType[]>(neutronAssets);
   const [finalData, setFinalData] = useState<assetPieType[]>([]);
   const [selectedOption, setSelectedOption] = useState<string>("all network");
+
+  const [combinedAllAssets, setCombinedAllAssets] = useState<assetType[]>(allAssets);
+
   useEffect(() => {
-    setOption(allAssets);
+    let combinedData: { [key: string]: assetType } = {};
+
+    // Combining data and summing up amounts
+    allAssets.forEach(item => {
+      let label = item.name.label;
+      if (!combinedData[label]) {
+        combinedData[label] = { ...item };
+      } else {
+        combinedData[label].amount += item.amount;
+      }
+    });
+
+    // Converting combinedData object to an array
+    setCombinedAllAssets(Object.values(combinedData));
   }, [allAssets]);
+
+
+  useEffect(() => {
+    setOption(combinedAllAssets);
+  }, [combinedAllAssets]);
 
   useEffect(() => {
     // const graphData = {
     //   labels: option.map((asset) => asset.name.label),
     //   datasets: option.map((asset) => asset.amount),
     // };
+
+    let numberOfDataInDoughnut = 6;
 
     let graphData = option.map((item) => {
       return {
@@ -50,28 +73,23 @@ const AssetSection1 = ({
 
     graphData.sort((a, b) => b.amount - a.amount);
 
-    // Keep the top 2 elements
-    let top2 = graphData.slice(0, 2);
+    let topData = graphData.slice(0, numberOfDataInDoughnut - 1);
 
-    // Calculate the sum of the remaining elements
-    let sumOthers = graphData.slice(2).reduce((sum, item) => sum + item.amount, 0);
+    let sumOthers = graphData.slice(numberOfDataInDoughnut - 1).reduce((sum, item) => sum + item.amount, 0);
 
-    // Create a new object for "Others"
     let others = {
       "label": "Others",
       "amount": sumOthers
     };
 
-    // Combine top 2 and others
-    let result = [...top2, others];
-
+    let result = [...topData, others];
 
     setFinalData(result);
   }, [option]);
 
   const handleChange = (option: string) => {
     if (option === "all network") {
-      setOption(allAssets);
+      setOption(combinedAllAssets);
       setSelectedOption("all network");
     }
     if (option === "neutron") {
@@ -87,6 +105,8 @@ const AssetSection1 = ({
       setSelectedOption("cosmos hub");
     }
   };
+
+
   return (
     <Flex flexDirection={"column"} gap={"40px"}>
       <AssetOptions
@@ -113,7 +133,7 @@ const AssetSection1 = ({
               ? " Cosmos Hub"
               : option === neutronAssets
                 ? " Neutron"
-                : option === allAssets
+                : option === combinedAllAssets
                   ? "All Network"
                   : " Stride"
               }`}
@@ -151,7 +171,7 @@ const AssetSection1 = ({
               ? " Cosmos Hub"
               : option === neutronAssets
                 ? " Neutron"
-                : option === allAssets
+                : option === combinedAllAssets
                   ? " All Network"
                   : " Stride"
               }`}
@@ -167,7 +187,7 @@ const AssetSection1 = ({
                 gap={"35px"}
               >
                 {/* <DoughnutChart data={finalData} /> */}
-                <DoughnutGraph doughnutData={finalData} dataKey="amount" labelKey="label" colors={["#fc7779", "#bc3d70", "#fc6c9f"]} />
+                <DoughnutGraph doughnutData={finalData} dataKey="amount" labelKey="label" colors={["#fc7779", "#bc3d70", "#fc6c9f", "#fc67c5", "#95004b", "#dd006d"]} />
                 <Text fontSize={"14px"}>Asset Supply Distribution on Atom</Text>
               </Flex>
             ) : (

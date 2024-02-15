@@ -27,21 +27,33 @@ import AreaGraph from "../Graphs and Chart/AreaGraph";
 //   ],
 // };
 
+let data = [];
 
-const data = [
-  { month: "Jan", transactions: 100, ibcTransactions: 500, activeAccounts: 1000, totalProposals: 1000, stakedAccounts: 1000 },
-  { month: "Feb", transactions: 120, ibcTransactions: 400, activeAccounts: 900, totalProposals: 900, stakedAccounts: 900 },
-  { month: "Mar", transactions: 130, ibcTransactions: 300, activeAccounts: 800, totalProposals: 800, stakedAccounts: 800 },
-  { month: "Apr", transactions: 140, ibcTransactions: 200, activeAccounts: 700, totalProposals: 700, stakedAccounts: 700 },
-  { month: "May", transactions: 150, ibcTransactions: 100, activeAccounts: 600, totalProposals: 600, stakedAccounts: 600 },
-  { month: "Jun", transactions: 100, ibcTransactions: 90, activeAccounts: 500, totalProposals: 500, stakedAccounts: 500 },
-  { month: "Jul", transactions: 90, ibcTransactions: 80, activeAccounts: 400, totalProposals: 900, stakedAccounts: 200 },
-  { month: "Aug", transactions: 180, ibcTransactions: 70, activeAccounts: 700, totalProposals: 200, stakedAccounts: 900 },
-  { month: "Sep", transactions: 70, ibcTransactions: 60, activeAccounts: 500, totalProposals: 500, stakedAccounts: 100 },
-  { month: "Oct", transactions: 80, ibcTransactions: 50, activeAccounts: 300, totalProposals: 600, stakedAccounts: 800 },
-  { month: "Nov", transactions: 110, ibcTransactions: 40, activeAccounts: 600, totalProposals: 200, stakedAccounts: 300 },
-  { month: "Dec", transactions: 120, ibcTransactions: 30, activeAccounts: 480, totalProposals: 100, stakedAccounts: 900 },
-];
+// Generate 100 rows for each time period with randomized numerical values
+let time = "Feb ";
+for (let j = 1; j <= 100; j++) {
+  let entry = {
+    "time": time + j,
+    transactions: Math.floor(Math.random() * 10), ibcTransactions: Math.floor(Math.random() * 10), activeAccounts: Math.floor(Math.random() * 10), totalProposals: Math.floor(Math.random() * 10), stakedAccounts: Math.floor(Math.random() * 10)
+  };
+  data.push(entry);
+}
+
+
+// const data = [
+//   { month: "Jan", transactions: 100, ibcTransactions: 500, activeAccounts: 1000, totalProposals: 1000, stakedAccounts: 1000 },
+//   { month: "Feb", transactions: 120, ibcTransactions: 400, activeAccounts: 900, totalProposals: 900, stakedAccounts: 900 },
+//   { month: "Mar", transactions: 130, ibcTransactions: 300, activeAccounts: 800, totalProposals: 800, stakedAccounts: 800 },
+//   { month: "Apr", transactions: 140, ibcTransactions: 200, activeAccounts: 700, totalProposals: 700, stakedAccounts: 700 },
+//   { month: "May", transactions: 150, ibcTransactions: 100, activeAccounts: 600, totalProposals: 600, stakedAccounts: 600 },
+//   { month: "Jun", transactions: 100, ibcTransactions: 90, activeAccounts: 500, totalProposals: 500, stakedAccounts: 500 },
+//   { month: "Jul", transactions: 90, ibcTransactions: 80, activeAccounts: 400, totalProposals: 900, stakedAccounts: 200 },
+//   { month: "Aug", transactions: 180, ibcTransactions: 70, activeAccounts: 700, totalProposals: 200, stakedAccounts: 900 },
+//   { month: "Sep", transactions: 70, ibcTransactions: 60, activeAccounts: 500, totalProposals: 500, stakedAccounts: 100 },
+//   { month: "Oct", transactions: 80, ibcTransactions: 50, activeAccounts: 300, totalProposals: 600, stakedAccounts: 800 },
+//   { month: "Nov", transactions: 110, ibcTransactions: 40, activeAccounts: 600, totalProposals: 200, stakedAccounts: 300 },
+//   { month: "Dec", transactions: 120, ibcTransactions: 30, activeAccounts: 480, totalProposals: 100, stakedAccounts: 900 },
+// ];
 
 
 const buttonSelectorData = [
@@ -157,8 +169,8 @@ const Featured = ({ stats }: { stats: Array<any> }) => {
   useEffect(() => {
     calculateTotalMarketCap()
   }, []);
-  
-  
+
+
   return (
     <Section heading="Featured" subtitle="Our top picks to get you started">
       <Box width={"100%"} position={"relative"} display={"flex"} flexDirection={"column"} gap={"30px"}>
@@ -167,7 +179,7 @@ const Featured = ({ stats }: { stats: Array<any> }) => {
         </Flex> */}
         <Box width={"100%"} height={"60vh"}>
           {/* <Line data={data} options={options} /> */}
-          <AreaGraph lineData={data} colors={color} xKey={"month"} yKey={showLine} />
+          <AreaGraph lineData={data} colors={color} xKey={"time"} yKey={showLine} />
         </Box>
         <Flex width={"100%"} justifyContent={"space-around"}>
           {
