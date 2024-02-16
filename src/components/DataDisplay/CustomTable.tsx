@@ -83,7 +83,6 @@ const CustomTable = ({
               if (item === "Prop Date") return;
               if (item === "Tags") return;
               if (item === "Date") return;
-              if(item === "AvatarUrl") return;
               //if (item === "UpTime") return;
               return (
                 <Th
@@ -142,18 +141,11 @@ const CustomTable = ({
                    // console.log(item);
 
                     if (value === item["Prop Date"]) return; // to not show the Prop Date in Consumer chains table
-                    if (keys[4] === "Twitter Space") {
-                      if (value?.data?.length === 1) return; // to not show hash tags in community calls
-                    }
                     if (keys[3] === "Twitter Space") {
-                      if (value?.data?.length === 1) return; // to not show hash tags in community calls
+                      if (value?.data?.length === 1) return; // to not show hash tags in community/agora calls
                     }
                     if (value === item.Date) return; // to not show date in community calls
                     if (value === item.url) return; // type data url added in Ecosystem to not show it
-                    if (value === item.type) return; // type avatar added to not show in community.tsx
-                   if(value===item.AvatarUrl) return; // to not show AvatarUrl in community calls 
-                    // if(value === item.types) return; // to not show Coinbase Custody, adding avatar
-                    // console.log(value?.data);
 
                     return (
                       <Td
@@ -203,16 +195,16 @@ const CustomTable = ({
                                 _
                               </Text>
                             )
-                          ) : value.type === "avatar" ? (
+                          ) : (value.type === "avatarWithText" || value.type==="avatar") ? (
                             <Flex alignItems={"center"} gap={"15px"}>
                               <Avatar
                                 name={value.label}
                                 size={"sm"}
-                                src={value.url}
+                                src={value.type === "avatarWithText" ? value.avatarUrl : value.url}
                               />
                               {value.label}
                             </Flex>
-                          ) : (
+                          )  : (
                             "-"
                           )
                         ) : typeof value === "number" ? (
@@ -234,33 +226,12 @@ const CustomTable = ({
                                 : 0
                             }
                             color={
-                              item.type === "avatarNeutron" ||
-                              item.type === "avatarAtom" ||
-                              item.types === "100%"
+                              (item.types === "100%" || value.type==="avatarWithText")
                                 ? "#bfbfbfcc"
                                 : "#fff"
                             }
                           >
-                            {(Chains.includes(value) ||
-                              ValidatorNames.includes(value) ||
-                              item.type === "avatarNeutron" ||
-                              item.type === "avatarAtom") && (
-                              <Avatar
-                                name={value.label}
-                                height={"24px"}
-                                width={"24px"}
-                                src={
-                                  item.type === "avatarNeutron"
-                                    ? `${item.AvatarUrl}`
-                                    : item.type === "avatarAtom"
-                                    ? "/Atom.svg"
-                                    : item.types === "100%"
-                                    ? "/CoinbaseCustody.svg"
-                                    : "/" + value + ".svg"
-                                }
-                              />
-                            )}
-                            {value}
+                            {value.type==="avatarWithText"? value.label : value}
                           </Flex>
                         )}
                       </Td>

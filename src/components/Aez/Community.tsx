@@ -6,28 +6,6 @@ import agoraCalls from "../../config/agoraCalls.json";
 import { SimpleGrid } from "@chakra-ui/react";
 // import { communityCalls } from "../../utils/constant";
 
-const keys = ["Topic", "Tags", "Date", "Twitter Spaces"];
-const data = [
-  {
-    Topic: "Neutron and Duality Merger",
-    Tags: ["Atom Zone #13"],
-    Date: "Aug 22, 2023",
-    "Twitter Spaces": "Atom Zone #13",
-  },
-];
-const avatarNeutron = "avatarNeutron";
-const avatarAtom = "avatarAtom";
-
-const modifyData = (data: any, avatar: any) => {
-  const newData = data.map((item: any) => {
-    return {
-      ...item,
-      type: avatar,
-    };
-  });
-  return newData;
-};
-
 const Community = () => {
   return (
     //<Flex gap="50px"  flexWrap={"wrap"} >
@@ -45,7 +23,7 @@ const Community = () => {
       >
         <CustomTable
           keys={Object.keys(communityCalls[0])}
-          data={modifyData(communityCalls.reverse(), avatarNeutron)}
+          data={communityCalls.reverse()}
           minGridWidth="150px"
           pagination={true}
           itemsPerPage={5}
@@ -62,7 +40,7 @@ const Community = () => {
       >
         <CustomTable
           keys={Object.keys(agoraCalls[0])}
-          data={modifyData(agoraCalls, avatarAtom)}
+          data={agoraCalls}
           minGridWidth="150px"
           pagination={true}
           color="#bfbfbfcc"
