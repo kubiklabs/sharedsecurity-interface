@@ -40,12 +40,15 @@ const CustomTable = ({
   itemsPerPage = 10,
   pagination,
   overflow,
+  totalAmount,
 }: any) => {
   const currentPage = useRef(1);
   const totalPages = useRef(Math.ceil(data?.length / itemsPerPage) || 0);
   const [currentItems, setCurrentItems] = useState(data);
   const location = useLocation();
   const currentPath = location.pathname;
+  const totals = [totalValue, totalAmount];
+  console.log(typeof totals[1]);
 
   useEffect(() => {
     if (!pagination) return;
@@ -65,8 +68,8 @@ const CustomTable = ({
   if (keys[0] === validatorKeys[0]) {
     keys = [...keys, "UpTime"];
   }
-  //console.log(currentItems);
-
+  // console.log(currentItems);
+  //console.log(keys);
   return (
     <TableContainer
       textAlign={"left"}
@@ -81,6 +84,7 @@ const CustomTable = ({
               if (item === "Prop Date") return;
               if (item === "Tags") return;
               if (item === "Date") return;
+              if(item === "AvatarUrl") return;
               //if (item === "UpTime") return;
               return (
                 <Th
@@ -127,22 +131,25 @@ const CustomTable = ({
         </Thead>
         <Tbody>
           {currentItems?.map((item: any) => {
+            //  console.log(item);
+
             return (
               <Tr
                 // borderTop={"1px solid gray"}
                 borderBottom={"1px solid rgba(255, 255, 255, 0.15)"}
               >
                 {item &&
-                  Object.values(item)?.map((value: any) => {
-                    //console.log({value});
+                  Object.values(item)?.map((value: any, index: number) => {
+                    console.log(item);
 
                     if (value === item["Prop Date"]) return; // to not show the Prop Date in Consumer chains table
-                    if (keys[3] === "Twitter Space") {
+                    if (keys[4] === "Twitter Space") {
                       if (value?.data?.length === 1) return; // to not show hash tags in community calls
                     }
                     if (value === item.Date) return; // to not show date in community calls
                     if (value === item.url) return; // type data url added in Ecosystem to not show it
                     if (value === item.type) return; // type avatar added to not show in community.tsx
+                   if(value===item.AvatarUrl) return;
                     // if(value === item.types) return; // to not show Coinbase Custody, adding avatar
                     // console.log(value?.data);
 
@@ -181,7 +188,18 @@ const CustomTable = ({
                                 Proposal #{value.label}
                               </PathLink>
                             ) : (
-                              "-"
+                              <Text
+                                justifyContent={"center"}
+                                alignItems={"center"}
+                                pb={"12px"}
+                                style={{
+                                  paddingLeft: `${
+                                    currentPath === "/aez" ? "55px" : 0
+                                  }`,
+                                }}
+                              >
+                                _
+                              </Text>
                             )
                           ) : value.type === "avatar" ? (
                             <Flex alignItems={"center"} gap={"15px"}>
@@ -196,7 +214,12 @@ const CustomTable = ({
                             "-"
                           )
                         ) : typeof value === "number" ? (
-                          `$ ${value.toLocaleString()}`
+                          
+                          (currentPath === "/assets" && index === 1) ? (
+                            `${value.toLocaleString()}`
+                          ) : (
+                            `$ ${value.toLocaleString()}`
+                          )
                         ) : (
                           <Flex
                             alignItems={"center"}
@@ -226,7 +249,7 @@ const CustomTable = ({
                                 width={"24px"}
                                 src={
                                   item.type === "avatarNeutron"
-                                    ? "/Neutron.svg"
+                                    ? `${item.AvatarUrl}`
                                     : item.type === "avatarAtom"
                                     ? "/Atom.svg"
                                     : item.types === "100%"
@@ -253,11 +276,33 @@ const CustomTable = ({
                 fontWeight="bold"
                 borderTop={"1px solid"}
                 fontSize={20}
+                textAlign={"unset"}
+                pl={currentPath==="/assets"? "10px" : "0"}
               >
                 Total
               </Td>
             )}
-            {keys?.slice(1).map((key: string, index: number) => {
+          {keys?.slice(1).map((key: string, index: number) => {
+              return (
+                totalValue && (
+                  <Td
+                    key={index}
+                    py={"15px"}
+                    border={"none"}
+                    borderTop={"1px solid"}
+                    fontWeight="bold"
+                    paddingLeft={"5px"}
+                  >
+                    {typeof totals[index] === "number"
+                      ? `${Number(totalAmount).toLocaleString()}`
+                      : `$ ${totalValue.toLocaleString()}`}
+                  </Td>
+                )
+              );
+            })} 
+         {/*    {keys?.slice(1).map((key: string, index: number) => {
+              console.log(totals[index],"hhh");
+              console.log(totalValue,totalAmount,"hhh");
               return (
                 totalValue && (
                   <Td
@@ -267,14 +312,11 @@ const CustomTable = ({
                     borderTop={"1px solid"}
                     fontWeight="bold"
                   >
-                    ${" "}
-                    {typeof totalValue === "number"
-                      ? `$ ${totalValue.toLocaleString()}`
-                      : totalValue}
+                    {totalValue}
                   </Td>
                 )
               );
-            })}
+            })} */}
           </Tr>
         </Tbody>
       </Table>
