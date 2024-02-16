@@ -94,7 +94,7 @@ function App() {
       </BrowserRouter>
       {/* <Header /> */}
 
-      <ToastContainer style={{ textAlign: "left" }} position="bottom-right" />
+      <ToastContainer style={{ textAlign: "left" }} />
     </>
   );
 }
