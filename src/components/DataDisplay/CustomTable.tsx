@@ -145,6 +145,9 @@ const CustomTable = ({
                     if (keys[4] === "Twitter Space") {
                       if (value?.data?.length === 1) return; // to not show hash tags in community calls
                     }
+                    if (keys[3] === "Twitter Space") {
+                      if (value?.data?.length === 1) return; // to not show hash tags in community calls
+                    }
                     if (value === item.Date) return; // to not show date in community calls
                     if (value === item.url) return; // type data url added in Ecosystem to not show it
                     if (value === item.type) return; // type avatar added to not show in community.tsx
