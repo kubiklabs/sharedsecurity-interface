@@ -48,7 +48,6 @@ const CustomTable = ({
   const location = useLocation();
   const currentPath = location.pathname;
   const totals = [totalValue, totalAmount];
-  console.log(typeof totals[1]);
 
   useEffect(() => {
     if (!pagination) return;
@@ -140,7 +139,7 @@ const CustomTable = ({
               >
                 {item &&
                   Object.values(item)?.map((value: any, index: number) => {
-                    console.log(item);
+                   // console.log(item);
 
                     if (value === item["Prop Date"]) return; // to not show the Prop Date in Consumer chains table
                     if (keys[4] === "Twitter Space") {
@@ -149,7 +148,7 @@ const CustomTable = ({
                     if (value === item.Date) return; // to not show date in community calls
                     if (value === item.url) return; // type data url added in Ecosystem to not show it
                     if (value === item.type) return; // type avatar added to not show in community.tsx
-                   if(value===item.AvatarUrl) return;
+                   if(value===item.AvatarUrl) return; // to not show AvatarUrl in community calls 
                     // if(value === item.types) return; // to not show Coinbase Custody, adding avatar
                     // console.log(value?.data);
 
@@ -300,23 +299,7 @@ const CustomTable = ({
                 )
               );
             })} 
-         {/*    {keys?.slice(1).map((key: string, index: number) => {
-              console.log(totals[index],"hhh");
-              console.log(totalValue,totalAmount,"hhh");
-              return (
-                totalValue && (
-                  <Td
-                    key={index}
-                    py={"15px"}
-                    border={"none"}
-                    borderTop={"1px solid"}
-                    fontWeight="bold"
-                  >
-                    {totalValue}
-                  </Td>
-                )
-              );
-            })} */}
+        
           </Tr>
         </Tbody>
       </Table>
