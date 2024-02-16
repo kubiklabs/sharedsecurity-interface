@@ -157,7 +157,7 @@ const ValidatorsList = () => {
             maxGridWidth="100px"
             gridColumnGap="0px"
             pagination={true}
-            itemsPerPage={5}
+            itemsPerPage={50}
           />
         ) : (
           <>
