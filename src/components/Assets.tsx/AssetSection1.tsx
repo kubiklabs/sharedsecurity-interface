@@ -24,7 +24,7 @@ const AssetSection1 = ({
 }: propsType) => {
   const getTotalValue = (assets: assetType[]) => {
     return assets.reduce(
-      (total: number, asset: assetType) => total + asset.amount,
+      (total: number, asset: assetType) => total + asset?.value,
       0
     );
   };
@@ -86,6 +86,17 @@ const AssetSection1 = ({
 
     setFinalData(result);
   }, [option]);
+  console.log(option);
+
+  const calculateTotalAmount = (data: any) => {
+    return data.reduce(
+      (total: number, item: assetType) => total + item.amount,
+      0
+    );
+  };
+
+  /*  console.log("Total amount:", calculateTotalAmount(option));
+  console.log("Total value:", getTotalValue(option)); */
 
   const handleChange = (option: string) => {
     if (option === "all network") {
@@ -145,7 +156,10 @@ const AssetSection1 = ({
                 data={option}
                 pagination={true}
                 itemsPerPage={5}
-                totalValue={getTotalValue(option).toLocaleString()}
+                totalValue={getTotalValue(option)}
+                totalAmount={calculateTotalAmount(option)
+                  .toFixed(2)
+                  .toLocaleString()}
               />
             ) : (
               <CustomSkeleton count={5} height="50px" />

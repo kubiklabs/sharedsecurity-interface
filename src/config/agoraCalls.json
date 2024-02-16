@@ -1,6 +1,10 @@
 [
   {
-    "Event": "ATOM as Money on Neutron",
+    "Event": {
+      "type": "avatarWithText",
+      "label":"ATOM as Money on Neutron",
+      "avatarUrl": "/Atom.svg"
+  }, 
     "Tags": {
       "type": "tags",
       "data": ["Agora #01"]
@@ -13,7 +17,11 @@
     }
   },
   {
-    "Event": "Accountability & Roadmap 2024",
+    "Event": {
+      "type": "avatarWithText",
+      "label":"Accountability & Roadmap 2024",
+      "avatarUrl": "/Atom.svg"
+  },  
     "Tags": {
       "type": "tags",
       "data": ["Agora #02"]
@@ -26,7 +34,11 @@
     }
   },
   {
-    "Event": "Governance Challenges within the AEZ",
+    "Event": {
+      "type": "avatarWithText",
+      "label":"Governance Challenges within the AEZ",
+      "avatarUrl": "/Atom.svg"
+  },   
     "Tags": {
       "type": "tags",
       "data": ["Agora #03"]
@@ -39,7 +51,11 @@
     }
   },
   {
-    "Event": "AtomZone Agora live at Cosmoverse",
+    "Event":  {
+      "type": "avatarWithText",
+      "label": "AtomZone Agora live at Cosmoverse",
+      "avatarUrl": "/Atom.svg"
+  },   
     "Tags": {
       "type": "tags",
       "data": ["Agora x Cosmoverse"]

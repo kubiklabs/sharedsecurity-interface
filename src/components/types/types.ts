@@ -1,5 +1,6 @@
 export type assetType = {
     amount: number,
+    value: number,
     name: {
         label: string,
         type: string,

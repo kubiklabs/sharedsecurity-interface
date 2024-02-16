@@ -1,6 +1,11 @@
 [
   {
-    "Event": "Lambda Upgrade",
+    "Event": {
+      "type": "avatarWithText",
+      "label": "Lambda Upgrade",
+      "avatarUrl": "/Cosmos_Hub.png"
+  },
+   
     "Tags": {
       "type": "tags",
       "data": ["AtomZone #01"]
@@ -11,9 +16,14 @@
       "label": "AtomZone #01",
       "url": "https://twitter.com/cosmoshub/status/1635669793314406403"
     }
+    
   },
   {
-    "Event": "Neutron Consumer Chain",
+    "Event": {
+      "type": "avatarWithText",
+      "label": "Neutron Consumer Chain",
+      "avatarUrl" : "/Neutron.svg"
+  }, 
     "Tags": {
       "type": "tags",
       "data": ["AtomZone #02"]
@@ -26,7 +36,11 @@
     }
   },
   {
-    "Event": "Neutron Round 2",
+    "Event": {
+      "type": "avatarWithText",
+      "label": "Neutron Round 2",
+      "avatarUrl" : "/Neutron.svg"
+  },  
     "Tags": {
       "type": "tags",
       "data": ["AtomZone #04"]
@@ -39,7 +53,11 @@
     }
   },
   {
-    "Event": "Stride Consumer Chain",
+    "Event": {
+      "type": "avatarWithText",
+      "label": "Stride Consumer Chain",
+      "avatarUrl": "/Stride.svg"
+  },   
     "Tags": {
       "type": "tags",
       "data": ["AtomZone #05"]
@@ -52,7 +70,11 @@
     }
   },
   {
-    "Event": "Liquid Staking Module",
+    "Event": {
+      "type": "avatarWithText",
+      "label": "Liquid Staking Module",
+      "avatarUrl": "/Cosmos_Hub.png"
+  },  
     "Tags": {
       "type": "tags",
       "data": ["AtomZone #06"]
@@ -65,7 +87,11 @@
     }
   },
   {
-    "Event": "Neutron join AEZ",
+    "Event": {
+      "type": "avatarWithText",
+      "label": "Neutron join AEZ",
+      "avatarUrl": "/Neutron.svg"
+  },   
     "Tags": {
       "type": "tags",
       "data": ["AtomZone #07"]
@@ -78,7 +104,11 @@
     }
   },
   {
-    "Event": "Stride Round 2",
+    "Event":  {
+      "type": "avatarWithText",
+      "label":  "Stride Round 2",
+      "avatarUrl": "/Stride.svg"
+  },   
     "Tags": {
       "type": "tags",
       "data": ["AtomZone #08"]
@@ -91,7 +121,12 @@
     }
   },
   {
-    "Event": "Shared Security Talk",
+    "Event":  {
+      "type": "avatarWithText",
+      "label":  "Shared Security Talk",
+      "avatarUrl": "/Cosmos_Hub.png"
+  },    
+    
     "Tags": {
       "type": "tags",
       "data": ["AtomZone #09"]
@@ -104,7 +139,12 @@
     }
   },
   {
-    "Event": "Duality to adopt Replicated Security",
+    "Event":  {
+      "type": "avatarWithText",
+      "label":  "Duality to adopt Replicated Security",
+      "avatarUrl": "/Duality.png"
+  },    
+   
     "Tags": {
       "type": "tags",
       "data": ["AtomZone #10"]
@@ -117,7 +157,12 @@
     }
   },
   {
-    "Event": "EntryPoint within the AEZ",
+    "Event": {
+      "type": "avatarWithText",
+      "label":   "EntryPoint within the AEZ",
+      "avatarUrl": "/EntryPoint.svg"
+  },    
+   
     "Tags": {
       "type": "tags",
       "data": ["AtomZone #11"]
@@ -130,7 +175,12 @@
     }
   },
   {
-    "Event": "Welcome Stride",
+    "Event": {
+      "type": "avatarWithText",
+      "label":  "Welcome Stride",
+      "avatarUrl": "/Stride.svg"
+  },    
+    
     "Tags": {
       "type": "tags",
       "data": ["AtomZone #12"]
@@ -143,7 +193,12 @@
     }
   },
   {
-    "Event": "Neutron and Duality Merger Proposal",
+    "Event": {
+      "type": "avatarWithText",
+      "label":  "Neutron and Duality Merger Proposal",
+      "avatarUrl": "/Neutron.svg"
+  },    
+  
     "Tags": {
       "type": "tags",
       "data": ["AtomZone #13"]
@@ -156,7 +211,12 @@
     }
   },
   {
-    "Event": "Composable Proposal to join AEZ",
+    "Event":  {
+      "type": "avatarWithText",
+      "label":  "Composable Proposal to join AEZ",
+      "avatarUrl": "/Composable.svg"
+  },   
+   
     "Tags": {
       "type": "tags",
       "data": ["AtomZone #14"]

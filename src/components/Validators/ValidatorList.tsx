@@ -68,7 +68,6 @@ const ValidatorsList = () => {
   };
 
   const upTime = "100%";
-  const UpTime = "UpTime";
 
   const modifyData = (data: any, upTime: any) => {
     const newData = data.map((item: any) => {
