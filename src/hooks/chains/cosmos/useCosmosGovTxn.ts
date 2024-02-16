@@ -5,6 +5,7 @@ import cosmosChainInfo from "../../../config/chains/CosmosHub/cosmos_mainnet.jso
 import nodeConfig from "../../../config/nodeConfig.json";
 import { toast } from "react-toastify";
 import Long from "long";
+import showToast from "../../../utils/showToast";
 
 const style = {
   position: "top-right",
@@ -69,16 +70,12 @@ export const useCosmosGovTxn = () => {
       );
 
       if (code === 0) {
-        toast.success(
-          `Transaction broadcasted successfully with hash ${transactionHash}`
-        );
+        showToast("success", `Transaction broadcasted successfully with hash ${transactionHash}`);
       } else {
-        toast.error(`Transaction failed with code: ${code}`);
+        showToast("error", `Transaction failed with code: ${code}`);
       }
     } catch (error) {
-      toast.error(
-        `Transaction failed with message ${(error as Error)?.message}`
-      );
+      showToast("error", `Transaction failed with message ${(error as Error)?.message}`);
       console.log(error);
     }
 

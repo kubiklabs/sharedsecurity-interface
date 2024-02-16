@@ -3,6 +3,7 @@ import { coinConvert } from "../../../utils/common";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { StargateClient } from "@cosmjs/stargate";
+import showToast from "../../../utils/showToast";
 
 export const useEcosystem = () => {
   const getAllCoinPrices = async (coinRegistry: any) => {
@@ -19,8 +20,7 @@ export const useEcosystem = () => {
       return response.data;
     } catch (error) {
       console.log(error);
-
-      toast.error(`Request failed with message ${(error as Error).message}`);
+      showToast("error", `Request failed with message ${(error as Error).message}`);
     }
   };
 

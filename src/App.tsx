@@ -24,6 +24,7 @@ import { useCallback, useEffect } from "react";
 import { useConnectWallet } from "./hooks/useConnectWallet";
 import Footer from "./components/Footer/Footer";
 
+
 const scrollbarStyle = {
   "&::-webkit-scrollbar": {
     width: "5px",
