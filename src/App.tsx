@@ -24,7 +24,6 @@ import { useCallback, useEffect } from "react";
 import { useConnectWallet } from "./hooks/useConnectWallet";
 import Footer from "./components/Footer/Footer";
 
-
 const scrollbarStyle = {
   "&::-webkit-scrollbar": {
     width: "5px",
@@ -95,7 +94,7 @@ function App() {
       </BrowserRouter>
       {/* <Header /> */}
 
-      <ToastContainer style={{ textAlign: "left" }} />
+      <ToastContainer style={{ textAlign: "left" }} position="bottom-right" />
     </>
   );
 }
