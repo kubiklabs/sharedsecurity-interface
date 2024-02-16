@@ -19,12 +19,17 @@ const Section = (props: any) => {
     >
       {props.heading && (
         <SectionHeading
-          heading={props.heading}
-          sideText={props.sideText}
-          subtitle={props.subtitle}
+        heading={props.heading}
+        headingSize = {props.headingSize}
+        headingColor = {props.headingColor}
+        sideText={props.sideText}
+        subtitle={props.subtitle}
+        subtitleSize = {props.subtitleSize}
+        subtitleColor = {props.subtitleColor}
           sideTextPos={props.sideTextPos}
         />
       )}
+
       {props.children}
     </Box>
   );

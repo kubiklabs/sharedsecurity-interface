@@ -1,0 +1,7239 @@
+{
+  "All Network": {
+    "1D": [
+      {
+        "time": "Feb 1",
+        "Cosmos Hub": 8,
+        "Stride": 6,
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 2",
+        "Cosmos Hub": 4,
+        "Stride": 6,
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 3",
+        "Cosmos Hub": 1,
+        "Stride": 9,
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 4",
+        "Cosmos Hub": 8,
+        "Stride": 6,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 5",
+        "Cosmos Hub": 5,
+        "Stride": 9,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 6",
+        "Cosmos Hub": 4,
+        "Stride": 3,
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 7",
+        "Cosmos Hub": 1,
+        "Stride": 6,
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 8",
+        "Cosmos Hub": 5,
+        "Stride": 6,
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 9",
+        "Cosmos Hub": 9,
+        "Stride": 1,
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 10",
+        "Cosmos Hub": 2,
+        "Stride": 4,
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 11",
+        "Cosmos Hub": 8,
+        "Stride": 7,
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 12",
+        "Cosmos Hub": 5,
+        "Stride": 0,
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 13",
+        "Cosmos Hub": 6,
+        "Stride": 4,
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 14",
+        "Cosmos Hub": 0,
+        "Stride": 4,
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 15",
+        "Cosmos Hub": 5,
+        "Stride": 3,
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 16",
+        "Cosmos Hub": 8,
+        "Stride": 9,
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 17",
+        "Cosmos Hub": 0,
+        "Stride": 4,
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 18",
+        "Cosmos Hub": 9,
+        "Stride": 9,
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 19",
+        "Cosmos Hub": 3,
+        "Stride": 5,
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 20",
+        "Cosmos Hub": 6,
+        "Stride": 5,
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 21",
+        "Cosmos Hub": 5,
+        "Stride": 7,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 22",
+        "Cosmos Hub": 8,
+        "Stride": 8,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 23",
+        "Cosmos Hub": 1,
+        "Stride": 5,
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 24",
+        "Cosmos Hub": 3,
+        "Stride": 5,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 25",
+        "Cosmos Hub": 7,
+        "Stride": 8,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 26",
+        "Cosmos Hub": 4,
+        "Stride": 1,
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 27",
+        "Cosmos Hub": 2,
+        "Stride": 8,
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 28",
+        "Cosmos Hub": 7,
+        "Stride": 0,
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 29",
+        "Cosmos Hub": 0,
+        "Stride": 5,
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 30",
+        "Cosmos Hub": 9,
+        "Stride": 1,
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 31",
+        "Cosmos Hub": 6,
+        "Stride": 1,
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 32",
+        "Cosmos Hub": 7,
+        "Stride": 0,
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 33",
+        "Cosmos Hub": 9,
+        "Stride": 9,
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 34",
+        "Cosmos Hub": 3,
+        "Stride": 2,
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 35",
+        "Cosmos Hub": 5,
+        "Stride": 2,
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 36",
+        "Cosmos Hub": 0,
+        "Stride": 3,
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 37",
+        "Cosmos Hub": 4,
+        "Stride": 2,
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 38",
+        "Cosmos Hub": 8,
+        "Stride": 5,
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 39",
+        "Cosmos Hub": 2,
+        "Stride": 4,
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 40",
+        "Cosmos Hub": 4,
+        "Stride": 9,
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 41",
+        "Cosmos Hub": 0,
+        "Stride": 9,
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 42",
+        "Cosmos Hub": 3,
+        "Stride": 9,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 43",
+        "Cosmos Hub": 0,
+        "Stride": 3,
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 44",
+        "Cosmos Hub": 6,
+        "Stride": 3,
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 45",
+        "Cosmos Hub": 3,
+        "Stride": 6,
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 46",
+        "Cosmos Hub": 8,
+        "Stride": 9,
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 47",
+        "Cosmos Hub": 0,
+        "Stride": 6,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 48",
+        "Cosmos Hub": 1,
+        "Stride": 6,
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 49",
+        "Cosmos Hub": 5,
+        "Stride": 2,
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 50",
+        "Cosmos Hub": 5,
+        "Stride": 5,
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 51",
+        "Cosmos Hub": 8,
+        "Stride": 5,
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 52",
+        "Cosmos Hub": 0,
+        "Stride": 3,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 53",
+        "Cosmos Hub": 8,
+        "Stride": 4,
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 54",
+        "Cosmos Hub": 6,
+        "Stride": 9,
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 55",
+        "Cosmos Hub": 6,
+        "Stride": 0,
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 56",
+        "Cosmos Hub": 8,
+        "Stride": 4,
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 57",
+        "Cosmos Hub": 5,
+        "Stride": 7,
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 58",
+        "Cosmos Hub": 5,
+        "Stride": 1,
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 59",
+        "Cosmos Hub": 4,
+        "Stride": 9,
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 60",
+        "Cosmos Hub": 1,
+        "Stride": 4,
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 61",
+        "Cosmos Hub": 8,
+        "Stride": 3,
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 62",
+        "Cosmos Hub": 0,
+        "Stride": 1,
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 63",
+        "Cosmos Hub": 9,
+        "Stride": 2,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 64",
+        "Cosmos Hub": 7,
+        "Stride": 1,
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 65",
+        "Cosmos Hub": 1,
+        "Stride": 3,
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 66",
+        "Cosmos Hub": 1,
+        "Stride": 3,
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 67",
+        "Cosmos Hub": 2,
+        "Stride": 2,
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 68",
+        "Cosmos Hub": 9,
+        "Stride": 8,
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 69",
+        "Cosmos Hub": 2,
+        "Stride": 4,
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 70",
+        "Cosmos Hub": 9,
+        "Stride": 1,
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 71",
+        "Cosmos Hub": 7,
+        "Stride": 1,
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 72",
+        "Cosmos Hub": 7,
+        "Stride": 0,
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 73",
+        "Cosmos Hub": 3,
+        "Stride": 8,
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 74",
+        "Cosmos Hub": 5,
+        "Stride": 1,
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 75",
+        "Cosmos Hub": 7,
+        "Stride": 7,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 76",
+        "Cosmos Hub": 5,
+        "Stride": 9,
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 77",
+        "Cosmos Hub": 3,
+        "Stride": 2,
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 78",
+        "Cosmos Hub": 6,
+        "Stride": 1,
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 79",
+        "Cosmos Hub": 4,
+        "Stride": 1,
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 80",
+        "Cosmos Hub": 5,
+        "Stride": 4,
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 81",
+        "Cosmos Hub": 5,
+        "Stride": 2,
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 82",
+        "Cosmos Hub": 5,
+        "Stride": 6,
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 83",
+        "Cosmos Hub": 7,
+        "Stride": 4,
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 84",
+        "Cosmos Hub": 3,
+        "Stride": 2,
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 85",
+        "Cosmos Hub": 4,
+        "Stride": 5,
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 86",
+        "Cosmos Hub": 6,
+        "Stride": 6,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 87",
+        "Cosmos Hub": 3,
+        "Stride": 6,
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 88",
+        "Cosmos Hub": 7,
+        "Stride": 0,
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 89",
+        "Cosmos Hub": 5,
+        "Stride": 5,
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 90",
+        "Cosmos Hub": 7,
+        "Stride": 1,
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 91",
+        "Cosmos Hub": 8,
+        "Stride": 7,
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 92",
+        "Cosmos Hub": 1,
+        "Stride": 7,
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 93",
+        "Cosmos Hub": 2,
+        "Stride": 3,
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 94",
+        "Cosmos Hub": 9,
+        "Stride": 1,
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 95",
+        "Cosmos Hub": 3,
+        "Stride": 0,
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 96",
+        "Cosmos Hub": 8,
+        "Stride": 0,
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 97",
+        "Cosmos Hub": 0,
+        "Stride": 6,
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 98",
+        "Cosmos Hub": 6,
+        "Stride": 6,
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 99",
+        "Cosmos Hub": 8,
+        "Stride": 8,
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 100",
+        "Cosmos Hub": 3,
+        "Stride": 7,
+        "Neutron": 8
+      }
+    ],
+    "7D": [
+      {
+        "time": "Feb 1",
+        "Cosmos Hub": 6,
+        "Stride": 2,
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 2",
+        "Cosmos Hub": 9,
+        "Stride": 8,
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 3",
+        "Cosmos Hub": 1,
+        "Stride": 0,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 4",
+        "Cosmos Hub": 6,
+        "Stride": 9,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 5",
+        "Cosmos Hub": 4,
+        "Stride": 1,
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 6",
+        "Cosmos Hub": 9,
+        "Stride": 0,
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 7",
+        "Cosmos Hub": 4,
+        "Stride": 0,
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 8",
+        "Cosmos Hub": 1,
+        "Stride": 4,
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 9",
+        "Cosmos Hub": 8,
+        "Stride": 5,
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 10",
+        "Cosmos Hub": 5,
+        "Stride": 0,
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 11",
+        "Cosmos Hub": 3,
+        "Stride": 5,
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 12",
+        "Cosmos Hub": 4,
+        "Stride": 9,
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 13",
+        "Cosmos Hub": 2,
+        "Stride": 4,
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 14",
+        "Cosmos Hub": 0,
+        "Stride": 1,
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 15",
+        "Cosmos Hub": 9,
+        "Stride": 4,
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 16",
+        "Cosmos Hub": 5,
+        "Stride": 9,
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 17",
+        "Cosmos Hub": 9,
+        "Stride": 1,
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 18",
+        "Cosmos Hub": 4,
+        "Stride": 2,
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 19",
+        "Cosmos Hub": 7,
+        "Stride": 6,
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 20",
+        "Cosmos Hub": 8,
+        "Stride": 4,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 21",
+        "Cosmos Hub": 3,
+        "Stride": 6,
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 22",
+        "Cosmos Hub": 6,
+        "Stride": 8,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 23",
+        "Cosmos Hub": 1,
+        "Stride": 8,
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 24",
+        "Cosmos Hub": 1,
+        "Stride": 8,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 25",
+        "Cosmos Hub": 4,
+        "Stride": 2,
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 26",
+        "Cosmos Hub": 5,
+        "Stride": 7,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 27",
+        "Cosmos Hub": 3,
+        "Stride": 9,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 28",
+        "Cosmos Hub": 7,
+        "Stride": 6,
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 29",
+        "Cosmos Hub": 3,
+        "Stride": 2,
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 30",
+        "Cosmos Hub": 2,
+        "Stride": 9,
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 31",
+        "Cosmos Hub": 0,
+        "Stride": 1,
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 32",
+        "Cosmos Hub": 1,
+        "Stride": 6,
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 33",
+        "Cosmos Hub": 5,
+        "Stride": 2,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 34",
+        "Cosmos Hub": 3,
+        "Stride": 5,
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 35",
+        "Cosmos Hub": 4,
+        "Stride": 3,
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 36",
+        "Cosmos Hub": 6,
+        "Stride": 4,
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 37",
+        "Cosmos Hub": 3,
+        "Stride": 0,
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 38",
+        "Cosmos Hub": 3,
+        "Stride": 7,
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 39",
+        "Cosmos Hub": 2,
+        "Stride": 8,
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 40",
+        "Cosmos Hub": 3,
+        "Stride": 3,
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 41",
+        "Cosmos Hub": 9,
+        "Stride": 3,
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 42",
+        "Cosmos Hub": 4,
+        "Stride": 2,
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 43",
+        "Cosmos Hub": 7,
+        "Stride": 8,
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 44",
+        "Cosmos Hub": 2,
+        "Stride": 4,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 45",
+        "Cosmos Hub": 6,
+        "Stride": 7,
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 46",
+        "Cosmos Hub": 4,
+        "Stride": 8,
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 47",
+        "Cosmos Hub": 6,
+        "Stride": 5,
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 48",
+        "Cosmos Hub": 4,
+        "Stride": 6,
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 49",
+        "Cosmos Hub": 9,
+        "Stride": 0,
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 50",
+        "Cosmos Hub": 3,
+        "Stride": 0,
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 51",
+        "Cosmos Hub": 7,
+        "Stride": 3,
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 52",
+        "Cosmos Hub": 0,
+        "Stride": 1,
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 53",
+        "Cosmos Hub": 6,
+        "Stride": 3,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 54",
+        "Cosmos Hub": 7,
+        "Stride": 6,
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 55",
+        "Cosmos Hub": 2,
+        "Stride": 1,
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 56",
+        "Cosmos Hub": 5,
+        "Stride": 3,
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 57",
+        "Cosmos Hub": 2,
+        "Stride": 3,
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 58",
+        "Cosmos Hub": 5,
+        "Stride": 8,
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 59",
+        "Cosmos Hub": 5,
+        "Stride": 0,
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 60",
+        "Cosmos Hub": 0,
+        "Stride": 8,
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 61",
+        "Cosmos Hub": 1,
+        "Stride": 3,
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 62",
+        "Cosmos Hub": 5,
+        "Stride": 3,
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 63",
+        "Cosmos Hub": 4,
+        "Stride": 7,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 64",
+        "Cosmos Hub": 4,
+        "Stride": 5,
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 65",
+        "Cosmos Hub": 8,
+        "Stride": 0,
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 66",
+        "Cosmos Hub": 8,
+        "Stride": 3,
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 67",
+        "Cosmos Hub": 7,
+        "Stride": 8,
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 68",
+        "Cosmos Hub": 7,
+        "Stride": 8,
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 69",
+        "Cosmos Hub": 1,
+        "Stride": 3,
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 70",
+        "Cosmos Hub": 1,
+        "Stride": 8,
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 71",
+        "Cosmos Hub": 8,
+        "Stride": 8,
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 72",
+        "Cosmos Hub": 7,
+        "Stride": 8,
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 73",
+        "Cosmos Hub": 9,
+        "Stride": 2,
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 74",
+        "Cosmos Hub": 4,
+        "Stride": 3,
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 75",
+        "Cosmos Hub": 7,
+        "Stride": 8,
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 76",
+        "Cosmos Hub": 9,
+        "Stride": 4,
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 77",
+        "Cosmos Hub": 8,
+        "Stride": 4,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 78",
+        "Cosmos Hub": 7,
+        "Stride": 2,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 79",
+        "Cosmos Hub": 7,
+        "Stride": 8,
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 80",
+        "Cosmos Hub": 5,
+        "Stride": 1,
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 81",
+        "Cosmos Hub": 3,
+        "Stride": 6,
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 82",
+        "Cosmos Hub": 6,
+        "Stride": 9,
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 83",
+        "Cosmos Hub": 1,
+        "Stride": 2,
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 84",
+        "Cosmos Hub": 2,
+        "Stride": 0,
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 85",
+        "Cosmos Hub": 0,
+        "Stride": 5,
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 86",
+        "Cosmos Hub": 7,
+        "Stride": 9,
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 87",
+        "Cosmos Hub": 2,
+        "Stride": 0,
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 88",
+        "Cosmos Hub": 9,
+        "Stride": 4,
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 89",
+        "Cosmos Hub": 3,
+        "Stride": 7,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 90",
+        "Cosmos Hub": 6,
+        "Stride": 1,
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 91",
+        "Cosmos Hub": 0,
+        "Stride": 5,
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 92",
+        "Cosmos Hub": 9,
+        "Stride": 7,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 93",
+        "Cosmos Hub": 2,
+        "Stride": 0,
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 94",
+        "Cosmos Hub": 1,
+        "Stride": 9,
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 95",
+        "Cosmos Hub": 5,
+        "Stride": 8,
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 96",
+        "Cosmos Hub": 6,
+        "Stride": 4,
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 97",
+        "Cosmos Hub": 0,
+        "Stride": 3,
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 98",
+        "Cosmos Hub": 4,
+        "Stride": 7,
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 99",
+        "Cosmos Hub": 1,
+        "Stride": 3,
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 100",
+        "Cosmos Hub": 0,
+        "Stride": 2,
+        "Neutron": 2
+      }
+    ],
+    "30D": [
+      {
+        "time": "Feb 1",
+        "Cosmos Hub": 1,
+        "Stride": 8,
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 2",
+        "Cosmos Hub": 2,
+        "Stride": 4,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 3",
+        "Cosmos Hub": 7,
+        "Stride": 6,
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 4",
+        "Cosmos Hub": 1,
+        "Stride": 9,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 5",
+        "Cosmos Hub": 9,
+        "Stride": 2,
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 6",
+        "Cosmos Hub": 2,
+        "Stride": 3,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 7",
+        "Cosmos Hub": 7,
+        "Stride": 5,
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 8",
+        "Cosmos Hub": 5,
+        "Stride": 3,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 9",
+        "Cosmos Hub": 6,
+        "Stride": 1,
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 10",
+        "Cosmos Hub": 4,
+        "Stride": 3,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 11",
+        "Cosmos Hub": 9,
+        "Stride": 3,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 12",
+        "Cosmos Hub": 1,
+        "Stride": 3,
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 13",
+        "Cosmos Hub": 4,
+        "Stride": 0,
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 14",
+        "Cosmos Hub": 0,
+        "Stride": 5,
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 15",
+        "Cosmos Hub": 7,
+        "Stride": 9,
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 16",
+        "Cosmos Hub": 6,
+        "Stride": 3,
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 17",
+        "Cosmos Hub": 9,
+        "Stride": 4,
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 18",
+        "Cosmos Hub": 2,
+        "Stride": 3,
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 19",
+        "Cosmos Hub": 9,
+        "Stride": 7,
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 20",
+        "Cosmos Hub": 8,
+        "Stride": 7,
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 21",
+        "Cosmos Hub": 7,
+        "Stride": 5,
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 22",
+        "Cosmos Hub": 2,
+        "Stride": 3,
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 23",
+        "Cosmos Hub": 7,
+        "Stride": 6,
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 24",
+        "Cosmos Hub": 7,
+        "Stride": 8,
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 25",
+        "Cosmos Hub": 5,
+        "Stride": 4,
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 26",
+        "Cosmos Hub": 6,
+        "Stride": 9,
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 27",
+        "Cosmos Hub": 2,
+        "Stride": 5,
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 28",
+        "Cosmos Hub": 5,
+        "Stride": 2,
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 29",
+        "Cosmos Hub": 0,
+        "Stride": 1,
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 30",
+        "Cosmos Hub": 9,
+        "Stride": 3,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 31",
+        "Cosmos Hub": 3,
+        "Stride": 6,
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 32",
+        "Cosmos Hub": 9,
+        "Stride": 3,
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 33",
+        "Cosmos Hub": 8,
+        "Stride": 7,
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 34",
+        "Cosmos Hub": 5,
+        "Stride": 8,
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 35",
+        "Cosmos Hub": 3,
+        "Stride": 4,
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 36",
+        "Cosmos Hub": 5,
+        "Stride": 2,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 37",
+        "Cosmos Hub": 1,
+        "Stride": 7,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 38",
+        "Cosmos Hub": 3,
+        "Stride": 5,
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 39",
+        "Cosmos Hub": 2,
+        "Stride": 8,
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 40",
+        "Cosmos Hub": 3,
+        "Stride": 9,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 41",
+        "Cosmos Hub": 4,
+        "Stride": 5,
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 42",
+        "Cosmos Hub": 8,
+        "Stride": 4,
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 43",
+        "Cosmos Hub": 7,
+        "Stride": 3,
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 44",
+        "Cosmos Hub": 2,
+        "Stride": 0,
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 45",
+        "Cosmos Hub": 1,
+        "Stride": 9,
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 46",
+        "Cosmos Hub": 4,
+        "Stride": 3,
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 47",
+        "Cosmos Hub": 7,
+        "Stride": 1,
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 48",
+        "Cosmos Hub": 8,
+        "Stride": 9,
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 49",
+        "Cosmos Hub": 7,
+        "Stride": 6,
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 50",
+        "Cosmos Hub": 7,
+        "Stride": 2,
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 51",
+        "Cosmos Hub": 0,
+        "Stride": 0,
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 52",
+        "Cosmos Hub": 5,
+        "Stride": 0,
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 53",
+        "Cosmos Hub": 9,
+        "Stride": 1,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 54",
+        "Cosmos Hub": 2,
+        "Stride": 0,
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 55",
+        "Cosmos Hub": 3,
+        "Stride": 7,
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 56",
+        "Cosmos Hub": 9,
+        "Stride": 4,
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 57",
+        "Cosmos Hub": 9,
+        "Stride": 8,
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 58",
+        "Cosmos Hub": 3,
+        "Stride": 2,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 59",
+        "Cosmos Hub": 8,
+        "Stride": 8,
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 60",
+        "Cosmos Hub": 8,
+        "Stride": 6,
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 61",
+        "Cosmos Hub": 1,
+        "Stride": 4,
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 62",
+        "Cosmos Hub": 7,
+        "Stride": 5,
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 63",
+        "Cosmos Hub": 1,
+        "Stride": 1,
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 64",
+        "Cosmos Hub": 1,
+        "Stride": 6,
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 65",
+        "Cosmos Hub": 2,
+        "Stride": 0,
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 66",
+        "Cosmos Hub": 2,
+        "Stride": 5,
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 67",
+        "Cosmos Hub": 2,
+        "Stride": 9,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 68",
+        "Cosmos Hub": 8,
+        "Stride": 4,
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 69",
+        "Cosmos Hub": 8,
+        "Stride": 1,
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 70",
+        "Cosmos Hub": 8,
+        "Stride": 5,
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 71",
+        "Cosmos Hub": 2,
+        "Stride": 0,
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 72",
+        "Cosmos Hub": 7,
+        "Stride": 9,
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 73",
+        "Cosmos Hub": 9,
+        "Stride": 9,
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 74",
+        "Cosmos Hub": 1,
+        "Stride": 5,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 75",
+        "Cosmos Hub": 1,
+        "Stride": 3,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 76",
+        "Cosmos Hub": 4,
+        "Stride": 1,
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 77",
+        "Cosmos Hub": 0,
+        "Stride": 5,
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 78",
+        "Cosmos Hub": 4,
+        "Stride": 0,
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 79",
+        "Cosmos Hub": 4,
+        "Stride": 3,
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 80",
+        "Cosmos Hub": 3,
+        "Stride": 3,
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 81",
+        "Cosmos Hub": 1,
+        "Stride": 3,
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 82",
+        "Cosmos Hub": 3,
+        "Stride": 2,
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 83",
+        "Cosmos Hub": 9,
+        "Stride": 8,
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 84",
+        "Cosmos Hub": 8,
+        "Stride": 4,
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 85",
+        "Cosmos Hub": 2,
+        "Stride": 8,
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 86",
+        "Cosmos Hub": 6,
+        "Stride": 7,
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 87",
+        "Cosmos Hub": 7,
+        "Stride": 0,
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 88",
+        "Cosmos Hub": 2,
+        "Stride": 9,
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 89",
+        "Cosmos Hub": 7,
+        "Stride": 2,
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 90",
+        "Cosmos Hub": 5,
+        "Stride": 3,
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 91",
+        "Cosmos Hub": 8,
+        "Stride": 2,
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 92",
+        "Cosmos Hub": 0,
+        "Stride": 3,
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 93",
+        "Cosmos Hub": 0,
+        "Stride": 6,
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 94",
+        "Cosmos Hub": 6,
+        "Stride": 7,
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 95",
+        "Cosmos Hub": 3,
+        "Stride": 2,
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 96",
+        "Cosmos Hub": 4,
+        "Stride": 4,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 97",
+        "Cosmos Hub": 5,
+        "Stride": 8,
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 98",
+        "Cosmos Hub": 6,
+        "Stride": 9,
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 99",
+        "Cosmos Hub": 8,
+        "Stride": 7,
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 100",
+        "Cosmos Hub": 3,
+        "Stride": 9,
+        "Neutron": 2
+      }
+    ],
+    "ALL": [
+      {
+        "time": "Feb 1",
+        "Cosmos Hub": 4,
+        "Stride": 9,
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 2",
+        "Cosmos Hub": 4,
+        "Stride": 6,
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 3",
+        "Cosmos Hub": 7,
+        "Stride": 2,
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 4",
+        "Cosmos Hub": 2,
+        "Stride": 5,
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 5",
+        "Cosmos Hub": 9,
+        "Stride": 8,
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 6",
+        "Cosmos Hub": 3,
+        "Stride": 2,
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 7",
+        "Cosmos Hub": 5,
+        "Stride": 0,
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 8",
+        "Cosmos Hub": 3,
+        "Stride": 0,
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 9",
+        "Cosmos Hub": 5,
+        "Stride": 1,
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 10",
+        "Cosmos Hub": 6,
+        "Stride": 2,
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 11",
+        "Cosmos Hub": 2,
+        "Stride": 4,
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 12",
+        "Cosmos Hub": 6,
+        "Stride": 5,
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 13",
+        "Cosmos Hub": 7,
+        "Stride": 9,
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 14",
+        "Cosmos Hub": 6,
+        "Stride": 7,
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 15",
+        "Cosmos Hub": 8,
+        "Stride": 7,
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 16",
+        "Cosmos Hub": 6,
+        "Stride": 4,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 17",
+        "Cosmos Hub": 7,
+        "Stride": 6,
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 18",
+        "Cosmos Hub": 9,
+        "Stride": 1,
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 19",
+        "Cosmos Hub": 5,
+        "Stride": 6,
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 20",
+        "Cosmos Hub": 5,
+        "Stride": 7,
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 21",
+        "Cosmos Hub": 5,
+        "Stride": 9,
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 22",
+        "Cosmos Hub": 0,
+        "Stride": 9,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 23",
+        "Cosmos Hub": 5,
+        "Stride": 5,
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 24",
+        "Cosmos Hub": 9,
+        "Stride": 4,
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 25",
+        "Cosmos Hub": 9,
+        "Stride": 8,
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 26",
+        "Cosmos Hub": 3,
+        "Stride": 4,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 27",
+        "Cosmos Hub": 3,
+        "Stride": 9,
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 28",
+        "Cosmos Hub": 8,
+        "Stride": 8,
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 29",
+        "Cosmos Hub": 2,
+        "Stride": 6,
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 30",
+        "Cosmos Hub": 2,
+        "Stride": 3,
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 31",
+        "Cosmos Hub": 0,
+        "Stride": 9,
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 32",
+        "Cosmos Hub": 3,
+        "Stride": 5,
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 33",
+        "Cosmos Hub": 9,
+        "Stride": 6,
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 34",
+        "Cosmos Hub": 3,
+        "Stride": 8,
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 35",
+        "Cosmos Hub": 3,
+        "Stride": 1,
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 36",
+        "Cosmos Hub": 5,
+        "Stride": 7,
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 37",
+        "Cosmos Hub": 7,
+        "Stride": 9,
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 38",
+        "Cosmos Hub": 3,
+        "Stride": 3,
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 39",
+        "Cosmos Hub": 9,
+        "Stride": 1,
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 40",
+        "Cosmos Hub": 0,
+        "Stride": 7,
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 41",
+        "Cosmos Hub": 5,
+        "Stride": 8,
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 42",
+        "Cosmos Hub": 6,
+        "Stride": 3,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 43",
+        "Cosmos Hub": 7,
+        "Stride": 9,
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 44",
+        "Cosmos Hub": 6,
+        "Stride": 6,
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 45",
+        "Cosmos Hub": 2,
+        "Stride": 4,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 46",
+        "Cosmos Hub": 3,
+        "Stride": 6,
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 47",
+        "Cosmos Hub": 7,
+        "Stride": 8,
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 48",
+        "Cosmos Hub": 1,
+        "Stride": 8,
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 49",
+        "Cosmos Hub": 2,
+        "Stride": 1,
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 50",
+        "Cosmos Hub": 6,
+        "Stride": 5,
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 51",
+        "Cosmos Hub": 8,
+        "Stride": 6,
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 52",
+        "Cosmos Hub": 2,
+        "Stride": 3,
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 53",
+        "Cosmos Hub": 1,
+        "Stride": 3,
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 54",
+        "Cosmos Hub": 5,
+        "Stride": 8,
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 55",
+        "Cosmos Hub": 6,
+        "Stride": 9,
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 56",
+        "Cosmos Hub": 9,
+        "Stride": 8,
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 57",
+        "Cosmos Hub": 0,
+        "Stride": 2,
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 58",
+        "Cosmos Hub": 2,
+        "Stride": 5,
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 59",
+        "Cosmos Hub": 0,
+        "Stride": 6,
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 60",
+        "Cosmos Hub": 6,
+        "Stride": 8,
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 61",
+        "Cosmos Hub": 9,
+        "Stride": 8,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 62",
+        "Cosmos Hub": 3,
+        "Stride": 7,
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 63",
+        "Cosmos Hub": 7,
+        "Stride": 0,
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 64",
+        "Cosmos Hub": 6,
+        "Stride": 7,
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 65",
+        "Cosmos Hub": 7,
+        "Stride": 5,
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 66",
+        "Cosmos Hub": 3,
+        "Stride": 9,
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 67",
+        "Cosmos Hub": 8,
+        "Stride": 0,
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 68",
+        "Cosmos Hub": 0,
+        "Stride": 4,
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 69",
+        "Cosmos Hub": 2,
+        "Stride": 3,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 70",
+        "Cosmos Hub": 3,
+        "Stride": 5,
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 71",
+        "Cosmos Hub": 5,
+        "Stride": 7,
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 72",
+        "Cosmos Hub": 2,
+        "Stride": 3,
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 73",
+        "Cosmos Hub": 7,
+        "Stride": 5,
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 74",
+        "Cosmos Hub": 7,
+        "Stride": 0,
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 75",
+        "Cosmos Hub": 4,
+        "Stride": 6,
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 76",
+        "Cosmos Hub": 8,
+        "Stride": 1,
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 77",
+        "Cosmos Hub": 3,
+        "Stride": 6,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 78",
+        "Cosmos Hub": 6,
+        "Stride": 6,
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 79",
+        "Cosmos Hub": 9,
+        "Stride": 0,
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 80",
+        "Cosmos Hub": 1,
+        "Stride": 4,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 81",
+        "Cosmos Hub": 8,
+        "Stride": 8,
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 82",
+        "Cosmos Hub": 5,
+        "Stride": 6,
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 83",
+        "Cosmos Hub": 7,
+        "Stride": 1,
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 84",
+        "Cosmos Hub": 6,
+        "Stride": 3,
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 85",
+        "Cosmos Hub": 1,
+        "Stride": 1,
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 86",
+        "Cosmos Hub": 8,
+        "Stride": 3,
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 87",
+        "Cosmos Hub": 9,
+        "Stride": 1,
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 88",
+        "Cosmos Hub": 6,
+        "Stride": 7,
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 89",
+        "Cosmos Hub": 2,
+        "Stride": 2,
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 90",
+        "Cosmos Hub": 0,
+        "Stride": 7,
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 91",
+        "Cosmos Hub": 1,
+        "Stride": 6,
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 92",
+        "Cosmos Hub": 7,
+        "Stride": 0,
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 93",
+        "Cosmos Hub": 3,
+        "Stride": 9,
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 94",
+        "Cosmos Hub": 6,
+        "Stride": 8,
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 95",
+        "Cosmos Hub": 0,
+        "Stride": 8,
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 96",
+        "Cosmos Hub": 8,
+        "Stride": 3,
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 97",
+        "Cosmos Hub": 4,
+        "Stride": 8,
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 98",
+        "Cosmos Hub": 4,
+        "Stride": 4,
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 99",
+        "Cosmos Hub": 7,
+        "Stride": 2,
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 100",
+        "Cosmos Hub": 5,
+        "Stride": 1,
+        "Neutron": 7
+      }
+    ]
+  },
+  "Cosmos Hub": {
+    "1D": [
+      {
+        "time": "Feb 1",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 2",
+        "Cosmos Hub": 6
+      },
+      {
+        "time": "Feb 3",
+        "Cosmos Hub": 3
+      },
+      {
+        "time": "Feb 4",
+        "Cosmos Hub": 5
+      },
+      {
+        "time": "Feb 5",
+        "Cosmos Hub": 2
+      },
+      {
+        "time": "Feb 6",
+        "Cosmos Hub": 0
+      },
+      {
+        "time": "Feb 7",
+        "Cosmos Hub": 9
+      },
+      {
+        "time": "Feb 8",
+        "Cosmos Hub": 0
+      },
+      {
+        "time": "Feb 9",
+        "Cosmos Hub": 3
+      },
+      {
+        "time": "Feb 10",
+        "Cosmos Hub": 0
+      },
+      {
+        "time": "Feb 11",
+        "Cosmos Hub": 9
+      },
+      {
+        "time": "Feb 12",
+        "Cosmos Hub": 6
+      },
+      {
+        "time": "Feb 13",
+        "Cosmos Hub": 1
+      },
+      {
+        "time": "Feb 14",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 15",
+        "Cosmos Hub": 6
+      },
+      {
+        "time": "Feb 16",
+        "Cosmos Hub": 5
+      },
+      {
+        "time": "Feb 17",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 18",
+        "Cosmos Hub": 2
+      },
+      {
+        "time": "Feb 19",
+        "Cosmos Hub": 4
+      },
+      {
+        "time": "Feb 20",
+        "Cosmos Hub": 2
+      },
+      {
+        "time": "Feb 21",
+        "Cosmos Hub": 7
+      },
+      {
+        "time": "Feb 22",
+        "Cosmos Hub": 6
+      },
+      {
+        "time": "Feb 23",
+        "Cosmos Hub": 6
+      },
+      {
+        "time": "Feb 24",
+        "Cosmos Hub": 2
+      },
+      {
+        "time": "Feb 25",
+        "Cosmos Hub": 7
+      },
+      {
+        "time": "Feb 26",
+        "Cosmos Hub": 3
+      },
+      {
+        "time": "Feb 27",
+        "Cosmos Hub": 0
+      },
+      {
+        "time": "Feb 28",
+        "Cosmos Hub": 5
+      },
+      {
+        "time": "Feb 29",
+        "Cosmos Hub": 1
+      },
+      {
+        "time": "Feb 30",
+        "Cosmos Hub": 4
+      },
+      {
+        "time": "Feb 31",
+        "Cosmos Hub": 5
+      },
+      {
+        "time": "Feb 32",
+        "Cosmos Hub": 5
+      },
+      {
+        "time": "Feb 33",
+        "Cosmos Hub": 0
+      },
+      {
+        "time": "Feb 34",
+        "Cosmos Hub": 5
+      },
+      {
+        "time": "Feb 35",
+        "Cosmos Hub": 0
+      },
+      {
+        "time": "Feb 36",
+        "Cosmos Hub": 6
+      },
+      {
+        "time": "Feb 37",
+        "Cosmos Hub": 0
+      },
+      {
+        "time": "Feb 38",
+        "Cosmos Hub": 0
+      },
+      {
+        "time": "Feb 39",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 40",
+        "Cosmos Hub": 3
+      },
+      {
+        "time": "Feb 41",
+        "Cosmos Hub": 9
+      },
+      {
+        "time": "Feb 42",
+        "Cosmos Hub": 0
+      },
+      {
+        "time": "Feb 43",
+        "Cosmos Hub": 5
+      },
+      {
+        "time": "Feb 44",
+        "Cosmos Hub": 0
+      },
+      {
+        "time": "Feb 45",
+        "Cosmos Hub": 9
+      },
+      {
+        "time": "Feb 46",
+        "Cosmos Hub": 6
+      },
+      {
+        "time": "Feb 47",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 48",
+        "Cosmos Hub": 3
+      },
+      {
+        "time": "Feb 49",
+        "Cosmos Hub": 7
+      },
+      {
+        "time": "Feb 50",
+        "Cosmos Hub": 9
+      },
+      {
+        "time": "Feb 51",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 52",
+        "Cosmos Hub": 1
+      },
+      {
+        "time": "Feb 53",
+        "Cosmos Hub": 7
+      },
+      {
+        "time": "Feb 54",
+        "Cosmos Hub": 0
+      },
+      {
+        "time": "Feb 55",
+        "Cosmos Hub": 7
+      },
+      {
+        "time": "Feb 56",
+        "Cosmos Hub": 6
+      },
+      {
+        "time": "Feb 57",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 58",
+        "Cosmos Hub": 2
+      },
+      {
+        "time": "Feb 59",
+        "Cosmos Hub": 6
+      },
+      {
+        "time": "Feb 60",
+        "Cosmos Hub": 3
+      },
+      {
+        "time": "Feb 61",
+        "Cosmos Hub": 4
+      },
+      {
+        "time": "Feb 62",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 63",
+        "Cosmos Hub": 0
+      },
+      {
+        "time": "Feb 64",
+        "Cosmos Hub": 7
+      },
+      {
+        "time": "Feb 65",
+        "Cosmos Hub": 0
+      },
+      {
+        "time": "Feb 66",
+        "Cosmos Hub": 4
+      },
+      {
+        "time": "Feb 67",
+        "Cosmos Hub": 6
+      },
+      {
+        "time": "Feb 68",
+        "Cosmos Hub": 4
+      },
+      {
+        "time": "Feb 69",
+        "Cosmos Hub": 1
+      },
+      {
+        "time": "Feb 70",
+        "Cosmos Hub": 1
+      },
+      {
+        "time": "Feb 71",
+        "Cosmos Hub": 7
+      },
+      {
+        "time": "Feb 72",
+        "Cosmos Hub": 1
+      },
+      {
+        "time": "Feb 73",
+        "Cosmos Hub": 2
+      },
+      {
+        "time": "Feb 74",
+        "Cosmos Hub": 6
+      },
+      {
+        "time": "Feb 75",
+        "Cosmos Hub": 2
+      },
+      {
+        "time": "Feb 76",
+        "Cosmos Hub": 9
+      },
+      {
+        "time": "Feb 77",
+        "Cosmos Hub": 5
+      },
+      {
+        "time": "Feb 78",
+        "Cosmos Hub": 3
+      },
+      {
+        "time": "Feb 79",
+        "Cosmos Hub": 2
+      },
+      {
+        "time": "Feb 80",
+        "Cosmos Hub": 2
+      },
+      {
+        "time": "Feb 81",
+        "Cosmos Hub": 0
+      },
+      {
+        "time": "Feb 82",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 83",
+        "Cosmos Hub": 3
+      },
+      {
+        "time": "Feb 84",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 85",
+        "Cosmos Hub": 9
+      },
+      {
+        "time": "Feb 86",
+        "Cosmos Hub": 7
+      },
+      {
+        "time": "Feb 87",
+        "Cosmos Hub": 5
+      },
+      {
+        "time": "Feb 88",
+        "Cosmos Hub": 0
+      },
+      {
+        "time": "Feb 89",
+        "Cosmos Hub": 6
+      },
+      {
+        "time": "Feb 90",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 91",
+        "Cosmos Hub": 3
+      },
+      {
+        "time": "Feb 92",
+        "Cosmos Hub": 9
+      },
+      {
+        "time": "Feb 93",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 94",
+        "Cosmos Hub": 9
+      },
+      {
+        "time": "Feb 95",
+        "Cosmos Hub": 6
+      },
+      {
+        "time": "Feb 96",
+        "Cosmos Hub": 7
+      },
+      {
+        "time": "Feb 97",
+        "Cosmos Hub": 0
+      },
+      {
+        "time": "Feb 98",
+        "Cosmos Hub": 5
+      },
+      {
+        "time": "Feb 99",
+        "Cosmos Hub": 1
+      },
+      {
+        "time": "Feb 100",
+        "Cosmos Hub": 8
+      }
+    ],
+    "7D": [
+      {
+        "time": "Feb 1",
+        "Cosmos Hub": 2
+      },
+      {
+        "time": "Feb 2",
+        "Cosmos Hub": 9
+      },
+      {
+        "time": "Feb 3",
+        "Cosmos Hub": 9
+      },
+      {
+        "time": "Feb 4",
+        "Cosmos Hub": 5
+      },
+      {
+        "time": "Feb 5",
+        "Cosmos Hub": 0
+      },
+      {
+        "time": "Feb 6",
+        "Cosmos Hub": 6
+      },
+      {
+        "time": "Feb 7",
+        "Cosmos Hub": 3
+      },
+      {
+        "time": "Feb 8",
+        "Cosmos Hub": 0
+      },
+      {
+        "time": "Feb 9",
+        "Cosmos Hub": 0
+      },
+      {
+        "time": "Feb 10",
+        "Cosmos Hub": 6
+      },
+      {
+        "time": "Feb 11",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 12",
+        "Cosmos Hub": 7
+      },
+      {
+        "time": "Feb 13",
+        "Cosmos Hub": 5
+      },
+      {
+        "time": "Feb 14",
+        "Cosmos Hub": 7
+      },
+      {
+        "time": "Feb 15",
+        "Cosmos Hub": 1
+      },
+      {
+        "time": "Feb 16",
+        "Cosmos Hub": 2
+      },
+      {
+        "time": "Feb 17",
+        "Cosmos Hub": 2
+      },
+      {
+        "time": "Feb 18",
+        "Cosmos Hub": 7
+      },
+      {
+        "time": "Feb 19",
+        "Cosmos Hub": 6
+      },
+      {
+        "time": "Feb 20",
+        "Cosmos Hub": 7
+      },
+      {
+        "time": "Feb 21",
+        "Cosmos Hub": 4
+      },
+      {
+        "time": "Feb 22",
+        "Cosmos Hub": 6
+      },
+      {
+        "time": "Feb 23",
+        "Cosmos Hub": 7
+      },
+      {
+        "time": "Feb 24",
+        "Cosmos Hub": 1
+      },
+      {
+        "time": "Feb 25",
+        "Cosmos Hub": 6
+      },
+      {
+        "time": "Feb 26",
+        "Cosmos Hub": 7
+      },
+      {
+        "time": "Feb 27",
+        "Cosmos Hub": 9
+      },
+      {
+        "time": "Feb 28",
+        "Cosmos Hub": 6
+      },
+      {
+        "time": "Feb 29",
+        "Cosmos Hub": 9
+      },
+      {
+        "time": "Feb 30",
+        "Cosmos Hub": 5
+      },
+      {
+        "time": "Feb 31",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 32",
+        "Cosmos Hub": 1
+      },
+      {
+        "time": "Feb 33",
+        "Cosmos Hub": 7
+      },
+      {
+        "time": "Feb 34",
+        "Cosmos Hub": 1
+      },
+      {
+        "time": "Feb 35",
+        "Cosmos Hub": 1
+      },
+      {
+        "time": "Feb 36",
+        "Cosmos Hub": 2
+      },
+      {
+        "time": "Feb 37",
+        "Cosmos Hub": 1
+      },
+      {
+        "time": "Feb 38",
+        "Cosmos Hub": 2
+      },
+      {
+        "time": "Feb 39",
+        "Cosmos Hub": 0
+      },
+      {
+        "time": "Feb 40",
+        "Cosmos Hub": 3
+      },
+      {
+        "time": "Feb 41",
+        "Cosmos Hub": 0
+      },
+      {
+        "time": "Feb 42",
+        "Cosmos Hub": 7
+      },
+      {
+        "time": "Feb 43",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 44",
+        "Cosmos Hub": 2
+      },
+      {
+        "time": "Feb 45",
+        "Cosmos Hub": 1
+      },
+      {
+        "time": "Feb 46",
+        "Cosmos Hub": 1
+      },
+      {
+        "time": "Feb 47",
+        "Cosmos Hub": 2
+      },
+      {
+        "time": "Feb 48",
+        "Cosmos Hub": 7
+      },
+      {
+        "time": "Feb 49",
+        "Cosmos Hub": 4
+      },
+      {
+        "time": "Feb 50",
+        "Cosmos Hub": 0
+      },
+      {
+        "time": "Feb 51",
+        "Cosmos Hub": 5
+      },
+      {
+        "time": "Feb 52",
+        "Cosmos Hub": 2
+      },
+      {
+        "time": "Feb 53",
+        "Cosmos Hub": 1
+      },
+      {
+        "time": "Feb 54",
+        "Cosmos Hub": 0
+      },
+      {
+        "time": "Feb 55",
+        "Cosmos Hub": 0
+      },
+      {
+        "time": "Feb 56",
+        "Cosmos Hub": 3
+      },
+      {
+        "time": "Feb 57",
+        "Cosmos Hub": 7
+      },
+      {
+        "time": "Feb 58",
+        "Cosmos Hub": 4
+      },
+      {
+        "time": "Feb 59",
+        "Cosmos Hub": 4
+      },
+      {
+        "time": "Feb 60",
+        "Cosmos Hub": 3
+      },
+      {
+        "time": "Feb 61",
+        "Cosmos Hub": 7
+      },
+      {
+        "time": "Feb 62",
+        "Cosmos Hub": 3
+      },
+      {
+        "time": "Feb 63",
+        "Cosmos Hub": 4
+      },
+      {
+        "time": "Feb 64",
+        "Cosmos Hub": 4
+      },
+      {
+        "time": "Feb 65",
+        "Cosmos Hub": 4
+      },
+      {
+        "time": "Feb 66",
+        "Cosmos Hub": 1
+      },
+      {
+        "time": "Feb 67",
+        "Cosmos Hub": 9
+      },
+      {
+        "time": "Feb 68",
+        "Cosmos Hub": 9
+      },
+      {
+        "time": "Feb 69",
+        "Cosmos Hub": 6
+      },
+      {
+        "time": "Feb 70",
+        "Cosmos Hub": 0
+      },
+      {
+        "time": "Feb 71",
+        "Cosmos Hub": 5
+      },
+      {
+        "time": "Feb 72",
+        "Cosmos Hub": 1
+      },
+      {
+        "time": "Feb 73",
+        "Cosmos Hub": 2
+      },
+      {
+        "time": "Feb 74",
+        "Cosmos Hub": 0
+      },
+      {
+        "time": "Feb 75",
+        "Cosmos Hub": 4
+      },
+      {
+        "time": "Feb 76",
+        "Cosmos Hub": 9
+      },
+      {
+        "time": "Feb 77",
+        "Cosmos Hub": 6
+      },
+      {
+        "time": "Feb 78",
+        "Cosmos Hub": 2
+      },
+      {
+        "time": "Feb 79",
+        "Cosmos Hub": 3
+      },
+      {
+        "time": "Feb 80",
+        "Cosmos Hub": 3
+      },
+      {
+        "time": "Feb 81",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 82",
+        "Cosmos Hub": 9
+      },
+      {
+        "time": "Feb 83",
+        "Cosmos Hub": 9
+      },
+      {
+        "time": "Feb 84",
+        "Cosmos Hub": 4
+      },
+      {
+        "time": "Feb 85",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 86",
+        "Cosmos Hub": 6
+      },
+      {
+        "time": "Feb 87",
+        "Cosmos Hub": 9
+      },
+      {
+        "time": "Feb 88",
+        "Cosmos Hub": 3
+      },
+      {
+        "time": "Feb 89",
+        "Cosmos Hub": 2
+      },
+      {
+        "time": "Feb 90",
+        "Cosmos Hub": 6
+      },
+      {
+        "time": "Feb 91",
+        "Cosmos Hub": 7
+      },
+      {
+        "time": "Feb 92",
+        "Cosmos Hub": 9
+      },
+      {
+        "time": "Feb 93",
+        "Cosmos Hub": 6
+      },
+      {
+        "time": "Feb 94",
+        "Cosmos Hub": 0
+      },
+      {
+        "time": "Feb 95",
+        "Cosmos Hub": 2
+      },
+      {
+        "time": "Feb 96",
+        "Cosmos Hub": 3
+      },
+      {
+        "time": "Feb 97",
+        "Cosmos Hub": 1
+      },
+      {
+        "time": "Feb 98",
+        "Cosmos Hub": 1
+      },
+      {
+        "time": "Feb 99",
+        "Cosmos Hub": 7
+      },
+      {
+        "time": "Feb 100",
+        "Cosmos Hub": 8
+      }
+    ],
+    "30D": [
+      {
+        "time": "Feb 1",
+        "Cosmos Hub": 4
+      },
+      {
+        "time": "Feb 2",
+        "Cosmos Hub": 1
+      },
+      {
+        "time": "Feb 3",
+        "Cosmos Hub": 7
+      },
+      {
+        "time": "Feb 4",
+        "Cosmos Hub": 7
+      },
+      {
+        "time": "Feb 5",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 6",
+        "Cosmos Hub": 1
+      },
+      {
+        "time": "Feb 7",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 8",
+        "Cosmos Hub": 3
+      },
+      {
+        "time": "Feb 9",
+        "Cosmos Hub": 0
+      },
+      {
+        "time": "Feb 10",
+        "Cosmos Hub": 7
+      },
+      {
+        "time": "Feb 11",
+        "Cosmos Hub": 2
+      },
+      {
+        "time": "Feb 12",
+        "Cosmos Hub": 2
+      },
+      {
+        "time": "Feb 13",
+        "Cosmos Hub": 1
+      },
+      {
+        "time": "Feb 14",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 15",
+        "Cosmos Hub": 5
+      },
+      {
+        "time": "Feb 16",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 17",
+        "Cosmos Hub": 1
+      },
+      {
+        "time": "Feb 18",
+        "Cosmos Hub": 1
+      },
+      {
+        "time": "Feb 19",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 20",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 21",
+        "Cosmos Hub": 7
+      },
+      {
+        "time": "Feb 22",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 23",
+        "Cosmos Hub": 9
+      },
+      {
+        "time": "Feb 24",
+        "Cosmos Hub": 2
+      },
+      {
+        "time": "Feb 25",
+        "Cosmos Hub": 5
+      },
+      {
+        "time": "Feb 26",
+        "Cosmos Hub": 4
+      },
+      {
+        "time": "Feb 27",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 28",
+        "Cosmos Hub": 1
+      },
+      {
+        "time": "Feb 29",
+        "Cosmos Hub": 4
+      },
+      {
+        "time": "Feb 30",
+        "Cosmos Hub": 0
+      },
+      {
+        "time": "Feb 31",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 32",
+        "Cosmos Hub": 1
+      },
+      {
+        "time": "Feb 33",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 34",
+        "Cosmos Hub": 3
+      },
+      {
+        "time": "Feb 35",
+        "Cosmos Hub": 6
+      },
+      {
+        "time": "Feb 36",
+        "Cosmos Hub": 5
+      },
+      {
+        "time": "Feb 37",
+        "Cosmos Hub": 7
+      },
+      {
+        "time": "Feb 38",
+        "Cosmos Hub": 1
+      },
+      {
+        "time": "Feb 39",
+        "Cosmos Hub": 4
+      },
+      {
+        "time": "Feb 40",
+        "Cosmos Hub": 3
+      },
+      {
+        "time": "Feb 41",
+        "Cosmos Hub": 9
+      },
+      {
+        "time": "Feb 42",
+        "Cosmos Hub": 2
+      },
+      {
+        "time": "Feb 43",
+        "Cosmos Hub": 0
+      },
+      {
+        "time": "Feb 44",
+        "Cosmos Hub": 4
+      },
+      {
+        "time": "Feb 45",
+        "Cosmos Hub": 1
+      },
+      {
+        "time": "Feb 46",
+        "Cosmos Hub": 9
+      },
+      {
+        "time": "Feb 47",
+        "Cosmos Hub": 7
+      },
+      {
+        "time": "Feb 48",
+        "Cosmos Hub": 1
+      },
+      {
+        "time": "Feb 49",
+        "Cosmos Hub": 1
+      },
+      {
+        "time": "Feb 50",
+        "Cosmos Hub": 1
+      },
+      {
+        "time": "Feb 51",
+        "Cosmos Hub": 6
+      },
+      {
+        "time": "Feb 52",
+        "Cosmos Hub": 2
+      },
+      {
+        "time": "Feb 53",
+        "Cosmos Hub": 9
+      },
+      {
+        "time": "Feb 54",
+        "Cosmos Hub": 5
+      },
+      {
+        "time": "Feb 55",
+        "Cosmos Hub": 2
+      },
+      {
+        "time": "Feb 56",
+        "Cosmos Hub": 0
+      },
+      {
+        "time": "Feb 57",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 58",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 59",
+        "Cosmos Hub": 3
+      },
+      {
+        "time": "Feb 60",
+        "Cosmos Hub": 5
+      },
+      {
+        "time": "Feb 61",
+        "Cosmos Hub": 0
+      },
+      {
+        "time": "Feb 62",
+        "Cosmos Hub": 1
+      },
+      {
+        "time": "Feb 63",
+        "Cosmos Hub": 2
+      },
+      {
+        "time": "Feb 64",
+        "Cosmos Hub": 9
+      },
+      {
+        "time": "Feb 65",
+        "Cosmos Hub": 7
+      },
+      {
+        "time": "Feb 66",
+        "Cosmos Hub": 3
+      },
+      {
+        "time": "Feb 67",
+        "Cosmos Hub": 9
+      },
+      {
+        "time": "Feb 68",
+        "Cosmos Hub": 6
+      },
+      {
+        "time": "Feb 69",
+        "Cosmos Hub": 5
+      },
+      {
+        "time": "Feb 70",
+        "Cosmos Hub": 7
+      },
+      {
+        "time": "Feb 71",
+        "Cosmos Hub": 0
+      },
+      {
+        "time": "Feb 72",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 73",
+        "Cosmos Hub": 4
+      },
+      {
+        "time": "Feb 74",
+        "Cosmos Hub": 3
+      },
+      {
+        "time": "Feb 75",
+        "Cosmos Hub": 9
+      },
+      {
+        "time": "Feb 76",
+        "Cosmos Hub": 5
+      },
+      {
+        "time": "Feb 77",
+        "Cosmos Hub": 9
+      },
+      {
+        "time": "Feb 78",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 79",
+        "Cosmos Hub": 6
+      },
+      {
+        "time": "Feb 80",
+        "Cosmos Hub": 7
+      },
+      {
+        "time": "Feb 81",
+        "Cosmos Hub": 9
+      },
+      {
+        "time": "Feb 82",
+        "Cosmos Hub": 0
+      },
+      {
+        "time": "Feb 83",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 84",
+        "Cosmos Hub": 4
+      },
+      {
+        "time": "Feb 85",
+        "Cosmos Hub": 7
+      },
+      {
+        "time": "Feb 86",
+        "Cosmos Hub": 2
+      },
+      {
+        "time": "Feb 87",
+        "Cosmos Hub": 0
+      },
+      {
+        "time": "Feb 88",
+        "Cosmos Hub": 9
+      },
+      {
+        "time": "Feb 89",
+        "Cosmos Hub": 3
+      },
+      {
+        "time": "Feb 90",
+        "Cosmos Hub": 0
+      },
+      {
+        "time": "Feb 91",
+        "Cosmos Hub": 6
+      },
+      {
+        "time": "Feb 92",
+        "Cosmos Hub": 4
+      },
+      {
+        "time": "Feb 93",
+        "Cosmos Hub": 2
+      },
+      {
+        "time": "Feb 94",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 95",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 96",
+        "Cosmos Hub": 1
+      },
+      {
+        "time": "Feb 97",
+        "Cosmos Hub": 9
+      },
+      {
+        "time": "Feb 98",
+        "Cosmos Hub": 4
+      },
+      {
+        "time": "Feb 99",
+        "Cosmos Hub": 2
+      },
+      {
+        "time": "Feb 100",
+        "Cosmos Hub": 3
+      }
+    ],
+    "ALL": [
+      {
+        "time": "Feb 1",
+        "Cosmos Hub": 5
+      },
+      {
+        "time": "Feb 2",
+        "Cosmos Hub": 1
+      },
+      {
+        "time": "Feb 3",
+        "Cosmos Hub": 3
+      },
+      {
+        "time": "Feb 4",
+        "Cosmos Hub": 3
+      },
+      {
+        "time": "Feb 5",
+        "Cosmos Hub": 1
+      },
+      {
+        "time": "Feb 6",
+        "Cosmos Hub": 5
+      },
+      {
+        "time": "Feb 7",
+        "Cosmos Hub": 5
+      },
+      {
+        "time": "Feb 8",
+        "Cosmos Hub": 9
+      },
+      {
+        "time": "Feb 9",
+        "Cosmos Hub": 1
+      },
+      {
+        "time": "Feb 10",
+        "Cosmos Hub": 1
+      },
+      {
+        "time": "Feb 11",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 12",
+        "Cosmos Hub": 9
+      },
+      {
+        "time": "Feb 13",
+        "Cosmos Hub": 9
+      },
+      {
+        "time": "Feb 14",
+        "Cosmos Hub": 2
+      },
+      {
+        "time": "Feb 15",
+        "Cosmos Hub": 5
+      },
+      {
+        "time": "Feb 16",
+        "Cosmos Hub": 6
+      },
+      {
+        "time": "Feb 17",
+        "Cosmos Hub": 5
+      },
+      {
+        "time": "Feb 18",
+        "Cosmos Hub": 1
+      },
+      {
+        "time": "Feb 19",
+        "Cosmos Hub": 7
+      },
+      {
+        "time": "Feb 20",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 21",
+        "Cosmos Hub": 9
+      },
+      {
+        "time": "Feb 22",
+        "Cosmos Hub": 9
+      },
+      {
+        "time": "Feb 23",
+        "Cosmos Hub": 7
+      },
+      {
+        "time": "Feb 24",
+        "Cosmos Hub": 6
+      },
+      {
+        "time": "Feb 25",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 26",
+        "Cosmos Hub": 4
+      },
+      {
+        "time": "Feb 27",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 28",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 29",
+        "Cosmos Hub": 0
+      },
+      {
+        "time": "Feb 30",
+        "Cosmos Hub": 1
+      },
+      {
+        "time": "Feb 31",
+        "Cosmos Hub": 7
+      },
+      {
+        "time": "Feb 32",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 33",
+        "Cosmos Hub": 1
+      },
+      {
+        "time": "Feb 34",
+        "Cosmos Hub": 4
+      },
+      {
+        "time": "Feb 35",
+        "Cosmos Hub": 5
+      },
+      {
+        "time": "Feb 36",
+        "Cosmos Hub": 2
+      },
+      {
+        "time": "Feb 37",
+        "Cosmos Hub": 5
+      },
+      {
+        "time": "Feb 38",
+        "Cosmos Hub": 4
+      },
+      {
+        "time": "Feb 39",
+        "Cosmos Hub": 9
+      },
+      {
+        "time": "Feb 40",
+        "Cosmos Hub": 7
+      },
+      {
+        "time": "Feb 41",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 42",
+        "Cosmos Hub": 1
+      },
+      {
+        "time": "Feb 43",
+        "Cosmos Hub": 6
+      },
+      {
+        "time": "Feb 44",
+        "Cosmos Hub": 4
+      },
+      {
+        "time": "Feb 45",
+        "Cosmos Hub": 5
+      },
+      {
+        "time": "Feb 46",
+        "Cosmos Hub": 0
+      },
+      {
+        "time": "Feb 47",
+        "Cosmos Hub": 2
+      },
+      {
+        "time": "Feb 48",
+        "Cosmos Hub": 6
+      },
+      {
+        "time": "Feb 49",
+        "Cosmos Hub": 3
+      },
+      {
+        "time": "Feb 50",
+        "Cosmos Hub": 7
+      },
+      {
+        "time": "Feb 51",
+        "Cosmos Hub": 9
+      },
+      {
+        "time": "Feb 52",
+        "Cosmos Hub": 9
+      },
+      {
+        "time": "Feb 53",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 54",
+        "Cosmos Hub": 1
+      },
+      {
+        "time": "Feb 55",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 56",
+        "Cosmos Hub": 7
+      },
+      {
+        "time": "Feb 57",
+        "Cosmos Hub": 9
+      },
+      {
+        "time": "Feb 58",
+        "Cosmos Hub": 0
+      },
+      {
+        "time": "Feb 59",
+        "Cosmos Hub": 6
+      },
+      {
+        "time": "Feb 60",
+        "Cosmos Hub": 7
+      },
+      {
+        "time": "Feb 61",
+        "Cosmos Hub": 6
+      },
+      {
+        "time": "Feb 62",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 63",
+        "Cosmos Hub": 5
+      },
+      {
+        "time": "Feb 64",
+        "Cosmos Hub": 9
+      },
+      {
+        "time": "Feb 65",
+        "Cosmos Hub": 3
+      },
+      {
+        "time": "Feb 66",
+        "Cosmos Hub": 2
+      },
+      {
+        "time": "Feb 67",
+        "Cosmos Hub": 9
+      },
+      {
+        "time": "Feb 68",
+        "Cosmos Hub": 0
+      },
+      {
+        "time": "Feb 69",
+        "Cosmos Hub": 2
+      },
+      {
+        "time": "Feb 70",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 71",
+        "Cosmos Hub": 1
+      },
+      {
+        "time": "Feb 72",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 73",
+        "Cosmos Hub": 6
+      },
+      {
+        "time": "Feb 74",
+        "Cosmos Hub": 6
+      },
+      {
+        "time": "Feb 75",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 76",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 77",
+        "Cosmos Hub": 1
+      },
+      {
+        "time": "Feb 78",
+        "Cosmos Hub": 8
+      },
+      {
+        "time": "Feb 79",
+        "Cosmos Hub": 2
+      },
+      {
+        "time": "Feb 80",
+        "Cosmos Hub": 7
+      },
+      {
+        "time": "Feb 81",
+        "Cosmos Hub": 5
+      },
+      {
+        "time": "Feb 82",
+        "Cosmos Hub": 3
+      },
+      {
+        "time": "Feb 83",
+        "Cosmos Hub": 6
+      },
+      {
+        "time": "Feb 84",
+        "Cosmos Hub": 5
+      },
+      {
+        "time": "Feb 85",
+        "Cosmos Hub": 5
+      },
+      {
+        "time": "Feb 86",
+        "Cosmos Hub": 6
+      },
+      {
+        "time": "Feb 87",
+        "Cosmos Hub": 0
+      },
+      {
+        "time": "Feb 88",
+        "Cosmos Hub": 1
+      },
+      {
+        "time": "Feb 89",
+        "Cosmos Hub": 4
+      },
+      {
+        "time": "Feb 90",
+        "Cosmos Hub": 5
+      },
+      {
+        "time": "Feb 91",
+        "Cosmos Hub": 0
+      },
+      {
+        "time": "Feb 92",
+        "Cosmos Hub": 2
+      },
+      {
+        "time": "Feb 93",
+        "Cosmos Hub": 3
+      },
+      {
+        "time": "Feb 94",
+        "Cosmos Hub": 5
+      },
+      {
+        "time": "Feb 95",
+        "Cosmos Hub": 9
+      },
+      {
+        "time": "Feb 96",
+        "Cosmos Hub": 0
+      },
+      {
+        "time": "Feb 97",
+        "Cosmos Hub": 0
+      },
+      {
+        "time": "Feb 98",
+        "Cosmos Hub": 5
+      },
+      {
+        "time": "Feb 99",
+        "Cosmos Hub": 3
+      },
+      {
+        "time": "Feb 100",
+        "Cosmos Hub": 0
+      }
+    ]
+  },
+  "Stride": {
+    "1D": [
+      {
+        "time": "Feb 1",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 2",
+        "Stride": 5
+      },
+      {
+        "time": "Feb 3",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 4",
+        "Stride": 0
+      },
+      {
+        "time": "Feb 5",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 6",
+        "Stride": 7
+      },
+      {
+        "time": "Feb 7",
+        "Stride": 6
+      },
+      {
+        "time": "Feb 8",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 9",
+        "Stride": 4
+      },
+      {
+        "time": "Feb 10",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 11",
+        "Stride": 4
+      },
+      {
+        "time": "Feb 12",
+        "Stride": 8
+      },
+      {
+        "time": "Feb 13",
+        "Stride": 0
+      },
+      {
+        "time": "Feb 14",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 15",
+        "Stride": 9
+      },
+      {
+        "time": "Feb 16",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 17",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 18",
+        "Stride": 0
+      },
+      {
+        "time": "Feb 19",
+        "Stride": 8
+      },
+      {
+        "time": "Feb 20",
+        "Stride": 7
+      },
+      {
+        "time": "Feb 21",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 22",
+        "Stride": 6
+      },
+      {
+        "time": "Feb 23",
+        "Stride": 5
+      },
+      {
+        "time": "Feb 24",
+        "Stride": 9
+      },
+      {
+        "time": "Feb 25",
+        "Stride": 0
+      },
+      {
+        "time": "Feb 26",
+        "Stride": 7
+      },
+      {
+        "time": "Feb 27",
+        "Stride": 8
+      },
+      {
+        "time": "Feb 28",
+        "Stride": 9
+      },
+      {
+        "time": "Feb 29",
+        "Stride": 8
+      },
+      {
+        "time": "Feb 30",
+        "Stride": 7
+      },
+      {
+        "time": "Feb 31",
+        "Stride": 0
+      },
+      {
+        "time": "Feb 32",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 33",
+        "Stride": 7
+      },
+      {
+        "time": "Feb 34",
+        "Stride": 8
+      },
+      {
+        "time": "Feb 35",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 36",
+        "Stride": 5
+      },
+      {
+        "time": "Feb 37",
+        "Stride": 9
+      },
+      {
+        "time": "Feb 38",
+        "Stride": 4
+      },
+      {
+        "time": "Feb 39",
+        "Stride": 6
+      },
+      {
+        "time": "Feb 40",
+        "Stride": 8
+      },
+      {
+        "time": "Feb 41",
+        "Stride": 0
+      },
+      {
+        "time": "Feb 42",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 43",
+        "Stride": 7
+      },
+      {
+        "time": "Feb 44",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 45",
+        "Stride": 0
+      },
+      {
+        "time": "Feb 46",
+        "Stride": 9
+      },
+      {
+        "time": "Feb 47",
+        "Stride": 2
+      },
+      {
+        "time": "Feb 48",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 49",
+        "Stride": 4
+      },
+      {
+        "time": "Feb 50",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 51",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 52",
+        "Stride": 7
+      },
+      {
+        "time": "Feb 53",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 54",
+        "Stride": 7
+      },
+      {
+        "time": "Feb 55",
+        "Stride": 7
+      },
+      {
+        "time": "Feb 56",
+        "Stride": 6
+      },
+      {
+        "time": "Feb 57",
+        "Stride": 0
+      },
+      {
+        "time": "Feb 58",
+        "Stride": 4
+      },
+      {
+        "time": "Feb 59",
+        "Stride": 0
+      },
+      {
+        "time": "Feb 60",
+        "Stride": 4
+      },
+      {
+        "time": "Feb 61",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 62",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 63",
+        "Stride": 9
+      },
+      {
+        "time": "Feb 64",
+        "Stride": 0
+      },
+      {
+        "time": "Feb 65",
+        "Stride": 0
+      },
+      {
+        "time": "Feb 66",
+        "Stride": 7
+      },
+      {
+        "time": "Feb 67",
+        "Stride": 8
+      },
+      {
+        "time": "Feb 68",
+        "Stride": 9
+      },
+      {
+        "time": "Feb 69",
+        "Stride": 6
+      },
+      {
+        "time": "Feb 70",
+        "Stride": 5
+      },
+      {
+        "time": "Feb 71",
+        "Stride": 0
+      },
+      {
+        "time": "Feb 72",
+        "Stride": 7
+      },
+      {
+        "time": "Feb 73",
+        "Stride": 8
+      },
+      {
+        "time": "Feb 74",
+        "Stride": 2
+      },
+      {
+        "time": "Feb 75",
+        "Stride": 8
+      },
+      {
+        "time": "Feb 76",
+        "Stride": 6
+      },
+      {
+        "time": "Feb 77",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 78",
+        "Stride": 4
+      },
+      {
+        "time": "Feb 79",
+        "Stride": 5
+      },
+      {
+        "time": "Feb 80",
+        "Stride": 5
+      },
+      {
+        "time": "Feb 81",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 82",
+        "Stride": 6
+      },
+      {
+        "time": "Feb 83",
+        "Stride": 0
+      },
+      {
+        "time": "Feb 84",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 85",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 86",
+        "Stride": 0
+      },
+      {
+        "time": "Feb 87",
+        "Stride": 0
+      },
+      {
+        "time": "Feb 88",
+        "Stride": 2
+      },
+      {
+        "time": "Feb 89",
+        "Stride": 5
+      },
+      {
+        "time": "Feb 90",
+        "Stride": 9
+      },
+      {
+        "time": "Feb 91",
+        "Stride": 6
+      },
+      {
+        "time": "Feb 92",
+        "Stride": 6
+      },
+      {
+        "time": "Feb 93",
+        "Stride": 2
+      },
+      {
+        "time": "Feb 94",
+        "Stride": 6
+      },
+      {
+        "time": "Feb 95",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 96",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 97",
+        "Stride": 0
+      },
+      {
+        "time": "Feb 98",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 99",
+        "Stride": 8
+      },
+      {
+        "time": "Feb 100",
+        "Stride": 5
+      }
+    ],
+    "7D": [
+      {
+        "time": "Feb 1",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 2",
+        "Stride": 7
+      },
+      {
+        "time": "Feb 3",
+        "Stride": 9
+      },
+      {
+        "time": "Feb 4",
+        "Stride": 9
+      },
+      {
+        "time": "Feb 5",
+        "Stride": 4
+      },
+      {
+        "time": "Feb 6",
+        "Stride": 0
+      },
+      {
+        "time": "Feb 7",
+        "Stride": 2
+      },
+      {
+        "time": "Feb 8",
+        "Stride": 5
+      },
+      {
+        "time": "Feb 9",
+        "Stride": 0
+      },
+      {
+        "time": "Feb 10",
+        "Stride": 8
+      },
+      {
+        "time": "Feb 11",
+        "Stride": 7
+      },
+      {
+        "time": "Feb 12",
+        "Stride": 2
+      },
+      {
+        "time": "Feb 13",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 14",
+        "Stride": 6
+      },
+      {
+        "time": "Feb 15",
+        "Stride": 8
+      },
+      {
+        "time": "Feb 16",
+        "Stride": 0
+      },
+      {
+        "time": "Feb 17",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 18",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 19",
+        "Stride": 9
+      },
+      {
+        "time": "Feb 20",
+        "Stride": 0
+      },
+      {
+        "time": "Feb 21",
+        "Stride": 0
+      },
+      {
+        "time": "Feb 22",
+        "Stride": 0
+      },
+      {
+        "time": "Feb 23",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 24",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 25",
+        "Stride": 2
+      },
+      {
+        "time": "Feb 26",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 27",
+        "Stride": 0
+      },
+      {
+        "time": "Feb 28",
+        "Stride": 8
+      },
+      {
+        "time": "Feb 29",
+        "Stride": 8
+      },
+      {
+        "time": "Feb 30",
+        "Stride": 4
+      },
+      {
+        "time": "Feb 31",
+        "Stride": 2
+      },
+      {
+        "time": "Feb 32",
+        "Stride": 5
+      },
+      {
+        "time": "Feb 33",
+        "Stride": 2
+      },
+      {
+        "time": "Feb 34",
+        "Stride": 8
+      },
+      {
+        "time": "Feb 35",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 36",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 37",
+        "Stride": 8
+      },
+      {
+        "time": "Feb 38",
+        "Stride": 0
+      },
+      {
+        "time": "Feb 39",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 40",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 41",
+        "Stride": 0
+      },
+      {
+        "time": "Feb 42",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 43",
+        "Stride": 7
+      },
+      {
+        "time": "Feb 44",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 45",
+        "Stride": 4
+      },
+      {
+        "time": "Feb 46",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 47",
+        "Stride": 6
+      },
+      {
+        "time": "Feb 48",
+        "Stride": 2
+      },
+      {
+        "time": "Feb 49",
+        "Stride": 0
+      },
+      {
+        "time": "Feb 50",
+        "Stride": 5
+      },
+      {
+        "time": "Feb 51",
+        "Stride": 5
+      },
+      {
+        "time": "Feb 52",
+        "Stride": 8
+      },
+      {
+        "time": "Feb 53",
+        "Stride": 8
+      },
+      {
+        "time": "Feb 54",
+        "Stride": 9
+      },
+      {
+        "time": "Feb 55",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 56",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 57",
+        "Stride": 4
+      },
+      {
+        "time": "Feb 58",
+        "Stride": 2
+      },
+      {
+        "time": "Feb 59",
+        "Stride": 8
+      },
+      {
+        "time": "Feb 60",
+        "Stride": 6
+      },
+      {
+        "time": "Feb 61",
+        "Stride": 8
+      },
+      {
+        "time": "Feb 62",
+        "Stride": 0
+      },
+      {
+        "time": "Feb 63",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 64",
+        "Stride": 0
+      },
+      {
+        "time": "Feb 65",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 66",
+        "Stride": 7
+      },
+      {
+        "time": "Feb 67",
+        "Stride": 7
+      },
+      {
+        "time": "Feb 68",
+        "Stride": 2
+      },
+      {
+        "time": "Feb 69",
+        "Stride": 7
+      },
+      {
+        "time": "Feb 70",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 71",
+        "Stride": 8
+      },
+      {
+        "time": "Feb 72",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 73",
+        "Stride": 9
+      },
+      {
+        "time": "Feb 74",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 75",
+        "Stride": 5
+      },
+      {
+        "time": "Feb 76",
+        "Stride": 5
+      },
+      {
+        "time": "Feb 77",
+        "Stride": 6
+      },
+      {
+        "time": "Feb 78",
+        "Stride": 4
+      },
+      {
+        "time": "Feb 79",
+        "Stride": 4
+      },
+      {
+        "time": "Feb 80",
+        "Stride": 9
+      },
+      {
+        "time": "Feb 81",
+        "Stride": 2
+      },
+      {
+        "time": "Feb 82",
+        "Stride": 4
+      },
+      {
+        "time": "Feb 83",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 84",
+        "Stride": 6
+      },
+      {
+        "time": "Feb 85",
+        "Stride": 0
+      },
+      {
+        "time": "Feb 86",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 87",
+        "Stride": 4
+      },
+      {
+        "time": "Feb 88",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 89",
+        "Stride": 5
+      },
+      {
+        "time": "Feb 90",
+        "Stride": 8
+      },
+      {
+        "time": "Feb 91",
+        "Stride": 6
+      },
+      {
+        "time": "Feb 92",
+        "Stride": 6
+      },
+      {
+        "time": "Feb 93",
+        "Stride": 7
+      },
+      {
+        "time": "Feb 94",
+        "Stride": 7
+      },
+      {
+        "time": "Feb 95",
+        "Stride": 0
+      },
+      {
+        "time": "Feb 96",
+        "Stride": 7
+      },
+      {
+        "time": "Feb 97",
+        "Stride": 0
+      },
+      {
+        "time": "Feb 98",
+        "Stride": 0
+      },
+      {
+        "time": "Feb 99",
+        "Stride": 9
+      },
+      {
+        "time": "Feb 100",
+        "Stride": 5
+      }
+    ],
+    "30D": [
+      {
+        "time": "Feb 1",
+        "Stride": 4
+      },
+      {
+        "time": "Feb 2",
+        "Stride": 4
+      },
+      {
+        "time": "Feb 3",
+        "Stride": 0
+      },
+      {
+        "time": "Feb 4",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 5",
+        "Stride": 6
+      },
+      {
+        "time": "Feb 6",
+        "Stride": 5
+      },
+      {
+        "time": "Feb 7",
+        "Stride": 5
+      },
+      {
+        "time": "Feb 8",
+        "Stride": 8
+      },
+      {
+        "time": "Feb 9",
+        "Stride": 0
+      },
+      {
+        "time": "Feb 10",
+        "Stride": 7
+      },
+      {
+        "time": "Feb 11",
+        "Stride": 5
+      },
+      {
+        "time": "Feb 12",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 13",
+        "Stride": 6
+      },
+      {
+        "time": "Feb 14",
+        "Stride": 6
+      },
+      {
+        "time": "Feb 15",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 16",
+        "Stride": 4
+      },
+      {
+        "time": "Feb 17",
+        "Stride": 2
+      },
+      {
+        "time": "Feb 18",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 19",
+        "Stride": 7
+      },
+      {
+        "time": "Feb 20",
+        "Stride": 8
+      },
+      {
+        "time": "Feb 21",
+        "Stride": 0
+      },
+      {
+        "time": "Feb 22",
+        "Stride": 6
+      },
+      {
+        "time": "Feb 23",
+        "Stride": 4
+      },
+      {
+        "time": "Feb 24",
+        "Stride": 5
+      },
+      {
+        "time": "Feb 25",
+        "Stride": 8
+      },
+      {
+        "time": "Feb 26",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 27",
+        "Stride": 5
+      },
+      {
+        "time": "Feb 28",
+        "Stride": 0
+      },
+      {
+        "time": "Feb 29",
+        "Stride": 5
+      },
+      {
+        "time": "Feb 30",
+        "Stride": 4
+      },
+      {
+        "time": "Feb 31",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 32",
+        "Stride": 7
+      },
+      {
+        "time": "Feb 33",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 34",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 35",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 36",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 37",
+        "Stride": 4
+      },
+      {
+        "time": "Feb 38",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 39",
+        "Stride": 6
+      },
+      {
+        "time": "Feb 40",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 41",
+        "Stride": 7
+      },
+      {
+        "time": "Feb 42",
+        "Stride": 2
+      },
+      {
+        "time": "Feb 43",
+        "Stride": 6
+      },
+      {
+        "time": "Feb 44",
+        "Stride": 0
+      },
+      {
+        "time": "Feb 45",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 46",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 47",
+        "Stride": 5
+      },
+      {
+        "time": "Feb 48",
+        "Stride": 0
+      },
+      {
+        "time": "Feb 49",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 50",
+        "Stride": 8
+      },
+      {
+        "time": "Feb 51",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 52",
+        "Stride": 4
+      },
+      {
+        "time": "Feb 53",
+        "Stride": 5
+      },
+      {
+        "time": "Feb 54",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 55",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 56",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 57",
+        "Stride": 8
+      },
+      {
+        "time": "Feb 58",
+        "Stride": 2
+      },
+      {
+        "time": "Feb 59",
+        "Stride": 6
+      },
+      {
+        "time": "Feb 60",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 61",
+        "Stride": 4
+      },
+      {
+        "time": "Feb 62",
+        "Stride": 7
+      },
+      {
+        "time": "Feb 63",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 64",
+        "Stride": 9
+      },
+      {
+        "time": "Feb 65",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 66",
+        "Stride": 6
+      },
+      {
+        "time": "Feb 67",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 68",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 69",
+        "Stride": 4
+      },
+      {
+        "time": "Feb 70",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 71",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 72",
+        "Stride": 9
+      },
+      {
+        "time": "Feb 73",
+        "Stride": 9
+      },
+      {
+        "time": "Feb 74",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 75",
+        "Stride": 5
+      },
+      {
+        "time": "Feb 76",
+        "Stride": 9
+      },
+      {
+        "time": "Feb 77",
+        "Stride": 2
+      },
+      {
+        "time": "Feb 78",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 79",
+        "Stride": 5
+      },
+      {
+        "time": "Feb 80",
+        "Stride": 2
+      },
+      {
+        "time": "Feb 81",
+        "Stride": 6
+      },
+      {
+        "time": "Feb 82",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 83",
+        "Stride": 4
+      },
+      {
+        "time": "Feb 84",
+        "Stride": 4
+      },
+      {
+        "time": "Feb 85",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 86",
+        "Stride": 8
+      },
+      {
+        "time": "Feb 87",
+        "Stride": 7
+      },
+      {
+        "time": "Feb 88",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 89",
+        "Stride": 9
+      },
+      {
+        "time": "Feb 90",
+        "Stride": 7
+      },
+      {
+        "time": "Feb 91",
+        "Stride": 5
+      },
+      {
+        "time": "Feb 92",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 93",
+        "Stride": 0
+      },
+      {
+        "time": "Feb 94",
+        "Stride": 9
+      },
+      {
+        "time": "Feb 95",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 96",
+        "Stride": 4
+      },
+      {
+        "time": "Feb 97",
+        "Stride": 8
+      },
+      {
+        "time": "Feb 98",
+        "Stride": 2
+      },
+      {
+        "time": "Feb 99",
+        "Stride": 5
+      },
+      {
+        "time": "Feb 100",
+        "Stride": 5
+      }
+    ],
+    "ALL": [
+      {
+        "time": "Feb 1",
+        "Stride": 7
+      },
+      {
+        "time": "Feb 2",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 3",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 4",
+        "Stride": 4
+      },
+      {
+        "time": "Feb 5",
+        "Stride": 5
+      },
+      {
+        "time": "Feb 6",
+        "Stride": 6
+      },
+      {
+        "time": "Feb 7",
+        "Stride": 5
+      },
+      {
+        "time": "Feb 8",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 9",
+        "Stride": 4
+      },
+      {
+        "time": "Feb 10",
+        "Stride": 2
+      },
+      {
+        "time": "Feb 11",
+        "Stride": 4
+      },
+      {
+        "time": "Feb 12",
+        "Stride": 6
+      },
+      {
+        "time": "Feb 13",
+        "Stride": 7
+      },
+      {
+        "time": "Feb 14",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 15",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 16",
+        "Stride": 5
+      },
+      {
+        "time": "Feb 17",
+        "Stride": 9
+      },
+      {
+        "time": "Feb 18",
+        "Stride": 8
+      },
+      {
+        "time": "Feb 19",
+        "Stride": 4
+      },
+      {
+        "time": "Feb 20",
+        "Stride": 6
+      },
+      {
+        "time": "Feb 21",
+        "Stride": 4
+      },
+      {
+        "time": "Feb 22",
+        "Stride": 0
+      },
+      {
+        "time": "Feb 23",
+        "Stride": 4
+      },
+      {
+        "time": "Feb 24",
+        "Stride": 4
+      },
+      {
+        "time": "Feb 25",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 26",
+        "Stride": 5
+      },
+      {
+        "time": "Feb 27",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 28",
+        "Stride": 2
+      },
+      {
+        "time": "Feb 29",
+        "Stride": 6
+      },
+      {
+        "time": "Feb 30",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 31",
+        "Stride": 8
+      },
+      {
+        "time": "Feb 32",
+        "Stride": 5
+      },
+      {
+        "time": "Feb 33",
+        "Stride": 9
+      },
+      {
+        "time": "Feb 34",
+        "Stride": 0
+      },
+      {
+        "time": "Feb 35",
+        "Stride": 8
+      },
+      {
+        "time": "Feb 36",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 37",
+        "Stride": 7
+      },
+      {
+        "time": "Feb 38",
+        "Stride": 8
+      },
+      {
+        "time": "Feb 39",
+        "Stride": 2
+      },
+      {
+        "time": "Feb 40",
+        "Stride": 6
+      },
+      {
+        "time": "Feb 41",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 42",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 43",
+        "Stride": 4
+      },
+      {
+        "time": "Feb 44",
+        "Stride": 2
+      },
+      {
+        "time": "Feb 45",
+        "Stride": 4
+      },
+      {
+        "time": "Feb 46",
+        "Stride": 9
+      },
+      {
+        "time": "Feb 47",
+        "Stride": 9
+      },
+      {
+        "time": "Feb 48",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 49",
+        "Stride": 8
+      },
+      {
+        "time": "Feb 50",
+        "Stride": 2
+      },
+      {
+        "time": "Feb 51",
+        "Stride": 8
+      },
+      {
+        "time": "Feb 52",
+        "Stride": 7
+      },
+      {
+        "time": "Feb 53",
+        "Stride": 9
+      },
+      {
+        "time": "Feb 54",
+        "Stride": 7
+      },
+      {
+        "time": "Feb 55",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 56",
+        "Stride": 5
+      },
+      {
+        "time": "Feb 57",
+        "Stride": 9
+      },
+      {
+        "time": "Feb 58",
+        "Stride": 8
+      },
+      {
+        "time": "Feb 59",
+        "Stride": 6
+      },
+      {
+        "time": "Feb 60",
+        "Stride": 5
+      },
+      {
+        "time": "Feb 61",
+        "Stride": 9
+      },
+      {
+        "time": "Feb 62",
+        "Stride": 9
+      },
+      {
+        "time": "Feb 63",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 64",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 65",
+        "Stride": 2
+      },
+      {
+        "time": "Feb 66",
+        "Stride": 9
+      },
+      {
+        "time": "Feb 67",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 68",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 69",
+        "Stride": 4
+      },
+      {
+        "time": "Feb 70",
+        "Stride": 5
+      },
+      {
+        "time": "Feb 71",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 72",
+        "Stride": 7
+      },
+      {
+        "time": "Feb 73",
+        "Stride": 5
+      },
+      {
+        "time": "Feb 74",
+        "Stride": 9
+      },
+      {
+        "time": "Feb 75",
+        "Stride": 9
+      },
+      {
+        "time": "Feb 76",
+        "Stride": 7
+      },
+      {
+        "time": "Feb 77",
+        "Stride": 7
+      },
+      {
+        "time": "Feb 78",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 79",
+        "Stride": 9
+      },
+      {
+        "time": "Feb 80",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 81",
+        "Stride": 0
+      },
+      {
+        "time": "Feb 82",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 83",
+        "Stride": 2
+      },
+      {
+        "time": "Feb 84",
+        "Stride": 4
+      },
+      {
+        "time": "Feb 85",
+        "Stride": 8
+      },
+      {
+        "time": "Feb 86",
+        "Stride": 0
+      },
+      {
+        "time": "Feb 87",
+        "Stride": 5
+      },
+      {
+        "time": "Feb 88",
+        "Stride": 1
+      },
+      {
+        "time": "Feb 89",
+        "Stride": 0
+      },
+      {
+        "time": "Feb 90",
+        "Stride": 7
+      },
+      {
+        "time": "Feb 91",
+        "Stride": 2
+      },
+      {
+        "time": "Feb 92",
+        "Stride": 7
+      },
+      {
+        "time": "Feb 93",
+        "Stride": 8
+      },
+      {
+        "time": "Feb 94",
+        "Stride": 8
+      },
+      {
+        "time": "Feb 95",
+        "Stride": 8
+      },
+      {
+        "time": "Feb 96",
+        "Stride": 0
+      },
+      {
+        "time": "Feb 97",
+        "Stride": 3
+      },
+      {
+        "time": "Feb 98",
+        "Stride": 4
+      },
+      { "time": "Feb 99", "Stride": 9 },
+      {
+        "time": "Feb 100",
+        "Stride": 0
+      }
+    ]
+  },
+  "Neutron": {
+    "1D": [
+      {
+        "time": "Feb 1",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 2",
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 3",
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 4",
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 5",
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 6",
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 7",
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 8",
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 9",
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 10",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 11",
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 12",
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 13",
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 14",
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 15",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 16",
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 17",
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 18",
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 19",
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 20",
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 21",
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 22",
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 23",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 24",
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 25",
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 26",
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 27",
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 28",
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 29",
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 30",
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 31",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 32",
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 33",
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 34",
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 35",
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 36",
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 37",
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 38",
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 39",
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 40",
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 41",
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 42",
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 43",
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 44",
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 45",
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 46",
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 47",
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 48",
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 49",
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 50",
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 51",
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 52",
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 53",
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 54",
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 55",
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 56",
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 57",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 58",
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 59",
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 60",
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 61",
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 62",
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 63",
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 64",
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 65",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 66",
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 67",
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 68",
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 69",
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 70",
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 71",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 72",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 73",
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 74",
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 75",
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 76",
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 77",
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 78",
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 79",
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 80",
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 81",
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 82",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 83",
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 84",
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 85",
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 86",
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 87",
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 88",
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 89",
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 90",
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 91",
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 92",
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 93",
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 94",
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 95",
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 96",
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 97",
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 98",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 99",
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 100",
+        "Neutron": 2
+      }
+    ],
+    "7D": [
+      {
+        "time": "Feb 1",
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 2",
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 3",
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 4",
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 5",
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 6",
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 7",
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 8",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 9",
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 10",
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 11",
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 12",
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 13",
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 14",
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 15",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 16",
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 17",
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 18",
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 19",
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 20",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 21",
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 22",
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 23",
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 24",
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 25",
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 26",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 27",
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 28",
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 29",
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 30",
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 31",
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 32",
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 33",
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 34",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 35",
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 36",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 37",
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 38",
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 39",
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 40",
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 41",
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 42",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 43",
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 44",
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 45",
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 46",
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 47",
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 48",
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 49",
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 50",
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 51",
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 52",
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 53",
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 54",
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 55",
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 56",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 57",
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 58",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 59",
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 60",
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 61",
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 62",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 63",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 64",
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 65",
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 66",
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 67",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 68",
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 69",
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 70",
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 71",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 72",
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 73",
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 74",
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 75",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 76",
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 77",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 78",
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 79",
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 80",
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 81",
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 82",
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 83",
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 84",
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 85",
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 86",
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 87",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 88",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 89",
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 90",
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 91",
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 92",
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 93",
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 94",
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 95",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 96",
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 97",
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 98",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 99",
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 100",
+        "Neutron": 8
+      }
+    ],
+    "30D": [
+      {
+        "time": "Feb 1",
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 2",
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 3",
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 4",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 5",
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 6",
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 7",
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 8",
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 9",
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 10",
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 11",
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 12",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 13",
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 14",
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 15",
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 16",
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 17",
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 18",
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 19",
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 20",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 21",
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 22",
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 23",
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 24",
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 25",
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 26",
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 27",
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 28",
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 29",
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 30",
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 31",
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 32",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 33",
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 34",
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 35",
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 36",
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 37",
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 38",
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 39",
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 40",
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 41",
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 42",
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 43",
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 44",
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 45",
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 46",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 47",
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 48",
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 49",
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 50",
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 51",
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 52",
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 53",
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 54",
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 55",
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 56",
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 57",
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 58",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 59",
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 60",
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 61",
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 62",
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 63",
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 64",
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 65",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 66",
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 67",
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 68",
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 69",
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 70",
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 71",
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 72",
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 73",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 74",
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 75",
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 76",
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 77",
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 78",
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 79",
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 80",
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 81",
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 82",
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 83",
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 84",
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 85",
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 86",
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 87",
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 88",
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 89",
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 90",
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 91",
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 92",
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 93",
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 94",
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 95",
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 96",
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 97",
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 98",
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 99",
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 100",
+        "Neutron": 8
+      }
+    ],
+    "ALL": [
+      {
+        "time": "Feb 1",
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 2",
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 3",
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 4",
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 5",
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 6",
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 7",
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 8",
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 9",
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 10",
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 11",
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 12",
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 13",
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 14",
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 15",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 16",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 17",
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 18",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 19",
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 20",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 21",
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 22",
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 23",
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 24",
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 25",
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 26",
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 27",
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 28",
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 29",
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 30",
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 31",
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 32",
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 33",
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 34",
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 35",
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 36",
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 37",
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 38",
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 39",
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 40",
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 41",
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 42",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 43",
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 44",
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 45",
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 46",
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 47",
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 48",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 49",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 50",
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 51",
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 52",
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 53",
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 54",
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 55",
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 56",
+        "Neutron": 7
+      },
+      {
+        "time": "Feb 57",
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 58",
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 59",
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 60",
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 61",
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 62",
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 63",
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 64",
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 65",
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 66",
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 67",
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 68",
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 69",
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 70",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 71",
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 72",
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 73",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 74",
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 75",
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 76",
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 77",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 78",
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 79",
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 80",
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 81",
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 82",
+        "Neutron": 1
+      },
+      {
+        "time": "Feb 83",
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 84",
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 85",
+        "Neutron": 8
+      },
+      {
+        "time": "Feb 86",
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 87",
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 88",
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 89",
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 90",
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 91",
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 92",
+        "Neutron": 2
+      },
+      {
+        "time": "Feb 93",
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 94",
+        "Neutron": 3
+      },
+      {
+        "time": "Feb 95",
+        "Neutron": 6
+      },
+      {
+        "time": "Feb 96",
+        "Neutron": 4
+      },
+      {
+        "time": "Feb 97",
+        "Neutron": 5
+      },
+      {
+        "time": "Feb 98",
+        "Neutron": 9
+      },
+      {
+        "time": "Feb 99",
+        "Neutron": 0
+      },
+      {
+        "time": "Feb 100",
+        "Neutron": 7
+      }
+    ]
+  }
+}

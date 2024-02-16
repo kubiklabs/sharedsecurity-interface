@@ -1,55 +1,54 @@
 [
-    {
-      "Event": "ATOM as Money on Neutron",
-      "Tags": {
-        "type": "tags",
-        "data": ["Agora #01"]
-      },
-      "Date": "Sep 8, 2023",
-      "Twitter Space": {
-        "type": "LINK",
-        "label": "AtomZone Agora #01",
-        "url": "https://twitter.com/i/spaces/1ypKddqnEAVKW"
-      }
+  {
+    "Event": "ATOM as Money on Neutron",
+    "Tags": {
+      "type": "tags",
+      "data": ["Agora #01"]
     },
-    {
-      "Event": "Accountability & Roadmap 2024",
-      "Tags": {
-        "type": "tags",
-        "data": ["Agora #02"]
-      },
-      "Date": "Sep 14, 2023",
-      "Twitter Space": {
-        "type": "LINK",
-        "label": "AtomZone Agora #02",
-        "url": "https://twitter.com/i/spaces/1lDGLnBnjnbxm"
-      }
-    },
-    {
-      "Event": "Governance Challenges within the AEZ",
-      "Tags": {
-        "type": "tags",
-        "data": ["Agora #03"]
-      },
-      "Date": "Sep 26, 2023",
-      "Twitter Space": {
-        "type": "LINK",
-        "label": "AtomZone Agora #03",
-        "url": "https://twitter.com/i/spaces/1MYxNoZEezwKw"
-      }
-    },
-    {
-      "Event": "AtomZone Agora live at Cosmoverse",
-      "Tags": {
-        "type": "tags",
-        "data": ["Agora x Cosmoverse"]
-      },
-      "Date": "Oct 2, 2023",
-      "Twitter Space": {
-        "type": "LINK",
-        "label": "AtomZone Agora x Cosmoverse",
-        "url": "https://twitter.com/cosmoshub/status/1703777744251650407"
-      }
+    "Date": "Sep 8, 2023",
+    "Twitter Space": {
+      "type": "LINK",
+      "label": "AtomZone Agora #01",
+      "url": "https://twitter.com/i/spaces/1ypKddqnEAVKW"
     }
-  ]
-    
+  },
+  {
+    "Event": "Accountability & Roadmap 2024",
+    "Tags": {
+      "type": "tags",
+      "data": ["Agora #02"]
+    },
+    "Date": "Sep 14, 2023",
+    "Twitter Space": {
+      "type": "LINK",
+      "label": "AtomZone Agora #02",
+      "url": "https://twitter.com/i/spaces/1lDGLnBnjnbxm"
+    }
+  },
+  {
+    "Event": "Governance Challenges within the AEZ",
+    "Tags": {
+      "type": "tags",
+      "data": ["Agora #03"]
+    },
+    "Date": "Sep 26, 2023",
+    "Twitter Space": {
+      "type": "LINK",
+      "label": "AtomZone Agora #03",
+      "url": "https://twitter.com/i/spaces/1MYxNoZEezwKw"
+    }
+  },
+  {
+    "Event": "AtomZone Agora live at Cosmoverse",
+    "Tags": {
+      "type": "tags",
+      "data": ["Agora x Cosmoverse"]
+    },
+    "Date": "Oct 2, 2023",
+    "Twitter Space": {
+      "type": "LINK",
+      "label": "AtomZone Agora x Cosmoverse",
+      "url": "https://twitter.com/cosmoshub/status/1703777744251650407"
+    }
+  }
+]

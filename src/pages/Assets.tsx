@@ -1,5 +1,5 @@
 // import {Box, Flex} from "@chakra-ui/react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useStrideAssets } from "../hooks/chains/stride/chain_assets/useStrideAssets";
 import { useRecoilValue } from "recoil";
 import {
@@ -29,10 +29,10 @@ const Assets = () => {
     if (!cosmosAssets.assets.length) getParsedCosmosAssets();
     if (!neutronAssets.assets.length) getParsedNeutronAssets();
   };
-  
+
   return (
 
-      <AssetSection1 allAssets={[...neutronAssets.assets, ...cosmosAssets.assets,...strideAssets.assets]} neutronAssets={neutronAssets.assets} cosmosAssets={cosmosAssets.assets} strideAssets={strideAssets.assets} />
+    <AssetSection1 allAssets={[...neutronAssets.assets, ...cosmosAssets.assets, ...strideAssets.assets]} neutronAssets={neutronAssets.assets} cosmosAssets={cosmosAssets.assets} strideAssets={strideAssets.assets} />
   );
 };
 
