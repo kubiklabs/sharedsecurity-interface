@@ -73,7 +73,7 @@ const CustomTable = ({
     <TableContainer
       textAlign={"left"}
       overflowX={overflow ? "clip" : undefined}
-      height={"100%"}
+      height={"-webkit-fill-available"}
       display={"flex"}
       flexDirection={"column"}
       justifyContent={"space-between"}
@@ -98,8 +98,8 @@ const CustomTable = ({
                     currentPath === "/aez"
                       ? "10px"
                       : currentPath === "/validators"
-                      ? "20px"
-                      : 0
+                        ? "20px"
+                        : 0
                   }
                   color={"#D9D9D9"}
                   fontSize={"20px"}
@@ -118,12 +118,12 @@ const CustomTable = ({
                     {item}{" "}
                     {(item === "Forum Date" ||
                       ValidatorKeys.includes(item)) && (
-                      <FontAwesomeIcon
-                        icon={faCaretDown}
-                        height="7px"
-                        width="10px"
-                      />
-                    )}
+                        <FontAwesomeIcon
+                          icon={faCaretDown}
+                          height="7px"
+                          width="10px"
+                        />
+                      )}
                   </Text>
                 </Th>
               );
@@ -141,7 +141,7 @@ const CustomTable = ({
               >
                 {item &&
                   Object.values(item)?.map((value: any, index: number) => {
-                   // console.log(item);
+                    // console.log(item);
 
                     if (value === item["Prop Date"]) return; // to not show the Prop Date in Consumer chains table
                     if (keys[3] === "Twitter Space") {
@@ -176,9 +176,8 @@ const CustomTable = ({
                               <PathLink
                                 style={{
                                   textDecoration: "underline",
-                                  paddingLeft: `${
-                                    currentPath === "/aez" ? "10px" : 0
-                                  }`,
+                                  paddingLeft: `${currentPath === "/aez" ? "10px" : 0
+                                    }`,
                                 }}
                                 to={value.url}
                               >
@@ -190,15 +189,14 @@ const CustomTable = ({
                                 alignItems={"center"}
                                 pb={"12px"}
                                 style={{
-                                  paddingLeft: `${
-                                    currentPath === "/aez" ? "55px" : 0
-                                  }`,
+                                  paddingLeft: `${currentPath === "/aez" ? "55px" : 0
+                                    }`,
                                 }}
                               >
                                 _
                               </Text>
                             )
-                          ) : (value.type === "avatarWithText" || value.type==="avatar") ? (
+                          ) : (value.type === "avatarWithText" || value.type === "avatar") ? (
                             <Flex alignItems={"center"} gap={"15px"}>
                               <Avatar
                                 name={value.label}
@@ -207,11 +205,11 @@ const CustomTable = ({
                               />
                               {value.label}
                             </Flex>
-                          )  : (
+                          ) : (
                             "-"
                           )
                         ) : typeof value === "number" ? (
-                          
+
                           (currentPath === "/assets" && index === 1) ? (
                             `${value.toLocaleString()}`
                           ) : (
@@ -225,16 +223,16 @@ const CustomTable = ({
                               currentPath === "/aez"
                                 ? "10px"
                                 : currentPath === "/validators"
-                                ? "20px"
-                                : 0
+                                  ? "20px"
+                                  : 0
                             }
                             color={
-                              (item.types === "100%" || value.type==="avatarWithText")
+                              (item.types === "100%" || value.type === "avatarWithText")
                                 ? "#bfbfbfcc"
                                 : "#fff"
                             }
                           >
-                            {value.type==="avatarWithText"? value.label : value}
+                            {value.type === "avatarWithText" ? value.label : value}
                           </Flex>
                         )}
                       </Td>
@@ -253,12 +251,12 @@ const CustomTable = ({
                 borderTop={"1px solid"}
                 fontSize={20}
                 textAlign={"unset"}
-                pl={currentPath==="/assets"? "10px" : "0"}
+                pl={currentPath === "/assets" ? "10px" : "0"}
               >
                 Total
               </Td>
             )}
-          {keys?.slice(1).map((key: string, index: number) => {
+            {keys?.slice(1).map((key: string, index: number) => {
               return (
                 totalValue && (
                   <Td
@@ -275,8 +273,8 @@ const CustomTable = ({
                   </Td>
                 )
               );
-            })} 
-        
+            })}
+
           </Tr>
         </Tbody>
       </Table>
