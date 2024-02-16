@@ -70,8 +70,11 @@ const CustomTable = ({
   return (
     <TableContainer
       textAlign={"left"}
-      display={"block"}
       overflowX={overflow ? "clip" : undefined}
+      height={"-webkit-fill-available"}
+      display={"flex"}
+      flexDirection={"column"}
+      justifyContent={"space-between"}
     >
       <Table width={"100%"} fontSize={"lg"}>
         {/* <TableCaption>Data fetched from different chains</TableCaption> */}
@@ -283,7 +286,7 @@ const CustomTable = ({
           currentPage={currentPage.current}
           totalPages={totalPages.current}
           onPageChange={handlePageClick}
-          alignSelf={"flex-start"}
+          alignSelf={"center"}
         />
       )}
     </TableContainer>
