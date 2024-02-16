@@ -1,12 +1,11 @@
 import { Flex, Text, Tooltip } from "@chakra-ui/react";
-import React from "react";
-import { toast } from "react-toastify";
 import { getShortHandAddress } from "../../utils/common";
+import showToast from "../../utils/showToast";
 
 const AddressDisplay = ({ name, address }: any) => {
   const copyAddress = () => {
     navigator.clipboard.writeText(address || "");
-    toast.success("Address copied to clipboard!");
+    showToast("success", "Address copied to clipboard");
   };
   return (
     <Flex fontSize={"20px"} justifyContent={"space-between"}>

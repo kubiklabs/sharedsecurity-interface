@@ -3,6 +3,7 @@ import { getCosmosOption, sleep } from "../../../utils/common";
 import { toast } from "react-toastify";
 import Long from "long";
 import { Stride } from "../../../config/nodeConfig.json";
+import showToast from "../../../utils/showToast";
 
 const rpcEndpoint = Stride.RPC;
 
@@ -59,16 +60,12 @@ export const useStrideGovTxn = () => {
       );
 
       if (code === 0) {
-        toast.success(
-          `Transaction broadcasted successfully with hash ${transactionHash}`
-        );
+        showToast("success", `Transaction broadcasted successfully with hash ${transactionHash}`);
       } else {
-        toast.error(`Transaction failed with code: ${code}`);
+        showToast("error", `Transaction failed with code: ${code}`);
       }
     } catch (error) {
-      toast.error(
-        `Transaction failed with message ${(error as Error)?.message}`
-      );
+      showToast("error", `Transaction failed with message ${(error as Error)?.message}`);
       console.log(error);
     }
   };
