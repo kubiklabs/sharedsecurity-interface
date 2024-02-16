@@ -38,7 +38,13 @@ const useVpTableEffect = () => {
             type: "avatar",
             url: chainLogoImg[chainKey as keyof typeof chainLogoImg],
           },
-          "Wallet Address": shortenCosmosAddress(chain.address),
+          "Wallet Address": {
+            type: "LINK",
+            label: shortenCosmosAddress(chain.address),
+            url: `https://www.mintscan.io/${chainKey.toLocaleLowerCase()}/address/${
+              chain.address
+            }`,
+          },
           "Token Staked": `${coinConvert(chain.amount?.amount, 6, "human")} ${
             chain.amount?.denom
           }`,
