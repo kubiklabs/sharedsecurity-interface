@@ -71,7 +71,7 @@ const CustomTable = ({
     <TableContainer
       textAlign={"left"}
       overflowX={overflow ? "clip" : undefined}
-      height={"-webkit-fill-available"}
+      height={"100%"}
       display={"flex"}
       flexDirection={"column"}
       justifyContent={"space-between"}

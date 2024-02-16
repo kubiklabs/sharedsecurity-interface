@@ -60,9 +60,13 @@ export const useConnectWallet = () => {
         await sleep(0.5);
       }
 
-      await (window as any).keplr.enable("cosmoshub-4");
-      await (window as any).keplr.enable("stride-1");
-      await (window as any).keplr.enable("neutron-1");
+      await (window as any).keplr.enable([
+        "cosmoshub-4",
+        "stride-1",
+        "neutron-1",
+      ]);
+      // await (window as any).keplr.enable("stride-1");
+      // await (window as any).keplr.enable("neutron-1");
 
       const cosmosOfflineSigner = (
         window as any
