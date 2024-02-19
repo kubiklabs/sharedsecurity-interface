@@ -32,13 +32,14 @@ const AssetSection1 = ({
   const [finalData, setFinalData] = useState<assetPieType[]>([]);
   const [selectedOption, setSelectedOption] = useState<string>("all network");
 
-  const [combinedAllAssets, setCombinedAllAssets] = useState<assetType[]>(allAssets);
+  const [combinedAllAssets, setCombinedAllAssets] =
+    useState<assetType[]>(allAssets);
 
   useEffect(() => {
     let combinedData: { [key: string]: assetType } = {};
 
     // Combining data and summing up amounts
-    allAssets.forEach(item => {
+    allAssets.forEach((item) => {
       let label = item.name.label;
       if (!combinedData[label]) {
         combinedData[label] = { ...item };
@@ -51,7 +52,6 @@ const AssetSection1 = ({
     setCombinedAllAssets(Object.values(combinedData));
   }, [allAssets]);
 
-
   useEffect(() => {
     setOption(combinedAllAssets);
   }, [combinedAllAssets]);
@@ -62,24 +62,26 @@ const AssetSection1 = ({
     //   datasets: option.map((asset) => asset.amount),
     // };
 
-    let numberOfDataInDoughnut = 6;
+    let numberOfDataInDoughnut = 4;
 
     let graphData = option.map((item) => {
       return {
         label: item.name.label,
-        amount: item.amount
-      }
-    })
+        amount: item.amount,
+      };
+    });
 
     graphData.sort((a, b) => b.amount - a.amount);
 
     let topData = graphData.slice(0, numberOfDataInDoughnut - 1);
 
-    let sumOthers = graphData.slice(numberOfDataInDoughnut - 1).reduce((sum, item) => sum + item.amount, 0);
+    let sumOthers = graphData
+      .slice(numberOfDataInDoughnut - 1)
+      .reduce((sum, item) => sum + item.amount, 0);
 
     let others = {
-      "label": "Others",
-      "amount": sumOthers
+      label: "Others",
+      amount: sumOthers,
     };
 
     let result = [...topData, others];
@@ -117,7 +119,6 @@ const AssetSection1 = ({
     }
   };
 
-
   return (
     <Flex flexDirection={"column"} gap={"40px"}>
       <AssetOptions
@@ -140,14 +141,15 @@ const AssetSection1 = ({
         >
           <Section
             height="100%"
-            heading={`Assets on ${option === cosmosAssets
-              ? " Cosmos Hub"
-              : option === neutronAssets
+            heading={`Assets on ${
+              option === cosmosAssets
+                ? " Cosmos Hub"
+                : option === neutronAssets
                 ? " Neutron"
                 : option === combinedAllAssets
-                  ? "All Network"
-                  : " Stride"
-              }`}
+                ? "All Network"
+                : " Stride"
+            }`}
             subtitle="Stay up to date"
           >
             {option.length ? (
@@ -181,14 +183,15 @@ const AssetSection1 = ({
           <Section
             height="100%"
             gap="60px"
-            heading={`Total supply on ${option === cosmosAssets
-              ? " Cosmos Hub"
-              : option === neutronAssets
+            heading={`Total supply on ${
+              option === cosmosAssets
+                ? " Cosmos Hub"
+                : option === neutronAssets
                 ? " Neutron"
                 : option === combinedAllAssets
-                  ? " All Network"
-                  : " Stride"
-              }`}
+                ? " All Network"
+                : " Stride"
+            }`}
             subtitle="A gathering place to address the topics shaping the ATOM Ecosystem"
           >
             {finalData.length > 0 ? (
@@ -201,7 +204,19 @@ const AssetSection1 = ({
                 gap={"35px"}
               >
                 {/* <DoughnutChart data={finalData} /> */}
-                <DoughnutGraph doughnutData={finalData} dataKey="amount" labelKey="label" colors={["#fc7779", "#bc3d70", "#fc6c9f", "#fc67c5", "#95004b", "#dd006d"]} />
+                <DoughnutGraph
+                  doughnutData={finalData}
+                  dataKey="amount"
+                  labelKey="label"
+                  colors={[
+                    "#fc7779",
+                    "#bc3d70",
+                    "#fc6c9f",
+                    "#fc67c5",
+                    "#95004b",
+                    "#dd006d",
+                  ]}
+                />
                 <Text fontSize={"14px"}>Asset Supply Distribution on Atom</Text>
               </Flex>
             ) : (

@@ -34,7 +34,7 @@ const Overwiew = () => {
   });
   return (
     <Box>
-      <Box flexDirection={"column"} display={"flex"} gap={"20px"}>
+      <Box flexDirection={"column"} display={"flex"} gap={"70px"}>
         <Featured stats={stats} />
         <Trends />
       </Box>

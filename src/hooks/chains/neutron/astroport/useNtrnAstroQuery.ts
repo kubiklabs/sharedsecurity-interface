@@ -14,6 +14,7 @@ import { useSetRecoilState } from "recoil";
 import { astroportTvlState } from "../../../../context/ecosystemState";
 
 import { Neutron } from "../../../../config/nodeConfig.json";
+import showToast from "../../../../utils/showToast";
 
 const rpcEndpoint = Neutron.RPC;
 
@@ -60,7 +61,7 @@ export const useNtrnAstroQuery = () => {
       );
       return response.pairs;
     } catch (error) {
-      toast.error(`Query failed with message ${(error as Error).message}`);
+      showToast("error", `Query failed with message ${(error as Error).message}`);
       console.error(error);
     }
   };
@@ -76,7 +77,7 @@ export const useNtrnAstroQuery = () => {
       });
       return response;
     } catch (error) {
-      toast.error(`Query failed with message ${(error as Error).message}`);
+      showToast("error", `Query failed with message ${(error as Error).message}`);
       console.error(error);
     }
   };
@@ -100,7 +101,7 @@ export const useNtrnAstroQuery = () => {
     } catch (error) {
       console.log(error);
 
-      toast.error(`Request failed with message ${(error as Error).message}`);
+      showToast("error", `Request failed with message ${(error as Error).message}`);
     }
   };
 

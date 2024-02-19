@@ -3,6 +3,7 @@ import { walletState } from "../context/walletState";
 import { sleep } from "../utils/common";
 import { useChainInfo } from "./useChainInfo";
 import { toast } from "react-toastify";
+import showToast from "../utils/showToast";
 
 export interface Coin {
   readonly denom: string;
@@ -28,8 +29,7 @@ export const useDisconnetWallet = () => {
       name: undefined,
       isLoggedIn: false,
     });
-    toast.success("Keplr is Disconnected");
-
+    showToast("success", "Keplr is Disconnected")
     // Success("Wallet Disconnected!");
   };
 };
@@ -49,7 +49,7 @@ export const useConnectWallet = () => {
     // const tid = toast.loading("Connecting to wallet");
     try {
       if (!(window as any).keplr) {
-        toast.error("Keplr Wallet not installed !");
+        showToast("error", "Keplr Wallet not installed !");
         return;
       }
       while (
@@ -60,9 +60,13 @@ export const useConnectWallet = () => {
         await sleep(0.5);
       }
 
-      await (window as any).keplr.enable("cosmoshub-4");
-      await (window as any).keplr.enable("stride-1");
-      await (window as any).keplr.enable("neutron-1");
+      await (window as any).keplr.enable([
+        "cosmoshub-4",
+        "stride-1",
+        "neutron-1",
+      ]);
+      // await (window as any).keplr.enable("stride-1");
+      // await (window as any).keplr.enable("neutron-1");
 
       const cosmosOfflineSigner = (
         window as any
@@ -93,7 +97,7 @@ export const useConnectWallet = () => {
         name: walletName,
       });
       sessionStorage.setItem("isLoggedIn", "true");
-      toast.success("Keplr is connected");
+      showToast("success", "Keplr is connected");
     } catch (error) {
       console.log(error);
     }
