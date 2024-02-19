@@ -9,7 +9,6 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
-import CustomTable from "../DataDisplay/CustomTable";
 import { useAez } from "../../hooks/useAez";
 import { useRecoilValue } from "recoil";
 import { ecosystemState } from "../../context/ecosystemState";
@@ -22,7 +21,7 @@ const Ecosystem = () => {
   const { getParsedEcosystemData } = useAez();
   const { data } = useRecoilValue(ecosystemState);
   const [items, setItems] = useState(data);
-  const noOfDappsToShow = 4;
+  const noOfDappsToShow = 3;
   const [visibleItems, setVisibleItems] = useState(noOfDappsToShow);
 
   useEffect(() => {
