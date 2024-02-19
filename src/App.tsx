@@ -1,17 +1,8 @@
 import "./App.css";
 import SideBar from "./components/Navigation/SideBar";
-import { RecoilRoot } from "recoil";
-import Header from "./components/Navigation/Header";
+
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import {
-  Box,
-  ChakraProvider,
-  Flex,
-  extendTheme,
-  defineStyle,
-  defineStyleConfig,
-  Heading,
-} from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import Overwiew from "./pages/Overwiew";
 import Aez from "./pages/Aez";
 import Governance from "./pages/Governance";
@@ -20,7 +11,7 @@ import Validators from "./pages/Validators";
 import Proposal from "./pages/Proposal";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useCallback, useEffect } from "react";
+import { useEffect } from "react";
 import { useConnectWallet } from "./hooks/useConnectWallet";
 import Footer from "./components/Footer/Footer";
 
@@ -36,34 +27,17 @@ const scrollbarStyle = {
     background: "gray.400",
   },
 };
-const outline = defineStyle({
-  // border: "2px dashed", // change the appearance of the border
-  // borderRadius: 0, // remove the border radius
-  fontWeight: "semibold", // change the font weight
-});
-
-const theme = extendTheme({
-  components: {
-    Button: defineStyleConfig({
-      baseStyle: {
-        _hover: {
-          bg: "transparent",
-        },
-        color: "red",
-        border: "none",
-      },
-    }),
-  },
-});
 
 function App() {
   const connectWallet = useConnectWallet();
 
-  const connectKeplr = useCallback(() => {
+  useEffect(() => {
     connectWallet();
   }, []);
 
-  connectKeplr();
+  window.addEventListener("keplr_keystorechange", () => {
+    connectWallet();
+  });
 
   return (
     <>
