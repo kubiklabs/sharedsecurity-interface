@@ -1,4 +1,6 @@
 import {
+  Center,
+  Spinner,
   Stat,
   StatHelpText,
   StatLabel,
@@ -65,13 +67,13 @@ const StatDisplay = ({
         gap={"15px"}
         width={"100%"}
       >
-        <Text flex={"1"}>{number}</Text>{" "}
+        {number=="NaN%"? (<Center><Spinner/></Center>) :<Text flex={"1"}>{number}{" "}</Text> }
         {
           numberTitle && (
             <Text>
               {numberTitle}
             </Text>
-          )
+          ) 
         }
         {isSatisfied !== "na" ? (
           <span

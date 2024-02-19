@@ -15,7 +15,7 @@ import {
   Tooltip,
 } from "@chakra-ui/react";
 import Overview from "./Overview";
-import { useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { cosmosValidatorState } from "../../context/cosmosValidatorState";
 import CustomSkeleton from "../skeleton/CustomSkeleton";
 import { calculateAverageCommissionRate } from "../../utils/common";
@@ -27,9 +27,19 @@ const ValidatorsList = () => {
   const [param, setParam] = useState("active");
   const [softOpt, setSoftOpt] = useState(false);
   const [softOptIndex, setSoftOptIndex] = useState(-1);
+ // console.log(active,jailed,validators,"hiihih");
+
+  const fetchValidators = async () => {
+    let list = active;
+  if (!list.length) list = await getParsedActiveValidators();
+     console.log(list);
+  setActiveValidators(list);
+
+};
 
   useEffect(() => {
-    if (!validators.length) fetchValidators();
+     // Fetch data only if dataList is empty (first load)
+    if (!activeValidators.length) fetchValidators();
     getSoftOptOutIndex();
   }, [active]);
 
@@ -48,12 +58,8 @@ const ValidatorsList = () => {
     }
   };
 
-  const fetchValidators = async () => {
-    let list = active;
-    if (!list.length) list = await getParsedActiveValidators();
-    setActiveValidators(list);
-    // console.log(list);
-  };
+  
+  console.log(activeValidators);
 
   const handleChange = (e: any) => {
     const option = e.target.value;
