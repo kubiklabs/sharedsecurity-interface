@@ -28,8 +28,16 @@ const ValidatorsList = () => {
   const [softOpt, setSoftOpt] = useState(false);
   const [softOptIndex, setSoftOptIndex] = useState(-1);
 
+  const fetchValidators = async () => {
+    let list = active;
+  if (!list.length) list = await getParsedActiveValidators();
+    // console.log(list);
+  setActiveValidators(list);
+};
+
   useEffect(() => {
-    if (!validators.length) fetchValidators();
+     // Fetch data only if dataList is empty (first load)
+    if (!activeValidators.length) fetchValidators();
     getSoftOptOutIndex();
   }, [active]);
 
@@ -46,13 +54,6 @@ const ValidatorsList = () => {
         return i;
       }
     }
-  };
-
-  const fetchValidators = async () => {
-    let list = active;
-    if (!list.length) list = await getParsedActiveValidators();
-    setActiveValidators(list);
-    // console.log(list);
   };
 
   const handleChange = (e: any) => {
