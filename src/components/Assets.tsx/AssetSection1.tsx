@@ -48,6 +48,7 @@ const AssetSection1 = ({
         combinedData[label] = { ...item };
       } else {
         combinedData[label].total_supply += item.total_supply;
+        combinedData[label].value += item.value;
       }
     });
 
@@ -71,6 +72,7 @@ const AssetSection1 = ({
       return {
         label: item.name.label,
         total_supply: item.total_supply,
+        value: item.value
       };
     });
 
@@ -78,17 +80,22 @@ const AssetSection1 = ({
 
     let topData = graphData.slice(0, numberOfDataInDoughnut - 1);
 
-    let sumOthers = graphData
+    let sumOthersTotalSupply = graphData
       .slice(numberOfDataInDoughnut - 1)
       .reduce((sum, item) => sum + item.total_supply, 0);
+
+    let sumOthersTotalValue = graphData
+    .slice(numberOfDataInDoughnut - 1)
+    .reduce((sum, item) => sum + item.value, 0);
 
 
     let result = [...topData];
 
-    if (sumOthers !== 0) {
+    if (sumOthersTotalSupply !== 0) {
       let others = {
         label: "Others",
-        total_supply: sumOthers,
+        total_supply: sumOthersTotalSupply,
+        value: sumOthersTotalValue
       };
 
       result = [...result, others];
@@ -212,7 +219,7 @@ const AssetSection1 = ({
                 {/* <DoughnutChart data={finalData} /> */}
                 <DoughnutGraph
                   doughnutData={finalData}
-                  dataKey="total_supply"
+                  dataKey="value"
                   labelKey="label"
                   colors={[
                     "#fc7779",
