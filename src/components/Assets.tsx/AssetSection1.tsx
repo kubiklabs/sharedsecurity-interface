@@ -79,7 +79,6 @@ const AssetSection1 = ({
       .slice(numberOfDataInDoughnut - 1)
       .reduce((sum, item) => sum + item.amount, 0);
 
-
     let result = [...topData];
 
     if (sumOthers !== 0) {
@@ -146,26 +145,38 @@ const AssetSection1 = ({
         >
           <Section
             height="100%"
-            heading={`Assets on ${option === cosmosAssets
+            heading={`Assets on ${
+              option === cosmosAssets
                 ? " Cosmos Hub"
                 : option === neutronAssets
-                  ? " Neutron"
-                  : option === combinedAllAssets
-                    ? "All Network"
-                    : " Stride"
-              }`}
+                ? " Neutron"
+                : option === combinedAllAssets
+                ? "All Network"
+                : " Stride"
+            }`}
             subtitle="Stay up to date"
           >
-            {option.length ? (
+            {option === combinedAllAssets ? (
+              strideAssets.length &&
+              cosmosAssets.length &&
+              neutronAssets.length ? (
+                <CustomTable
+                  keys={Object.keys(option[0])}
+                  data={option}
+                  pagination={true}
+                  itemsPerPage={5}
+                  totalValue={getTotalValue(option)}
+                />
+              ) : (
+                <CustomSkeleton count={5} height="50px" />
+              )
+            ) : option.length ? (
               <CustomTable
                 keys={Object.keys(option[0])}
                 data={option}
                 pagination={true}
                 itemsPerPage={5}
                 totalValue={getTotalValue(option)}
-                totalAmount={calculateTotalAmount(option)
-                  .toFixed(2)
-                  .toLocaleString()}
               />
             ) : (
               <CustomSkeleton count={5} height="50px" />
@@ -187,14 +198,15 @@ const AssetSection1 = ({
           <Section
             height="100%"
             gap="60px"
-            heading={`Total supply on ${option === cosmosAssets
+            heading={`Total supply on ${
+              option === cosmosAssets
                 ? " Cosmos Hub"
                 : option === neutronAssets
-                  ? " Neutron"
-                  : option === combinedAllAssets
-                    ? " All Network"
-                    : " Stride"
-              }`}
+                ? " Neutron"
+                : option === combinedAllAssets
+                ? " All Network"
+                : " Stride"
+            }`}
             subtitle="A gathering place to address the topics shaping the ATOM Ecosystem"
           >
             {finalData.length > 0 ? (
