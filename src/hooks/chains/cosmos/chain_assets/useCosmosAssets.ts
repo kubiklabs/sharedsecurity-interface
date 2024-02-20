@@ -36,8 +36,8 @@ export const useCosmosAssets = () => {
             label: "ATOM",
             url: "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.png",
           },
+          total_supply: Number(coinConvert(asset.amount, 6, "human")),
           value: Number(coinConvert(asset.amount, 6, "human")) * price,
-          amount: Number(coinConvert(asset.amount, 6, "human")),
         },
       ];
     });

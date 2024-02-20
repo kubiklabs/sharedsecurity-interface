@@ -15,9 +15,12 @@ const Assets = () => {
   const { getParsedStrideAssets } = useStrideAssets();
   const { getParsedCosmosAssets } = useCosmosAssets();
   const { getParsedNeutronAssets } = useNeutronAssets();
+
+
   const strideAssets = useRecoilValue(strideAssetState);
   const cosmosAssets = useRecoilValue(cosmosAssetState);
   const neutronAssets = useRecoilValue(neutronAssetState);
+
 
   useEffect(() => {
     getSupply();
@@ -30,9 +33,11 @@ const Assets = () => {
     if (!neutronAssets.assets.length) getParsedNeutronAssets();
   };
 
+
+
   return (
 
-    <AssetSection1 allAssets={[...neutronAssets.assets, ...cosmosAssets.assets, ...strideAssets.assets]} neutronAssets={neutronAssets.assets} cosmosAssets={cosmosAssets.assets} strideAssets={strideAssets.assets} />
+    <AssetSection1 allAssets={[...neutronAssets.assets, ...cosmosAssets.assets, ...strideAssets.assets]} neutronAssets={neutronAssets.assets} cosmosAssets={cosmosAssets.assets} strideAssets={strideAssets.assets} areAllAssetsLoaded = {(strideAssets.assets.length>0 && cosmosAssets.assets.length>0 && neutronAssets.assets.length>0)?true:false}/>
   );
 };
 

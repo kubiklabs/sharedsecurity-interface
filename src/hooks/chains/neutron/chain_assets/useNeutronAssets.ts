@@ -42,8 +42,8 @@ export const useNeutronAssets = () => {
               neutronAssetList[token as keyof typeof neutronAssetList]?.symbol,
             url: neutronAssetList[token as keyof typeof neutronAssetList]?.icon,
           },
+          total_supply: assetBalances.assetBalancesInDenom[asset],
           value: assetBalances.assetBalances[asset],
-          amount: assetBalances.assetBalancesInDenom[asset],
         },
       ];
     });

@@ -14,13 +14,16 @@ type propsType = {
   neutronAssets: assetType[];
   strideAssets: assetType[];
   cosmosAssets: assetType[];
+  areAllAssetsLoaded: boolean;
 };
+
 
 const AssetSection1 = ({
   neutronAssets,
   strideAssets,
   cosmosAssets,
   allAssets,
+  areAllAssetsLoaded
 }: propsType) => {
   const getTotalValue = (assets: assetType[]) => {
     return assets.reduce(
@@ -44,7 +47,8 @@ const AssetSection1 = ({
       if (!combinedData[label]) {
         combinedData[label] = { ...item };
       } else {
-        combinedData[label].amount += item.amount;
+        combinedData[label].total_supply += item.total_supply;
+        combinedData[label].value += item.value;
       }
     });
 
@@ -67,24 +71,31 @@ const AssetSection1 = ({
     let graphData = option.map((item) => {
       return {
         label: item.name.label,
-        amount: item.amount,
+        total_supply: item.total_supply,
+        value: item.value
       };
     });
 
-    graphData.sort((a, b) => b.amount - a.amount);
+    graphData.sort((a, b) => b.total_supply - a.total_supply);
 
     let topData = graphData.slice(0, numberOfDataInDoughnut - 1);
 
-    let sumOthers = graphData
+    let sumOthersTotalSupply = graphData
       .slice(numberOfDataInDoughnut - 1)
-      .reduce((sum, item) => sum + item.amount, 0);
+      .reduce((sum, item) => sum + item.total_supply, 0);
+
+    let sumOthersTotalValue = graphData
+    .slice(numberOfDataInDoughnut - 1)
+    .reduce((sum, item) => sum + item.value, 0);
+
 
     let result = [...topData];
 
-    if (sumOthers !== 0) {
+    if (sumOthersTotalSupply !== 0) {
       let others = {
         label: "Others",
-        amount: sumOthers,
+        total_supply: sumOthersTotalSupply,
+        value: sumOthersTotalValue
       };
 
       result = [...result, others];
@@ -96,7 +107,7 @@ const AssetSection1 = ({
 
   const calculateTotalAmount = (data: any) => {
     return data.reduce(
-      (total: number, item: assetType) => total + item.amount,
+      (total: number, item: assetType) => total + item.total_supply,
       0
     );
   };
@@ -145,32 +156,17 @@ const AssetSection1 = ({
         >
           <Section
             height="100%"
-            heading={`Assets on ${
-              option === cosmosAssets
+            heading={`Assets on ${option === cosmosAssets
                 ? " Cosmos Hub"
                 : option === neutronAssets
-                ? " Neutron"
-                : option === combinedAllAssets
-                ? "All Network"
-                : " Stride"
-            }`}
+                  ? " Neutron"
+                  : option === combinedAllAssets
+                    ? "All Network"
+                    : " Stride"
+              }`}
             subtitle="Stay up to date"
           >
-            {option === combinedAllAssets ? (
-              strideAssets.length &&
-              cosmosAssets.length &&
-              neutronAssets.length ? (
-                <CustomTable
-                  keys={Object.keys(option[0])}
-                  data={option}
-                  pagination={true}
-                  itemsPerPage={5}
-                  totalValue={getTotalValue(option)}
-                />
-              ) : (
-                <CustomSkeleton count={5} height="50px" />
-              )
-            ) : option.length ? (
+            {((selectedOption!=="all network" && option.length) || (selectedOption==="all network" && areAllAssetsLoaded)) ? (
               <CustomTable
                 keys={Object.keys(option[0])}
                 data={option}
@@ -198,18 +194,17 @@ const AssetSection1 = ({
           <Section
             height="100%"
             gap="60px"
-            heading={`Total supply on ${
-              option === cosmosAssets
+            heading={`Total supply on ${option === cosmosAssets
                 ? " Cosmos Hub"
                 : option === neutronAssets
-                ? " Neutron"
-                : option === combinedAllAssets
-                ? " All Network"
-                : " Stride"
-            }`}
+                  ? " Neutron"
+                  : option === combinedAllAssets
+                    ? " All Network"
+                    : " Stride"
+              }`}
             subtitle="A gathering place to address the topics shaping the ATOM Ecosystem"
           >
-            {finalData.length > 0 ? (
+            {((finalData.length > 0 && selectedOption!=="all network") || (selectedOption==="all network" && areAllAssetsLoaded)) ? (
               <Flex
                 flexDirection={"column"}
                 maxHeight={"400px"}
@@ -221,7 +216,7 @@ const AssetSection1 = ({
                 {/* <DoughnutChart data={finalData} /> */}
                 <DoughnutGraph
                   doughnutData={finalData}
-                  dataKey="amount"
+                  dataKey="value"
                   labelKey="label"
                   colors={[
                     "#fc7779",

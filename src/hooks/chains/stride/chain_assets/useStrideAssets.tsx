@@ -47,12 +47,13 @@ export const useStrideAssets = () => {
             label: assetData?.name,
             url: assetData.icon,
           },
-          value:
-            Number(coinConvert(asset.amount, assetData?.decimals, "human")) *
-            Number(price),
-          amount: Number(
+
+          total_supply: Number(
             coinConvert(asset.amount, assetData?.decimals, "human")
           ),
+          value:
+            Number(coinConvert(asset.amount, assetData?.decimals, "human")) *
+            Number(price)
         });
       }
     });
