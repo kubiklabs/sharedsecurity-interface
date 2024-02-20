@@ -22,22 +22,21 @@ import { calculateAverageCommissionRate } from "../../utils/common";
 
 const ValidatorsList = () => {
   const { getParsedActiveValidators } = useCosmosValidatorQuery();
-  const [activeValidators, setActiveValidators] = useState<any[]>([]);
-  const { active, jailed, validators } = useRecoilValue(cosmosValidatorState);
-  const [param, setParam] = useState("active");
+  const [visibleValidators, setVisibleValidators] = useState<any[]>([]);
+  const { active, jailed, validators, mCoefficient, nCoefficient } =
+    useRecoilValue(cosmosValidatorState);
   const [softOpt, setSoftOpt] = useState(false);
   const [softOptIndex, setSoftOptIndex] = useState(-1);
 
   const fetchValidators = async () => {
     let list = active;
-  if (!list.length) list = await getParsedActiveValidators();
-    // console.log(list);
-  setActiveValidators(list);
-};
+    if (!list.length) list = await getParsedActiveValidators();
+    setVisibleValidators(list);
+  };
 
   useEffect(() => {
-     // Fetch data only if dataList is empty (first load)
-    if (!activeValidators.length) fetchValidators();
+    // Fetch data only if dataList is empty (first load)
+    if (!visibleValidators.length) fetchValidators();
     getSoftOptOutIndex();
   }, [active]);
 
@@ -58,9 +57,9 @@ const ValidatorsList = () => {
 
   const handleChange = (e: any) => {
     const option = e.target.value;
-    if (option === "active") setActiveValidators(active);
-    else if (option === "jailed") setActiveValidators(jailed);
-    else setActiveValidators(validators);
+    if (option === "active") setVisibleValidators(active);
+    else if (option === "jailed") setVisibleValidators(jailed);
+    else setVisibleValidators(validators);
   };
 
   const handleSoftOptToggle = (e: any) => {
@@ -71,6 +70,7 @@ const ValidatorsList = () => {
   const upTime = "100%";
 
   const modifyData = (data: any, upTime: any) => {
+    // console.log(activeValidators);
     const newData = data.map((item: any) => {
       return {
         ...item,
@@ -81,18 +81,21 @@ const ValidatorsList = () => {
   };
 
   const averageCommission =
-    calculateAverageCommissionRate(activeValidators).toFixed(2) + "%";
+    calculateAverageCommissionRate(active).toFixed(2) + "%";
 
   return (
     <>
       <Overview
-        active={`${activeValidators?.length}`}
+        active={`${active?.length}`}
         total={`${validators?.length}`}
         averageComm={`${averageCommission}`}
+        nCoefficient={nCoefficient}
+        mCoefficient={mCoefficient}
       />
+
       <Section
         heading="Validators"
-        sideText={`${activeValidators.length}/${validators?.length || "-"}`}
+        sideText={`${visibleValidators.length}/${validators?.length || "-"}`}
         subtitle={` ${validators?.length} Allocated`}
       >
         {/* <Overview active="180" total="573" averageComm="11.03%" /> */}
@@ -145,13 +148,13 @@ const ValidatorsList = () => {
           </Select>
         </Flex>
 
-        {activeValidators && activeValidators.length ? (
+        {visibleValidators && visibleValidators.length ? (
           <CustomTable
-            keys={activeValidators && Object.keys(activeValidators[0])}
+            keys={visibleValidators && Object.keys(visibleValidators[0])}
             data={modifyData(
               softOpt
                 ? active.slice(softOptIndex, active.length)
-                : activeValidators,
+                : visibleValidators,
               upTime
             )}
             minGridWidth="80px"
@@ -162,9 +165,6 @@ const ValidatorsList = () => {
           />
         ) : (
           <>
-            <Center>
-              <Spinner />
-            </Center>
             <CustomSkeleton count={5} height="50px" />
           </>
         )}

@@ -37,6 +37,23 @@ export const useCosmosValidatorQuery = () => {
     return allValidators;
   };
 
+  const calculateCoefficients = (target: number, active: any[]) => {
+    let aggregatedVp = 0;
+    let coefficient = 0;
+    active.some((item, index) => {
+      const vp = Number(item["Share %"].slice(0, -1));
+
+      aggregatedVp += vp;
+      if (aggregatedVp > target) {
+        coefficient = index + 1;
+        console.log(coefficient);
+
+        return coefficient.toString();
+      }
+    });
+    return coefficient.toString();
+  };
+
   const getParsedActiveValidators = async () => {
     const totalBonded = await getCosmosTotalBondedToken();
     let allValidators = await getAllCosmosValidators();
@@ -66,10 +83,19 @@ export const useCosmosValidatorQuery = () => {
         parsedJailedValidators.push(parsedValidator);
       else parsedActiveValidators.push(parsedValidator);
     }
+
+    console.log(
+      calculateCoefficients(51, parsedActiveValidators.slice(0, 180))
+    );
+
+    const active = parsedActiveValidators.slice(0, 180);
+
     setValidators({
       validators: parsedValidators,
       jailed: parsedJailedValidators,
       active: parsedActiveValidators.slice(0, 180),
+      nCoefficient: calculateCoefficients(51, active),
+      mCoefficient: calculateCoefficients(67, active),
     });
 
     return parsedActiveValidators.slice(0, 180);

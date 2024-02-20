@@ -43,7 +43,7 @@ export const useCosmosAssets = () => {
     });
 
     setCosmosAssets({
-      assets: parsedAssets,
+      assets: parsedAssets.sort((a, b) => b.value - a.value),
     });
 
     return parsedAssets;

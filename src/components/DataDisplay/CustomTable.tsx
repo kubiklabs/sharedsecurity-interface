@@ -141,7 +141,7 @@ const CustomTable = ({
               >
                 {item &&
                   Object.values(item)?.map((value: any, index: number) => {
-                   // console.log(item);
+                    // console.log(item);
 
                     if (value === item["Prop Date"]) return; // to not show the Prop Date in Consumer chains table
                     if (keys[3] === "Twitter Space") {
@@ -198,24 +198,28 @@ const CustomTable = ({
                                 _
                               </Text>
                             )
-                          ) : (value.type === "avatarWithText" || value.type==="avatar") ? (
+                          ) : value.type === "avatarWithText" ||
+                            value.type === "avatar" ? (
                             <Flex alignItems={"center"} gap={"15px"}>
                               <Avatar
                                 name={value.label}
                                 size={"sm"}
-                                src={value.type === "avatarWithText" ? value.avatarUrl : value.url}
+                                src={
+                                  value.type === "avatarWithText"
+                                    ? value.avatarUrl
+                                    : value.url
+                                }
                               />
                               {value.label}
                             </Flex>
-                          )  : (
+                          ) : (
                             "-"
                           )
                         ) : typeof value === "number" ? (
-                          
-                          (currentPath === "/assets" && index === 1) ? (
-                            `${value.toLocaleString()}`
-                          ) : (
+                          currentPath === "/assets" && index === 1 ? (
                             `$ ${value.toLocaleString()}`
+                          ) : (
+                            `${value.toLocaleString()}`
                           )
                         ) : (
                           <Flex
@@ -229,12 +233,15 @@ const CustomTable = ({
                                 : 0
                             }
                             color={
-                              (item.types === "100%" || value.type==="avatarWithText")
+                              item.types === "100%" ||
+                              value.type === "avatarWithText"
                                 ? "#bfbfbfcc"
                                 : "#fff"
                             }
                           >
-                            {value.type==="avatarWithText"? value.label : value}
+                            {value.type === "avatarWithText"
+                              ? value.label
+                              : value}
                           </Flex>
                         )}
                       </Td>
@@ -253,12 +260,12 @@ const CustomTable = ({
                 borderTop={"1px solid"}
                 fontSize={20}
                 textAlign={"unset"}
-                pl={currentPath==="/assets"? "10px" : "0"}
+                pl={currentPath === "/assets" ? "10px" : "0"}
               >
                 Total
               </Td>
             )}
-          {keys?.slice(1).map((key: string, index: number) => {
+            {keys?.slice(1).map((key: string, index: number) => {
               return (
                 totalValue && (
                   <Td
@@ -270,13 +277,12 @@ const CustomTable = ({
                     paddingLeft={"5px"}
                   >
                     {typeof totals[index] === "number"
-                      ? `${Number(totalAmount).toLocaleString()}`
-                      : `$ ${totalValue.toLocaleString()}`}
+                      ? `$ ${totalValue.toLocaleString()}`
+                      : ""}
                   </Td>
                 )
               );
-            })} 
-        
+            })}
           </Tr>
         </Tbody>
       </Table>
