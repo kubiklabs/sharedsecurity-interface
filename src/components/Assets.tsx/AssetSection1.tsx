@@ -79,12 +79,17 @@ const AssetSection1 = ({
       .slice(numberOfDataInDoughnut - 1)
       .reduce((sum, item) => sum + item.amount, 0);
 
-    let others = {
-      label: "Others",
-      amount: sumOthers,
-    };
 
-    let result = [...topData, others];
+    let result = [...topData];
+
+    if (sumOthers !== 0) {
+      let others = {
+        label: "Others",
+        amount: sumOthers,
+      };
+
+      result = [...result, others];
+    }
 
     setFinalData(result);
   }, [option]);
@@ -141,15 +146,14 @@ const AssetSection1 = ({
         >
           <Section
             height="100%"
-            heading={`Assets on ${
-              option === cosmosAssets
+            heading={`Assets on ${option === cosmosAssets
                 ? " Cosmos Hub"
                 : option === neutronAssets
-                ? " Neutron"
-                : option === combinedAllAssets
-                ? "All Network"
-                : " Stride"
-            }`}
+                  ? " Neutron"
+                  : option === combinedAllAssets
+                    ? "All Network"
+                    : " Stride"
+              }`}
             subtitle="Stay up to date"
           >
             {option.length ? (
@@ -183,15 +187,14 @@ const AssetSection1 = ({
           <Section
             height="100%"
             gap="60px"
-            heading={`Total supply on ${
-              option === cosmosAssets
+            heading={`Total supply on ${option === cosmosAssets
                 ? " Cosmos Hub"
                 : option === neutronAssets
-                ? " Neutron"
-                : option === combinedAllAssets
-                ? " All Network"
-                : " Stride"
-            }`}
+                  ? " Neutron"
+                  : option === combinedAllAssets
+                    ? " All Network"
+                    : " Stride"
+              }`}
             subtitle="A gathering place to address the topics shaping the ATOM Ecosystem"
           >
             {finalData.length > 0 ? (
