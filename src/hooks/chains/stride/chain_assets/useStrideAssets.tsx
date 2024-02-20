@@ -47,7 +47,7 @@ export const useStrideAssets = () => {
             label: assetData?.name,
             url: assetData.icon,
           },
-          amount: Number(
+          total_supply: Number(
             coinConvert(asset.amount, assetData?.decimals, "human")
           ),
           value:

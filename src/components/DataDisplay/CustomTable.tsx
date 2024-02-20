@@ -115,7 +115,7 @@ const CustomTable = ({
                     fontWeight={500}
                     fontFamily={"Alata, sans-serif"}
                   >
-                    {item}{" "}
+                    {item.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase())}{" "}
                     {(item === "Forum Date" ||
                       ValidatorKeys.includes(item)) && (
                       <FontAwesomeIcon

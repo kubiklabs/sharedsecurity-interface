@@ -44,7 +44,7 @@ const AssetSection1 = ({
       if (!combinedData[label]) {
         combinedData[label] = { ...item };
       } else {
-        combinedData[label].amount += item.amount;
+        combinedData[label].total_supply += item.total_supply;
       }
     });
 
@@ -67,7 +67,7 @@ const AssetSection1 = ({
     let graphData = option.map((item) => {
       return {
         label: item.name.label,
-        amount: item.amount,
+        amount: item.total_supply,
       };
     });
 
@@ -97,7 +97,7 @@ const AssetSection1 = ({
 
   const calculateTotalAmount = (data: any) => {
     return data.reduce(
-      (total: number, item: assetType) => total + item.amount,
+      (total: number, item: assetType) => total + item.total_supply,
       0
     );
   };

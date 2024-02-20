@@ -15,9 +15,12 @@ const Assets = () => {
   const { getParsedStrideAssets } = useStrideAssets();
   const { getParsedCosmosAssets } = useCosmosAssets();
   const { getParsedNeutronAssets } = useNeutronAssets();
+
+
   const strideAssets = useRecoilValue(strideAssetState);
   const cosmosAssets = useRecoilValue(cosmosAssetState);
   const neutronAssets = useRecoilValue(neutronAssetState);
+
 
   useEffect(() => {
     getSupply();
