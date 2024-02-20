@@ -36,14 +36,14 @@ export const useCosmosAssets = () => {
             label: "ATOM",
             url: "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.png",
           },
-          amount: Number(coinConvert(asset.amount, 6, "human")),
           value: Number(coinConvert(asset.amount, 6, "human")) * price,
+          amount: Number(coinConvert(asset.amount, 6, "human")),
         },
       ];
     });
 
     setCosmosAssets({
-      assets: parsedAssets,
+      assets: parsedAssets.sort((a, b) => b.value - a.value),
     });
 
     return parsedAssets;

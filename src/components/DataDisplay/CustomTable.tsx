@@ -217,9 +217,9 @@ const CustomTable = ({
                           )
                         ) : typeof value === "number" ? (
                           currentPath === "/assets" && index === 1 ? (
-                            `${value.toLocaleString()}`
-                          ) : (
                             `$ ${value.toLocaleString()}`
+                          ) : (
+                            `${value.toLocaleString()}`
                           )
                         ) : (
                           <Flex
@@ -277,8 +277,8 @@ const CustomTable = ({
                     paddingLeft={"5px"}
                   >
                     {typeof totals[index] === "number"
-                      ? ""
-                      : `$ ${totalValue.toLocaleString()}`}
+                      ? `$ ${totalValue.toLocaleString()}`
+                      : ""}
                   </Td>
                 )
               );
