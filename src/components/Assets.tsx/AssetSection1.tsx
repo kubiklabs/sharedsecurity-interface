@@ -14,13 +14,16 @@ type propsType = {
   neutronAssets: assetType[];
   strideAssets: assetType[];
   cosmosAssets: assetType[];
+  areAllAssetsLoaded: boolean;
 };
+
 
 const AssetSection1 = ({
   neutronAssets,
   strideAssets,
   cosmosAssets,
   allAssets,
+  areAllAssetsLoaded
 }: propsType) => {
   const getTotalValue = (assets: assetType[]) => {
     return assets.reduce(
@@ -67,17 +70,17 @@ const AssetSection1 = ({
     let graphData = option.map((item) => {
       return {
         label: item.name.label,
-        amount: item.total_supply,
+        total_supply: item.total_supply,
       };
     });
 
-    graphData.sort((a, b) => b.amount - a.amount);
+    graphData.sort((a, b) => b.total_supply - a.total_supply);
 
     let topData = graphData.slice(0, numberOfDataInDoughnut - 1);
 
     let sumOthers = graphData
       .slice(numberOfDataInDoughnut - 1)
-      .reduce((sum, item) => sum + item.amount, 0);
+      .reduce((sum, item) => sum + item.total_supply, 0);
 
 
     let result = [...topData];
@@ -85,7 +88,7 @@ const AssetSection1 = ({
     if (sumOthers !== 0) {
       let others = {
         label: "Others",
-        amount: sumOthers,
+        total_supply: sumOthers,
       };
 
       result = [...result, others];
@@ -156,7 +159,7 @@ const AssetSection1 = ({
               }`}
             subtitle="Stay up to date"
           >
-            {option.length ? (
+            {((selectedOption!=="all network" && option.length) || (selectedOption==="all network" && areAllAssetsLoaded)) ? (
               <CustomTable
                 keys={Object.keys(option[0])}
                 data={option}
@@ -197,7 +200,7 @@ const AssetSection1 = ({
               }`}
             subtitle="A gathering place to address the topics shaping the ATOM Ecosystem"
           >
-            {finalData.length > 0 ? (
+            {((finalData.length > 0 && selectedOption!=="all network") || (selectedOption==="all network" && areAllAssetsLoaded)) ? (
               <Flex
                 flexDirection={"column"}
                 maxHeight={"400px"}
@@ -209,7 +212,7 @@ const AssetSection1 = ({
                 {/* <DoughnutChart data={finalData} /> */}
                 <DoughnutGraph
                   doughnutData={finalData}
-                  dataKey="amount"
+                  dataKey="total_supply"
                   labelKey="label"
                   colors={[
                     "#fc7779",
