@@ -43,13 +43,13 @@ export const useNeutronAssets = () => {
             url: neutronAssetList[token as keyof typeof neutronAssetList]?.icon,
           },
           total_supply: assetBalances.assetBalancesInDenom[asset],
-          value: assetBalances.assetBalances[asset],
+          total_amount: assetBalances.assetBalances[asset],
         },
       ];
     });
 
     setNeutronAssets({
-      assets: parsedAssets.sort((a, b) => b.value - a.value),
+      assets: parsedAssets.sort((a, b) => b.total_amount - a.total_amount),
     });
 
     return parsedAssets;

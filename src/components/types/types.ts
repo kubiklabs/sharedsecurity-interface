@@ -1,6 +1,6 @@
 export type assetType = {
     total_supply: number,
-    value: number,
+    total_amount: number,
     name: {
         label: string,
         type: string,

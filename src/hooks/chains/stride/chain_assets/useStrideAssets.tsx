@@ -47,11 +47,10 @@ export const useStrideAssets = () => {
             label: assetData?.name,
             url: assetData.icon,
           },
-
           total_supply: Number(
             coinConvert(asset.amount, assetData?.decimals, "human")
           ),
-          value:
+          total_amount:
             Number(coinConvert(asset.amount, assetData?.decimals, "human")) *
             Number(price)
         });
@@ -59,7 +58,7 @@ export const useStrideAssets = () => {
     });
 
     setStrideAssets({
-      assets: parsedAssets.sort((a, b) => b.value - a.value),
+      assets: parsedAssets.sort((a, b) => b.total_amount - a.total_amount),
     });
 
     return parsedAssets;
