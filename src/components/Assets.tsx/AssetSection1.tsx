@@ -173,9 +173,6 @@ const AssetSection1 = ({
                 pagination={true}
                 itemsPerPage={5}
                 totalValue={getTotalValue(option)}
-                totalAmount={calculateTotalAmount(option)
-                  .toFixed(2)
-                  .toLocaleString()}
               />
             ) : (
               <CustomSkeleton count={5} height="50px" />

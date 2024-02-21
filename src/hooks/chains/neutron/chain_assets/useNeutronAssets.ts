@@ -49,7 +49,7 @@ export const useNeutronAssets = () => {
     });
 
     setNeutronAssets({
-      assets: parsedAssets.sort((a, b) => b.amount - a.amount),
+      assets: parsedAssets.sort((a, b) => b.value - a.value),
     });
 
     return parsedAssets;
