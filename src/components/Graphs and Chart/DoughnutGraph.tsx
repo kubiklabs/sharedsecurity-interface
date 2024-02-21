@@ -64,7 +64,7 @@ const renderActiveShape = (props: any, dataKey: any, labelKey: any) => {
         x={ex + (cos >= 0 ? 1 : -1) * 12}
         y={ey}
         textAnchor={textAnchor}
-        fontSize={"16px"}
+        fontSize={"14px"}
         fill={fill}
       >
         {`$
@@ -79,7 +79,7 @@ const renderActiveShape = (props: any, dataKey: any, labelKey: any) => {
         dy={18}
         textAnchor={textAnchor}
         fill={"#b4a89e"}
-        fontSize={"14px"}
+        fontSize={"12px"}
         fontWeight={"bold"}
       >
         {`${payload[labelKey]} (${(percent * 100).toFixed(2)}%)`}

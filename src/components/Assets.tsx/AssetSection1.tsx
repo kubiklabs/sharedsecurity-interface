@@ -27,7 +27,7 @@ const AssetSection1 = ({
 }: propsType) => {
   const getTotalValue = (assets: assetType[]) => {
     return assets.reduce(
-      (total: number, asset: assetType) => total + asset?.value,
+      (total: number, asset: assetType) => total + asset?.total_amount,
       0
     );
   };
@@ -48,7 +48,7 @@ const AssetSection1 = ({
         combinedData[label] = { ...item };
       } else {
         combinedData[label].total_supply += item.total_supply;
-        combinedData[label].value += item.value;
+        combinedData[label].total_amount += item.total_amount;
       }
     });
 
@@ -72,7 +72,7 @@ const AssetSection1 = ({
       return {
         label: item.name.label,
         total_supply: item.total_supply,
-        value: item.value
+        total_amount: item.total_amount
       };
     });
 
@@ -86,7 +86,7 @@ const AssetSection1 = ({
 
     let sumOthersTotalValue = graphData
     .slice(numberOfDataInDoughnut - 1)
-    .reduce((sum, item) => sum + item.value, 0);
+    .reduce((sum, item) => sum + item.total_amount, 0);
 
 
     let result = [...topData];
@@ -95,7 +95,7 @@ const AssetSection1 = ({
       let others = {
         label: "Others",
         total_supply: sumOthersTotalSupply,
-        value: sumOthersTotalValue
+        total_amount: sumOthersTotalValue
       };
 
       result = [...result, others];
@@ -103,7 +103,7 @@ const AssetSection1 = ({
 
     setFinalData(result);
   }, [option]);
-  console.log(option);
+  // console.log("Option", option);
 
   const calculateTotalAmount = (data: any) => {
     return data.reduce(
@@ -173,6 +173,9 @@ const AssetSection1 = ({
                 pagination={true}
                 itemsPerPage={5}
                 totalValue={getTotalValue(option)}
+                totalAmount={calculateTotalAmount(option)
+                  .toFixed(2)
+                  .toLocaleString()}
               />
             ) : (
               <CustomSkeleton count={5} height="50px" />
@@ -216,7 +219,7 @@ const AssetSection1 = ({
                 {/* <DoughnutChart data={finalData} /> */}
                 <DoughnutGraph
                   doughnutData={finalData}
-                  dataKey="value"
+                  dataKey="total_amount"
                   labelKey="label"
                   colors={[
                     "#fc7779",
