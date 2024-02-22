@@ -70,32 +70,25 @@ const AssetSection1 = ({
 
     let graphData = option.map((item) => {
       return {
-        label: item.name.label,
-        total_supply: item.total_supply,
-        total_amount: item.total_amount
+        name: item.name.label,
+        value: item.total_amount
       };
     });
 
-    graphData.sort((a, b) => b.total_supply - a.total_supply);
+    graphData.sort((a, b) => b.value - a.value);
 
     let topData = graphData.slice(0, numberOfDataInDoughnut - 1);
 
-    let sumOthersTotalSupply = graphData
-      .slice(numberOfDataInDoughnut - 1)
-      .reduce((sum, item) => sum + item.total_supply, 0);
-
-    let sumOthersTotalValue = graphData
+    let sumOthersTotalAmount = graphData
     .slice(numberOfDataInDoughnut - 1)
-    .reduce((sum, item) => sum + item.total_amount, 0);
-
+    .reduce((sum, item) => sum + item.value, 0);
 
     let result = [...topData];
 
-    if (sumOthersTotalSupply !== 0) {
+    if (sumOthersTotalAmount !== 0) {
       let others = {
-        label: "Others",
-        total_supply: sumOthersTotalSupply,
-        total_amount: sumOthersTotalValue
+        name: "Others",
+        value: sumOthersTotalAmount
       };
 
       result = [...result, others];
@@ -133,6 +126,8 @@ const AssetSection1 = ({
       setSelectedOption("cosmos hub");
     }
   };
+
+  console.log("Final Data", finalData);
 
   return (
     <Flex flexDirection={"column"} gap={"40px"}>
@@ -217,7 +212,7 @@ const AssetSection1 = ({
                 gap={"35px"}
               >
                 {/* <DoughnutChart data={finalData} /> */}
-                <DoughnutGraph
+                {/* <DoughnutGraph
                   doughnutData={finalData}
                   dataKey="total_amount"
                   labelKey="label"
@@ -229,7 +224,8 @@ const AssetSection1 = ({
                     "#95004b",
                     "#dd006d",
                   ]}
-                />
+                /> */}
+                <DoughnutGraph doughnutData={finalData}/>
                 <Text fontSize={"14px"}>Asset Supply Distribution on Atom</Text>
               </Flex>
             ) : (
