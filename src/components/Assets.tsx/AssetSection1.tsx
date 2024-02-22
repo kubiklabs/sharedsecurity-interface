@@ -17,13 +17,12 @@ type propsType = {
   areAllAssetsLoaded: boolean;
 };
 
-
 const AssetSection1 = ({
   neutronAssets,
   strideAssets,
   cosmosAssets,
   allAssets,
-  areAllAssetsLoaded
+  areAllAssetsLoaded,
 }: propsType) => {
   const getTotalValue = (assets: assetType[]) => {
     return assets.reduce(
@@ -71,7 +70,7 @@ const AssetSection1 = ({
     let graphData = option.map((item) => {
       return {
         name: item.name.label,
-        value: item.total_amount
+        value: item.total_amount,
       };
     });
 
@@ -80,15 +79,15 @@ const AssetSection1 = ({
     let topData = graphData.slice(0, numberOfDataInDoughnut - 1);
 
     let sumOthersTotalAmount = graphData
-    .slice(numberOfDataInDoughnut - 1)
-    .reduce((sum, item) => sum + item.value, 0);
+      .slice(numberOfDataInDoughnut - 1)
+      .reduce((sum, item) => sum + item.value, 0);
 
     let result = [...topData];
 
     if (sumOthersTotalAmount !== 0) {
       let others = {
         name: "Others",
-        value: sumOthersTotalAmount
+        value: sumOthersTotalAmount,
       };
 
       result = [...result, others];
@@ -151,17 +150,19 @@ const AssetSection1 = ({
         >
           <Section
             height="100%"
-            heading={`Assets on ${option === cosmosAssets
+            heading={`Assets on ${
+              option === cosmosAssets
                 ? " Cosmos Hub"
                 : option === neutronAssets
-                  ? " Neutron"
-                  : option === combinedAllAssets
-                    ? "All Network"
-                    : " Stride"
-              }`}
+                ? " Neutron"
+                : option === combinedAllAssets
+                ? "All Network"
+                : " Stride"
+            }`}
             subtitle="Stay up to date"
           >
-            {((selectedOption!=="all network" && option.length) || (selectedOption==="all network" && areAllAssetsLoaded)) ? (
+            {(selectedOption !== "all network" && option.length) ||
+            (selectedOption === "all network" && areAllAssetsLoaded) ? (
               <CustomTable
                 keys={Object.keys(option[0])}
                 data={option}
@@ -191,21 +192,24 @@ const AssetSection1 = ({
         >
           <Section
             height="100%"
-            gap="60px"
-            heading={`Total supply on ${option === cosmosAssets
+            gap="40px"
+            heading={`Total supply on ${
+              option === cosmosAssets
                 ? " Cosmos Hub"
                 : option === neutronAssets
-                  ? " Neutron"
-                  : option === combinedAllAssets
-                    ? " All Network"
-                    : " Stride"
-              }`}
+                ? " Neutron"
+                : option === combinedAllAssets
+                ? " All Network"
+                : " Stride"
+            }`}
             subtitle="A gathering place to address the topics shaping the ATOM Ecosystem"
           >
-            {((finalData.length > 0 && selectedOption!=="all network") || (selectedOption==="all network" && areAllAssetsLoaded)) ? (
+            {(finalData.length > 0 && selectedOption !== "all network") ||
+            (selectedOption === "all network" && areAllAssetsLoaded) ? (
               <Flex
                 flexDirection={"column"}
-                maxHeight={"400px"}
+                height={"100%"}
+                maxHeight={"500px"}
                 // minW={"75%/"}
                 justifyContent={"center"}
                 alignItems={"center"}
@@ -225,7 +229,7 @@ const AssetSection1 = ({
                     "#dd006d",
                   ]}
                 /> */}
-                <DoughnutGraph doughnutData={finalData}/>
+                <DoughnutGraph doughnutData={finalData} />
                 <Text fontSize={"14px"}>Asset Supply Distribution on Atom</Text>
               </Flex>
             ) : (
