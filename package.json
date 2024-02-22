@@ -29,6 +29,7 @@
     "chain-registry": "^1.20.0",
     "chart.js": "^4.4.1",
     "chartjs-plugin-datalabels": "^2.2.0",
+    "echarts-for-react": "^3.0.2",
     "faker": "^6.6.6",
     "framer-motion": "^10.16.2",
     "long": "^5.2.3",

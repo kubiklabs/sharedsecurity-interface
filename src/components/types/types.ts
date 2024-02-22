@@ -9,6 +9,6 @@ export type assetType = {
 }
 
 export type assetPieType = {
-    label: string;
-    total_supply: number;
+    name: string;
+    value: number;
 }
