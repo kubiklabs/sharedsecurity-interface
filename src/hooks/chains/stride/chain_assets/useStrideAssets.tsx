@@ -47,18 +47,18 @@ export const useStrideAssets = () => {
             label: assetData?.name,
             url: assetData.icon,
           },
-          amount: Number(
+          total_supply: Number(
             coinConvert(asset.amount, assetData?.decimals, "human")
           ),
-          value:
+          total_amount:
             Number(coinConvert(asset.amount, assetData?.decimals, "human")) *
-            Number(price),
+            Number(price)
         });
       }
     });
 
     setStrideAssets({
-      assets: parsedAssets.sort((a, b) => b.amount - a.amount),
+      assets: parsedAssets.sort((a, b) => b.total_amount - a.total_amount),
     });
 
     return parsedAssets;

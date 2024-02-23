@@ -29,7 +29,7 @@ export const useDisconnetWallet = () => {
       name: undefined,
       isLoggedIn: false,
     });
-    showToast("success", "Keplr is Disconnected")
+    showToast("success", "Keplr is Disconnected");
     // Success("Wallet Disconnected!");
   };
 };

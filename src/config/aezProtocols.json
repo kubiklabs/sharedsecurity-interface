@@ -20,16 +20,7 @@
       "fees": "-",
       "volume": "-"
     },
-    {
-      "name": "Apollo",
-      "tags": {
-        "type": "tags",
-        "data": ["Neutron", "Lending"]
-      },
-      "tvl": "-",
-      "fees": "-",
-      "volume": "-"
-    },
+
     {
       "name": "Stride",
       "tags": {

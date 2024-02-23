@@ -42,14 +42,14 @@ export const useNeutronAssets = () => {
               neutronAssetList[token as keyof typeof neutronAssetList]?.symbol,
             url: neutronAssetList[token as keyof typeof neutronAssetList]?.icon,
           },
-          amount: assetBalances.assetBalancesInDenom[asset],
-          value: assetBalances.assetBalances[asset],
+          total_supply: assetBalances.assetBalancesInDenom[asset],
+          total_amount: assetBalances.assetBalances[asset],
         },
       ];
     });
 
     setNeutronAssets({
-      assets: parsedAssets.sort((a, b) => b.amount - a.amount),
+      assets: parsedAssets.sort((a, b) => b.total_amount - a.total_amount),
     });
 
     return parsedAssets;

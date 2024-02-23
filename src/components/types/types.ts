@@ -1,6 +1,6 @@
 export type assetType = {
-    amount: number,
-    value: number,
+    total_supply: number,
+    total_amount: number,
     name: {
         label: string,
         type: string,
@@ -9,6 +9,6 @@ export type assetType = {
 }
 
 export type assetPieType = {
-    label: string;
-    amount: number;
+    name: string;
+    value: number;
 }

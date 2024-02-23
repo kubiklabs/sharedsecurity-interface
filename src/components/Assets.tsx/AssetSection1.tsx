@@ -14,6 +14,7 @@ type propsType = {
   neutronAssets: assetType[];
   strideAssets: assetType[];
   cosmosAssets: assetType[];
+  areAllAssetsLoaded: boolean;
 };
 
 const AssetSection1 = ({
@@ -21,10 +22,11 @@ const AssetSection1 = ({
   strideAssets,
   cosmosAssets,
   allAssets,
+  areAllAssetsLoaded,
 }: propsType) => {
   const getTotalValue = (assets: assetType[]) => {
     return assets.reduce(
-      (total: number, asset: assetType) => total + asset?.value,
+      (total: number, asset: assetType) => total + asset?.total_amount,
       0
     );
   };
@@ -44,7 +46,8 @@ const AssetSection1 = ({
       if (!combinedData[label]) {
         combinedData[label] = { ...item };
       } else {
-        combinedData[label].amount += item.amount;
+        combinedData[label].total_supply += item.total_supply;
+        combinedData[label].total_amount += item.total_amount;
       }
     });
 
@@ -66,33 +69,37 @@ const AssetSection1 = ({
 
     let graphData = option.map((item) => {
       return {
-        label: item.name.label,
-        amount: item.amount,
+        name: item.name.label,
+        value: item.total_amount,
       };
     });
 
-    graphData.sort((a, b) => b.amount - a.amount);
+    graphData.sort((a, b) => b.value - a.value);
 
     let topData = graphData.slice(0, numberOfDataInDoughnut - 1);
 
-    let sumOthers = graphData
+    let sumOthersTotalAmount = graphData
       .slice(numberOfDataInDoughnut - 1)
-      .reduce((sum, item) => sum + item.amount, 0);
+      .reduce((sum, item) => sum + item.value, 0);
 
-    let others = {
-      label: "Others",
-      amount: sumOthers,
-    };
+    let result = [...topData];
 
-    let result = [...topData, others];
+    if (sumOthersTotalAmount !== 0) {
+      let others = {
+        name: "Others",
+        value: sumOthersTotalAmount,
+      };
+
+      result = [...result, others];
+    }
 
     setFinalData(result);
   }, [option]);
-  console.log(option);
+  // console.log("Option", option);
 
   const calculateTotalAmount = (data: any) => {
     return data.reduce(
-      (total: number, item: assetType) => total + item.amount,
+      (total: number, item: assetType) => total + item.total_supply,
       0
     );
   };
@@ -118,6 +125,8 @@ const AssetSection1 = ({
       setSelectedOption("cosmos hub");
     }
   };
+
+  console.log("Final Data", finalData);
 
   return (
     <Flex flexDirection={"column"} gap={"40px"}>
@@ -152,7 +161,8 @@ const AssetSection1 = ({
             }`}
             subtitle="Stay up to date"
           >
-            {option.length ? (
+            {(selectedOption !== "all network" && option.length) ||
+            (selectedOption === "all network" && areAllAssetsLoaded) ? (
               <CustomTable
                 keys={Object.keys(option[0])}
                 data={option}
@@ -182,7 +192,7 @@ const AssetSection1 = ({
         >
           <Section
             height="100%"
-            gap="60px"
+            gap="40px"
             heading={`Total supply on ${
               option === cosmosAssets
                 ? " Cosmos Hub"
@@ -194,19 +204,21 @@ const AssetSection1 = ({
             }`}
             subtitle="A gathering place to address the topics shaping the ATOM Ecosystem"
           >
-            {finalData.length > 0 ? (
+            {(finalData.length > 0 && selectedOption !== "all network") ||
+            (selectedOption === "all network" && areAllAssetsLoaded) ? (
               <Flex
                 flexDirection={"column"}
-                maxHeight={"400px"}
+                height={"100%"}
+                maxHeight={"500px"}
                 // minW={"75%/"}
                 justifyContent={"center"}
                 alignItems={"center"}
                 gap={"35px"}
               >
                 {/* <DoughnutChart data={finalData} /> */}
-                <DoughnutGraph
+                {/* <DoughnutGraph
                   doughnutData={finalData}
-                  dataKey="amount"
+                  dataKey="total_amount"
                   labelKey="label"
                   colors={[
                     "#fc7779",
@@ -216,7 +228,8 @@ const AssetSection1 = ({
                     "#95004b",
                     "#dd006d",
                   ]}
-                />
+                /> */}
+                <DoughnutGraph doughnutData={finalData} />
                 <Text fontSize={"14px"}>Asset Supply Distribution on Atom</Text>
               </Flex>
             ) : (
