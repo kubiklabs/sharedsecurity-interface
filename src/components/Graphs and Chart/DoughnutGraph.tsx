@@ -9,6 +9,13 @@ const DoughnutGraph = ({ doughnutData }: { doughnutData: any[] }) => {
         //   left: "left",
         //   data: doughnutData.map((item) => item.name)
         // },
+        tooltip: {
+            trigger: 'item',
+            formatter: function (params: any) {
+                const backgroundColor = params.color || 'transparent'; 
+                return `<span style="background-color: ${backgroundColor};  border-radius: 999px; width: 10px; height: 10px; display: inline-block; margin-right: 5px;"></span> ${params.name} : <strong>${params.data.shortValue}</strong>`;
+            }
+        },                 
         series: [
             {
                 name: "Dummy Data",
@@ -19,7 +26,7 @@ const DoughnutGraph = ({ doughnutData }: { doughnutData: any[] }) => {
                     show: true,
                     formatter: function (params: any) {
                         console.log(params);
-                        return `{a|$${params.data.shortValue}}\n{b|${params.name}:} {c|${params.percent}%}`;
+                        return `{b|${params.name}:} {c|(${params.percent}%)}`;
                     },
                     rich: {
                         a: {
@@ -29,7 +36,7 @@ const DoughnutGraph = ({ doughnutData }: { doughnutData: any[] }) => {
                         },
                         b: {
                             color: "white",
-                            fontSize: "14px",
+                            fontSize: "12px",
                         },
                         c: {
                             color: "white",
