@@ -211,3 +211,20 @@ export const calculateAverageCommissionRate = (validators : any) => {
   
   return averageCommission;
 };
+
+
+export function formatNumberWithSuffix(number: number) {
+  const suffixes = ['', 'K', 'M', 'B', 'T'];
+  const tier = Math.log10(Math.abs(number)) / 3 | 0;
+
+  if (tier === 0) return number;
+
+  const suffix = suffixes[tier];
+  const scale = Math.pow(10, tier * 3);
+  const scaledNumber = number / scale;
+
+  // Format the number with a fixed number of decimal places
+  const formattedNumber = scaledNumber.toFixed(3);
+
+  return formattedNumber + suffix;
+}

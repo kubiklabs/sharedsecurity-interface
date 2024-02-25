@@ -8,6 +8,7 @@ import DoughnutChart from "../Graphs and Chart/DoughnutChart";
 import AssetGraph from "./AssetGraph";
 import AssetOptions from "./AssetOptions";
 import DoughnutGraph from "../Graphs and Chart/DoughnutGraph";
+import { formatNumberWithSuffix } from "../../utils/common";
 
 type propsType = {
   allAssets: assetType[];
@@ -71,6 +72,7 @@ const AssetSection1 = ({
       return {
         name: item.name.label,
         value: item.total_amount,
+        shortValue: formatNumberWithSuffix(item.total_amount)
       };
     });
 
@@ -88,6 +90,7 @@ const AssetSection1 = ({
       let others = {
         name: "Others",
         value: sumOthersTotalAmount,
+        shortValue: formatNumberWithSuffix(sumOthersTotalAmount)
       };
 
       result = [...result, others];
