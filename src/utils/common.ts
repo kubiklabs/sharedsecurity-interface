@@ -198,16 +198,32 @@ export const calculateDaysLeft = (targetDate: string) => {
   return days;
 };
 
-export const calculateAverageCommissionRate = (validators : any) => {
+export const calculateAverageCommissionRate = (validators: any) => {
   let totalCommission = 0;
-  
+
   // Loop through each validator and sum up the commission rates
   for (const validator of validators) {
-    totalCommission += parseFloat(validator['Commision Rate'].replace('%', ''));
+    totalCommission += parseFloat(validator["Commision Rate"].replace("%", ""));
   }
-  
+
   // Calculate the average commission rate
   const averageCommission = totalCommission / validators.length;
-  
+
   return averageCommission;
 };
+
+export function formatNumberWithSuffix(number: number) {
+  const suffixes = ["", "K", "M", "B", "T"];
+  const tier = (Math.log10(Math.abs(number)) / 3) | 0;
+
+  if (tier === 0) return number;
+
+  const suffix = suffixes[tier];
+  const scale = Math.pow(10, tier * 3);
+  const scaledNumber = number / scale;
+
+  // Format the number with a fixed number of decimal places
+  const formattedNumber = scaledNumber.toFixed(3);
+
+  return formattedNumber + " " + suffix;
+}

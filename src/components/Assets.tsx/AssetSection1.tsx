@@ -8,6 +8,7 @@ import DoughnutChart from "../Graphs and Chart/DoughnutChart";
 import AssetGraph from "./AssetGraph";
 import AssetOptions from "./AssetOptions";
 import DoughnutGraph from "../Graphs and Chart/DoughnutGraph";
+import { formatNumberWithSuffix } from "../../utils/common";
 
 type propsType = {
   allAssets: assetType[];
@@ -71,6 +72,7 @@ const AssetSection1 = ({
       return {
         name: item.name.label,
         value: item.total_amount,
+        shortValue: formatNumberWithSuffix(item.total_amount),
       };
     });
 
@@ -88,6 +90,7 @@ const AssetSection1 = ({
       let others = {
         name: "Others",
         value: sumOthersTotalAmount,
+        shortValue: formatNumberWithSuffix(sumOthersTotalAmount),
       };
 
       result = [...result, others];
@@ -182,7 +185,7 @@ const AssetSection1 = ({
         <Box
           width={"45%"}
           display={"flex"}
-          gap={"20px"}
+          gap={"10px"}
           flex={1}
           // height={"400px"}
           backgroundColor={"#17131E"}
@@ -192,7 +195,7 @@ const AssetSection1 = ({
         >
           <Section
             height="100%"
-            gap="40px"
+            gap="10px"
             heading={`Total supply on ${
               option === cosmosAssets
                 ? " Cosmos Hub"
@@ -213,24 +216,10 @@ const AssetSection1 = ({
                 // minW={"75%/"}
                 justifyContent={"center"}
                 alignItems={"center"}
-                gap={"35px"}
+                gap={"0"}
               >
-                {/* <DoughnutChart data={finalData} /> */}
-                {/* <DoughnutGraph
-                  doughnutData={finalData}
-                  dataKey="total_amount"
-                  labelKey="label"
-                  colors={[
-                    "#fc7779",
-                    "#bc3d70",
-                    "#fc6c9f",
-                    "#fc67c5",
-                    "#95004b",
-                    "#dd006d",
-                  ]}
-                /> */}
                 <DoughnutGraph doughnutData={finalData} />
-                <Text fontSize={"14px"}>Asset Supply Distribution on Atom</Text>
+                {/* <Text fontSize={"14px"}>Asset Supply Distribution on Atom</Text> */}
               </Flex>
             ) : (
               <Box
