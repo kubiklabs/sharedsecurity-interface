@@ -3,7 +3,7 @@ import CustomTable from "../DataDisplay/CustomTable";
 import { consumerChainData } from "../../config/consumerChain.json";
 import { urlObject } from "../../utils/constant";
 
-const modifyData = (data: any) => {
+/* const modifyData = (data: any) => {
   const newData = data.map((item: any) => {
     return {
       ...item,
@@ -11,13 +11,13 @@ const modifyData = (data: any) => {
     };
   });
   return newData;
-};
+}; */
 
 const CCStatus1 = () => {
   return (
     <Section heading="Consumer Chains" subtitle="Proposals and Status">
       <CustomTable
-        data={modifyData(consumerChainData.reverse())}
+        data={consumerChainData.reverse()}
         keys={Object.keys(consumerChainData[0])}
         minGridWidth="200px"
         maxGridWidth="250px"
