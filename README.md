@@ -1,37 +1,36 @@
-# Shared Security Interface
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-The shared security interface, developed by Kubik Labs, is a unified interface to view, manage and interact with the ICS aspect of all the chain opted-in. Currently there are two chains in the ICS: Neutron and Stride, along with Cosmos Hub which provides its $2.3b marjket cap to secure the consumer chains. There are 5 main pages which provide the data related to the shared-security.
+## Getting Started
 
-- **Overview**: Provides the insights and quick stats of the chains with the graphical data.
-- **Atom Economic Zone**: Provides the insights of the community. Displays upcoming community calls, consumer chains and their proposals(if any) and the assets available.
-- **Governance**: All the governance proposals on Cosmos Hub and the consumer chains, seperated by appropriate tags. See details for any proposal or cast you vote.
-- **Assets**: All assets of the consumer chains along with the amount.
-- **Validators**: All validators validating Cosmos Hub and the consumer chains.
+First, run the development server:
 
-The General data flow of the data from the chain to the Governance Page UI is explained as an example in the diagram below.
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-![DFD](src/assets//dfd//gov-page-dataflow-light.png)
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-A more specific Data Flow has been illustrated section-wise below:
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## Overview
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-The Data Flow of the overview page showing the collection of Data from the DefiLlama API, its modification to the appropriate format and then rendering in the UI using chart.js and react-chart-js2 libraries.
+## Learn More
 
-![Overview DFD](src/assets/dfd/overview-dfd.png)
+To learn more about Next.js, take a look at the following resources:
 
-## Atom Economic Zone(AEZ)
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-The Data Flow of the AEZ page showing the collection of Data from the Coingecko API and the contracts of the protocol, its modification to the appropriate format and then rendering in the UI.
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-![AEZ TVL DFD](src/assets/dfd/aez-dfd.png)
+## Deploy on Vercel
 
-## Governance
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-The Data Flow of the Governance page showing the collection of Data from the Contract and REST API, its modification to the appropriate format and then rendering in the UI.
-
-![Proposals DFD](src/assets/dfd/gov-dfd.png)
-
-The Data Flow of the Governance page showing the collection of Data from the UI, its modification to the appropriate format and then sending the VoteMsg by executing the transaction on the contract and Msg type URL.
-
-![Voting DFD](src/assets/dfd/voting-dfd.png)
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
