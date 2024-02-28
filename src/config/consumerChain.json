@@ -54,13 +54,13 @@
     },
       "Status": {
         "type": "tags",
-        "data": ["L/o Replicated Security", "Proposal Passed", "Gov-Confirmed"]
+        "data": ["Forum Post Live"]
       },
-      "Forum Date": "Apr 13, 2023",
+      "Forum Date": "Nov 13, 2023",
       "Cosmos Forum": {
         "type": "LINK",
         "label": "Draft Prop",
-        "url": "https://forum.cosmos.network/t/proposal-794-vote-onchain-stride-to-join-atom-economic-zone-and-adopt-ics/10418"
+        "url": "https://forum.cosmos.network/t/proposal-xxxxx-launch-aether-evm-as-a-consumer-chain-for-the-cosmos-hub/12133"
       },
       "Prop Date": "Jun 13, 2023",
       "Proposal ID": {
