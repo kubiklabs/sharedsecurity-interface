@@ -21,7 +21,7 @@ const LoadingModal = ({
   const { onClose } = useDisclosure();
 
   return (
-    <Modal isOpen={true} onClose={onClose} isCentered>
+    <Modal isOpen={isOpen} onClose={onClose} isCentered>
       <ModalOverlay bg={"transparent"} backdropBlur={"30px"} />
       <ModalContent
         maxWidth={"350px"}
