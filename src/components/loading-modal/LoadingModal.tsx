@@ -1,8 +1,15 @@
-import React, { useState } from "react";
-import Modal from "react-modal";
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  useDisclosure,
+  Image,
+  Text,
+} from "@chakra-ui/react";
 import logo from "../../assets/kubik-logo.png";
-import "./LoadingModal.css";
-import LoaderContent from "./LoaderContent";
 
 const LoadingModal = ({
   isOpen,
@@ -11,27 +18,45 @@ const LoadingModal = ({
   isOpen: boolean;
   content: Array<String>;
 }) => {
-  // const [menuIsOpen, setMenuIsOpen] = useState(false);
+  const { onClose } = useDisclosure();
 
   return (
-    <Modal
-      ariaHideApp={false}
-      isOpen={isOpen}
-      // onRequestClose={closeModal}
-      contentLabel="Txn"
-      className="custom-modal"
-    >
-      <div className="loading-modal-wrapper">
-        <div className="loading-modal-heading">
+    <Modal isOpen={true} onClose={onClose} isCentered>
+      <ModalOverlay bg={"transparent"} backdropBlur={"30px"} />
+      <ModalContent
+        maxWidth={"350px"}
+        width={"90%"}
+        color={"gray"}
+        bg={"black"}
+      >
+        <ModalHeader textAlign={"center"} fontSize={"13px"}>
+          {" "}
           Txn in progress. Please do not press back button or refresh the page.
-        </div>
-        <div className="loading-modal-content-wrapper">
-          <img src={logo} />
-          <div>
-            <LoaderContent action={content[0]} message={content[1]} />
-          </div>
-        </div>
-      </div>
+        </ModalHeader>
+        <ModalBody
+          display={"flex"}
+          justifyContent={"center"}
+          alignItems={"center"}
+        >
+          <Image
+            animation={"animation-b7n1on  4s infinite"}
+            src={logo}
+            width={"7rem"}
+          />
+        </ModalBody>
+
+        <ModalFooter
+          gap={"10px"}
+          display={"flex"}
+          flexDir={"column"}
+          alignItems={"center"}
+        >
+          <Text>{content[0]}</Text>
+          <Text fontWeight={"800"} fontSize={"20px"}>
+            {content[1]}
+          </Text>
+        </ModalFooter>
+      </ModalContent>
     </Modal>
   );
 };

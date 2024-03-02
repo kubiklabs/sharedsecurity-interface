@@ -1,7 +1,7 @@
 {
   "Cosmos": {
-    "REST": "https://cosmoshub-api.lavenderfive.com:443",
-    "RPC": "https://rpc-cosmoshub.whispernode.com:443"
+    "REST": "https://cosmos-api.polkachu.com",
+    "RPC": "https://cosmos-rpc.polkachu.com"
   },
   "Stride": {
     "REST": "https://stride-api.polkachu.com",
