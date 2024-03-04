@@ -1,0 +1,70 @@
+[
+  {
+    "Event": {
+      "type": "avatarWithText",
+      "label":"ATOM as Money on Neutron",
+      "avatarUrl": "/Atom.svg"
+  }, 
+    "Tags": {
+      "type": "tags",
+      "data": ["Agora #01"]
+    },
+    "Date": "Sep 8, 2023",
+    "Twitter Space": {
+      "type": "LINK",
+      "label": "AtomZone Agora #01",
+      "url": "https://twitter.com/i/spaces/1ypKddqnEAVKW"
+    }
+  },
+  {
+    "Event": {
+      "type": "avatarWithText",
+      "label":"Accountability & Roadmap 2024",
+      "avatarUrl": "/Atom.svg"
+  },  
+    "Tags": {
+      "type": "tags",
+      "data": ["Agora #02"]
+    },
+    "Date": "Sep 14, 2023",
+    "Twitter Space": {
+      "type": "LINK",
+      "label": "AtomZone Agora #02",
+      "url": "https://twitter.com/i/spaces/1lDGLnBnjnbxm"
+    }
+  },
+  {
+    "Event": {
+      "type": "avatarWithText",
+      "label":"Governance Challenges within the AEZ",
+      "avatarUrl": "/Atom.svg"
+  },   
+    "Tags": {
+      "type": "tags",
+      "data": ["Agora #03"]
+    },
+    "Date": "Sep 26, 2023",
+    "Twitter Space": {
+      "type": "LINK",
+      "label": "AtomZone Agora #03",
+      "url": "https://twitter.com/i/spaces/1MYxNoZEezwKw"
+    }
+  },
+  {
+    "Event":  {
+      "type": "avatarWithText",
+      "label": "AtomZone Agora live at Cosmoverse",
+      "avatarUrl": "/Atom.svg"
+  },   
+    "Tags": {
+      "type": "tags",
+      "data": ["Agora x Cosmoverse"]
+    },
+    "Date": "Oct 2, 2023",
+    "Twitter Space": {
+      "type": "LINK",
+      "label": "AtomZone Agora x Cosmoverse",
+      "url": "https://twitter.com/cosmoshub/status/1703777744251650407"
+    }
+  }
+]

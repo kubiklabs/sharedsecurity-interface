@@ -1,0 +1,149 @@
+{
+  "pairs": [
+    {
+      "contract_addr": "neutron1wzsewgysr8ttdlw96lp7u2j55z3sg7rtuvfjmd70ajavvpr3308s3zekqu",
+      "pair_type": {
+        "xyk": {}
+      }
+    },
+    {
+      "contract_addr": "neutron17hdxfavyu4qen5fy8cy09js2qud02h6d97dvx72m4uhtjryhdcks8de0wq",
+      "pair_type": {
+        "xyk": {}
+      }
+    },
+    {
+      "contract_addr": "neutron1tx80z5v3nurwfm2mulyv6396pc7mjdh3pmydrv80ulu889a9wfxsn8jh2m",
+      "pair_type": {
+        "xyk": {}
+      }
+    },
+    {
+      "contract_addr": "neutron1ssz2lzs57l7f8znscaafc4lzxtfj0pyym9w0kj9q3qvhduxa28jsgt8gnd",
+      "pair_type": {
+        "xyk": {}
+      }
+    },
+    {
+      "contract_addr": "neutron14fv4gvf962xf565k53mx2zv6nj4cqwdz6ft8gv628046hv3c79asvntft2",
+      "pair_type": {
+        "xyk": {}
+      }
+    },
+    {
+      "contract_addr": "neutron1t6tnqqmp65uzmz9yr0udujhygegw85r2gfc5vvw2xlsmxgerm48s9euhss",
+      "pair_type": {
+        "xyk": {}
+      }
+    },
+    {
+      "contract_addr": "neutron1u4v7xcvkhz8sxs3u9mjhprwc8vwc2p08x0tje4ugtrrkjhkagdysztt5dq",
+      "pair_type": {
+        "xyk": {}
+      }
+    },
+
+    {
+      "contract_addr": "neutron1adk7gupr0thjr3e6wcnlxr7ugclcg4cukv2np8la29dz38zuzymqjcv5s4",
+      "pair_type": {
+        "xyk": {}
+      }
+    },
+    {
+      "contract_addr": "neutron14z9ke0yq90zcvu6uhctd48cgzqv8v4nqxhlx5w3gfamcvttmt0dsxdt7w7",
+      "pair_type": {
+        "xyk": {}
+      }
+    },
+    {
+      "contract_addr": "neutron18dll2ugfwfhjsytrm46r5dyv7gfka8q334wvxu824s0glev0hdlsg8757n",
+      "pair_type": {
+        "xyk": {}
+      }
+    },
+    {
+      "contract_addr": "neutron16yll06qup0j0mnjc7v68stmw939e73ykr3twtd78l3hqlkstm2ysr0k4q8",
+      "liquidity_token": "neutron1y7ty5e7gwq5770vrkzgkskgyjeyt48cfvd8x6ev9y66cyzk6320qumane4",
+      "pair_type": {
+        "xyk": {}
+      }
+    },
+    {
+      "contract_addr": "neutron1jpm7j2cmj2mmk5pnxv20dxz869tw2vyy87qdl0xjasqnn23l04psudtf2y",
+      "liquidity_token": "neutron1vw93hy8tm3xekpz9286428gesmmc8dqxmw8cujsh3fcu3rt0hvdqvlyrrl",
+      "pair_type": {
+        "xyk": {}
+      }
+    },
+    {
+      "contract_addr": "neutron1s2lr8u69xammmg3s8hemegcz57y07ae0wa7c7d2adupp6du3neyqd8ygp7",
+      "liquidity_token": "neutron12zfwyzcpzyqwc7secjcmxa267n9quurr037sw449znnhdsn4w8qqpxcu7y",
+      "pair_type": {
+        "xyk": {}
+      }
+    },
+    {
+      "contract_addr": "neutron1v2zgmqzkvhkx5t8y8nhpyeykuuu0t7kszz0645clzucuulqtal0snnmk0l",
+      "liquidity_token": "neutron167n6rhrjzq0gznyvlwph6gh97xnf8e6s9x409xecdcqq7austeksuh8vxq",
+      "pair_type": {
+        "xyk": {}
+      }
+    },
+    {
+      "contract_addr": "neutron165m0r6rkhqxs30wch00t7mkykxxvgve9yyu254wknwhhjn34rmqsh6vfcj",
+      "liquidity_token": "neutron124l9kllt4seuv0srjlzh6j4k56jvt7hla03nrkvamdpjrtqffs9quhxmyc",
+      "pair_type": {
+        "xyk": {}
+      }
+    },
+    {
+      "contract_addr": "neutron1s9fvdffwf3uvara287rfpzpq09mahk9qg4mjfrhu9jvc2unnps9qj5cfzu",
+      "liquidity_token": "neutron1wvrced962a7080v3j65w9spnhmx2vcxul4fj06ujhqa0thg624wqgafdh6",
+      "pair_type": {
+        "xyk": {}
+      }      
+    },
+    {
+      "contract_addr": "neutron1l7ny0rckx9rks2p2aq94wd74sehjczym6n9y4yax8lcy9s39uans4uga62",
+      "liquidity_token": "neutron1y4330yyf0vc08scyq8a7rusl4j8p0pw98p4wvyqqkdu4aj6kv4pqxaa7na",
+      "pair_type": {
+        "xyk": {}
+      }
+    },
+    {
+      "contract_addr": "neutron10fztjv4atdgs4dyfkh2yu9rhn9n6vkctvdqa34g7g4nc0qckygqqksvz0r",
+      "liquidity_token": "neutron1prv32w2kempkvjy3expk3tuvpcg3j97f2024470zwe2n4hkvv58qy0f03x",
+      "pair_type": {
+        "stable": {}
+      }
+    },
+    {
+      "contract_addr": "neutron18aud0kjwzdjj3m2cqm7gqyyw556ctgp3h4metpe0kxad0ewx6s8sp3zknv",
+      "liquidity_token": "neutron19p7fqw2njtf90y5atdv8367ehrzspjla6wu73z70ey9hk5pvtlqqx7gvzc",
+      "pair_type": {
+        "xyk": {}
+      }
+    },
+    {
+      "contract_addr": "neutron17wg25zvvud2d27pnxjv76f5xk5tm5jfda4c7003valghrlju5u6q5dt83n",
+      "liquidity_token": "neutron1n648rfqqvjxm6c7zgfnfqay85rkapgg0z7da9pnmjazz5m5d7l0qdqc773",
+      "pair_type": {
+        "xyk": {}
+      }
+    },
+    {
+      "contract_addr": "neutron1e22zh5p8meddxjclevuhjmfj69jxfsa8uu3jvht72rv9d8lkhves6t8veq",
+      "liquidity_token": "neutron1jkcf80nd4pfc2krce3xk9m9y994pllq58avx89sfzqlalej4frus27ms3a",
+      "pair_type": {
+        "xyk": {}
+      }
+    },
+    {
+      "contract_addr": "neutron1l3gtxnwjuy65rzk63k352d52ad0f2sh89kgrqwczgt56jc8nmc3qh5kag3",
+      "liquidity_token": "neutron1sx99fxy4lqx0nv3ys86tkdrch82qygxyec5c8dxsk9raz4at5zpq48m66c",
+      "pair_type": {
+        "xyk": {}
+      }
+    }
+]
+}
