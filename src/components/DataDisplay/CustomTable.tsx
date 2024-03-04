@@ -1,9 +1,6 @@
 import {
   Avatar,
-  Button,
   Flex,
-  Grid,
-  GridItem,
   Table,
   TableContainer,
   Tbody,
@@ -15,11 +12,6 @@ import {
 } from "@chakra-ui/react";
 import React, { useEffect, useRef, useState } from "react";
 import {
-  commonTagColorMap,
-  scrollbarStyle,
-  thinScrollbarStyle,
-  ValidatorNames,
-  Chains,
   validatorKeys,
   ValidatorKeys,
 } from "../../utils/constant";
@@ -29,16 +21,12 @@ import Pagination from "../Pagination/Pagination";
 import TableTagGroup from "./table-helpers/TableTagGroup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
-import { useRouter } from 'next/navigation';
 import { usePathname } from 'next/navigation'
 
 const CustomTable = ({
   data,
   keys,
   totalValue,
-  minGridWidth,
-  maxGridWidth,
-  gridColumnGap,
   itemsPerPage = 10,
   pagination,
   overflow,
@@ -100,8 +88,8 @@ const CustomTable = ({
                     currentPath === "/aez"
                       ? "10px"
                       : currentPath === "/validators"
-                      ? "20px"
-                      : 0
+                        ? "20px"
+                        : 0
                   }
                   color={"#D9D9D9"}
                   fontSize={"20px"}
@@ -120,12 +108,12 @@ const CustomTable = ({
                     {item.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase())}{" "}
                     {(item === "Forum Date" ||
                       ValidatorKeys.includes(item)) && (
-                      <FontAwesomeIcon
-                        icon={faCaretDown}
-                        height="7px"
-                        width="10px"
-                      />
-                    )}
+                        <FontAwesomeIcon
+                          icon={faCaretDown}
+                          height="7px"
+                          width="10px"
+                        />
+                      )}
                   </Text>
                 </Th>
               );
@@ -178,9 +166,8 @@ const CustomTable = ({
                               <Link
                                 style={{
                                   textDecoration: "underline",
-                                  paddingLeft: `${
-                                    currentPath === "/aez" ? "10px" : 0
-                                  }`,
+                                  paddingLeft: `${currentPath === "/aez" ? "10px" : 0
+                                    }`,
                                 }}
                                 href={value.url}
                               >
@@ -192,9 +179,8 @@ const CustomTable = ({
                                 alignItems={"center"}
                                 pb={"12px"}
                                 style={{
-                                  paddingLeft: `${
-                                    currentPath === "/aez" ? "55px" : 0
-                                  }`,
+                                  paddingLeft: `${currentPath === "/aez" ? "55px" : 0
+                                    }`,
                                 }}
                               >
                                 _
@@ -231,12 +217,12 @@ const CustomTable = ({
                               currentPath === "/aez"
                                 ? "10px"
                                 : currentPath === "/validators"
-                                ? "20px"
-                                : 0
+                                  ? "20px"
+                                  : 0
                             }
                             color={
                               item.types === "100%" ||
-                              value.type === "avatarWithText"
+                                value.type === "avatarWithText"
                                 ? "#bfbfbfcc"
                                 : "#fff"
                             }

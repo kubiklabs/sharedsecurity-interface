@@ -1,27 +1,26 @@
 import { useState } from "react";
 import { useRecoilValue } from "recoil";
 
-import { walletState } from "../../context/walletState";
+import { walletState } from "@/context/walletState";
 import {
   useConnectWallet,
   useDisconnetWallet,
-} from "../../hooks/useConnectWallet";
+} from "@/hooks/useConnectWallet";
 import { coinConvert } from "../../utils/common";
 import { Box, Button, Center, Spinner, Tooltip } from "@chakra-ui/react";
 import CopyAddressModal from "../modals/CopyAddressModal";
 
 const ConnectWalletButton = () => {
   const { isLoggedIn, name } = useRecoilValue(walletState);
-  const connectWallet = useConnectWallet();
+  // const connectWallet = useConnectWallet();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const connectHandler = async () => {
-    setIsLoading(true);
-    await connectWallet();
-
-    setIsLoading(false);
-  };
+  // const connectHandler = async () => {
+  //   setIsLoading(true);
+  //   await connectWallet();
+  //   setIsLoading(false);
+  // };
 
   const resetUserData = useDisconnetWallet();
 
@@ -61,11 +60,7 @@ const ConnectWalletButton = () => {
             bg={"transparent"}
             color={"white"}
             width={"100%"}
-            onClick={connectHandler}
-            // _hover={{
-            //   bg: "white.600",
-            //   // borderColor: "white",
-            // }}
+            // onClick={connectHandler}
             _hover={{
               bg: 'transparent',
             }}

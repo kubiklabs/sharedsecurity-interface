@@ -1,6 +1,8 @@
 import { Flex, Text } from "@chakra-ui/react";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import { useMemo } from "react";
-import { Link, useLocation } from "react-router-dom";
+// import { Link, useLocation } from "react-router-dom";
 
 const Navlink = ({
   name,
@@ -11,7 +13,11 @@ const Navlink = ({
   iconName?: string;
   path: string;
 }) => {
-  const location = useLocation();
+  // const location = useLocation();
+  const router = useRouter();
+  const { pathname } = router;
+  console.log(pathname, "pathname")
+  
 
   const checkPathDerivative = (basePath: string, currentPath: string) => {
     // Ensure basePath ends with a slash
@@ -24,12 +30,12 @@ const Navlink = ({
   };
 
   const onThisPath = useMemo(
-    () => checkPathDerivative(path, location.pathname),
-    [location.pathname]
+    () => checkPathDerivative(path, pathname),
+    [pathname]
   );
 
   return (
-    <Link to={`/${path}`}>
+    <Link href={`/${path}`}>
       <Flex
         borderRadius={"1px"}
         p={"2px "}
@@ -42,7 +48,7 @@ const Navlink = ({
         _hover={{
           // borderBottom: "5px solid #BC3D70",
           color: onThisPath ? "white" : "#BC3D70",
-          // transform: "scale(1.05)",
+          transform: "scale(1.05)",
         }}
       >
        {iconName && <span className="material-symbols-outlined">{iconName}</span>}
