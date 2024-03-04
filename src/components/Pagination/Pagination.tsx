@@ -78,26 +78,34 @@ const Pagination = ({
       marginTop="20px"
       justifyItems={"center"}
       alignSelf={alignSelf}
-      // justifyItems={"flex-end"}
+    // justifyItems={"flex-end"}
     >
       <Tooltip label="First Page">
-        <span
-          onClick={currentPage === 1 ? () => {} : () => onPageChange(1)}
+        <Box
+          _hover={{
+            cursor: "pointer",
+            color: "#BC3D70",
+          }}
+          onClick={currentPage === 1 ? () => { } : () => onPageChange(1)}
           className="material-symbols-outlined nav-icons"
         >
           SKIP_previous
-        </span>
+        </Box>
       </Tooltip>
       <Tooltip label="Previous">
-        <span
+        <Box
+          _hover={{
+            cursor: "pointer",
+            color: "#BC3D70",
+          }}
           onClick={
-            currentPage === 1 ? () => {} : () => onPageChange(currentPage - 1)
+            currentPage === 1 ? () => { } : () => onPageChange(currentPage - 1)
           }
           // isDisabled={currentPage === totalPages}
           className="material-symbols-outlined nav-icons"
         >
           navigate_before
-        </span>
+        </Box>
       </Tooltip>
 
       <List
@@ -132,29 +140,37 @@ const Pagination = ({
         )}
       </List>
       <Tooltip label="Next">
-        <span
+        <Box
+          _hover={{
+            cursor: "pointer",
+            color: "#BC3D70",
+          }}
           onClick={
             currentPage === totalPages
-              ? () => {}
+              ? () => { }
               : () => onPageChange(currentPage + 1)
           }
           // isDisabled={currentPage === totalPages}
           className="material-symbols-outlined nav-icons"
         >
           navigate_next
-        </span>
+        </Box>
       </Tooltip>
       <Tooltip label="Last Page">
-        <span
+        <Box
+          _hover={{
+            cursor: "pointer",
+            color: "#BC3D70",
+          }}
           onClick={
             currentPage === totalPages
-              ? () => {}
+              ? () => { }
               : () => onPageChange(totalPages)
           }
           className="material-symbols-outlined nav-icons"
         >
           SKIP_next
-        </span>
+        </Box>
       </Tooltip>
     </Box>
   );

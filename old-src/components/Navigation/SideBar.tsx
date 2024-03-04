@@ -1,18 +1,10 @@
-import { Box, Divider, Flex, Image, Input, Text, Slide, Button } from "@chakra-ui/react";
+import { Box, Flex, Image, Text } from "@chakra-ui/react";
 import kubikLogo from "../../assets/kubik-logo-white.svg";
-// import { NavLink } from "react-router-dom";
 import NavItem from "./NavItem";
 import ConnectWalletButton from "../Buttons/ConnectWalletButton";
-import { Resizable } from 're-resizable';
-import { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 
 const SideBar = () => {
-
-  // const [isOpen, setIsOpen] = useState(true)
-
   return (
     <>
 

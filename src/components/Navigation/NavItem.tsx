@@ -16,7 +16,6 @@ const Navlink = ({
   // const location = useLocation();
   const router = useRouter();
   const { pathname } = router;
-  console.log(pathname, "pathname")
   
 
   const checkPathDerivative = (basePath: string, currentPath: string) => {
