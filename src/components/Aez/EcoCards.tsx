@@ -3,7 +3,6 @@ import {
   Card,
   CardFooter,
   Flex,
-  Stack,
   Text,
   useMediaQuery,
 } from "@chakra-ui/react";
