@@ -1,12 +1,12 @@
-import axios from "axios";
-import strideAssets from "@/hooks/chains/stride/chain_assets/stride_asset_list.json";
-import { coinConvert } from "@/utils/common";
+import axios, { all } from "axios";
+import strideAssets from "./../../../../config/chains/Stride/stride_asset_list.json";
+import { coinConvert } from "../../../../utils/common";
 import { useSetRecoilState } from "recoil";
-import { strideAssetState } from "@/context/assetsState";
-import { useEcosystem } from "@/hooks/common/aez/useEcosystem";
-import { Stride } from "@/config/nodeConfig.json";
+import { strideAssetState } from "../../../../context/assetsState";
+import { useEcosystem } from "../../../common/aez/useEcosystem";
+import { Stride } from "../../../../config/nodeConfig.json";
 
-const REST_URL = `${Stride.REST}/`;
+const REST_URL = `${Stride.REST}`;
 
 export const useStrideAssets = () => {
   const setStrideAssets = useSetRecoilState(strideAssetState);
@@ -39,7 +39,7 @@ export const useStrideAssets = () => {
           return;
         }
 
-        const price = allPrices[assetData.coingecko_id].usd;
+        const price = allPrices[assetData.coingecko_id].price;
 
         parsedAssets.push({
           name: {
@@ -52,7 +52,7 @@ export const useStrideAssets = () => {
           ),
           total_amount:
             Number(coinConvert(asset.amount, assetData?.decimals, "human")) *
-            Number(price)
+            Number(price),
         });
       }
     });

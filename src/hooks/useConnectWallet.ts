@@ -2,7 +2,6 @@ import { useSetRecoilState } from "recoil";
 import { walletState } from "@/context/walletState";
 import { sleep } from "@/utils/common";
 import { useChainInfo } from "@/hooks/useChainInfo";
-import { toast } from "react-toastify";
 import showToast from "@/utils/showToast";
 
 export interface Coin {
@@ -41,12 +40,16 @@ export const useConnectWallet = () => {
   // }
 
   const setWalletState = useSetRecoilState(walletState);
-
+  // console.log(typeof window,"window")
   let activeNetwork =
     typeof window!=='undefined' && localStorage.getItem("activeNetworkChainId");
-  if (!activeNetwork)
+  // const chainId = cookies().get("activeNetworkChainId");
+  // console.log(chainId,"chainId cookie")
+  if (!activeNetwork){
     typeof window!=='undefined' &&
       localStorage.setItem("activeNetworkChainId", "cosmoshub-4");
+    // document.cookie = "activeNetworkChainId=cosmoshub-4";
+  }
   const chainInfo = useChainInfo(
     typeof window === "undefined"
       ? ""

@@ -2,28 +2,26 @@ import axios from "axios";
 import { useRecoilState } from "recoil";
 import { marketState } from "../context/marketState";
 import { borderTagColorMap, tagColorMap } from "../utils/constant";
-import { toast } from "react-toastify";
-import showToast from "@/utils/showToast";
 
 export const useChainMarketInfo = () => {
   const [marketData, setMarketData] = useRecoilState(marketState);
 
+  //TODO: Replace price api with https://price-api.sharedsecurity.info/multiprice?coin_ids=kusama
+
   const getAllCoinsMarket = async () => {
     try {
-      const response = await axios.get(
-        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=neutron%2Ccosmos%2C%20stride&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en"
-      );
-      const marketData = response.data;
-      const newData = {
-        Cosmos: marketData[0],
-        Stride: marketData[1],
-        Neutron: marketData[2],
-      };
-      setMarketData(newData);
-      return newData;
-    } catch (error) { 
-      showToast("error", "Failed to fetch market data");
-    }
+    } catch (error) {}
+    const response = await axios.get(
+      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=neutron%2Ccosmos%2C%20stride&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en"
+    );
+    const marketData = response.data;
+    const newData = {
+      Cosmos: marketData[0],
+      Stride: marketData[1],
+      Neutron: marketData[2],
+    };
+    setMarketData(newData);
+    return newData;
   };
 
   const getHistoricalPrice = async (coin: string) => {
