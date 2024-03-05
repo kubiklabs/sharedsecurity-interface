@@ -3,6 +3,7 @@ import Section from "../Layout/Section";
 import {
   Box,
   Button,
+  Center,
   Flex,
   Grid,
   GridItem,
@@ -185,7 +186,9 @@ const OpSection = ({
         ) : (
           <GridItem>
             {isLoading ? (
+              <Center>
               <Spinner width={"3rem"} height="3rem" />
+              </Center>
             ) : (
               <Heading
                 bg={"rgba(255, 255, 255, 0.05)"}
