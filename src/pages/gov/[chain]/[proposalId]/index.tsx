@@ -1,4 +1,4 @@
-import { Box, Heading, Spinner, Stack } from "@chakra-ui/react";
+import { Box, Center, Heading, Spinner, Stack } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import BasicInfo, { IBasicInfo } from "@/components/Proposal/BasicInfo";
@@ -37,7 +37,9 @@ const Proposal = () => {
   };
 
   return isLoading ? (
+    <Center>
     <Spinner width={"3rem"} height="3rem" />
+    </Center>
   ) : (
     <Stack gap={"50px"}>
       <BasicInfo {...proposalData} />

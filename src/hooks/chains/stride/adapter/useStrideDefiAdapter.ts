@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 // import { get } from "../helper/http";
 
 const coinGeckoIds = {
@@ -15,16 +16,20 @@ const coinGeckoIds = {
 };
 
 const getCoinPrices = async () => {
-  let ids = "";
-
-  for (const id in coinGeckoIds) {
-    ids += coinGeckoIds[id as keyof typeof coinGeckoIds] + "%2C";
+  try {
+    let ids = "";
+  
+    for (const id in coinGeckoIds) {
+      ids += coinGeckoIds[id as keyof typeof coinGeckoIds] + "%2C";
+    }
+    const response = await axios.get(
+      `https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd`
+    );
+  
+    return response.data;
+  } catch (error) {
+    toast.error("Failed to fetch market data");
   }
-  const response = await axios.get(
-    `https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd`
-  );
-
-  return response.data;
 };
 
 function getCoinDenom(denom: string) {
