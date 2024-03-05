@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react'
 import { Box } from '@chakra-ui/react'
 import SideBar from '@/components/Navigation/SideBar'
 
+
 const scrollbarStyle = {
     "&::-webkit-scrollbar": {
         width: "5px",
@@ -17,6 +18,7 @@ const scrollbarStyle = {
 
 const Layout = ({ children }: { children: ReactNode }) => {
     return (
+        <>
         <Box
             sx={scrollbarStyle}
             maxH={"100vh"}
@@ -27,6 +29,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
             <SideBar />
             <Box px={"50px"} pt={"150px"} flex={"1"} pb={"50px"} minH={"100vh"}>{children}</Box>
         </Box>
+        </>
     )
 }
 
