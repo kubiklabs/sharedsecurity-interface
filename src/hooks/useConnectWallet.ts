@@ -1,9 +1,11 @@
+'use client'
+
 import { useSetRecoilState } from "recoil";
 import { walletState } from "../context/walletState";
 import { sleep } from "../utils/common";
 import { useChainInfo } from "./useChainInfo";
 import { toast } from "react-toastify";
-import showToast from "../utils/showToast";
+import showToast from "@/utils/showToast";
 
 export interface Coin {
   readonly denom: string;
@@ -35,8 +37,14 @@ export const useDisconnetWallet = () => {
 };
 
 export const useConnectWallet = () => {
+  
   // const { setIsLoggingIn } = useContext(UserContext);
+  if(typeof window==='undefined'){
+    return;
+  }
+
   const setWalletState = useSetRecoilState(walletState);
+
   let activeNetwork = localStorage.getItem("activeNetworkChainId");
   if (!activeNetwork)
     localStorage.setItem("activeNetworkChainId", "cosmoshub-4");
