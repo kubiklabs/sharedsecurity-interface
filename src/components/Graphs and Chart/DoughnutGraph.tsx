@@ -1,4 +1,4 @@
-import { Box, Flex } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import ReactECharts from "echarts-for-react";
 
 const DoughnutGraph = ({ doughnutData }: { doughnutData: any[] }) => {
@@ -22,7 +22,6 @@ const DoughnutGraph = ({ doughnutData }: { doughnutData: any[] }) => {
         label: {
           show: true,
           formatter: function (params: any) {
-            console.log(params);
             return `{a|$${params.data.shortValue}}\n{b|${params.name}:} {c|(${params.percent}%)}`;
           },
           fontFamily: "Alata",

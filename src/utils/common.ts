@@ -5,7 +5,6 @@ import {
   cosmosVoteOptionMap,
   neutronVoteOptionMap,
 } from "./constant";
-// import { networkConstants } from "./constants";
 
 // The number set here is an arbitrary number.
 Decimal.set({ toExpPos: 50 });

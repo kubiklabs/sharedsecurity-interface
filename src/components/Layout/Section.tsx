@@ -6,7 +6,6 @@ const Section = (props: any) => {
     <Box
       display={"flex"}
       flexDirection={"column"}
-      // justifyContent={"center"}
       mx={"auto"}
       gap={props.gap || "20px"}
       position={"relative"}

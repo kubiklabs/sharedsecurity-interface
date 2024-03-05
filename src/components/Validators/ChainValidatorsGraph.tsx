@@ -1,6 +1,6 @@
 import Section from "../Layout/Section";
-import React, { useState } from "react";
-import { Box, Select, Flex, Text } from "@chakra-ui/react";
+import React from "react";
+import { Box, Flex, Text } from "@chakra-ui/react";
 import AreaGraph from "../Graphs and Chart/AreaGraph";
 
 const ChainValidatorsGraph = () => {
@@ -17,67 +17,6 @@ const ChainValidatorsGraph = () => {
 export default ChainValidatorsGraph;
 
 const DummyChart = () => {
-  const [selectedOption, setSelectedOption] = useState("Option 1");
-
-  // const data = {
-  //   labels: ["January", "February", "March", "April", "May", "June", "July"],
-  //   datasets: [
-  //     {
-  //       label: "Dummy Data",
-  //       data: [65, 59, 80, 81, 56, 55, 40],
-
-  //       backgroundColor: "rgba(75, 192, 192, 0.2)",
-  //       borderColor: "rgba(75, 192, 192, 1)",
-  //       borderWidth: 2,
-  //     },
-  //   ],
-  // };
-
-  // const options = {
-  //   responsive: true,
-  //   maintainAspectRatio: false,
-  //   plugins: {
-  //     customCanvasBackgroundColor: {
-  //       color: "lightGreen",
-  //     },
-  //     colors: {
-  //       forceOverride: true,
-  //     },
-  //     legend: {
-  //       display: false,
-  //     },
-  //     decimation: {
-  //       enabled: true,
-  //       sample: 50,
-  //     },
-  //   },
-  //   scales: {
-  //     x: {
-  //       border: {
-  //         display: true,
-  //         color: "#000",
-  //       },
-  //       grid: {
-  //         display: true,
-  //         drawOnChartArea: true,
-  //         drawTicks: true,
-  //         color: "#272525",
-  //       },
-  //     },
-  //     y: {
-  //       border: {
-  //         display: true,
-  //         color: "#000",
-  //       },
-  //       grid: {
-  //         display: true,
-  //         drawOnChartArea: true,
-  //         drawTicks: true,
-  //         color: "#272525",
-  //       },
-  //     },
-  //   },
-  // };
 
   const data = [
     { month: "January", value: 65 },
@@ -89,14 +28,10 @@ const DummyChart = () => {
     { month: "July", value: 40 },
   ];
 
-  const handleSelectChange = (event: any) => {
-    setSelectedOption(event.target.value);
-  };
 
   return (
     <Box position="relative" width={"100%"} pos={"relative"}>
       <Box width="full" height="300px" margin="20px auto" position={"relative"}>
-        {/* <Line data={data} options={options} /> */}
         <Flex justifyContent={"flex-end"} position={"absolute"} right={'15px'} top={"20px"} zIndex={40}>
           <Box
             paddingX={"23px"}

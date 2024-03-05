@@ -1,7 +1,7 @@
-import axios, { all } from "axios";
-import { coinConvert } from "../../../../utils/common";
+import axios from "axios";
+import { coinConvert } from "@/utils/common";
 import { useSetRecoilState } from "recoil";
-import { cosmosAssetState } from "../../../../context/assetsState";
+import { cosmosAssetState } from "@/context/assetsState";
 
 const REST_URL = "https://cosmos-rest.publicnode.com";
 

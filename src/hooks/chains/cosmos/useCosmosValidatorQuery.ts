@@ -1,18 +1,16 @@
-import { useRecoilState, useRecoilValue } from "recoil";
-import { useValidatorQuery } from "../../common/validators/useValidatorsQuery";
-import { cosmosValidatorState } from "../../../context/cosmosValidatorState";
-import { useCosmosGovQuery } from "./useCosmosGovQuery";
-import { coinConvert } from "../../../utils/common";
-import { Cosmos } from "../../../config/nodeConfig.json";
-
-import axios from "axios";
+import { useRecoilState } from "recoil";
+import { useValidatorQuery } from "@/hooks/common/validators/useValidatorsQuery";
+import { cosmosValidatorState } from "@/context/cosmosValidatorState";
+import { useCosmosGovQuery } from "@/hooks/chains/cosmos/useCosmosGovQuery";
+import { coinConvert } from "@/utils/common";
+import { Cosmos } from "@/config/nodeConfig.json";
 
 const COSMOS_REST_URL = Cosmos.REST;
 
 export const useCosmosValidatorQuery = () => {
   const [{ validators }, setValidators] = useRecoilState(cosmosValidatorState);
 
-  const { getFullValidatorList, getActiveValidatorSet } =
+  const { getFullValidatorList } =
     useValidatorQuery(COSMOS_REST_URL);
   const { getCosmosTotalBondedToken } = useCosmosGovQuery();
 
@@ -46,7 +44,6 @@ export const useCosmosValidatorQuery = () => {
       aggregatedVp += vp;
       if (aggregatedVp > target) {
         coefficient = index + 1;
-        console.log(coefficient);
 
         return coefficient.toString();
       }
@@ -63,7 +60,6 @@ export const useCosmosValidatorQuery = () => {
 
     for (const index in allValidators) {
       const validator = allValidators[index];
-      // console.log(validator);
 
       const parsedValidator = {
         Validator: validator.description.moniker,
@@ -83,10 +79,6 @@ export const useCosmosValidatorQuery = () => {
         parsedJailedValidators.push(parsedValidator);
       else parsedActiveValidators.push(parsedValidator);
     }
-
-    console.log(
-      calculateCoefficients(51, parsedActiveValidators.slice(0, 180))
-    );
 
     const active = parsedActiveValidators.slice(0, 180);
 
