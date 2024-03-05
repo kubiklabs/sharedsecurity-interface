@@ -35,19 +35,22 @@ export const useDisconnetWallet = () => {
 };
 
 export const useConnectWallet = () => {
-  
   // const { setIsLoggingIn } = useContext(UserContext);
-  if(typeof window==='undefined'){
-    return;
-  }
+  // if(typeof window==='undefined'){
+  //   return;
+  // }
 
   const setWalletState = useSetRecoilState(walletState);
 
-  let activeNetwork = localStorage.getItem("activeNetworkChainId");
+  let activeNetwork =
+    typeof window!=='undefined' && localStorage.getItem("activeNetworkChainId");
   if (!activeNetwork)
-    localStorage.setItem("activeNetworkChainId", "cosmoshub-4");
+    typeof window!=='undefined' &&
+      localStorage.setItem("activeNetworkChainId", "cosmoshub-4");
   const chainInfo = useChainInfo(
-    localStorage.getItem("activeNetworkChainId") as string
+    typeof window === "undefined"
+      ? ""
+      : (localStorage.getItem("activeNetworkChainId") as string)
   );
   const baseDenom = chainInfo.getChainDenom();
 
