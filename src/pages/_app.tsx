@@ -5,6 +5,8 @@ import { ChakraProvider, theme } from '@chakra-ui/react';
 import Layout from '@/layout';
 import '@/styles/globals.css';
 import '@/styles/index.css'
+import '@/styles/PulseLive.css'
+import '@/styles/LoadingModal.css'
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
     return (

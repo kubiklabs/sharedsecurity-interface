@@ -46,7 +46,7 @@ const LpSection = ({
         {lpList?.length
           ? lpList.map((item) => {
               return (
-                <GridItem id={item.proposalId}>
+                <GridItem id={item.proposalId} key={item.proposalId}>
                   <LpCard {...item} showButtons={false} />
                 </GridItem>
               );

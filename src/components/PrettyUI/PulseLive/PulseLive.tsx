@@ -1,5 +1,4 @@
 import React from "react";
-import "./PulseLive.css";
 const PulseLive = ({ top, bottom, left, right }: any) => {
   return (
     <div

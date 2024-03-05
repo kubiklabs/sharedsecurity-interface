@@ -1,9 +1,9 @@
 import { Flex, Text } from "@chakra-ui/react";
 import { useState } from "react";
-import { useGovernance } from "../../hooks/useGovernance";
-import { useParams } from "react-router-dom";
+import { useGovernance } from "@/hooks/useGovernance";
+import { useParams } from "next/navigation";
+import { colorVoteMap } from "@/utils/constant";
 import LoadingModal from "../loading-modal/LoadingModal";
-import { colorVoteMap } from "../../utils/constant";
 
 type IColorVoteMap = typeof colorVoteMap;
 

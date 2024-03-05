@@ -1,17 +1,17 @@
 import { Box, Skeleton } from "@chakra-ui/react";
-import VpSection from "../components/Governance/VpSection";
-import LpSection from "../components/Governance/LpSection";
-import InfoSection from "../components/Governance/InfoSection";
-import OpSection from "../components/Governance/OpSection";
-import { useCosmosGovQuery } from "../hooks/chains/cosmos/useCosmosGovQuery";
+import VpSection from "@/components/Governance/VpSection";
+import LpSection from "@/components/Governance/LpSection";
+import InfoSection from "@/components/Governance/InfoSection";
+import OpSection from "@/components/Governance/OpSection";
+import { useCosmosGovQuery } from "@/hooks/chains/cosmos/useCosmosGovQuery";
 import { useEffect, useRef, useState } from "react";
-import { ILpCardProps } from "../components/Governance/LpCard";
-import { useNeutronGovQuery } from "../hooks/chains/neutron/useNeutronGovQuery";
-import { useStrideGovQuery } from "../hooks/chains/stride/useStrideGovQuery";
+import { ILpCardProps } from "@/components/Governance/LpCard";
+import { useNeutronGovQuery } from "@/hooks/chains/neutron/useNeutronGovQuery";
+import { useStrideGovQuery } from "@/hooks/chains/stride/useStrideGovQuery";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
-import { proposalsState } from "../context/proposalsState";
-import { compareProposals } from "../utils/common";
-import { userVpState } from "../context/userVpState";
+import { proposalsState } from "@/context/proposalsState";
+import { compareProposals } from "@/utils/common";
+import { userVpState } from "@/context/userVpState";
 
 
 const Governance = () => {

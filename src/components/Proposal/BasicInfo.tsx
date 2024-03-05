@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import Section from "../Layout/Section";
+import Section from "@/components/Layout/Section";
 import {
   Box,
   Flex,
@@ -8,31 +8,22 @@ import {
   ModalOverlay,
   ModalContent,
   ModalHeader,
-  ModalFooter,
   ModalBody,
   ModalCloseButton,
   useDisclosure,
   Button,
-  ChakraProvider,
   Tooltip,
 } from "@chakra-ui/react";
-import KeyValuePair from "../DataDisplay/KeyValuePair";
 import { marked } from "marked";
 import {
   cosmosStatusMap,
   neutronStatusMap,
   scrollbarStyle,
   tagColorMap,
-} from "../../utils/constant";
+} from "@/utils/constant";
 import ColorTag from "../DataDisplay/ColorTag";
-import { useParams } from "react-router-dom";
+import { useParams } from "next/navigation";
 import StatusTags from "../PrettyUI/StatusTags/StatusTags";
-import StatDisplay from "../DataDisplay/StatDisplay";
-// const theme = extendBaseTheme({
-//   components: {
-//     Modal,
-//   },
-// });
 
 export interface IBasicInfo {
   id: string;
@@ -54,20 +45,32 @@ const BasicInfo = ({
   status,
   description,
   turnout,
-  threshold,
   quorom,
   vetoVotes,
   yesVotes,
 }: IBasicInfo) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [parsedHTML, setParsedHTML] = useState("");
-  const { chain } = useParams();
+  const { chain } = useParams() ||{};
 
   useEffect(() => {
-    if (description) {
-      const html = marked(description);
+    const changeToHtml=async()=>{
+      const html = await marked(description);
       setParsedHTML(html);
       (document.getElementById("description") as HTMLElement).innerHTML = html;
+    }
+    if (description) {
+      changeToHtml()
+    }
+  },[]);
+  useEffect(() => {
+    const changeToHtml=async()=>{
+      const html = await marked(description);
+      setParsedHTML(html);
+      (document.getElementById("description") as HTMLElement).innerHTML = html;
+    }
+    if (description) {
+      changeToHtml()
     }
   }, [description, isOpen]);
 
@@ -124,34 +127,6 @@ const BasicInfo = ({
               {turnout}% / {quorom}% : Turnout / Quorum
             </Text>
           </Flex>
-          {/* <Flex gap={"10px"} width={"100%"}>
-            {commonStatusMap[status as keyof typeof commonStatusMap]?.pretty ===
-              "Vote Now" && (
-                <StatDisplay
-                  label="Proposal expected to"
-                  number={isPassing.current ? "PASS" : "FAIL"}
-                  isSatisfied={isPassing.current ? "yes" : "no"}
-                  showSatisfiedBg
-                />
-              )}
-            <StatDisplay
-              label={"Turnout / Quorom"}
-              number={`${turnout}%/${quorom}%`}
-              isSatisfied={Number(turnout) > Number(quorom) ? "yes" : "no"}
-            />
-            {vetoVotes ? (
-              <StatDisplay
-                label={"Less than 33% have voted 'Veto'"}
-                number={vetoVotes + "%"}
-                isSatisfied={Number(vetoVotes) >= 33 ? "no" : "yes"}
-              />
-            ) : null}
-            <StatDisplay
-              label={"More than 50% have voted 'Yes'"}
-              number={yesVotes + "%"}
-              isSatisfied={Number(yesVotes) >= 50 ? "yes" : "no"}
-            />
-          </Flex> */}
           <Flex
             fontSize={"1.2rem"}
             alignItems={"flex-start"}

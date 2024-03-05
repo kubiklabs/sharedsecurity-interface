@@ -2,14 +2,11 @@ import { useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
 import { userVpState } from "../context/userVpState";
 import { coinConvert, shortenCosmosAddress } from "../utils/common";
-import CosmosImg from "../assets/chains/cosmos.png";
-import NeutronImg from "../assets/chains/neutron.jpg";
-import StrideImg from "../assets/chains/stride.png";
 
 const chainLogoImg = {
-  Cosmos: CosmosImg,
-  Neutron: NeutronImg,
-  Stride: StrideImg,
+  Cosmos: '/images/chains/cosmos.png',
+  Neutron: '/images/chains/neutron.jpg',
+  Stride: '/images/chains/stride.png',
 };
 
 const useVpTableEffect = () => {

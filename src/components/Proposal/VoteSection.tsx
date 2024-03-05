@@ -2,12 +2,12 @@ import { Box, Flex, Grid, Text } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
 import Section from "../Layout/Section";
 import VoteCard from "./VoteCard";
-import { useGovernance } from "../../hooks/useGovernance";
-import { useParams } from "react-router-dom";
+import { useGovernance } from "@/hooks/useGovernance";
+import { useParams } from "next/navigation";
 import { useRecoilValue } from "recoil";
-import { walletState } from "../../context/walletState";
-import { getCommonVoteOption } from "../../utils/common";
-import { calculateDaysLeft } from "../../utils/common";
+import { walletState } from "@/context/walletState";
+import { getCommonVoteOption } from "@/utils/common";
+import { calculateDaysLeft } from "@/utils/common";
 
 const VoteSection = ({
   voteDistribution,
@@ -19,7 +19,7 @@ const VoteSection = ({
 
   const wallet = useRecoilValue(walletState);
   const { fetchUserVote } = useGovernance();
-  const { chain, proposalId } = useParams();
+  const { chain, proposalId } = useParams() || {};
   const [userVote, setUserVote] = useState("");
   const chainAddress = useRef<string>("");
 
@@ -69,7 +69,7 @@ const VoteSection = ({
         {voteDistribution &&
           Object.keys(voteDistribution.ratio).map((vote: any) => {
             return (
-              <VoteCard
+              <VoteCard key={vote}
                 disable={
                   status &&
                   status !== "PROPOSAL_STATUS_VOTING_PERIOD" &&

@@ -12,7 +12,8 @@ import {
   tagColorMap,
 } from "../../utils/constant";
 import { IVoteValueProps } from "../../utils/interface";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 import { shortenString } from "../../utils/common";
 import { convertDateFormat } from "../../utils/common";
 import { removeSecondsFromTime } from "../../utils/common";
@@ -38,7 +39,7 @@ const LpCard = ({
   status,
   showButtons = true,
 }: ILpCardProps) => {
-  const navigate = useNavigate();
+  const router = useRouter();
   return (
     <Box
       // maxWidth={"fit-content"}
@@ -49,7 +50,7 @@ const LpCard = ({
       padding={"30px"}
       // paddingY={"20px"}
       borderRadius={"10px"}
-      onClick={() => navigate(`/gov/${tags[0]}/${proposalId}`)}
+      onClick={() => router.push(`/gov/${tags[0]}/${proposalId}`)}
       _hover={{
         transform: "scale(1.01)",
         cursor: "pointer",
@@ -104,7 +105,7 @@ const LpCard = ({
         <Flex gap={"5px"}>
           {tags.map((tag) => {
             return (
-              <ColorTag
+              <ColorTag key={tag}
                 borderStyle={`1px solid ${
                   tagColorMap[tags[0] as keyof typeof tagColorMap]
                 }`}
@@ -124,7 +125,7 @@ const LpCard = ({
         >
           {Object.keys(voteDistribution).map((vote) => {
             return (
-              <Box
+              <Box key={vote}
                 // my={"10px"}
                 width={`${voteDistribution[vote as keyof IVoteValueProps]}%`}
                 height={"5px"}
@@ -137,7 +138,7 @@ const LpCard = ({
         <Flex gap={"20px"} flexWrap={"wrap"}>
           {Object.keys(voteDistribution).map((vote) => {
             return (
-              <BigSmallText
+              <BigSmallText key={vote}
                 color={colorVoteMap[vote as keyof typeof colorVoteMap].color}
                 bigText={
                   voteDistribution[vote as keyof IVoteValueProps] === "NaN"

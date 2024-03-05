@@ -1,4 +1,3 @@
-import "./LoadingModal.css";
 
 const LoaderContent = ({
   action,

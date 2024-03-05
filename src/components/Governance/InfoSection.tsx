@@ -1,9 +1,6 @@
 import { Box, Flex, Heading, Text, Link } from "@chakra-ui/react";
 import SubtitleText from "@/components/DataDisplay/SubtitleText";
 import ChainSocialButton from "@/components/Buttons/ChainSocialButton";
-import neutron_logo from "../../assets/chains/neutron.jpg";
-import cosmos_logo from "../../assets/chains/cosmos.png";
-import stride_logo from "../../assets/chains/stride.png";
 
 import {
   COSMOS_SOCIALS,
@@ -41,17 +38,17 @@ const InfoSection = () => {
           <ChainSocialButton
             socialLinks={COSMOS_SOCIALS}
             name="Cosmos Hub"
-            imgSrc={cosmos_logo}
+            imgSrc={'/images/chains/cosmos.png'}
           />
           <ChainSocialButton
             socialLinks={NEUTRON_SOCIALS}
             name="Neutron"
-            imgSrc={neutron_logo}
+            imgSrc={'/images/chains/neutron.jpg'}
           />
           <ChainSocialButton
             socialLinks={STRIDE_SOCIALS}
             name="Stride"
-            imgSrc={stride_logo}
+            imgSrc={'/images/chains/stride.png'}
           />
         </Flex>
       </Flex>
