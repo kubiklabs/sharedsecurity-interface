@@ -1,7 +1,6 @@
 import { Box, Flex, Heading, Text, Link } from "@chakra-ui/react";
-import SubtitleText from "../DataDisplay/SubtitleText";
-import SocialIconGroup from "../Buttons/SocialIconGroup";
-import ChainSocialButton from "../Buttons/ChainSocialButton";
+import SubtitleText from "@/components/DataDisplay/SubtitleText";
+import ChainSocialButton from "@/components/Buttons/ChainSocialButton";
 import neutron_logo from "../../assets/chains/neutron.jpg";
 import cosmos_logo from "../../assets/chains/cosmos.png";
 import stride_logo from "../../assets/chains/stride.png";

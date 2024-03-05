@@ -1,16 +1,4 @@
 import React, { useEffect, useState } from "react";
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-  Colors,
-  Decimation,
-} from "chart.js";
 import { useChainMarketInfo } from "../../hooks/useChainMarketInfo";
 import { SimpleGrid, Stack } from "@chakra-ui/react";
 import AreaGraphCard from "./AreaGraphCard";
@@ -20,17 +8,6 @@ import homeLinesAndGraphsAPY from "../../config/homeLinesAndGraphsAPY.json";
 import homeLinesAndGraphsMarketCap from "../../config/homeLinesAndGraphsMarketCap.json";
 import AssetOptions from "../Assets.tsx/AssetOptions";
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-  Colors,
-  Decimation
-);
 
 const Trends = () => {
   const { getHistoricalPrice } = useChainMarketInfo();
