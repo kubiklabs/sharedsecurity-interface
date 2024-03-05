@@ -1,3 +1,4 @@
+import showToast from "@/utils/showToast";
 import axios from "axios";
 import { toast } from "react-toastify";
 // import { get } from "../helper/http";
@@ -28,7 +29,7 @@ const getCoinPrices = async () => {
   
     return response.data;
   } catch (error) {
-    toast.error("Failed to fetch market data");
+    showToast("error", "Failed to fetch market data");
   }
 };
 

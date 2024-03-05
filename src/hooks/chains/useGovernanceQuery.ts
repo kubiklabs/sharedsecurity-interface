@@ -9,6 +9,7 @@ import { useState } from "react";
 import { useRecoilValue } from "recoil";
 import { walletState } from "../../context/walletState";
 import { toast } from "react-toastify";
+import showToast from "@/utils/showToast";
 
 interface IProposalData {
   proposals: Array<any>;
@@ -52,7 +53,7 @@ export const useGovernanceQuery = (restUrl: string, chain: string) => {
   
       return proposal;
     } catch (error) {
-      toast.error("Failed to fetch proposal data");
+      showToast("error", "Failed to fetch proposal data");
     }
   };
 

@@ -2,7 +2,7 @@ import { CosmWasmClient } from "@cosmjs/cosmwasm-stargate";
 import { useState } from "react";
 import { useEcosystem } from "../../../common/aez/useEcosystem";
 import neutronCoinRegistry from "../astroport/neutronTokenList.json";
-import { protocols } from "../../../../config/aezProtocols.json";
+import { protocols } from "@/config/aezProtocols.json";
 
 import { contracts } from "../../../../config/chains/Neutron/contracts/apollo/apolloContractList.json";
 import { useSetRecoilState } from "recoil";

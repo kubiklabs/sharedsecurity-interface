@@ -1,6 +1,6 @@
 import Section from "../Layout/Section";
 import CustomTable from "../DataDisplay/CustomTable";
-import { consumerChainData } from "../../config/consumerChain.json";
+import { consumerChainData } from "@/config/consumerChain.json";
 import { urlObject } from "../../utils/constant";
 
 const modifyData = (data: any) => {
