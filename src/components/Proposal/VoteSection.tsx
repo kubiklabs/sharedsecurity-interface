@@ -1,15 +1,15 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 
-import { Box, Flex, Grid, Text } from "@chakra-ui/react";
+import { Grid, Text } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
 import Section from "../Layout/Section";
 import VoteCard from "./VoteCard";
 import { useGovernance } from "@/hooks/useGovernance";
-// import { useParams } from "next/navigation";
 import { useRecoilValue } from "recoil";
 import { walletState } from "@/context/walletState";
 import { getCommonVoteOption } from "@/utils/common";
 import { calculateDaysLeft } from "@/utils/common";
+import showToast from "@/utils/showToast";
 
 const VoteSection = ({
   voteDistribution,
@@ -19,11 +19,8 @@ const VoteSection = ({
   chain,
   proposalId,
 }: any) => {
-  console.log(votingEndTime);
-
   const wallet = useRecoilValue(walletState);
   const { fetchUserVote } = useGovernance();
-  // const { chain, proposalId } = useParams() ;
   const [userVote, setUserVote] = useState("");
   const chainAddress = useRef<string>("");
 
@@ -39,7 +36,7 @@ const VoteSection = ({
 
       setUserVote(vote);
     } catch (error) {
-      console.log(error);
+      showToast("error", "Error while fetching  user's vote");
     }
   };
 

@@ -1,11 +1,7 @@
 import React from "react";
-import Section from "../Layout/Section";
-import { Box, Flex, Stack, Text, Tooltip, VStack } from "@chakra-ui/react";
-import { IVoteValueProps } from "../../utils/interface";
-import { bigSmallTextColorMap, colorVoteMap } from "../../utils/constant";
+import { Box, Stack, Text, VStack } from "@chakra-ui/react";
 import { TiTick } from "react-icons/ti";
 import { RxCross2 } from "react-icons/rx";
-import { FaQuestion } from "react-icons/fa";
 import { BsQuestion } from "react-icons/bs";
 
 const satisfiedBgMap = {

@@ -23,9 +23,8 @@ import {
   scrollbarStyle,
   tagColorMap,
 } from "@/utils/constant";
-import ColorTag from "../DataDisplay/ColorTag";
-// import { useParams } from "next/navigation";
-import StatusTags from "../PrettyUI/StatusTags/StatusTags";
+import ColorTag from "@/components/DataDisplay/ColorTag";
+import StatusTags from "@/components/PrettyUI/StatusTags/StatusTags";
 
 export interface IBasicInfo {
   id: string;
@@ -58,7 +57,6 @@ const BasicInfo = ({
 }: IBasicInfoPropsWithChainDetails) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [parsedHTML, setParsedHTML] = useState("");
-  // const { chain } = useParams();
 
   useEffect(() => {
     const changeToHtml=async()=>{
@@ -185,7 +183,6 @@ const BasicInfo = ({
                 flexDirection={"column"}
                 gap={"20px"}
               >
-                {/* {description && marked(description)} */}
               </Box>
             </Box>
           </Flex>
@@ -197,7 +194,6 @@ const BasicInfo = ({
           width={"80%"}
           borderRadius={"15px"}
           bg={"#201d27"}
-          // backdropFilter={"blur(20px)"}
           padding={"15px"}
           px={"40px"}
           color={"#bfbfbf"}
@@ -221,7 +217,6 @@ const BasicInfo = ({
               gap={"15px"}
             >
             </Box>
-            {/* <Lorem count={2} /> */}
           </ModalBody>
         </ModalContent>
       </Modal>

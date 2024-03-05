@@ -1,10 +1,10 @@
 import axios from "axios";
-import { ILpCardProps } from "../../components/Governance/LpCard";
+import { ILpCardProps } from "@/components/Governance/LpCard";
 import {
   getDenomFromName,
   getSymbolFromName,
   parseIsoTimeString,
-} from "../../utils/common";
+} from "@/utils/common";
 import { useState } from "react";
 import { useRecoilValue } from "recoil";
 import { walletState } from "../../context/walletState";

@@ -1,26 +1,22 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 
 import React, { useEffect, useState } from "react";
-import Section from "../Layout/Section";
-import { useCosmosValidatorQuery } from "../../hooks/chains/cosmos/useCosmosValidatorQuery";
-import CustomTable from "../DataDisplay/CustomTable";
+import Section from "@/components/Layout/Section";
+import { useCosmosValidatorQuery } from "@/hooks/chains/cosmos/useCosmosValidatorQuery";
+import CustomTable from "@/components/DataDisplay/CustomTable";
 import {
-  Center,
   Flex,
   FormControl,
-  FormLabel,
-  Grid,
   Select,
-  Spinner,
   Switch,
   Text,
   Tooltip,
 } from "@chakra-ui/react";
-import Overview from "./Overview";
+import Overview from "@/components/Validators/Overview";
 import { useRecoilValue } from "recoil";
-import { cosmosValidatorState } from "../../context/cosmosValidatorState";
-import CustomSkeleton from "../skeleton/CustomSkeleton";
-import { calculateAverageCommissionRate } from "../../utils/common";
+import { cosmosValidatorState } from "@/context/cosmosValidatorState";
+import CustomSkeleton from "@/components/skeleton/CustomSkeleton";
+import { calculateAverageCommissionRate } from "@/utils/common";
 
 const ValidatorsList = () => {
   const { getParsedActiveValidators } = useCosmosValidatorQuery();
@@ -47,9 +43,7 @@ const ValidatorsList = () => {
 
     for (const i in active) {
       power += parseFloat(active[i]["Share %"].replace(/%/g, ""));
-      // console.log(power);
       if (power >= 95) {
-        // console.log(i);
 
         setSoftOptIndex(Number(i));
         return i;
@@ -65,14 +59,12 @@ const ValidatorsList = () => {
   };
 
   const handleSoftOptToggle = (e: any) => {
-    console.log(e.target.value);
     setSoftOpt((prev) => !prev);
   };
 
   const upTime = "100%";
 
   const modifyData = (data: any, upTime: any) => {
-    // console.log(activeValidators);
     const newData = data.map((item: any) => {
       return {
         ...item,
@@ -100,7 +92,6 @@ const ValidatorsList = () => {
         sideText={`${visibleValidators.length}/${validators?.length || "-"}`}
         subtitle={` ${validators?.length} Allocated`}
       >
-        {/* <Overview active="180" total="573" averageComm="11.03%" /> */}
         <Flex
           alignItems={"center"}
           gap={"50px"}

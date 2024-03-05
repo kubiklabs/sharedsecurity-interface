@@ -1,9 +1,9 @@
-import axios, { all } from "axios";
+import axios from "axios";
 import { useSetRecoilState } from "recoil";
-import { neutronAssetState } from "../../../../context/assetsState";
-import neutronAssetList from "../astroport/neutronTokenList.json";
-import { useNtrnAstroQuery } from "../astroport/useNtrnAstroQuery";
-import { Neutron } from "../../../../config/nodeConfig.json";
+import { neutronAssetState } from "@/context/assetsState";
+import neutronAssetList from "@/hooks/chains/neutron/astroport/neutronTokenList.json";
+import { useNtrnAstroQuery } from "@/hooks/chains/neutron/astroport/useNtrnAstroQuery";
+import { Neutron } from "@/config/nodeConfig.json";
 
 const REST_URL = Neutron.REST;
 
@@ -24,9 +24,7 @@ export const useNeutronAssets = () => {
 
   const getParsedNeutronAssets = async () => {
     let parsedAssets: any[] = [];
-    // const allAssets = await getNeutronSupply();
     const assetBalances = await getAllAssetBalances();
-    console.log(assetBalances);
 
     Object.keys(assetBalances.assetBalances).forEach((asset: any) => {
       const token = Object.keys(neutronAssetList).find(

@@ -1,4 +1,4 @@
-import axios, { AxiosResponse, all } from "axios";
+import axios, { AxiosResponse } from "axios";
 
 export const useValidatorQuery = (restUrl: string) => {
   const getFullValidatorList = async () => {
@@ -13,7 +13,6 @@ export const useValidatorQuery = (restUrl: string) => {
         );
         pagination_key = response.data.pagination.next_key;
         allValidators = [...allValidators, ...response.data.validators];
-        // console.log(pagination_key, allValidators);
       }
       return allValidators;
     } catch (error) {

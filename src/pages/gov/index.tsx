@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 
-import { Box, Skeleton } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import VpSection from "@/components/Governance/VpSection";
 import LpSection from "@/components/Governance/LpSection";
 import InfoSection from "@/components/Governance/InfoSection";

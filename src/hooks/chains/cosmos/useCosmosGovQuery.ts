@@ -1,7 +1,7 @@
 import { useRecoilState } from "recoil";
-import { useGovernanceQuery } from "../useGovernanceQuery";
-import { userVpState } from "../../../context/userVpState";
-import { Cosmos } from "../../../config/nodeConfig.json";
+import { useGovernanceQuery } from "@/hooks/chains/useGovernanceQuery";
+import { userVpState } from "@/context/userVpState";
+import { Cosmos } from "@/config/nodeConfig.json";
 
 let trustedRest = Cosmos.REST;
 
@@ -22,8 +22,6 @@ export const useCosmosGovQuery = () => {
     getParsedProposal,
     getUserVote,
   } = useGovernanceQuery(trustedRest, "Cosmos");
-
-  const [userVp, setUserVp] = useRecoilState(userVpState);
 
   const getCosmosGovProposals = async () => {
     return await getGovProposals();
@@ -47,7 +45,6 @@ export const useCosmosGovQuery = () => {
 
   const getCosmosVotingPower = async (address: string) => {
     const votingPower = await getVotingPower(address);
-    const updatedState = { ...userVp, Cosmos: votingPower };
     return votingPower;
   };
 

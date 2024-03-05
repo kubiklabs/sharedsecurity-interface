@@ -1,7 +1,7 @@
-import { Box, Center, Flex, Heading, Spinner, Stack } from "@chakra-ui/react";
+import {  Center, Spinner, Stack } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import BasicInfo, { IBasicInfo } from "@/components/Proposal/BasicInfo";
+import BasicInfo from "@/components/Proposal/BasicInfo";
 import VoteSection from "@/components/Proposal/VoteSection";
 import Overview from "@/components/Proposal/Overview";
 import { useGovernance } from "@/hooks/useGovernance";
@@ -13,7 +13,6 @@ import BrowserTitle from "@/components/BrowserTitle/BrowserTitle";
 
 const Proposal = () => {
   const data = useParams();
-
   const chain = data?.chain as string;
  const proposalId = data?.proposalId as string;
   const [proposalData, setProposalData] = useState<any>();

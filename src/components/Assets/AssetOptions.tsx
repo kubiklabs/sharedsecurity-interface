@@ -1,4 +1,4 @@
-import { Box, Flex } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 type propsType = {
   options: string[];
   handleChange: (option: string) => void;

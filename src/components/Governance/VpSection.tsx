@@ -3,23 +3,18 @@
 import Section from "../Layout/Section";
 import {
   Center,
-  Grid,
-  GridItem,
   Link,
-  Skeleton,
   Spinner,
   Text,
   Box
 } from "@chakra-ui/react";
-import VpCard from "./VpCard";
 import { useRecoilValue } from "recoil";
-import { walletState } from "../../context/walletState";
-import { useConnectWallet } from "../../hooks/useConnectWallet";
+import { walletState } from "@/context/walletState";
+import { useConnectWallet } from "@/hooks/useConnectWallet";
 import { useEffect, useState } from "react";
-import { useGovernance } from "../../hooks/useGovernance";
-import { userVpState } from "../../context/userVpState";
-import CustomTable from "../DataDisplay/CustomTable";
-import VpTable from "./VpTable";
+import { useGovernance } from "@/hooks/useGovernance";
+import { userVpState } from "@/context/userVpState";
+import VpTable from "@/components/Governance/VpTable";
 
 const VpSection = () => {
   const { isLoggedIn } = useRecoilValue(walletState);
@@ -49,7 +44,6 @@ const VpSection = () => {
     setIsLoading(false);
   };
   return (
-    // <Box py={"40px"} px={"60px"} bgColor={"#17131E"} borderRadius={"15px"}>
     <Section
       heading="Your Voting Power"
       subtitle="Get to know the value of your vote."
@@ -75,29 +69,9 @@ const VpSection = () => {
       ) : (
         <Box>
           <VpTable />
-          {/* <Grid
-            p={"15px"}
-            gap={"20px"}
-            gridTemplateColumns={"repeat(auto-fit, minmax(320px, 1fr))"}
-          >
-            <GridItem>
-              <VpCard name="Cosmos" />
-            </GridItem>
-            <GridItem>
-              <VpCard name="Neutron" />
-            </GridItem>
-            <GridItem>
-              <VpCard name="Stride" />
-            </GridItem>
-          </Grid> */}
-
         </Box>
       )}
-
-
-
     </Section>
-    // </Box>
   );
 };
 

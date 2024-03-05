@@ -1,21 +1,9 @@
 import { SigningStargateClient } from "@cosmjs/stargate";
 import { getCosmosOption, sleep } from "../../../utils/common";
-// import { useConnectWallet, useDisconnetWallet } from "../../useConnectWallet";
-import cosmosChainInfo from "../../../config/chains/CosmosHub/cosmos_mainnet.json";
 import nodeConfig from "../../../config/nodeConfig.json";
-import { toast } from "react-toastify";
 import Long from "long";
 import showToast from "../../../utils/showToast";
 
-const style = {
-  position: "top-right",
-  autoClose: 5000,
-  hideProgressBar: false,
-  closeOnClick: true,
-  pauseOnHover: true,
-  draggable: true,
-  progress: undefined,
-};
 
 export const useCosmosGovTxn = () => {
   const rpcEndPoint = nodeConfig.Cosmos.RPC;
