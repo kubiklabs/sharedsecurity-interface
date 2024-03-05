@@ -5,8 +5,8 @@ import { useNeutronGovQuery } from "./chains/neutron/useNeutronGovQuery";
 import { useNeutronGovTxn } from "./chains/neutron/useNeutronGovTxn";
 import { useStrideGovQuery } from "./chains/stride/useStrideGovQuery";
 import { useStrideGovTxn } from "./chains/stride/useStrideGovTxn";
-import { walletState } from "../context/walletState";
-import { userVpState } from "../context/userVpState";
+import { walletState } from "@/context/walletState";
+import { userVpState } from "@/context/userVpState";
 
 export const useGovernance = () => {
   const { Cosmos, Neutron, Stride, isLoggedIn } = useRecoilValue(walletState);
@@ -33,13 +33,6 @@ export const useGovernance = () => {
     const cosmosVp = await getCosmosVotingPower(Cosmos as string);
     const neutronVp = await getNeutronVotingPower(Neutron as string);
     const strideVp = await getStrideVotingPower(Stride as string);
-    // setUserVp({
-    //   Cosmos: cosmosVp,
-    //   Neutron: neutronVp,
-    //   Stride: strideVp,
-    // });
-    // console.log(cosmosVp, neutronVp, strideVp);
-
     setUserVp((prevUserVp) => ({
       ...prevUserVp,
       Cosmos: {

@@ -1,13 +1,13 @@
 import { CosmWasmClient } from "@cosmjs/cosmwasm-stargate";
 import { useEffect, useState } from "react";
-import { neutronSingleProposal } from "../../../config/chains/Neutron/contracts/SingleProposalModule";
-import { parseNanosecondTimeString, sleep } from "../../../utils/common";
-import { ILpCardProps } from "../../../components/Governance/LpCard";
-import { neutronVotingModule } from "../../../config/chains/Neutron/contracts/VotingModule";
+import { neutronSingleProposal } from "@/config/chains/Neutron/contracts/SingleProposalModule";
+import { parseNanosecondTimeString } from "@/utils/common";
+import { ILpCardProps } from "@/components/Governance/LpCard";
+import { neutronVotingModule } from "@/config/chains/Neutron/contracts/VotingModule";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { userVpState } from "../../../context/userVpState";
-import { walletState } from "../../../context/walletState";
-import { Neutron } from "../../../config/nodeConfig.json";
+import { userVpState } from "@/context/userVpState";
+import { walletState } from "@/context/walletState";
+import { Neutron } from "@/config/nodeConfig.json";
 
 const rpcEndpoint = Neutron.RPC;
 

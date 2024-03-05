@@ -1,17 +1,11 @@
 import {
-  Box,
-  Flex,
   Grid,
   GridItem,
   Text,
-  Stat,
-  StatLabel,
-  StatNumber,
-  StatHelpText,
   Stack,
 } from "@chakra-ui/react";
 import React from "react";
-import StatDisplay from "../DataDisplay/StatDisplay";
+import StatDisplay from "@/components/DataDisplay/StatDisplay";
 
 const OtherDetails = ({
   votingStartTime,
@@ -27,8 +21,6 @@ const OtherDetails = ({
       <Grid
         p={"15px"}
         gap={"20px"}
-        // justifyContent={"space-evenly"}
-        // gridAutoFlow={"column"}
         gridTemplateColumns={"repeat(auto-fit, minmax(100px, 300px))"}
       >
         <GridItem>

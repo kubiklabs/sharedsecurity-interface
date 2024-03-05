@@ -1,4 +1,4 @@
-import { Box, Flex, Heading, Text, Link } from "@chakra-ui/react";
+import { Box, Flex, Text, Link } from "@chakra-ui/react";
 import SubtitleText from "@/components/DataDisplay/SubtitleText";
 import ChainSocialButton from "@/components/Buttons/ChainSocialButton";
 
@@ -6,7 +6,7 @@ import {
   COSMOS_SOCIALS,
   NEUTRON_SOCIALS,
   STRIDE_SOCIALS,
-} from "../../utils/constant";
+} from "@/utils/constant";
 
 const InfoSection = () => {
   return (

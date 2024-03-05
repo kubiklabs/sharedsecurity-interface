@@ -1,5 +1,5 @@
-import { useGovernanceQuery } from "../useGovernanceQuery";
-import { Stride } from "../../../config/nodeConfig.json";
+import { useGovernanceQuery } from '@/hooks/chains/useGovernanceQuery';
+import { Stride } from "@/config/nodeConfig.json";
 
 const trustedRest = `${Stride.REST}/`;
 

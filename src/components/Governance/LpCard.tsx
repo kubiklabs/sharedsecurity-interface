@@ -1,22 +1,18 @@
 import { Box, Stack, Text, Flex, Button } from "@chakra-ui/react";
-import Section from "../Layout/Section";
-import SubtitleText from "../DataDisplay/SubtitleText";
-import ColorTag from "../DataDisplay/ColorTag";
-import BigSmallText from "../DataDisplay/BigSmallText";
+import SubtitleText from "@/components/DataDisplay/SubtitleText";
+import ColorTag from "@/components/DataDisplay/ColorTag";
+import BigSmallText from "@/components/DataDisplay/BigSmallText";
 import {
-  bigSmallTextColorMap,
   borderTagColorMap,
   colorVoteMap,
   cosmosStatusMap,
   neutronStatusMap,
   tagColorMap,
-} from "../../utils/constant";
-import { IVoteValueProps } from "../../utils/interface";
-// import { useNavigate } from "react-router-dom";
+} from "@/utils/constant";
+import { IVoteValueProps } from "@/utils/interface";
 import { useRouter } from "next/navigation";
-import { shortenString } from "../../utils/common";
-import { convertDateFormat } from "../../utils/common";
-import { removeSecondsFromTime } from "../../utils/common";
+import { convertDateFormat } from "@/utils/common";
+import { removeSecondsFromTime } from "@/utils/common";
 
 export interface ILpCardProps {
   proposalId: string;
@@ -42,13 +38,11 @@ const LpCard = ({
   const router = useRouter();
   return (
     <Box
-      // maxWidth={"fit-content"}
       border={`2px solid ${
         borderTagColorMap[tags[0] as keyof typeof tagColorMap]
       }`}
       bg={"rgba(255, 255, 255, 0.05)"}
       padding={"30px"}
-      // paddingY={"20px"}
       borderRadius={"10px"}
       onClick={() => router.push(`/gov/${tags[0]}/${proposalId}`)}
       _hover={{
@@ -126,10 +120,8 @@ const LpCard = ({
           {Object.keys(voteDistribution).map((vote) => {
             return (
               <Box key={vote}
-                // my={"10px"}
                 width={`${voteDistribution[vote as keyof IVoteValueProps]}%`}
                 height={"5px"}
-                // borderRadius={"5px"}
                 bg={colorVoteMap[vote as keyof typeof colorVoteMap].color}
               ></Box>
             );
