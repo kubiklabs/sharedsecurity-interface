@@ -8,6 +8,7 @@ import {
 import { useState } from "react";
 import { useRecoilValue } from "recoil";
 import { walletState } from "../../context/walletState";
+import { toast } from "react-toastify";
 
 interface IProposalData {
   proposals: Array<any>;
@@ -43,12 +44,16 @@ export const useGovernanceQuery = (restUrl: string, chain: string) => {
   };
 
   const getProposalById = async (proposalId: string) => {
-    const response = await axios.get(
-      `${restUrl}/cosmos/gov/v1beta1/proposals/${proposalId}`
-    );
-    const proposal = response.data.proposal;
-
-    return proposal;
+    try {
+      const response = await axios.get(
+        `${restUrl}/cosmos/gov/v1beta1/proposals/${proposalId}`
+      );
+      const proposal = response.data.proposal;
+  
+      return proposal;
+    } catch (error) {
+      toast.error("Failed to fetch proposal data");
+    }
   };
 
   const getTotalBondedToken = async () => {
@@ -138,7 +143,7 @@ export const useGovernanceQuery = (restUrl: string, chain: string) => {
   const calculateVoteDistribution = (votes: any) => {
     // const votes = proposal.final_tally_result;
     let totalVotes: number = 0;
-    Object.values(votes).map((count) => {
+    Object?.values(votes).map((count) => {
       totalVotes += Number(count);
     });
     const YES = `${

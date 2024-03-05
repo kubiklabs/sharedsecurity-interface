@@ -92,11 +92,11 @@ async function tvl() {
 
   return tvl;
 }
-
-export default {
+const data= {
   timetravel: false,
   methodology: "Sum of all the tokens that are liquid staked on Stride",
   stride: {
     tvl,
   },
 };
+export default data;
