@@ -1,11 +1,7 @@
 import { CosmWasmClient } from "@cosmjs/cosmwasm-stargate";
 import { useEffect, useState } from "react";
-import { toast } from "react-toastify";
-import neutronTokenList from "./neutronTokenList.json";
 import { astroportFactoryContract } from "../../../../config/chains/Neutron/contracts/astroport/AstroportFactory";
-import neutronCoinRegistry from "./neutronTokenList.json";
-import axios from "axios";
-import { coinConvert } from "../../../../utils/common";
+import neutronCoinRegistry from "../../../../config/chains/Neutron/neutronTokenList.json";
 import { pairs } from "../../../../config/chains/Neutron/contracts/astroport/astroportPairList.json";
 import { protocols } from "../../../../config/aezProtocols.json";
 import { useEcosystem } from "../../../common/aez/useEcosystem";
@@ -17,8 +13,6 @@ import { Neutron } from "../../../../config/nodeConfig.json";
 import showToast from "../../../../utils/showToast";
 
 const rpcEndpoint = Neutron.RPC;
-
-type INeutronCR = typeof neutronCoinRegistry;
 
 export const useNtrnAstroQuery = () => {
   const [queryClient, setQueryClient] = useState<CosmWasmClient>();
@@ -61,7 +55,10 @@ export const useNtrnAstroQuery = () => {
       );
       return response.pairs;
     } catch (error) {
-      showToast("error", `Query failed with message ${(error as Error).message}`);
+      showToast(
+        "error",
+        `Query failed with message ${(error as Error).message}`
+      );
       console.error(error);
     }
   };
@@ -77,33 +74,39 @@ export const useNtrnAstroQuery = () => {
       });
       return response;
     } catch (error) {
-      showToast("error", `Query failed with message ${(error as Error).message}`);
+      showToast(
+        "error",
+        `Query failed with message ${(error as Error).message}`
+      );
       console.error(error);
     }
   };
 
-  const getAstroPoolDenom = (asset: string) => {
-    return neutronTokenList[asset as keyof typeof neutronTokenList];
-  };
+  // const getAstroPoolDenom = (asset: string) => {
+  //   return neutronTokenList[asset as keyof typeof neutronTokenList];
+  // };
 
-  const getAllCoinPrices = async () => {
-    let id = "";
-    try {
-      for (const token in neutronCoinRegistry) {
-        id +=
-          neutronCoinRegistry[token as keyof INeutronCR].coingecko_id + "%2C";
-      }
+  // const getAllCoinPrices = async () => {
+  //   let id = "";
+  //   try {
+  //     for (const token in neutronCoinRegistry) {
+  //       id +=
+  //         neutronCoinRegistry[token as keyof INeutronCR].coingecko_id + "%2C";
+  //     }
 
-      const response = await axios.get(
-        `https://api.coingecko.com/api/v3/simple/price?ids=${id}&vs_currencies=usd`
-      );
-      return response.data;
-    } catch (error) {
-      console.log(error);
+  //     const response = await axios.get(
+  //       `https://api.coingecko.com/api/v3/simple/price?ids=${id}&vs_currencies=usd`
+  //     );
+  //     return response.data;
+  //   } catch (error) {
+  //     console.log(error);
 
-      showToast("error", `Request failed with message ${(error as Error).message}`);
-    }
-  };
+  //     showToast(
+  //       "error",
+  //       `Request failed with message ${(error as Error).message}`
+  //     );
+  //   }
+  // };
 
   const getTvlAllPools = async () => {
     let client = stargateClient;

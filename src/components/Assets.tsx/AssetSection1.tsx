@@ -129,8 +129,6 @@ const AssetSection1 = ({
     }
   };
 
-  console.log("Final Data", finalData);
-
   return (
     <Flex flexDirection={"column"} gap={"40px"}>
       <AssetOptions

@@ -2,11 +2,14 @@ import axios, { all } from "axios";
 import { coinConvert } from "../../../../utils/common";
 import { useSetRecoilState } from "recoil";
 import { cosmosAssetState } from "../../../../context/assetsState";
+import { usePriceApi } from "../../../usePriceApi";
 
 const REST_URL = "https://cosmos-rest.publicnode.com";
 
 export const useCosmosAssets = () => {
   const setCosmosAssets = useSetRecoilState(cosmosAssetState);
+
+  const { getSinglePrice } = usePriceApi();
 
   const getCosmosSupply = async () => {
     let allSupply: any = [];
@@ -22,11 +25,7 @@ export const useCosmosAssets = () => {
     let parsedAssets: any[] = [];
     const allAssets = await getCosmosSupply();
 
-    const price = (
-      await axios.get(
-        "https://api.coingecko.com/api/v3/simple/price?ids=cosmos&vs_currencies=usd"
-      )
-    ).data.cosmos.usd;
+    const price = (await getSinglePrice("cosmos")).price;
 
     allAssets.forEach((asset: any) => {
       parsedAssets = [

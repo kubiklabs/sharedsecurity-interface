@@ -1,4 +1,5 @@
 import axios from "axios";
+import { usePriceApi } from "../../../usePriceApi";
 // import { get } from "../helper/http";
 
 const coinGeckoIds = {
@@ -12,86 +13,92 @@ const coinGeckoIds = {
   uumee: "umee",
   ucmdx: "comdex",
   usomm: "sommelier",
+  adydx: "dydx-chain",
 };
+export const useStrideDefiAdapter = () => {
+  const { getMultiplePrice } = usePriceApi();
 
-const getCoinPrices = async () => {
-  let ids = "";
+  const getCoinPrices = async () => {
+    const idArray = Object.values(coinGeckoIds);
+    const result = await getMultiplePrice(idArray);
+    console.log(result);
 
-  for (const id in coinGeckoIds) {
-    ids += coinGeckoIds[id as keyof typeof coinGeckoIds] + "%2C";
+    return result;
+  };
+
+  function getCoinDenom(denom: string) {
+    // inj uses 1e18 - https://docs.injective.network/learn/basic-concepts/inj_coin#base-denomination
+    const idArray = ["aevmos", "inj"];
+
+    if (idArray.includes(denom)) {
+      return 1e18;
+    } else {
+      return 1e6;
+    }
   }
-  const response = await axios.get(
-    `https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd`
-  );
 
-  return response.data;
-};
+  async function tvl() {
+    let tvl = 0;
+    const prices = await getCoinPrices();
+    console.log(prices);
 
-function getCoinDenom(denom: string) {
-  // inj uses 1e18 - https://docs.injective.network/learn/basic-concepts/inj_coin#base-denomination
-  const idArray = ["aevmos", "inj"];
-
-  if (idArray.includes(denom)) {
-    return 1e18;
-  } else {
-    return 1e6;
-  }
-}
-
-async function tvl() {
-  const balances = {};
-  let tvl = 0;
-  const prices = await getCoinPrices();
-
-  const { host_zone: hostZones } = (
-    await axios.get(
-      "https://stride-fleet.main.stridenet.co/api/Stride-Labs/stride/stakeibc/host_zone"
-    )
-  ).data;
-  //   console.log(hostZones);
-
-  for (const index in hostZones) {
-    const hostZone = hostZones[index];
-    const stDenom = "st".concat(hostZone.host_denom);
-    const { amount: assetBalances } = (
+    const { host_zone: hostZones } = (
       await axios.get(
-        "https://stride-fleet.main.stridenet.co/api/cosmos/bank/v1beta1/supply/by_denom?denom=".concat(
-          stDenom
-        )
+        "https://stride-fleet.main.stridenet.co/api/Stride-Labs/stride/stakeibc/host_zone"
       )
     ).data;
-    const assetBalance = assetBalances["amount"];
+    console.log(hostZones);
 
-    const coinDecimals = getCoinDenom(hostZone.host_denom);
+    for (const index in hostZones) {
+      const hostZone = hostZones[index];
+      const stDenom = "st".concat(hostZone.host_denom);
+      const { amount: assetBalances } = (
+        await axios.get(
+          "https://stride-fleet.main.stridenet.co/api/cosmos/bank/v1beta1/supply/by_denom?denom=".concat(
+            stDenom
+          )
+        )
+      ).data;
+      const assetBalance = assetBalances["amount"];
 
-    const amount = assetBalance / coinDecimals;
+      const coinDecimals = getCoinDenom(hostZone.host_denom);
 
-    const geckoId =
-      coinGeckoIds[hostZone.host_denom as keyof typeof coinGeckoIds];
+      const amount = assetBalance / coinDecimals;
 
-    //TODO: Add support for adydx in config
+      const geckoId =
+        coinGeckoIds[hostZone.host_denom as keyof typeof coinGeckoIds];
 
-    if (!geckoId) {
-      console.log(`${hostZone.host_denom} not found in config!`);
-      continue;
+      //TODO: Add support for adydx in config
+
+      if (!geckoId) {
+        console.log(`${hostZone.host_denom} not found in config!`);
+        continue;
+      }
+      if (!prices[geckoId]) {
+        console.log(`${geckoId} price not found in price api config!`);
+        continue;
+      }
+      console.log(geckoId);
+
+      const amountInUsd =
+        Number(prices[geckoId].price) *
+        Number(amount) *
+        hostZone.redemption_rate;
+      tvl += amountInUsd;
+
+      if (!geckoId) {
+        throw new Error("Missing gecko mapping: " + hostZone.host_denom);
+      }
     }
 
-    const amountInUsd =
-      Number(prices[geckoId].usd) * Number(amount) * hostZone.redemption_rate;
-    tvl += amountInUsd;
-
-    if (!geckoId) {
-      throw new Error("Missing gecko mapping: " + hostZone.host_denom);
-    }
+    return tvl;
   }
 
-  return tvl;
-}
-
-export default {
-  timetravel: false,
-  methodology: "Sum of all the tokens that are liquid staked on Stride",
-  stride: {
-    tvl,
-  },
+  return {
+    timetravel: false,
+    methodology: "Sum of all the tokens that are liquid staked on Stride",
+    stride: {
+      tvl,
+    },
+  };
 };

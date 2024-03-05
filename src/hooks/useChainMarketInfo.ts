@@ -6,6 +6,8 @@ import { borderTagColorMap, tagColorMap } from "../utils/constant";
 export const useChainMarketInfo = () => {
   const [marketData, setMarketData] = useRecoilState(marketState);
 
+  //TODO: Replace price api with https://price-api.sharedsecurity.info/multiprice?coin_ids=kusama
+
   const getAllCoinsMarket = async () => {
     try {
     } catch (error) {}

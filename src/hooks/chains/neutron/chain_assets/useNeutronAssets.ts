@@ -1,7 +1,7 @@
 import axios, { all } from "axios";
 import { useSetRecoilState } from "recoil";
 import { neutronAssetState } from "../../../../context/assetsState";
-import neutronAssetList from "../astroport/neutronTokenList.json";
+import neutronAssetList from "../../../../config/chains/Neutron/neutronTokenList.json";
 import { useNtrnAstroQuery } from "../astroport/useNtrnAstroQuery";
 import { Neutron } from "../../../../config/nodeConfig.json";
 

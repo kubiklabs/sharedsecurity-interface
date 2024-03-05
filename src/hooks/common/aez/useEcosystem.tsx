@@ -4,24 +4,17 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { StargateClient } from "@cosmjs/stargate";
 import showToast from "../../../utils/showToast";
+import { usePriceApi } from "../../usePriceApi";
 
 export const useEcosystem = () => {
-  const getAllCoinPrices = async (coinRegistry: any) => {
-    let id = "";
-    try {
-      for (const token in coinRegistry) {
-        id +=
-          coinRegistry[token as keyof typeof coinRegistry].coingecko_id + "%2C";
-      }
+  const { getMultiplePrice } = usePriceApi();
 
-      const response = await axios.get(
-        `https://api.coingecko.com/api/v3/simple/price?ids=${id}&vs_currencies=usd`
-      );
-      return response.data;
-    } catch (error) {
-      console.log(error);
-      showToast("error", `Request failed with message ${(error as Error).message}`);
-    }
+  const getAllCoinPrices = async (coinRegistry: any) => {
+    const idArray = Object.values(coinRegistry).map(
+      (item: any) => item.coingecko_id
+    );
+    const result = await getMultiplePrice(idArray);
+    return result;
   };
 
   const getAllContractBalances = async (
@@ -66,7 +59,7 @@ export const useEcosystem = () => {
           //Calculate the rate in usd
           const rateInUsd =
             prices[coinRegistry[denom as keyof IConstractList].coingecko_id]
-              .usd;
+              .price;
 
           //Calculate the balance in usd
           const balanceInUsd = Number(balanceInDenom) * Number(rateInUsd);

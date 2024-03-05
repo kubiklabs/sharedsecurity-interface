@@ -1,4 +1,4 @@
-import useStrideDefiAdapter from "../adapter/useStrideDefiAdapter";
+import { useStrideDefiAdapter } from "../adapter/useStrideDefiAdapter";
 import { protocols } from "../../../../config/aezProtocols.json";
 import { useSetRecoilState } from "recoil";
 import { strideTvlState } from "../../../../context/ecosystemState";
@@ -6,7 +6,7 @@ import { strideTvlState } from "../../../../context/ecosystemState";
 export const useStrideProtocol = () => {
   const {
     stride: { tvl },
-  } = useStrideDefiAdapter;
+  } = useStrideDefiAdapter();
 
   const setStrideTvl = useSetRecoilState(strideTvlState);
 
