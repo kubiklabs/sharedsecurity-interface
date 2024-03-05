@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import { Line } from "react-chartjs-2";
 import Section from "../Layout/Section";
 import { Box, Flex, Text } from "@chakra-ui/react";
 import AreaGraph from "../Graphs and Chart/AreaGraph";
@@ -69,14 +68,13 @@ let data: object[] = [];
 let time = "Feb ";
 for (let j = 1; j <= 10; j++) {
   let entry = {
-    "time": time + j,
-    totalSupply: Math.floor(Math.random() * 10), ibcIn: Math.floor(Math.random() * 10), ibcOut: Math.floor(Math.random() * 10)
+    time: time + j,
+    totalSupply: Math.floor(Math.random() * 10),
+    ibcIn: Math.floor(Math.random() * 10),
+    ibcOut: Math.floor(Math.random() * 10),
   };
   data.push(entry);
 }
-
-
-
 
 // const data = [
 //   { month: "Jan", value1: 100, value2: 500 },
@@ -93,24 +91,19 @@ for (let j = 1; j <= 10; j++) {
 //   { month: "Dec", value1: 120, value2: 30},
 // ];
 
-
-
 const buttonSelectorData = [
   { label: "Total Supply", value: "7,584", identifier: "totalSupply" },
   { label: "IBC In", value: "7,584", identifier: "ibcIn" },
   { label: "IBC Out", value: "17,284", identifier: "ibcOut" },
-]
+];
 
 const colorSelectorObject = {
   totalSupply: "#BC3D70",
   ibcIn: "#fcba03",
   ibcOut: "#FAA291",
-}
-
-
+};
 
 const AssetGraph = () => {
-
   const [selectedOption, setSelectedOption] = useState({
     totalSupply: true,
     ibcIn: false,
@@ -133,53 +126,81 @@ const AssetGraph = () => {
     setColor(newColor);
   }, [selectedOption]);
 
-
   return (
-    <Section heading="Total Supply" subtitle="Our top picks to get you started" >
+    <Section heading="Total Supply" subtitle="Our top picks to get you started">
       <Box position={"relative"} width={"100%"} height={"60vh"}>
         {/* <Line data={data} options={options} /> */}
-        <AreaGraph lineData={data} colors={color} xKey={"time"} yKey={showLine} />
+        <AreaGraph
+          lineData={data}
+          colors={color}
+          xKey={"time"}
+          yKey={showLine}
+        />
       </Box>
 
       <Flex width={"100%"} justifyContent={"space-around"}>
-        {
-          buttonSelectorData.map((item, index) => (
-            <Box
-              key={index}
-              display={"flex"}
-              flexDir={"row"}
-              justifyContent={"center"}
-              gap={"8px"}
-              alignItems="center"
-              paddingX={"24px"}
-              paddingY={"12px"}
-              cursor={"pointer"}
-              _hover={{ textDecor: "none", borderColor: colorSelectorObject[item.identifier as keyof typeof selectedOption] }}
-              borderRadius="5px"
-              fontSize="12px"
-              fontWeight={400}
-              borderWidth={"1px"}
-              borderColor={(selectedOption[item.identifier as keyof typeof selectedOption]) ? colorSelectorObject[item.identifier as keyof typeof selectedOption] : "transparent"}
-              onClick={() => {
-                if ((selectedOption[item.identifier as keyof typeof selectedOption] && showLine.length > 1) || !selectedOption[item.identifier as keyof typeof selectedOption]) {
-                  setSelectedOption({ ...selectedOption, [item.identifier]: !selectedOption[item.identifier as keyof typeof selectedOption] })
-                }
-              }}
-              bgColor={"transparent"}
-            >
-              <Text fontSize={"20px"} textColor={"#D9D9D9"}>{item.value}</Text>
-              <Text fontSize={"14px"} textColor={"#B3B3B3"}>{item.label}</Text>
-            </Box>
-          ))
-        }
+        {buttonSelectorData.map((item, index) => (
+          <Box
+            key={index}
+            display={"flex"}
+            flexDir={"row"}
+            justifyContent={"center"}
+            gap={"8px"}
+            alignItems="center"
+            paddingX={"24px"}
+            paddingY={"12px"}
+            cursor={"pointer"}
+            _hover={{
+              textDecor: "none",
+              borderColor:
+                colorSelectorObject[
+                  item.identifier as keyof typeof selectedOption
+                ],
+            }}
+            borderRadius="5px"
+            fontSize="12px"
+            fontWeight={400}
+            borderWidth={"1px"}
+            borderColor={
+              selectedOption[item.identifier as keyof typeof selectedOption]
+                ? colorSelectorObject[
+                    item.identifier as keyof typeof selectedOption
+                  ]
+                : "transparent"
+            }
+            onClick={() => {
+              if (
+                (selectedOption[
+                  item.identifier as keyof typeof selectedOption
+                ] &&
+                  showLine.length > 1) ||
+                !selectedOption[item.identifier as keyof typeof selectedOption]
+              ) {
+                setSelectedOption({
+                  ...selectedOption,
+                  [item.identifier]:
+                    !selectedOption[
+                      item.identifier as keyof typeof selectedOption
+                    ],
+                });
+              }
+            }}
+            bgColor={"transparent"}
+          >
+            <Text fontSize={"20px"} textColor={"#D9D9D9"}>
+              {item.value}
+            </Text>
+            <Text fontSize={"14px"} textColor={"#B3B3B3"}>
+              {item.label}
+            </Text>
+          </Box>
+        ))}
         {/* {stats.map((item)=>(
           item.label!="Transaction Monitoring"&&<FeaturedDataDisplay key={item.label} text={item.label} value={item.label==="Total Market Cap"?`$ ${totalMarketCap}`:item.number}/>
         ))} */}
       </Flex>
-
-
     </Section>
   );
-}
+};
 
 export default AssetGraph;

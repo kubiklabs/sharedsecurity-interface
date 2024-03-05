@@ -1,36 +1,37 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
 import { useState } from "react";
-import logo from "../../assets/kubik-logo.png";
+import logo from "/images/kubik-logo.png";
 import {
   useConnectWallet,
   useDisconnetWallet,
 } from "../../hooks/useConnectWallet";
+import { StaticImageData } from "next/image";
 
 export interface IChainInfoMinimal {
   id: string;
   name: string;
   type: string;
-  imgSrc: string;
-}
+  imgSrc: string | StaticImageData;
+}''
 
 const NETWORKS = [
   {
     id: "cosmoshub-4",
     name: "Cosmos Hub",
     type: "mainnet",
-    imgSrc: logo,
+    imgSrc: '/images/kubik-logo.png',
   },
   {
     id: "neutron-1",
     name: "Neutron",
     type: "mainnet",
-    imgSrc: logo,
+    imgSrc: '/images/kubik-logo.png',
   },
   {
     id: "stride-1",
     name: "Stride",
     type: "mainnet",
-    imgSrc: logo,
+    imgSrc: '/images/kubik-logo.png',
   },
 ];
 
@@ -40,7 +41,7 @@ const DropDown = () => {
   const connectWallet = useConnectWallet();
   const disconnectWallet = useDisconnetWallet();
 
-  const handleNetworkChange = async (item: IChainInfoMinimal) => {
+  const handleNetworkChange = async (item: IChainInfoMinimal ) => {
     // setIsOpen(false);
     if (item.name === activeOption) return;
     setActiveOption(item.name);

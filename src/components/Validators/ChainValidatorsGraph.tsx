@@ -1,6 +1,5 @@
 import Section from "../Layout/Section";
 import React, { useState } from "react";
-import { Line } from "react-chartjs-2";
 import { Box, Select, Flex, Text } from "@chakra-ui/react";
 import AreaGraph from "../Graphs and Chart/AreaGraph";
 
