@@ -1,9 +1,7 @@
-'use client'
-
 import { useSetRecoilState } from "recoil";
-import { walletState } from "../context/walletState";
-import { sleep } from "../utils/common";
-import { useChainInfo } from "./useChainInfo";
+import { walletState } from "@/context/walletState";
+import { sleep } from "@/utils/common";
+import { useChainInfo } from "@/hooks/useChainInfo";
 import { toast } from "react-toastify";
 import showToast from "@/utils/showToast";
 

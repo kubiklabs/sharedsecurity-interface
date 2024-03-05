@@ -14,6 +14,7 @@ import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import { proposalsState } from "@/context/proposalsState";
 import { compareProposals } from "@/utils/common";
 import { userVpState } from "@/context/userVpState";
+import BrowserTitle from "@/components/BrowserTitle/BrowserTitle";
 
 
 const Governance = () => {
@@ -64,7 +65,7 @@ const Governance = () => {
         Op: strideOpList.current.length,
       },
     }));
-  
+
 
     const updatedState = {
       userVotingPower,
@@ -84,19 +85,22 @@ const Governance = () => {
   };
 
   return (
-    <Box>
-      <Box
-        flexDirection={"column"}
-        position={"relative"}
-        display={"flex"}
-        gap={"50px"}
-      >
-        <VpSection/>
-        <LpSection isLoading={loading} lpList={sortedLpList} />
-        <InfoSection />
-        <OpSection isLoading={loading} opList={sortedOpList} />
+    <>
+      <BrowserTitle title="Governance" />
+      <Box>
+        <Box
+          flexDirection={"column"}
+          position={"relative"}
+          display={"flex"}
+          gap={"50px"}
+        >
+          <VpSection />
+          <LpSection isLoading={loading} lpList={sortedLpList} />
+          <InfoSection />
+          <OpSection isLoading={loading} opList={sortedOpList} />
+        </Box>
       </Box>
-    </Box>
+    </>
   );
 };
 

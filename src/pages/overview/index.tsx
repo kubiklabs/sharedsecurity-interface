@@ -3,6 +3,7 @@ import Featured from "@/components/Overview/Featured";
 import { useEffect } from "react";
 import { useChainMarketInfo } from "@/hooks/useChainMarketInfo";
 import Trends from "@/components/Overview/Trends";
+import BrowserTitle from "@/components/BrowserTitle/BrowserTitle";
 
 const stats = [
   {
@@ -33,12 +34,15 @@ const Overwiew = () => {
     getAllCoinsMarket();
   });
   return (
+    <>
+    <BrowserTitle title="Overview" />
     <Box>
       <Box flexDirection={"column"} display={"flex"} gap={"70px"}>
         <Featured stats={stats} />
         <Trends />
       </Box>
     </Box>
+    </>
   );
 };
 

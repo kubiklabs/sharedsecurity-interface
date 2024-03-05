@@ -5,8 +5,7 @@ export default function Document() {
     <Html>
       <Head>
         <link rel="icon" type="image/png" href="/kubik-logo-white.png" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-        <title>Shared Security</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
       </Head>
       <body>
         <Main />
