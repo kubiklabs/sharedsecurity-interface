@@ -47,7 +47,7 @@ export const useChainInfo = (chainName: string) => {
   };
 
   const getChainDenom = () => {
-    return chainInfo.staking.staking_tokens[0].denom;
+    return chainInfo?.staking.staking_tokens[0].denom;
   };
 
   return {

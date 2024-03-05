@@ -4,7 +4,6 @@ import Section from "../Layout/Section";
 import { useEffect, useState } from "react";
 import CustomSkeleton from "../skeleton/CustomSkeleton";
 import { assetPieType, assetType } from "../types/types";
-import DoughnutChart from "../Graphs and Chart/DoughnutChart";
 import AssetGraph from "./AssetGraph";
 import AssetOptions from "./AssetOptions";
 import DoughnutGraph from "../Graphs and Chart/DoughnutGraph";
