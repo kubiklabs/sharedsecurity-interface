@@ -17,17 +17,19 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
             connectWallet();
     }, []);
 
-    window.addEventListener("keplr_keystorechange", () => {
-        if (connectWallet)
-            connectWallet();
-    });
+    if (typeof window !== 'undefined') {
+        window.addEventListener("keplr_keystorechange", () => {
+            if (connectWallet)
+                connectWallet();
+        });
+    }
 
     return (
         <RecoilRoot>
             <ChakraProvider theme={theme}>
                 <Layout>
                     <Component {...pageProps} />
-                    <ToastContainer/>
+                    <ToastContainer />
                 </Layout>
             </ChakraProvider>
         </RecoilRoot>
