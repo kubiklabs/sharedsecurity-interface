@@ -16,7 +16,6 @@ const Proposal = () => {
 
   const chain = data?.chain as string;
  const proposalId = data?.proposalId as string;
-  console.log(chain, proposalId,"chain, proposalId");
   const [proposalData, setProposalData] = useState<any>();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -36,13 +35,14 @@ const Proposal = () => {
   };
 
   return (
-    <Stack gap={"50px"}>
-      {isLoading ? (
-        <Center>
-          <Spinner width={"3rem"} height="3rem" />
-        </Center>
+    <>
+    <BrowserTitle title="Proposals" />
+    {isLoading ? (
+      <Center>
+      <Spinner width={"3rem"} height="3rem" />
+      </Center>
       ) : (
-        <>
+        <Stack gap={"50px"}>
           {proposalData && (
             <BasicInfo
               id={proposalData.id}
@@ -81,9 +81,9 @@ const Proposal = () => {
             />
             <ForumLink redirectLink="/" />
           </Section>
-        </>
+          </Stack>
       )}
-    </Stack>
+    </>
   );
 };
 
