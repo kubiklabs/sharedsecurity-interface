@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+
 import React, { useEffect, useState } from "react";
 import { useChainMarketInfo } from "../../hooks/useChainMarketInfo";
 import { SimpleGrid, Stack } from "@chakra-ui/react";

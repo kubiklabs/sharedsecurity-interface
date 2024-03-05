@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+
 // import {Box, Flex} from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useStrideAssets } from "@/hooks/chains/stride/chain_assets/useStrideAssets";

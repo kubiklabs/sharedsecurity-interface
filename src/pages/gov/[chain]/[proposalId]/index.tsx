@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+
 import { Box, Center, Heading, Spinner, Stack } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";

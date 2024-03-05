@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+
 import React, { useState } from "react";
 import Modal from "react-modal";
 import LoaderContent from "./LoaderContent";

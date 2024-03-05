@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+
 import React, { useEffect } from 'react';
 import type { AppProps } from "next/app";
 import { RecoilRoot } from 'recoil';

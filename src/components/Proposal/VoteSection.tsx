@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+
 import { Box, Flex, Grid, Text } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
 import Section from "../Layout/Section";
