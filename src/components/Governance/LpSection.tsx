@@ -1,18 +1,14 @@
 import {
   Center,
-  Flex,
   Grid,
   GridItem,
   Heading,
-  Skeleton,
   Spinner,
-  Text,
-  Box,
 } from "@chakra-ui/react";
-import Section from "../Layout/Section";
+
 import LpCard, { ILpCardProps } from "./LpCard";
-import { compareProposals } from "../../utils/common";
-import PulseLive from "../PrettyUI/PulseLive/PulseLive";
+import PulseLive from "@/components/PrettyUI/PulseLive/PulseLive";
+import Section from "../Layout/Section";
 
 const LpSection = ({
   lpList,
@@ -22,7 +18,6 @@ const LpSection = ({
   isLoading?: boolean;
 }) => {
   return (
-    // <Box py={"40px"} px={"60px"} bgColor={"#17131E"} borderRadius={"15px"}>
     <Section
       heading="Live Proposals"
       sideText={`${lpList?.length}/${lpList?.length}`}
@@ -32,8 +27,6 @@ const LpSection = ({
       <Grid
         p={"15px"}
         gap={"20px"}
-        // justifyContent={"space-evenly"}
-        // gridAutoFlow={"column"}
         gridTemplateColumns={"repeat(auto-fit, minmax(500px, 1fr))"}
       >
         {isLoading ? (
@@ -56,7 +49,6 @@ const LpSection = ({
                 <Heading
                   bg={"rgba(255, 255, 255, 0.05)"}
                   padding={"30px"}
-                  // paddingY={"20px"}
                   borderRadius={"10px"}
                 >
                   There are no active proposals!
@@ -65,7 +57,6 @@ const LpSection = ({
             )}
       </Grid>
     </Section>
-    // </Box>
   );
 };
 

@@ -1,7 +1,7 @@
 import { useRecoilState } from "recoil";
-import { useGovernanceQuery } from "../useGovernanceQuery";
-import { userVpState } from "../../../context/userVpState";
-import { Cosmos } from "../../../config/nodeConfig.json";
+import { useGovernanceQuery } from "@/hooks/chains/useGovernanceQuery";
+import { userVpState } from "@/context/userVpState";
+import { Cosmos } from "@/config/nodeConfig.json";
 
 let trustedRest = Cosmos.REST;
 
