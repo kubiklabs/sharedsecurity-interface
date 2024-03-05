@@ -8,7 +8,7 @@ import homeLinesAndGraphPrice from "../../config/homeLinesAndGraphsPrice.json";
 import homeLinesAndGraphsCirculatingSupply from "../../config/homeLinesAndGraphsCirculatingSupply.json";
 import homeLinesAndGraphsAPY from "../../config/homeLinesAndGraphsAPY.json";
 import homeLinesAndGraphsMarketCap from "../../config/homeLinesAndGraphsMarketCap.json";
-import AssetOptions from "../Assets.tsx/AssetOptions";
+import AssetOptions from "../Assets/AssetOptions";
 
 
 const Trends = () => {

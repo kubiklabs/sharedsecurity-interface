@@ -44,37 +44,38 @@ const VpSection = () => {
 
   const handleWalletConnect = async () => {
     setIsLoading(true);
-    await connectWallet();
+    if (connectWallet)
+      await connectWallet();
     setIsLoading(false);
   };
   return (
     // <Box py={"40px"} px={"60px"} bgColor={"#17131E"} borderRadius={"15px"}>
-      <Section
-        heading="Your Voting Power"
-        subtitle="Get to know the value of your vote."
-      >
-        {!isLoggedIn ? (
-          <Center
-            p={"25px"}
-            bg={"rgba(255, 255, 255, 0.10)"}
-            borderRadius={"10px"}
-            marginX={"15px"}
-          >
-            {!isLoading ? (
-              <Text>
-                <Link onClick={handleWalletConnect} color={"blue.500"}>
-                  Connect Wallet
-                </Link>{" "}
-                to see voting power.
-              </Text>
-            ) : (
-              <Spinner width={"3rem"} height="3rem" />
-            )}
-          </Center>
-        ) : (
-          <Box>
-            <VpTable/>
-            {/* <Grid
+    <Section
+      heading="Your Voting Power"
+      subtitle="Get to know the value of your vote."
+    >
+      {!isLoggedIn ? (
+        <Center
+          p={"25px"}
+          bg={"rgba(255, 255, 255, 0.10)"}
+          borderRadius={"10px"}
+          marginX={"15px"}
+        >
+          {!isLoading ? (
+            <Text>
+              <Link onClick={handleWalletConnect} color={"blue.500"}>
+                Connect Wallet
+              </Link>{" "}
+              to see voting power.
+            </Text>
+          ) : (
+            <Spinner width={"3rem"} height="3rem" />
+          )}
+        </Center>
+      ) : (
+        <Box>
+          <VpTable />
+          {/* <Grid
             p={"15px"}
             gap={"20px"}
             gridTemplateColumns={"repeat(auto-fit, minmax(320px, 1fr))"}
@@ -90,12 +91,12 @@ const VpSection = () => {
             </GridItem>
           </Grid> */}
 
-          </Box>
-        )}
+        </Box>
+      )}
 
 
 
-      </Section>
+    </Section>
     // </Box>
   );
 };

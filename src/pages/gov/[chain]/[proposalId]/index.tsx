@@ -9,10 +9,15 @@ import OtherDetails from "@/components/Proposal/OtherDetails";
 import Requirements from "@/components/Proposal/Requirements";
 import ForumLink from "@/components/Proposal/ForumLink";
 import Section from "@/components/Layout/Section";
+import BrowserTitle from "@/components/BrowserTitle/BrowserTitle";
 
 const Proposal = () => {
-  const { chain, proposalId } = useParams() || {};
-  const [proposalData, setProposalData] = useState<any | null>(null);
+  const data = useParams();
+
+  const chain = data?.chain as string;
+ const proposalId = data?.proposalId as string;
+  console.log(chain, proposalId,"chain, proposalId");
+  const [proposalData, setProposalData] = useState<any>();
   const [isLoading, setIsLoading] = useState(false);
 
   const { fetchProposalByIdAndName } = useGovernance();

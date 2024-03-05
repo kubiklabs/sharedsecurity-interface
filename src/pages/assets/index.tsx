@@ -11,7 +11,8 @@ import {
 } from "@/context/assetsState";
 import { useCosmosAssets } from "@/hooks/chains/cosmos/chain_assets/useCosmosAssets";
 import { useNeutronAssets } from "@/hooks/chains/neutron/chain_assets/useNeutronAssets";
-import AssetSection1 from "@/components/Assets.tsx/AssetSection1";
+import AssetSection1 from "@/components/Assets/AssetSection1";
+import BrowserTitle from "@/components/BrowserTitle/BrowserTitle";
 
 const Assets = () => {
   const { getParsedStrideAssets } = useStrideAssets();
@@ -38,8 +39,10 @@ const Assets = () => {
 
 
   return (
-
-    <AssetSection1 allAssets={[...neutronAssets.assets, ...cosmosAssets.assets, ...strideAssets.assets]} neutronAssets={neutronAssets.assets} cosmosAssets={cosmosAssets.assets} strideAssets={strideAssets.assets} areAllAssetsLoaded = {(strideAssets.assets.length>0 && cosmosAssets.assets.length>0 && neutronAssets.assets.length>0)?true:false}/>
+    <>
+      <BrowserTitle title="Assets" />
+      <AssetSection1 allAssets={[...neutronAssets.assets, ...cosmosAssets.assets, ...strideAssets.assets]} neutronAssets={neutronAssets.assets} cosmosAssets={cosmosAssets.assets} strideAssets={strideAssets.assets} areAllAssetsLoaded={(strideAssets.assets.length > 0 && cosmosAssets.assets.length > 0 && neutronAssets.assets.length > 0) ? true : false} />
+    </>
   );
 };
 
