@@ -1,7 +1,7 @@
 import { Flex, Text } from "@chakra-ui/react";
 import { useState } from "react";
 import { useGovernance } from "@/hooks/useGovernance";
-import { useParams } from "next/navigation";
+// import { useParams } from "next/navigation";
 import { colorVoteMap } from "@/utils/constant";
 import LoadingModal from "../loading-modal/LoadingModal";
 
@@ -10,12 +10,12 @@ type IColorVoteMap = typeof colorVoteMap;
 const VoteCard = (props: any) => {
   // const { sendNeutronVote } = useNeutronGovTxn();
   const { sendGovVote } = useGovernance();
-  const { chain, proposalId } = useParams();
+  // const { chain="", proposalId="" } = useParams();
   const [loading, setLoading] = useState(false);
 
   const handleSendVote = async () => {
     setLoading(true);
-    await sendGovVote(chain as string, proposalId as string, props.option);
+    await sendGovVote(props.chain, props.proposalId, props.option);
     setLoading(false);
   };
 

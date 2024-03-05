@@ -24,7 +24,7 @@ import {
   tagColorMap,
 } from "@/utils/constant";
 import ColorTag from "../DataDisplay/ColorTag";
-import { useParams } from "next/navigation";
+// import { useParams } from "next/navigation";
 import StatusTags from "../PrettyUI/StatusTags/StatusTags";
 
 export interface IBasicInfo {
@@ -39,6 +39,10 @@ export interface IBasicInfo {
   yesVotes: string;
 }
 
+export interface IBasicInfoPropsWithChainDetails extends IBasicInfo {
+  chain: string;
+}
+
 const commonStatusMap = { ...neutronStatusMap, ...cosmosStatusMap };
 
 const BasicInfo = ({
@@ -50,10 +54,11 @@ const BasicInfo = ({
   quorom,
   vetoVotes,
   yesVotes,
-}: IBasicInfo) => {
+  chain
+}: IBasicInfoPropsWithChainDetails) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [parsedHTML, setParsedHTML] = useState("");
-  const { chain } = useParams() ||{};
+  // const { chain } = useParams();
 
   useEffect(() => {
     const changeToHtml=async()=>{
