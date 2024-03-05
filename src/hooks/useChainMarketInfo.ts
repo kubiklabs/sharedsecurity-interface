@@ -3,6 +3,7 @@ import { useRecoilState } from "recoil";
 import { marketState } from "../context/marketState";
 import { borderTagColorMap, tagColorMap } from "../utils/constant";
 import { toast } from "react-toastify";
+import showToast from "@/utils/showToast";
 
 export const useChainMarketInfo = () => {
   const [marketData, setMarketData] = useRecoilState(marketState);
@@ -21,7 +22,7 @@ export const useChainMarketInfo = () => {
       setMarketData(newData);
       return newData;
     } catch (error) { 
-      toast.error("Failed to fetch market data");
+      showToast("error", "Failed to fetch market data");
     }
   };
 
