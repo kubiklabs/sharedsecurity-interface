@@ -1,10 +1,10 @@
-import axios, { all } from "axios";
-import strideAssets from "./stride_asset_list.json";
-import { coinConvert } from "../../../../utils/common";
+import axios from "axios";
+import strideAssets from "@/hooks/chains/stride/chain_assets/stride_asset_list.json";
+import { coinConvert } from "@/utils/common";
 import { useSetRecoilState } from "recoil";
-import { strideAssetState } from "../../../../context/assetsState";
-import { useEcosystem } from "../../../common/aez/useEcosystem";
-import { Stride } from "../../../../config/nodeConfig.json";
+import { strideAssetState } from "@/context/assetsState";
+import { useEcosystem } from "@/hooks/common/aez/useEcosystem";
+import { Stride } from "@/config/nodeConfig.json";
 
 const REST_URL = `${Stride.REST}/`;
 

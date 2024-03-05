@@ -54,7 +54,6 @@ const StatDisplay = ({
       flexDirection={"column"}
       textAlign={"center"}
       p={"15px"}
-      // border={"1px solid"}
     >
       <StatLabel color={"#B3B3B3"} fontSize={"14px"} fontWeight={400} noOfLines={1}>{label}</StatLabel>
       <StatNumber

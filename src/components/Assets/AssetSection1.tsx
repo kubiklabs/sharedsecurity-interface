@@ -1,13 +1,13 @@
-import { Box, Flex, Spinner, Text } from "@chakra-ui/react";
-import CustomTable from "../DataDisplay/CustomTable";
-import Section from "../Layout/Section";
+import { Box, Flex, Spinner } from "@chakra-ui/react";
+import CustomTable from "@/components/DataDisplay/CustomTable";
+import Section from "@/components/Layout/Section";
 import { useEffect, useState } from "react";
-import CustomSkeleton from "../skeleton/CustomSkeleton";
-import { assetPieType, assetType } from "../types/types";
-import AssetGraph from "./AssetGraph";
-import AssetOptions from "./AssetOptions";
-import DoughnutGraph from "../Graphs and Chart/DoughnutGraph";
-import { formatNumberWithSuffix } from "../../utils/common";
+import CustomSkeleton from "@/components/skeleton/CustomSkeleton";
+import { assetPieType, assetType } from "@/components/types/types";
+import AssetGraph from "@/components/Assets/AssetGraph";
+import AssetOptions from "@/components/Assets/AssetOptions";
+import DoughnutGraph from "@/components/Graphs and Chart/DoughnutGraph";
+import { formatNumberWithSuffix } from "@/utils/common";
 
 type propsType = {
   allAssets: assetType[];
@@ -60,11 +60,6 @@ const AssetSection1 = ({
   }, [combinedAllAssets]);
 
   useEffect(() => {
-    // const graphData = {
-    //   labels: option.map((asset) => asset.name.label),
-    //   datasets: option.map((asset) => asset.amount),
-    // };
-
     let numberOfDataInDoughnut = 4;
 
     let graphData = option.map((item) => {
@@ -97,7 +92,6 @@ const AssetSection1 = ({
 
     setFinalData(result);
   }, [option]);
-  // console.log("Option", option);
 
   const calculateTotalAmount = (data: any) => {
     return data.reduce(
@@ -105,9 +99,6 @@ const AssetSection1 = ({
       0
     );
   };
-
-  /*  console.log("Total amount:", calculateTotalAmount(option));
-  console.log("Total value:", getTotalValue(option)); */
 
   const handleChange = (option: string) => {
     if (option === "all network") {
@@ -127,8 +118,6 @@ const AssetSection1 = ({
       setSelectedOption("cosmos hub");
     }
   };
-
-  console.log("Final Data", finalData);
 
   return (
     <Flex flexDirection={"column"} gap={"40px"}>
@@ -186,7 +175,6 @@ const AssetSection1 = ({
           display={"flex"}
           gap={"10px"}
           flex={1}
-          // height={"400px"}
           backgroundColor={"#17131E"}
           alignItems={"center"}
           flexDirection={"column"}
@@ -218,7 +206,6 @@ const AssetSection1 = ({
                 gap={"0"}
               >
                 <DoughnutGraph doughnutData={finalData} />
-                {/* <Text fontSize={"14px"}>Asset Supply Distribution on Atom</Text> */}
               </Flex>
             ) : (
               <Box
