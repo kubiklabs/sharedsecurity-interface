@@ -16,13 +16,13 @@ import React, { useEffect, useRef, useState } from "react";
 import {
   validatorKeys,
   ValidatorKeys,
-} from "../../utils/constant";
+} from "@/utils/constant";
 import { Link } from '@chakra-ui/next-js'
 // import { Link as PathLink, useLocation } from "react-router-dom";
-import Pagination from "../Pagination/Pagination";
-import TableTagGroup from "./table-helpers/TableTagGroup";
+import Pagination from "@/components/Pagination/Pagination";
+import TableTagGroup from "@/components/DataDisplay/table-helpers/TableTagGroup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
+import { faCaretDown } from "@fortawesome/free-solid-svg-icons/faCaretDown";
 import { usePathname } from 'next/navigation'
 
 const CustomTable = ({
@@ -37,7 +37,6 @@ const CustomTable = ({
   const currentPage = useRef(1);
   const totalPages = useRef(Math.ceil(data?.length / itemsPerPage) || 0);
   const [currentItems, setCurrentItems] = useState(data);
-  // const location = useLocation();
   const currentPath = usePathname();
   const totals = [totalValue, totalAmount];
 
@@ -83,7 +82,6 @@ const CustomTable = ({
                 <Th
                   key={item}
                   width={"200px"}
-                  // pb={"30px"}
                   borderBottom={"1px solid"}
                   borderColor={"gray.400"}
                   pl={
@@ -102,7 +100,6 @@ const CustomTable = ({
                     py={"10px"}
                     px={"4px"}
                     width={"100%"}
-                    //                  cursor={"pointer"}
                     textTransform={"capitalize"}
                     fontWeight={500}
                     fontFamily={"Alata, sans-serif"}
@@ -129,7 +126,6 @@ const CustomTable = ({
             return (
               <Tr
                 key={index}
-                // borderTop={"1px solid gray"}
                 borderBottom={"1px solid rgba(255, 255, 255, 0.15)"}
               >
                 {item &&

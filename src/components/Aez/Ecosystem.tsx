@@ -17,7 +17,7 @@ import { ecosystemState } from "../../context/ecosystemState";
 import EcoCards from "./EcoCards";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
-import { urlImgObject } from "../../utils/constant";
+import { urlImgObject } from "@/utils/constant";
 
 const Ecosystem = () => {
   const { getParsedEcosystemData } = useAez();
@@ -32,7 +32,6 @@ const Ecosystem = () => {
 
   const getParsedData = async () => {
     const data = await getParsedEcosystemData();
-    console.log(data);
   };
 
   const loadMoreItems = () => {
