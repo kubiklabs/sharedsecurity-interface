@@ -175,9 +175,9 @@ const OpSection = ({
         gridTemplateColumns={"repeat(auto-fit, minmax(500px, 1fr))"}
       >
         {currentItems?.length ? (
-          currentItems?.map((item) => {
+          currentItems?.map((item, index) => {
             return (
-              <GridItem id={item.proposalId}>
+              <GridItem id={item.proposalId} key={index}>
                 <LpCard {...item} />
               </GridItem>
             );

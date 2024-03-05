@@ -115,9 +115,9 @@ const Pagination = ({
         padding="0"
         gap={"5px"}
       >
-        {displayPages.map((page) =>
+        {displayPages.map((page ,index) =>
           page === -1 ? (
-            <ListItem width={"40px"}>...</ListItem>
+            <ListItem width={"40px"} key={index}>...</ListItem>
           ) : (
             <ListItem
               width={"40px"}

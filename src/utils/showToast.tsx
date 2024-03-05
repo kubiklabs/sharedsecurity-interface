@@ -1,6 +1,5 @@
 import { toast } from "react-toastify";
 import { Box, Flex, Text } from "@chakra-ui/react";
-// import './App.css'
 import { FaCheckCircle } from "react-icons/fa";
 import { IoWarning } from "react-icons/io5";
 import { PiWarningCircleFill } from "react-icons/pi";

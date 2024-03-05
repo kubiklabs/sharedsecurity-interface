@@ -24,9 +24,10 @@ const Featured = () => {
     <Section heading="Featured" subtitle="Out top picks to get you started">
       <Flex>
         <Flex overflowX={"scroll"} sx={scrollbarStyle} gap={"20px"}>
-          {DUMMY.map((item) => {
+          {DUMMY.map((item, index) => {
             return (
               <Card
+                key={index}
                 minH={"200px"}
                 minW={"100px"}
                 bg={"red"}

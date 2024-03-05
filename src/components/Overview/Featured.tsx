@@ -9,7 +9,7 @@ import {
 import StatDisplay from "../DataDisplay/StatDisplay";
 import { useRecoilState } from "recoil";
 import { marketState } from "../../context/marketState";
-import { Line } from "react-chartjs-2";
+// import { Line } from "react-chartjs-2";
 import FeaturedDataDisplay from "../DataDisplay/FeaturedDataFisplay";
 import AreaGraph from "../Graphs and Chart/AreaGraph";
 
@@ -183,8 +183,9 @@ const Featured = ({ stats }: { stats: Array<any> }) => {
         </Box>
         <Flex width={"100%"} justifyContent={"space-around"}>
           {
-            buttonSelectorData.map((item) => (
+            buttonSelectorData.map((item, index) => (
               <Box
+                key={index}
                 display={"flex"}
                 flexDir={"row"}
                 justifyContent={"center"}

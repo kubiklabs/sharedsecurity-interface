@@ -12,9 +12,10 @@ const CustomSkeleton = ({
 
   return (
     <Stack>
-      {elements.map((item) => {
+      {elements.map((item, index) => {
         return (
           <Skeleton
+          key={index}
             startColor="#05010d"
             endColor="rgba(255, 255, 255, 0.15)"
             id={item.toString()}

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Line } from "react-chartjs-2";
+// import { Line } from "react-chartjs-2";
 import Section from "../Layout/Section";
-import { Box,Flex, Text } from "@chakra-ui/react";
+import { Box, Flex, Text } from "@chakra-ui/react";
 import AreaGraph from "../Graphs and Chart/AreaGraph";
 
 // const data = {
@@ -142,39 +142,40 @@ const AssetGraph = () => {
       </Box>
 
       <Flex width={"100%"} justifyContent={"space-around"}>
-          {
-            buttonSelectorData.map((item) => (
-              <Box
-                display={"flex"}
-                flexDir={"row"}
-                justifyContent={"center"}
-                gap={"8px"}
-                alignItems="center"
-                paddingX={"24px"}
-                paddingY={"12px"}
-                cursor={"pointer"}
-                _hover={{ textDecor: "none", borderColor: colorSelectorObject[item.identifier as keyof typeof selectedOption] }}
-                borderRadius="5px"
-                fontSize="12px"
-                fontWeight={400}
-                borderWidth={"1px"}
-                borderColor={(selectedOption[item.identifier as keyof typeof selectedOption]) ? colorSelectorObject[item.identifier as keyof typeof selectedOption] : "transparent"}
-                onClick={() => {
-                  if ((selectedOption[item.identifier as keyof typeof selectedOption] && showLine.length > 1) || !selectedOption[item.identifier as keyof typeof selectedOption]) {
-                    setSelectedOption({ ...selectedOption, [item.identifier]: !selectedOption[item.identifier as keyof typeof selectedOption] })
-                  }
-                }}
-                bgColor={"transparent"}
-              >
-                <Text fontSize={"20px"} textColor={"#D9D9D9"}>{item.value}</Text>
-                <Text fontSize={"14px"} textColor={"#B3B3B3"}>{item.label}</Text>
-              </Box>
-            ))
-          }
-          {/* {stats.map((item)=>(
+        {
+          buttonSelectorData.map((item, index) => (
+            <Box
+              key={index}
+              display={"flex"}
+              flexDir={"row"}
+              justifyContent={"center"}
+              gap={"8px"}
+              alignItems="center"
+              paddingX={"24px"}
+              paddingY={"12px"}
+              cursor={"pointer"}
+              _hover={{ textDecor: "none", borderColor: colorSelectorObject[item.identifier as keyof typeof selectedOption] }}
+              borderRadius="5px"
+              fontSize="12px"
+              fontWeight={400}
+              borderWidth={"1px"}
+              borderColor={(selectedOption[item.identifier as keyof typeof selectedOption]) ? colorSelectorObject[item.identifier as keyof typeof selectedOption] : "transparent"}
+              onClick={() => {
+                if ((selectedOption[item.identifier as keyof typeof selectedOption] && showLine.length > 1) || !selectedOption[item.identifier as keyof typeof selectedOption]) {
+                  setSelectedOption({ ...selectedOption, [item.identifier]: !selectedOption[item.identifier as keyof typeof selectedOption] })
+                }
+              }}
+              bgColor={"transparent"}
+            >
+              <Text fontSize={"20px"} textColor={"#D9D9D9"}>{item.value}</Text>
+              <Text fontSize={"14px"} textColor={"#B3B3B3"}>{item.label}</Text>
+            </Box>
+          ))
+        }
+        {/* {stats.map((item)=>(
           item.label!="Transaction Monitoring"&&<FeaturedDataDisplay key={item.label} text={item.label} value={item.label==="Total Market Cap"?`$ ${totalMarketCap}`:item.number}/>
         ))} */}
-        </Flex>
+      </Flex>
 
 
     </Section>

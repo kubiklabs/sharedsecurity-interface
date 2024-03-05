@@ -9,8 +9,9 @@ const ChainSelector = ({ selectedChain, setSelectedChain }: { selectedChain: str
         <Section heading="Lines and Graphs" headingSize="24px">
             <Flex position={"absolute"} right={"60px"} top={"22%"} borderWidth={"1px"} borderColor={"#1E1A25"} borderRadius={"5px"}>
                 {
-                    Object.keys(homeLinesAndGraphsPrice).map((item) => (
+                    Object.keys(homeLinesAndGraphsPrice).map((item, index) => (
                         <Box
+                            key={index}
                             display={"flex"}
                             flexDir={"row"}
                             justifyContent={"center"}

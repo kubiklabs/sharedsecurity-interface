@@ -55,9 +55,10 @@ const SocialIconGroup = ({
         justifyContent={"space-between"}
         gap={"20px"}
       >
-        {Object.keys(socialLinks)?.map((app) => {
+        {Object.keys(socialLinks)?.map((app, index) => {
           return (
             <Link
+              key={index}
               target="_blank"
               href={socialLinks[app as keyof typeof socialLinks]}
               _hover={{

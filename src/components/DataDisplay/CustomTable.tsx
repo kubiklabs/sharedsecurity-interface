@@ -121,11 +121,12 @@ const CustomTable = ({
           </Tr>
         </Thead>
         <Tbody>
-          {currentItems?.map((item: any) => {
+          {currentItems?.map((item: any, index: number) => {
             //  console.log(item);
 
             return (
               <Tr
+                key={index}
                 // borderTop={"1px solid gray"}
                 borderBottom={"1px solid rgba(255, 255, 255, 0.15)"}
               >
@@ -142,6 +143,7 @@ const CustomTable = ({
 
                     return (
                       <Td
+                        key={index}
                         py={"15px"}
                         border={"none"}
                         fontSize={"16px"}

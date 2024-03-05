@@ -87,7 +87,7 @@ const Requirements = ({
               : isYesSatisfied === "yes"
               ? "More"
               : "Less"}{" "}
-            than 50.0% have voted 'Yes', excluding 'Abstain'.
+            than 50.0% have voted &apos;Yes&apos;, excluding &apos;Abstain&apos;.
           </Text>
         </Box>
         {vetoVotes && (
@@ -110,7 +110,7 @@ const Requirements = ({
                 : isYesSatisfied === "yes"
                 ? "Less"
                 : "More"}{" "}
-              than 33.4% have voted 'Veto'.
+              than 33.4% have voted &apos;Veto&apos;.
             </Text>
           </Box>
         )}

@@ -74,9 +74,10 @@ const DropDown = () => {
           flexDirection={"column"}
           right={"0"}
         >
-          {NETWORKS.map((item) => {
+          {NETWORKS.map((item, index) => {
             return (
               <Box
+                key={index}
                 display={"flex"}
                 onClick={() => handleNetworkChange(item)}
                 id={item.id}
