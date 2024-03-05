@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
 import LoaderContent from "./LoaderContent";
+import Image from "next/image";
 
 const LoadingModal = ({
   isOpen,
@@ -26,7 +27,7 @@ const LoadingModal = ({
           Txn in progress. Please do not press back button or refresh the page.
         </div>
         <div className="loading-modal-content-wrapper">
-          <img src={'/images/kubik-logo.png'} />
+          <Image src={'/images/kubik-logo.png'} alt="Kubik" />
           <div>
             <LoaderContent action={content[0]} message={content[1]} />
           </div>
