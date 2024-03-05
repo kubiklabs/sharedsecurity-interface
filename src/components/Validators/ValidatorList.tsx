@@ -81,7 +81,7 @@ const ValidatorsList = () => {
   };
 
   const averageCommission =
-    calculateAverageCommissionRate(active).toFixed(2) + "%";
+    calculateAverageCommissionRate(visibleValidators).toFixed(2) + "%";
 
   return (
     <>

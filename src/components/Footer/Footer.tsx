@@ -40,7 +40,7 @@ const Footer = () => {
           <Flex mt={"40px"} mb={"40px"} pl={"80px"} flexWrap={"wrap"}>
             {socialName.map((social, index) => {
               return (
-                <Flex alignItems={"center"}>
+                <Flex key={index} alignItems={"center"}>
                   <Link _hover={{ textDecoration: "none" }}>
                     <Flex alignItems={"center"} gap={"5px"}>
                       <Avatar
