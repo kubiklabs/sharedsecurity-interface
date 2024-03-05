@@ -30,6 +30,7 @@ const getCoinPrices = async () => {
     return response.data;
   } catch (error) {
     showToast("error", "Failed to fetch market data");
+    return null
   }
 };
 
