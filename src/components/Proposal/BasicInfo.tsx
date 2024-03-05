@@ -84,8 +84,7 @@ const BasicInfo = ({
   const handleModalOpen = () => {
     onOpen();
 
-    (document.getElementById("description-modal") as HTMLElement).innerHTML =
-      parsedHTML;
+    document.getElementById('description-modal') ? (document.getElementById("description-modal") as HTMLElement).innerHTML = parsedHTML:"";
   };
 
   const isPassing = useRef(
@@ -213,7 +212,7 @@ const BasicInfo = ({
             }}
           />
           <ModalBody>
-            <Box
+          <Box
               dangerouslySetInnerHTML={{ __html: parsedHTML }}
               id="description-modal"
               fontSize={"1.1rem"}
@@ -221,7 +220,6 @@ const BasicInfo = ({
               flexDirection={"column"}
               gap={"15px"}
             >
-              {/* {description && marked(description)} */}
             </Box>
             {/* <Lorem count={2} /> */}
           </ModalBody>

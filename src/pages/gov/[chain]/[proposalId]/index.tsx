@@ -1,4 +1,4 @@
-import { Box, Center, Heading, Spinner, Stack } from "@chakra-ui/react";
+import { Box, Center, Flex, Heading, Spinner, Stack } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import BasicInfo, { IBasicInfo } from "@/components/Proposal/BasicInfo";

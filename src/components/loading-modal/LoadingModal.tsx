@@ -27,7 +27,7 @@ const LoadingModal = ({
           Txn in progress. Please do not press back button or refresh the page.
         </div>
         <div className="loading-modal-content-wrapper">
-          <Image src={'/images/kubik-logo.png'} alt="Kubik" />
+          <Image src={'/images/kubik-logo.png'} alt="Kubik" width={40} height={40} />
           <div>
             <LoaderContent action={content[0]} message={content[1]} />
           </div>
