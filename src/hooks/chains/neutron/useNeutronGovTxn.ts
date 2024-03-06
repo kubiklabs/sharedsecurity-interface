@@ -4,10 +4,10 @@ import { neutronSingleProposal } from "../../../config/chains/Neutron/contracts/
 import { toast } from "react-toastify";
 import Long from "long";
 import { StdFee } from "@cosmjs/stargate";
-import { Neutron } from "../../../config/nodeConfig.json";
+import nodeConfig from "../../../config/nodeConfig.json";
 import showToast from "../../../utils/showToast";
 
-const rpcEndpoint = Neutron.RPC;
+const rpcEndpoint = nodeConfig.Neutron.RPC;
 enum Vote {
   Yes,
   No,
@@ -59,9 +59,15 @@ export const useNeutronGovTxn = () => {
         { amount: [], gas: "1500000" }
       );
 
-      showToast("success", `Transaction successfully broadcasted with hash ${transactionHash}`);
+      showToast(
+        "success",
+        `Transaction successfully broadcasted with hash ${transactionHash}`
+      );
     } catch (error) {
-      showToast("error", `Transaction failed with message ${(error as Error).message}`);
+      showToast(
+        "error",
+        `Transaction failed with message ${(error as Error).message}`
+      );
       console.log(error);
     }
   };

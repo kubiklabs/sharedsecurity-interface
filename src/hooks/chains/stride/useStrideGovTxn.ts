@@ -2,10 +2,10 @@ import { SigningStargateClient } from "@cosmjs/stargate";
 import { getCosmosOption, sleep } from "../../../utils/common";
 import { toast } from "react-toastify";
 import Long from "long";
-import { Stride } from "../../../config/nodeConfig.json";
+import nodeConfig from "../../../config/nodeConfig.json";
 import showToast from "../../../utils/showToast";
 
-const rpcEndpoint = Stride.RPC;
+const rpcEndpoint = nodeConfig.Stride.RPC;
 
 export const useStrideGovTxn = () => {
   const getStrideAddressSigner = async () => {
@@ -60,12 +60,18 @@ export const useStrideGovTxn = () => {
       );
 
       if (code === 0) {
-        showToast("success", `Transaction broadcasted successfully with hash ${transactionHash}`);
+        showToast(
+          "success",
+          `Transaction broadcasted successfully with hash ${transactionHash}`
+        );
       } else {
         showToast("error", `Transaction failed with code: ${code}`);
       }
     } catch (error) {
-      showToast("error", `Transaction failed with message ${(error as Error)?.message}`);
+      showToast(
+        "error",
+        `Transaction failed with message ${(error as Error)?.message}`
+      );
       console.log(error);
     }
   };

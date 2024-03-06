@@ -7,9 +7,9 @@ import { neutronVotingModule } from "@/config/chains/Neutron/contracts/VotingMod
 import { useRecoilState, useRecoilValue } from "recoil";
 import { userVpState } from "@/context/userVpState";
 import { walletState } from "@/context/walletState";
-import { Neutron } from "@/config/nodeConfig.json";
+import nodeConfig from "@/config/nodeConfig.json";
 
-const rpcEndpoint = Neutron.RPC;
+const rpcEndpoint = nodeConfig.Neutron.RPC;
 
 export const useNeutronGovQuery = () => {
   const [queryClient, setQueryClient] = useState<CosmWasmClient>();

@@ -1,5 +1,5 @@
 import { useRecoilState, useSetRecoilState } from "recoil";
-import { protocols } from "../config/aezProtocols.json";
+import aezProtocolsList from "../config/aezProtocols.json";
 import { useNtrnAstroQuery } from "./chains/neutron/astroport/useNtrnAstroQuery";
 import { ecosystemState } from "../context/ecosystemState";
 import { useNtrnMarsQuery } from "./chains/neutron/mars/useNtrnMarsQuery";
@@ -14,6 +14,7 @@ export const useAez = () => {
   const setEcosystemState = useSetRecoilState(ecosystemState);
 
   const getParsedEcosystemData = async () => {
+    const { protocols } = aezProtocolsList;
     let parsedProtocols: any = [];
     for (const i in protocols) {
       let name = protocols[i].name;
