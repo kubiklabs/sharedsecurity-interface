@@ -21,15 +21,15 @@ const Layout = ({ children }: { children: ReactNode }) => {
   const connectWallet = useConnectWallet();
 
   useEffect(() => {
-    // if (connectWallet)
     connectWallet();
   }, []);
 
   if (typeof window !== "undefined") {
     window.addEventListener("keplr_keystorechange", () => {
-      if (connectWallet) connectWallet();
+      connectWallet();
     });
   }
+
   return (
     <>
       <Box
