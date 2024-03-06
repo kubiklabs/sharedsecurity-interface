@@ -1,9 +1,6 @@
 import React from "react";
 
 import {
-  Box,
-  Button,
-  Tooltip,
   Modal,
   ModalOverlay,
   ModalContent,
@@ -11,7 +8,6 @@ import {
   ModalBody,
   ModalCloseButton,
   Heading,
-  isStyleProp,
 } from "@chakra-ui/react";
 import { useRecoilValue } from "recoil";
 import { walletState } from "../../context/walletState";

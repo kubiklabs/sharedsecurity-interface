@@ -2,15 +2,15 @@ import { CosmWasmClient } from "@cosmjs/cosmwasm-stargate";
 import { useState } from "react";
 import { useEcosystem } from "../../../common/aez/useEcosystem";
 import neutronCoinRegistry from "../../../../config/chains/Neutron/neutronTokenList.json";
-import { protocols } from "../../../../config/aezProtocols.json";
+import protocolList from "../../../../config/aezProtocols.json";
 
-import { contracts } from "../../../../config/chains/Neutron/contracts/apollo/apolloContractList.json";
+import contractList from "../../../../config/chains/Neutron/contracts/apollo/apolloContractList.json";
 import { useSetRecoilState } from "recoil";
 import { apolloTvlState } from "../../../../context/ecosystemState";
 import { StargateClient } from "@cosmjs/stargate";
-import { Neutron } from "../../../../config/nodeConfig.json";
+import nodeConfig from "../../../../config/nodeConfig.json";
 
-const rpcEndpoint = Neutron.RPC;
+const rpcEndpoint = nodeConfig.Neutron.RPC;
 
 export const useNtrnApolloQuery = () => {
   const [queryClient, setQueryClient] = useState<CosmWasmClient>();
@@ -35,14 +35,16 @@ export const useNtrnApolloQuery = () => {
     const tvl = await getAllContractBalances(
       client,
       neutronCoinRegistry,
-      contracts
+      contractList.contracts
     );
     return tvl?.tvl;
   };
 
   const getParsedApolloData = async () => {
     const tvl = await getTvlApollo();
-    let data: any = protocols.find(({ name }) => name === "Apollo");
+    let data: any = protocolList.protocols.find(
+      ({ name }) => name === "Apollo"
+    );
     data = {
       ...data,
       tvl,

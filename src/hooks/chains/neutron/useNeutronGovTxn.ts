@@ -1,23 +1,10 @@
 import { SigningCosmWasmClient } from "@cosmjs/cosmwasm-stargate";
-import { getNeutronOption, sleep } from "../../../utils/common";
-import { neutronSingleProposal } from "../../../config/chains/Neutron/contracts/SingleProposalModule";
-import { toast } from "react-toastify";
-import Long from "long";
-import { StdFee } from "@cosmjs/stargate";
-import nodeConfig from "../../../config/nodeConfig.json";
-import showToast from "../../../utils/showToast";
+import { getNeutronOption, sleep } from "@/utils/common";
+import { neutronSingleProposal } from "@/config/chains/Neutron/contracts/SingleProposalModule";
+import nodeConfig from "@/config/nodeConfig.json";
+import showToast from "@/utils/showToast";
 
 const rpcEndpoint = nodeConfig.Neutron.RPC;
-enum Vote {
-  Yes,
-  No,
-  Abstain,
-}
-
-const defaultFee: StdFee = {
-  amount: [{ amount: "200000", denom: "umlg" }],
-  gas: "200000",
-};
 
 export const useNeutronGovTxn = () => {
   const getNeutronAddressSigner = async () => {

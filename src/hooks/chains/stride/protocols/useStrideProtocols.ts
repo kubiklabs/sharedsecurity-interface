@@ -1,5 +1,5 @@
 import { useStrideDefiAdapter } from "../adapter/useStrideDefiAdapter";
-import { protocols } from "../../../../config/aezProtocols.json";
+import protocolList from "../../../../config/aezProtocols.json";
 import { useSetRecoilState } from "recoil";
 import { strideTvlState } from "../../../../context/ecosystemState";
 
@@ -16,7 +16,9 @@ export const useStrideProtocol = () => {
 
   const getParsedStrideData = async () => {
     const tvl = await getStrideAllTvl();
-    let data: any = protocols.find(({ name }) => name === "Stride");
+    let data: any = protocolList.protocols.find(
+      ({ name }) => name === "Stride"
+    );
     data = {
       ...data,
       tvl,

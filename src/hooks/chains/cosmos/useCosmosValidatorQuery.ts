@@ -3,15 +3,14 @@ import { useValidatorQuery } from "@/hooks/common/validators/useValidatorsQuery"
 import { cosmosValidatorState } from "@/context/cosmosValidatorState";
 import { useCosmosGovQuery } from "@/hooks/chains/cosmos/useCosmosGovQuery";
 import { coinConvert } from "@/utils/common";
-import { Cosmos } from "@/config/nodeConfig.json";
+import nodeConfig from "@/config/nodeConfig.json";
 
-const COSMOS_REST_URL = Cosmos.REST;
+const COSMOS_REST_URL = nodeConfig.Cosmos.REST;
 
 export const useCosmosValidatorQuery = () => {
   const [{ validators }, setValidators] = useRecoilState(cosmosValidatorState);
 
-  const { getFullValidatorList } =
-    useValidatorQuery(COSMOS_REST_URL);
+  const { getFullValidatorList } = useValidatorQuery(COSMOS_REST_URL);
   const { getCosmosTotalBondedToken } = useCosmosGovQuery();
 
   const getAllCosmosValidators = async () => {

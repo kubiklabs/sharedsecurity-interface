@@ -2,17 +2,17 @@ import { CosmWasmClient } from "@cosmjs/cosmwasm-stargate";
 import { useEffect, useState } from "react";
 import { astroportFactoryContract } from "../../../../config/chains/Neutron/contracts/astroport/AstroportFactory";
 import neutronCoinRegistry from "../../../../config/chains/Neutron/neutronTokenList.json";
-import { pairs } from "../../../../config/chains/Neutron/contracts/astroport/astroportPairList.json";
-import { protocols } from "../../../../config/aezProtocols.json";
+import pairList from "../../../../config/chains/Neutron/contracts/astroport/astroportPairList.json";
+import protocolList from "../../../../config/aezProtocols.json";
 import { useEcosystem } from "../../../common/aez/useEcosystem";
 import { StargateClient } from "@cosmjs/stargate";
 import { useSetRecoilState } from "recoil";
 import { astroportTvlState } from "../../../../context/ecosystemState";
 
-import { Neutron } from "../../../../config/nodeConfig.json";
+import nodeConfig from "../../../../config/nodeConfig.json";
 import showToast from "../../../../utils/showToast";
 
-const rpcEndpoint = Neutron.RPC;
+const rpcEndpoint = nodeConfig.Neutron.RPC;
 
 export const useNtrnAstroQuery = () => {
   const [queryClient, setQueryClient] = useState<CosmWasmClient>();
@@ -117,7 +117,7 @@ export const useNtrnAstroQuery = () => {
     const tvl = await getAllContractBalances(
       client,
       neutronCoinRegistry,
-      pairs
+      pairList.pairs
     );
     return tvl?.tvl;
   };
@@ -131,7 +131,7 @@ export const useNtrnAstroQuery = () => {
     const tvl = await getAllContractBalances(
       client,
       neutronCoinRegistry,
-      pairs
+      pairList.pairs
     );
 
     return {
@@ -142,7 +142,9 @@ export const useNtrnAstroQuery = () => {
 
   const getParsedAstroportData = async () => {
     const tvl = await getTvlAllPools();
-    let data: any = protocols.find(({ name }) => name === "Astroport");
+    let data: any = protocolList.protocols.find(
+      ({ name }) => name === "Astroport"
+    );
     data = {
       ...data,
       tvl,

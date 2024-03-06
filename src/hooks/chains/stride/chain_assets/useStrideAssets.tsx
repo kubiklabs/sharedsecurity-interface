@@ -4,9 +4,9 @@ import { coinConvert } from "../../../../utils/common";
 import { useSetRecoilState } from "recoil";
 import { strideAssetState } from "../../../../context/assetsState";
 import { useEcosystem } from "../../../common/aez/useEcosystem";
-import { Stride } from "../../../../config/nodeConfig.json";
+import nodeConfig from "../../../../config/nodeConfig.json";
 
-const REST_URL = `${Stride.REST}`;
+const REST_URL = `${nodeConfig.Stride.REST}`;
 
 export const useStrideAssets = () => {
   const setStrideAssets = useSetRecoilState(strideAssetState);
